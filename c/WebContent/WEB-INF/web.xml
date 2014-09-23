@@ -13,6 +13,10 @@
         <param-name>initParamsForRequestFilter</param-name>
         <param-value>testing of config params</param-value>
     </init-param>
+    <init-param>
+			<param-name>log4j-prop</param-name>
+			<param-value>WEB-INF/classes/log4j.properties</param-value>
+	</init-param>
 </filter>
 <filter-mapping>
     <filter-name>reqfilter</filter-name>

@@ -1,5 +1,6 @@
 package reqfilter.interceptor;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
 
@@ -13,10 +14,65 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
-import com.cab.CentralController;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
+import com.cab.CentralController;
+/*
+ * @author : Nimesh Makwana
+ */
 public class RequestFilter implements Filter {
+	
     private ServletContext context;
+    public static String webappPath ;
+    /*
+     * 
+     * 
+     */
+    public void loggingInitialization(String log4j_prop,String webappPath){
+    	System.out.println("initializing logging ... ");
+    	if(log4j_prop == null){
+    		System.out.println("null log4j_prop");
+			try {
+				throw new Exception("*** No log4j-properties-location init param, so initializing log4j with BasicConfigurator");				
+			} catch (Exception e) {
+				BasicConfigurator.configure();
+				e.printStackTrace();
+			}
+		}else{
+			System.out.println("else in logging initialization : ");
+			String propWithPath = webappPath + "/" + log4j_prop;
+			File file = new File(propWithPath);
+			System.out.println("else in logging initialization : 2");
+			if(file.exists()){
+				System.out.println("else in logging initialization : 3");
+				PropertyConfigurator.configure(propWithPath);
+				System.out.println("else in logging initialization : 4");
+				Logger log = Logger.getLogger(RequestFilter.class);
+				System.out.println("else in logging initialization : 5");
+				log.debug("hello i am debug .... ");
+				log.warn("i am a new warning");
+			}else{
+				try {
+					throw new Exception("*** No log4j-properties found in WEB-INF directory");
+				} catch (Exception e) {	
+					System.out.println("exception ...");
+					e.printStackTrace();
+				}
+			}
+		}//END OF ELSE
+    }
+    @Override
+	public void init(FilterConfig config) throws ServletException {    	
+    	context = config.getServletContext();
+    	webappPath = context.getRealPath("/");
+    	
+		System.out.println("RequestFilter : init + webapp path  : " +  webappPath);
+		String log4j_prop = config.getInitParameter("log4j-prop");
+		System.out.println("init params : " + log4j_prop);
+		loggingInitialization(log4j_prop,webappPath);
+	}
 	@Override
 	public void destroy() {
 		System.out.println("RequestFilter : destroy" );
@@ -44,10 +100,4 @@ public class RequestFilter implements Filter {
         // pass the request along the filter chain
         chain.doFilter(request, response);	
 	}
-
-	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-		System.out.println("RequestFilter : init" );
-	}
-
 }
