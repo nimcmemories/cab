@@ -1,5 +1,7 @@
 package reqfilter.interceptor;
 
+import hibernate.HibernateConfiguartion;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
@@ -13,27 +15,44 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.Session;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.cab.CentralController;
+
+import constant.SystemWideConstants;
 /*
  * @author : Nimesh Makwana
  */
 public class RequestFilter implements Filter {
-	
+	Logger logger = Logger.getLogger(RequestFilter.class);
     private ServletContext context;
     public static String webappPath ;
+    
+    
+    public boolean checkSession(HttpServletRequest req){
+    	HttpSession session = req.getSession();
+    	if(session.isNew()){
+    		logger.debug("session is new : " + session.getId());
+    		session.setMaxInactiveInterval(SystemWideConstants.USER_SESSION_TIMEOUT);
+    		return true;
+    	}else{
+    		logger.debug("session is old: " + session.getId());
+    		session.setMaxInactiveInterval(SystemWideConstants.USER_SESSION_TIMEOUT);
+    		return false;
+    	}
+    }
     /*
-     * 
-     * 
+     * Logging initiated
      */
     public void loggingInitialization(String log4j_prop,String webappPath){
-    	System.out.println("initializing logging ... ");
+    	logger.debug("initializing logging ... ");
     	if(log4j_prop == null){
-    		System.out.println("null log4j_prop");
+    		logger.debug("null log4j_prop");
 			try {
 				throw new Exception("*** No log4j-properties-location init param, so initializing log4j with BasicConfigurator");				
 			} catch (Exception e) {
@@ -41,23 +60,18 @@ public class RequestFilter implements Filter {
 				e.printStackTrace();
 			}
 		}else{
-			System.out.println("else in logging initialization : ");
+			logger.debug("else in logging initialization : ");
 			String propWithPath = webappPath + "/" + log4j_prop;
 			File file = new File(propWithPath);
-			System.out.println("else in logging initialization : 2");
+			logger.debug("else in logging initialization : 2");
 			if(file.exists()){
-				System.out.println("else in logging initialization : 3");
 				PropertyConfigurator.configure(propWithPath);
-				System.out.println("else in logging initialization : 4");
-				Logger log = Logger.getLogger(RequestFilter.class);
-				System.out.println("else in logging initialization : 5");
-				log.debug("hello i am debug .... ");
-				log.warn("i am a new warning");
+				logger.debug("propertyConfigurator : setting properties ..." );
 			}else{
 				try {
 					throw new Exception("*** No log4j-properties found in WEB-INF directory");
 				} catch (Exception e) {	
-					System.out.println("exception ...");
+					logger.debug("exception ...");
 					e.printStackTrace();
 				}
 			}
@@ -67,15 +81,22 @@ public class RequestFilter implements Filter {
 	public void init(FilterConfig config) throws ServletException {    	
     	context = config.getServletContext();
     	webappPath = context.getRealPath("/");
+    	SystemWideConstants.WEBAPPPATH = webappPath;
+    	SystemWideConstants.loadProperties();
     	
-		System.out.println("RequestFilter : init + webapp path  : " +  webappPath);
+		logger.debug("RequestFilter : init + webapp path  : " +  webappPath);
 		String log4j_prop = config.getInitParameter("log4j-prop");
-		System.out.println("init params : " + log4j_prop);
+		logger.debug("init params : " + log4j_prop);
 		loggingInitialization(log4j_prop,webappPath);
+		
+		/*
+		 * initialize hibernate engine
+		 */
+		HibernateConfiguartion.createSessionFactory();
 	}
 	@Override
 	public void destroy() {
-		System.out.println("RequestFilter : destroy" );
+		logger.debug("RequestFilter : destroy" );
 	}
 
 	@Override
@@ -83,12 +104,17 @@ public class RequestFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
         Enumeration<String> params = req.getParameterNames();
-        System.out.println("final json" + CentralController.getRequestParamMap((HttpServletRequest)request));
+        /*
+         * Check session for users's autheticity : 
+         */
+        System.out.println(checkSession(req));
+        
+        logger.debug("final json" + CentralController.getRequestParamMap((HttpServletRequest)request));
         while(params.hasMoreElements()){
             String name = params.nextElement();
             String value = request.getParameter(name);            
             System.out.println(req.getRemoteAddr() );
-            System.out.println("::Request Params::{"+name+"="+value+"}");
+            logger.debug("::Request Params::{"+name+"="+value+"}");
         }
          
         Cookie[] cookies = req.getCookies();
