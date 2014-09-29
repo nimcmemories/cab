@@ -8,11 +8,12 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_45">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/mnt/work/installed/java_libs/hibernate-core-4.3.0.beta1.jar"/>
+	<classpathentry kind="lib" path="/mnt/d_drive/hibernate-core-4.3.0.Beta1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/tocat jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
