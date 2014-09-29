@@ -7,6 +7,9 @@ import hibernate.tx.TransactionManagerImpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+/*
+* @author : Nimesh Makwana
+*/
 public class TransactionManager implements TransactionManagerImpl{
 
 	void  callMethod(String className,String methodCall){

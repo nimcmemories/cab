@@ -1,6 +1,9 @@
 package com.cab;
 
+import hibernate.HibernateConfiguartion;
+
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,7 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
+
+import com.cab.bean.BaseBean;
+import com.cab.unittest.Tester;
 
 import reqfilter.constants.FilterConstants;
 
@@ -20,7 +27,8 @@ import reqfilter.constants.FilterConstants;
 @WebServlet("/CentralController")
 public class CentralController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static Logger logger = Logger.getLogger(CentralController.class);
+	Tester tester = new Tester();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -33,14 +41,16 @@ public class CentralController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
 		System.out.println("do get");
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("do post");
+		tester.testHibernateSelectQuery();
 	}
 	
 	

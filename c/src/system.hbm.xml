@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cab.bean.ProfileBean" table="cbprofile">
+        <id name="profileID" type="java.lang.Integer">
+            <column name="profileid" />
+            <generator class="native"/>
+        </id>
+        <property name="profileName" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+        <set name="setProfileDetailBean" table="cbprofiledetail" lazy="false" inverse="false" fetch="select">
+    		<key >
+    			<column name="profileID" not-null="true"/>
+    		</key>
+    		<one-to-many class="com.cab.bean.ProfileDetailBean" />
+    	</set>
+    </class>
+     <class name="com.cab.bean.ProfileDetailBean" table="cbprofiledetail">
+        <id name="profileDetailID" type="java.lang.Integer">
+            <column name="profiledetailid" />
+            <generator class="native"/>
+        </id>
+        <property name="profileID" type="java.lang.Integer">
+            <column name="profileid" />
+        </property>
+        <property name="subEntityID" type="java.lang.Integer">
+            <column name="subentityid" />
+        </property>
+        <property name="accessType" type="java.lang.Integer">
+            <column name="accesstype" />
+        </property>
+    </class>
+    <!-- <class name="org.emr.bean.ModuleBean" table="fmodule">
+    	<id name="id" type="java.lang.Long">
+    		<column name="ID"/>
+    		<generator class="native"/>
+    	</id>
+    	<property name="name" type="java.lang.String">
+    		<column name= "NAME" />
+    	</property>
+    	<set name="entityBeanSet" table="fentity" lazy="false" inverse="true" fetch="select">
+    		<key >
+    			<column name="id" not-null="true"/>
+    		</key>
+    		<one-to-many class="org.emr.bean.EntityBean" />
+    	</set>
+    </class>
+    <class name="org.emr.bean.EntityBean" table="fentity">
+    	<id name="id" type="java.lang.Long">
+    		<column name="ID"/>
+    		<generator class="native"/>
+    	</id>
+    	<property name="name" type="java.lang.String">
+    		<column name= "NAME" />
+    	</property>
+    	<many-to-one name="moduleBean" class="org.emr.bean.ModuleBean" fetch="select">
+            <column name="id" not-null="true" />
+        </many-to-one>
+    </class>
+    <class name="org.emr.bean.LoginProfileBean" table="floginprofile">
+    	<id name="id" type="java.lang.Long">
+    		<column name="ID"/>
+    		<generator class="native"/>
+    	</id>
+    	<property name="loginId" type="java.lang.Long">
+    		<column name="loginid" />
+    	</property>
+    	<property name="profileId" type="java.lang.Long">
+    		<column name="profileid" />
+    	</property>
+    </class>
+    <class name="org.emr.bean.SubEntityBean" table="fsubentity">
+    	<id name="id" type="java.lang.Long">
+    		<column name="ID"/>
+    		<generator class="native"/>
+    	</id>
+    	<property name="entityId" type="java.lang.Long">
+    		<column name="entityid" />
+    	</property>
+    	<property name="name" type="java.lang.String">
+    		<column name="name" />
+    	</property>
+    	<property name="description" type="java.lang.String">
+    		<column name="description" />
+    	</property> 
+    </class>
+    <class name="org.emr.bean.ProfileSubEntityMappingBean" table="fprofileentitymapping">
+    	<id name="id" type="java.lang.Long">
+    		<column name="ID"/>
+    		<generator class="native"/>
+    	</id>
+    	<property name="profileId" type="java.lang.Long">
+    		<column name="profileid" />
+    	</property>
+    	<property name="subEntityId" type="java.lang.Long">
+    		<column name="subentityid" />
+    	</property>
+    	<property name="accessType" type="int">
+    		<column name="accessType" />
+    	</property>
+    </class> -->
+    
+</hibernate-mapping>

@@ -7,8 +7,9 @@ import java.io.IOException;
 import java.util.PropertyResourceBundle;
 
 import org.apache.log4j.Logger;
-
-
+/*
+* @author : Nimesh Makwana
+*/
 public class SystemWideConstants {
 	public static int USER_SESSION_TIMEOUT ;
 	public static String WEBAPPPATH = "";

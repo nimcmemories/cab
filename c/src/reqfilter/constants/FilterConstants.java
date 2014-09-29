@@ -6,7 +6,9 @@ import java.util.Map;
 import org.eclipse.jdt.internal.compiler.ast.ThisReference;
 
 import reqfilter.base.BaseFilter;
-
+/*
+* @author : Nimesh Makwana
+*/
 public final class FilterConstants extends BaseFilter implements FilterConstantsImpl{
 	private static final Map<String,String > FILTER_CONSTANTS = new HashMap<String, String>();
 	private static final Map<String,String> FILTER_CLASSNAMES = new HashMap<String, String>();
