@@ -12,95 +12,158 @@
 </head>
 
 <body>
-	<div class="DyGrid-10">
+	<div class="DyGrid-11">
     	<header>
         		<a href="#" class="create_row" title="Create Row">Add</a>
-                <a href="#" class="delete_row" title="Delete Rows">Delete</a>
+                <a href="#" class="delete_row" title="Delete Rows" onClick="multidelete()">Delete</a>
         		<span>Table Title</span>
         </header>
         <div class="DyGrid-tbl">
             <div class="table_header">
-                <span class="DyGrid-th-4">Table Header</span>
-                <span class="DyGrid-th-4">Table Header</span>
-                <span class="DyGrid-th-4">Table Header</span>
-                <span class="DyGrid-th-4">Opration</span>
+               	<span class="check"><input type="checkbox" value="" id="check_all"/></span>
+                <span class="DyGrid-th-3">Table Header</span>
+                <span class="DyGrid-th-3">Table Header</span>
+                <span class="DyGrid-th-3">Table Header</span>
+                <span class="DyGrid-th-md">Opration</span>
+            </div>
+            <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value="1"></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd1</span>
+                <span class="DyGrid-td-md">
+                   <a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   <a href="#"><img src="img/desable.png" title="Desable"></a>
+                   <a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
+                    <input type="hidden" id="row1" value="1"/>
+                </span>
+            </div>
+            
+            <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value="2"></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
+                   <input type="hidden" id="row2" value="2"/>
+                </span>
+            </div>
+                    <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value="3"></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
+                    <input type="hidden" id="row3" value="2"/>                    
+                </span>
             </div>
 
             <div class="table_row">
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">
-                    <img src="img/edit.png" class="edit_button" title="Edit">
-                    <img src="img/desable.png" title="Desable">
-                	<img src="img/delete.png" class="delete_button" title="Delete">
+            	<span class="check"><input type="checkbox" class="checkbox" value=""></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
-            
-             <div class="table_row">
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">
-                    <img src="img/edit.png" class="edit_button" title="Edit">
-                    <img src="img/desable.png" title="Desable">
-                	<img src="img/delete.png" class="delete_button" title="Delete">
+            <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value=""></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
-            
-             <div class="table_row">
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">
-                    <img src="img/edit.png" class="edit_button" title="Edit">
-                    <img src="img/enable.png" title="Desable">
-                	<img src="img/delete.png" class="delete_button" title="Delete">
+
+            <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value=""></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
-                <div class="table_row">
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">
-                    <img src="img/edit.png" class="edit_button" title="Edit">
-                    <img src="img/desable.png" title="Desable">
-                	<img src="img/delete.png" class="delete_button" title="Delete">
+
+            <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value=""></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
-             <div class="table_row">
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                 <span class="DyGrid-td-4">
-                    <img src="img/edit.png" class="edit_button" title="Edit">
-                    <img src="img/desable.png" title="Desable">
-                	<img src="img/delete.png" class="delete_button" title="Delete">
+
+            <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value=""></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
-             <div class="table_row">
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">
-                    <img src="img/edit.png" class="edit_button" title="Edit">
-                    <img src="img/desable.png" title="Desable">
-                	<img src="img/delete.png" class="delete_button" title="Delete">
+
+            <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value=""></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
-             <div class="table_row">
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">abcd</span>
-                <span class="DyGrid-td-4">
-                    <img src="img/edit.png" class="edit_button" title="Edit">
-                    <img src="img/desable.png" title="Desable">
-                	<img src="img/delete.png" class="delete_button" title="Delete">
+            <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value=""></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
-        </div>
+
+            <div class="table_row">
+            	<span class="check"><input type="checkbox" class="checkbox" value=""></span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-3">abcd</span>
+                <span class="DyGrid-td-md">
+					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
+                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
+                </span>
+            </div>
+
+		</div>
+
         <div class="clear"></div>
     </div>
+    
+    <!-- Add Row  PopUP   -->
     <div class="createPopup_Bg"></div>
     <div class="createPopup">
     	<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
@@ -138,6 +201,8 @@
             </table>
         </form>
     </div>
+    
+    <!-- Edit Row  PopUP   -->
     <div class="editPopup">
     	<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
     	<header>Edit Table Row Form</header>

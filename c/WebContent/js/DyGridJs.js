@@ -29,7 +29,49 @@ $('document').ready(function(){
 		
 	});
 	$('.delete_button').click(function(){
-		$(this).parent('[class^="DyGrid-td"]').parent('.table_row').remove();
+		
+	//	if(selectedrow){
+			confiirm_string="Are you sure you want to delete selected records ?";
+			var delete_row=confirm(confiirm_string);
+			if(delete_row){
+				//alert(selectedrow);
+				$(this).parent('a').parent('[class^="DyGrid-td"]').parent('.table_row').remove();
+			}
+		//}
+	});
+	$('#check_all').click(function(){
+		  if($(this).is(":checked")){
+			$('.checkbox').prop('checked', true);
+		  }else{
+			$('.checkbox').prop('checked', false);
+		  }
+	});
+	$('.checkbox').click(function(){
+		if($(this).is(":checked")){
+			//$('#check_all').prop('checked', true);
+		  }else{
+			$('#check_all').prop('checked', false);
+	    }
 	});
 });
+function multidelete(){
+//	$(document).ready(function() {     
+		var selectedrow="";   
+		$(".checkbox").each(function(){
+			if(this.checked == true){
+				selectedrow +="'"+$(this).val()+"',";
+			}
+			
+		});
+		if(selectedrow){
+			confiirm_string="Are you sure you want to delete selected records ?";
+			var ans=confirm(confiirm_string);
+			if(ans){
+				alert(selectedrow);
+			}
+		}
+//	});
+}
+
+
 

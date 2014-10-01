@@ -4,6 +4,7 @@ public class ProfileDetailBean extends BaseBean{
 	private int profileDetailID ;
 	private int profileID,subEntityID;
 	private int accessType;
+	
 	public int getProfileDetailID() {
 		return profileDetailID;
 	}
