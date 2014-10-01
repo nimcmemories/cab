@@ -50,11 +50,12 @@ public class CentralController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("do post");
+		JSONObject jsonObjectOfRequest = getRequestParamMap((HttpServletRequest)request);
 		tester.testHibernateSelectQuery();
 	}
 	
 	
-	public static JSONObject getRequestParamMap(HttpServletRequest request){
+	public JSONObject getRequestParamMap(HttpServletRequest request){
 		JSONObject jsonObject = null;
 		try {
 			if(request.getParameter("json") !=null)

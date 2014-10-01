@@ -35,6 +35,18 @@
             <column name="accesstype" />
         </property>
     </class>
+    <class name="com.cab.bean.HelperBean" table="cbhelpers">
+        <id name="helperID" type="java.lang.Integer">
+            <column name="helperid" />
+            <generator class="native"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="subentityID" type="java.lang.Integer">
+            <column name="subentityid" />
+        </property>
+    </class>
     <!-- <class name="org.emr.bean.ModuleBean" table="fmodule">
     	<id name="id" type="java.lang.Long">
     		<column name="ID"/>
