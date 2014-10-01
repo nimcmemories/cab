@@ -84,4 +84,12 @@ public class HibernateConfiguartion {
 		}
 		return null;
 	}
+	public void getUniqueResultFromBean(BaseBean bean){
+		Session session = null;
+		try{
+			session = sessionFactory.openSession();
+		}catch(Exception e){
+			logger.error("hibernate session creation failed in getUniqueResultFromBean ", e);
+		}
+	}
 }
