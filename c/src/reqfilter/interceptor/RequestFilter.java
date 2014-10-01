@@ -121,6 +121,9 @@ public class RequestFilter implements Filter {
          */
         logger.debug("session state : isNewSession " + isNewSession);
         
+        
+        
+        
         if(isNewSession){
 
             if(__eventId == 10914){
