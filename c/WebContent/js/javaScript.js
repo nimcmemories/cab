@@ -138,3 +138,17 @@ function topmenuHide(){
 	$('.taxi-section').hide();
 	$('.bus-section').hide();
 }
+<!-- Time Picker -->
+                $(function() {
+                    $('.timeformatExample1').timepicker({ 'timeFormat': 'H:i:s', constrainInput: false });
+                    $('.timeformatExample2').timepicker({ 'timeFormat': 'h:i A' , constrainInput: false});
+                });
+  <!-- Date Picker  -->        
+	$('.datePairExample').datepicker({
+		'format': 'd/m/yyyy',
+		'autoclose': true
+	});
+
+	$('.datePairExample').datepair();
+
+				

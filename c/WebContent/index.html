@@ -7,16 +7,11 @@
 	<link rel="stylesheet" href="css/styleSheet.css">
     <link rel="stylesheet" href="css/iconFont.css">
     <link rel="stylesheet" href="css/customStyle.css">    
+    <link rel="stylesheet" href="css/jquery.timepicker.css" />    
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="js/javaScript.js"></script>
-  <script type="text/javascript" src="js/jquery.timepicker.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
-        <script>
-                $(function() {
-                    $('.timeformatExample1').timepicker({ 'timeFormat': 'H:i:s' });
-                    $('.timeformatExample2').timepicker({ 'timeFormat': 'h:i A' });
-                });
-       </script>
+	<script type="text/javascript" src="js/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
 </head>
 
 <body>
@@ -69,7 +64,7 @@
         	<li class="tab-1"><a href="#" class="active left sideMenu-taxi"><i class="fa fa-car on-left fa-lg"></i>Taxi</a></li>
             <li class="tab-1"><a href="#" class="sideMenu-bus"><i class="fa fa-bus on-left fa-lg"></i>Bus</a></li>
             <li class="tab-1"><a href="#" class="sideMenu-truck"><i class="fa fa-truck on-left fa-lg"></i>Truck</a></li>            
-            <li class="tab-1"><a href="#" class="sideMenu-motorCycle"><img src="img/bike.png" class="on-left fa-">MotorCycle</a></li>
+            <li class="tab-1"><a href="#" class="sideMenu-motorCycle"><img src="img/bike.png" class="on-left fa-">Bike</a></li>
         </ul>
         <!-- Section Div  -->
         <!-- Taxi Section Start  -->
@@ -94,9 +89,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
 	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="time timeformatExample2" required></td>
+                        <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -137,9 +132,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
 	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="time timeformatExample2" required></td>
+                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -163,9 +158,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
 	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="time timeformatExample2" required></td>
+                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -205,9 +200,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
 	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="time timeformatExample2" required/></td>
+						<td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -236,9 +231,9 @@
                     <tbody class="addrow"></tbody>
                     <tr>
 	                    <td><label>Departure Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Departure Date" required/></td>
 	                    <td><label>Return Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Return Date" required/></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -275,9 +270,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
 	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="time timeformatExample2" required></td>
+                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -293,7 +288,7 @@
                         <td><label>Pickup Address :</label></td>
                         <td><textarea placeholder="Pickup Address" required></textarea></td>
                         <td><label>Pickup Date :</label></td>
-                        <td><input type="date" placeholder="Pickup Date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
                     </tr>
                     <tr>
                     	<td><label>No. of Days :</label></td>                    
@@ -315,10 +310,10 @@
             <form action="#" method="post">
                	<table class="table">
                     <tr>
-                    	<td><label>Source Area:</label></td>                    
-                        <td><input type="text" placeholder="Source Area" required></td>
-                        <td><label>Destination Area:</label></td>
-                        <td><input type="text" placeholder="Destination Area" required></td>
+                    	<td><label>Source City:</label></td>                    
+                        <td><input type="text" placeholder="Source City" required></td>
+                        <td><label>Destination City:</label></td>
+                        <td><input type="text" placeholder="Destination City" required></td>
                     </tr>
                      <tr>
 	                    <td><label>Pickup Area :</label></td>                    
@@ -328,9 +323,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
 	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="time timeformatExample2" required/></td>
+                        <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -364,9 +359,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
 	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="time timeformatExample2" required></td>
+                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -407,9 +402,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
 	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="time timeformatExample2" required></td>
+                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -433,9 +428,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
 	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="time timeformatExample2" required></td>
+                         <td><input id="" type="text" class="timeformatExample2 input-cmn33p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -466,9 +461,9 @@
                     </tr>
                     <tr>
 	                    <td><label>Date of Journey :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Date of Journey" required/></td>
 	                    <td><label>Date of Return :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="Date of Return" required/></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -483,19 +478,19 @@
                	<table class="table">
                     <tr>
                     	<td><label>From :</label></td>                    
-                        <td><input type="text" placeholder="Pickup Area" required></td>
+                        <td><input type="text" placeholder="From" required></td>
                     </tr>
                     <tr>
                     	<td><label>To :</label></td>                    
-                        <td><input type="text" placeholder="Pickup Area" required></td>
+                        <td><input type="text" placeholder="To" required></td>
                         <td><label class="fa fa-plus-square lm20 fa-lg" onClick="addRow()"></label></td>
                     </tr>
                     <tbody class="addrow"></tbody>
                     <tr>
 	                    <td><label>ON :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="ON Date" required/></td>
 	                    <td><label>For :</label></td>                    
-                        <td><input type="date" required></td>
+                        <td><input type="text" class="datePairExample" placeholder="For Date" required/></td>
                     </tr>
                     <tr>
 	                    <td><label>Bus Type :</label></td>                    
@@ -519,5 +514,6 @@
       <div class="clear"></div>	
     </div>
     <div class="footer"></div>
+   <script type="text/javascript" src="js/javaScript.js"></script>
 </body>
 </html>

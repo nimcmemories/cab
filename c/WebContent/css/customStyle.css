@@ -9,42 +9,42 @@
 	float: right;
 	margin-right: 92px;
 }
-.btn-8p{
-	width:8%;
+.btn-8p,.input-cmn8p{
+	width:8%!important;
 }
-.btn-10p{
-	width:10%;
+.btn-10p,.input-cmn10p{
+	width:10%!important;
 }
-.btn-20p{
-	width:20%;
+.btn-20p,.input-cmn20p{
+	width:20%!important;
 }
-.btn-25p{
-	width:25%;
+.btn-25p,.input-cmn25p{
+	width:25%!important;
 }
-.btn-30p{
-	width:30%;
+.btn-30p,.input-cmn30p{
+	width:30%!important;
 }
-.btn-33p{
-	width:33%;
+.btn-33p,.input-cmn33p{
+	width:33%!important;
 }
-.btn-40p{
-	width:40%;
+.btn-40p,.input-cmn40p{
+	width:40%!important;
 }
-.btn-50p{
-	width:50%;
+.btn-50p,.input-cmn50p{
+	width:50%!important;
 }
-.btn-60p{
-	width:60%;
+.btn-60p,.input-cmn60p{
+	width:60%!important;
 }
-.btn-70p{
-	width:70%;
+.btn-70p,.input-cmn70p{
+	width:70%!important;
 }
-.btn-80p{
-	width:80%;
+.btn-80p,.input-cmn80p{
+	width:80%!important;
 }
-.btn-90p{
-	width:90%;
+.btn-90p,.input-cmn90p{
+	width:90%!important;
 }
-.btn-100p{
-	width:100%;
+.btn-100p,..input-cmn100p{
+	width:100%!important;
 }
