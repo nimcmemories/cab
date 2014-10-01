@@ -92,7 +92,7 @@ public class RequestFilter implements Filter {
 		/*
 		 * initialize hibernate engine
 		 */
-		HibernateConfiguartion.createSessionFactory();
+		//HibernateConfiguartion.createSessionFactory();
 	}
 	@Override
 	public void destroy() {
