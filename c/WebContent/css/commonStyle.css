@@ -78,11 +78,12 @@ textarea{
 	margin: 0 auto;
 	position: relative;
 	top: -3.55px;
-	left:-10px;
-	background:#16499a;
+	left: -6px;
+	background: #16499a;
 	color: #fff;
-	float:left;
+	float: left;
 	cursor: pointer;
+	border-radius: 1px 0px 0px 2px;
 }
 
 select:focus,input:focus,textarea:focus{
