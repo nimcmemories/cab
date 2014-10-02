@@ -110,23 +110,36 @@ function addRow(){
 $('document').ready(function(){
 	$('.sideMenu-taxi').click(function(){
 		topmenuHide();
-	   $('.topmenu-taxi').show();
-   	   $('.taxi-section').show();
+	  	$('.topmenu-taxi').show();
+   	   	$('.taxi-section').show();
+		$('[class^="taxi-"]').hide();
+		$('.taxi-pop').fadeIn(300);
+		$('.topmenu-taxi li a').removeClass('active');	
+		$('.topmenu-taxi li:first-child a').addClass('active');	
 	});
     $('.sideMenu-bus').click(function(){
-			topmenuHide();
-			$('[class^="taxi-"]').hide();
-			$('.topmenu-bus').show();
-		    $('.bus-section').show();
-			$('.bus-pop').fadeIn(300);
+		topmenuHide();
+		$('[class^="taxi-"]').hide();
+		$('.topmenu-bus').show();
+		$('.bus-section').show();
+		$('[class^="bus-"]').hide();
+		$('.bus-pop').fadeIn(300);
+		$('.topmenu-bus li a').removeClass('active');			
+		$('.topmenu-bus li:first-child a').addClass('active');		
 	});
 	$('.sideMenu-truck').click(function(){
 		topmenuHide();
-	   $('.topmenu-truck').show();	   
+ 	    $('.topmenu-truck').show();
+	//	$('[class^="truck-"]').hide();	   
+		$('.topmenu-truck li a').removeClass('active');					
+		$('.topmenu-truck li:first-child a').addClass('active');	
 	});
 	$('.sideMenu-motorCycle').click(function(){
 		topmenuHide();
-	   $('.topmenu-motorCycle').show();
+	    $('.topmenu-motorCycle').show();
+//		$('[class^="bike-"]').hide();	   
+		$('.topmenu-motorCycle li a').removeClass('active');					
+		$('.topmenu-motorCycle li:first-child a').addClass('active');	
 	});
 });
 function topmenuHide(){
@@ -134,21 +147,19 @@ function topmenuHide(){
 	$('.topmenu-bus').hide();
 	$('.topmenu-truck').hide();
 	$('.topmenu-motorCycle').hide();
-	
+		
 	$('.taxi-section').hide();
 	$('.bus-section').hide();
 }
 <!-- Time Picker -->
-                $(function() {
-                    $('.timeformatExample1').timepicker({ 'timeFormat': 'H:i:s', constrainInput: false });
-                    $('.timeformatExample2').timepicker({ 'timeFormat': 'h:i A' , constrainInput: false});
-                });
-  <!-- Date Picker  -->        
+	$(function() {
+   		$('.timeformatExample1').timepicker({ 'timeFormat': 'H:i:s', constrainInput: false });
+        $('.timeformatExample2').timepicker({ 'timeFormat': 'h:i A' , constrainInput: false});
+	});
+<!-- Date Picker  -->        
 	$('.datePairExample').datepicker({
 		'format': 'd/m/yyyy',
 		'autoclose': true
 	});
-
 	$('.datePairExample').datepair();
-
 				

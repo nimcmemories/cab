@@ -27,35 +27,30 @@
     <div class="section">
         <!--  Top Menu -->
         <ul class="header-tab8 on-right topMenu topmenu-taxi">
-            <li class="tab-8"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
-            <li class="tab-8"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
-            <li class="tab-8"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
-            <li class="tab-8"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Outstation</a></li>
-            <li class="tab-8"><a class="left car-on-rent" href="#"><i class="icon1-wrench large on-left"></i>Car on Rent</a></li>
-            <li class="tab-8"><a class="left taxi-ticket" href="#"><i class="fa fa-ticket on-left"></i>Taxi Ticket</a></li>
-            <li class="tab-8"><a class="left" href="#"><i class="icon1-move on-left"></i>Packers/Movers</a></li>
-            <li class="tab-8"><a class="left" href="#"><i class="fa fa-truck on-left"></i>Shipping</a></li>
+            <li class="tab-6"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
+            <li class="tab-6"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
+            <li class="tab-6"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
+            <li class="tab-6"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Outstation</a></li>
+            <li class="tab-6"><a class="left car-on-rent" href="#"><i class="icon1-wrench large on-left"></i>Car on Rent</a></li>
+            <li class="tab-6"><a class="left taxi-ticket" href="#"><i class="fa fa-ticket on-left"></i>Taxi Ticket</a></li>
 	        <div class="clear"></div>
 	    </ul>
         <ul class="header-tab8 on-right topMenu topmenu-bus">
-            <li class="tab-8"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
-            <li class="tab-8"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
-            <li class="tab-8"><a class="left busticket" href="#"><i class="fa fa-ticket on-left"></i>Bus Ticket</a></li>
-            <li class="tab-8"><a class="left busesonrent" href="#"><i class="fa fa-key on-left"></i>Bus on Rent</a></li>
+            <li class="tab-4"><a class="left point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
+            <li class="tab-4"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
+            <li class="tab-4"><a class="left busticket" href="#"><i class="fa fa-ticket on-left"></i>Bus Ticket</a></li>
+            <li class="tab-4"><a class="left busesonrent" href="#"><i class="fa fa-key on-left"></i>Bus on Rent</a></li>
 	        <div class="clear"></div>
 	    </ul>
         <ul class="header-tab8 on-right topMenu topmenu-truck">
-            <li class="tab-8"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
-            <li class="tab-8"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
-            <li class="tab-8"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
-            <li class="tab-8"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Outstation</a></li>
+            <li class="tab-2"><a class="active left" href="#"><i class="icon1-move on-left"></i>Packers/Movers</a></li>
+            <li class="tab-2"><a class="left" href="#"><i class="fa fa-truck on-left"></i>Shipping</a></li>
 	        <div class="clear"></div>
 	    </ul>
         <ul class="header-tab8 on-right topMenu topmenu-motorCycle">
-            <li class="tab-8"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
-            <li class="tab-8"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
+            <li class="tab-8"><a class="left active airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
             <li class="tab-8"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
-            <li class="tab-8"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Outstation</a></li>
+            <li class="tab-8"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Bike on Rent</a></li>
 	        <div class="clear"></div>
 	    </ul>
 
@@ -68,7 +63,7 @@
         </ul>
         <!-- Section Div  -->
         <!-- Taxi Section Start  -->
-        <div class="main-contain taxi-section">
+        <div class="main-contain taxi-section" id="taxi-section">
 	       	<!--Taxi Point to Point Design -->
             <div class="taxi-pop">
             <form action="#" method="post">
@@ -315,9 +310,17 @@
                         <td><label>Destination City:</label></td>
                         <td><input type="text" placeholder="Destination City" required></td>
                     </tr>
+                     <tr>
+	                    <td><label>Pickup Area :</label></td>                    
+                        <td><input type="text" placeholder="Pickup Area" required></td>						
+                        <td><label>Drop Area :</label></td>
+                        <td><input type="text" placeholder="Drop Area" required></td>						
+                    </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
                         <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
+	                    <td><label>Pickup Time :</label></td>                    
+                        <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
                     </tr>
                 </table>
                 <div class="btn-15p">
@@ -330,7 +333,7 @@
         <!-- Taxi section End -->
         
         <!-- Bus Section Start  -->
-        <div class="main-contain bus-section">
+        <div class="main-contain bus-section" id="bus-section">
 	       	<!--Taxi Point to Point Design -->
             <div class="bus-pop">
             <form action="#" method="post">
