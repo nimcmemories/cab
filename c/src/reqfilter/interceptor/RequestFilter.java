@@ -2,7 +2,6 @@ package reqfilter.interceptor;
 
 import hibernate.HibernateConfiguartion;
 
-import java.awt.SystemColor;
 import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
@@ -18,8 +17,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.apache.catalina.Session;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
