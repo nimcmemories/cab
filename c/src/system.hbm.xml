@@ -35,6 +35,51 @@
             <column name="accesstype" />
         </property>
     </class>
+ 	<class name="com.cab.bean.UserBean" table="cbuser">
+        <id name="userID" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native"/>
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="username" />
+        </property>
+        <property name="profileID" type="java.lang.Integer">
+            <column name="profileid" />
+        </property>
+        <property name="userType" type="java.lang.Integer">
+            <column name="typeid" />
+        </property>
+        <property name="parentID" type="java.lang.Integer">
+            <column name="parentid" />
+        </property>
+    </class>   
+    <class name="com.cab.bean.EntityBean" table="cbentity">
+        <id name="entityID" type="java.lang.Integer">
+            <column name="entityid" />
+            <generator class="native"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+        
+    </class>
+    
+    <class name="com.cab.bean.SubEntityBean" table="cbsubentity">
+        <id name="subentityID" type="java.lang.Integer">
+            <column name="subentityid" />
+            <generator class="native"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+        
+    </class>
     <class name="com.cab.bean.HelperBean" table="cbhelpers">
         <id name="helperID" type="java.lang.Integer">
             <column name="helperid" />
@@ -46,6 +91,20 @@
         <property name="subentityID" type="java.lang.Integer">
             <column name="subentityid" />
         </property>
+        <many-to-one  name="subEntityBean" class="com.cab.bean.SubEntityBean" column="subentityid" unique="true" not-null="true" insert="false" update="false"/>
+    </class>
+        <class name="com.cab.bean.EventBean" table="cbevents">
+        <id name="eventID" type="java.lang.Integer">
+            <column name="eventid" />
+            <generator class="native"/>
+        </id>
+        <property name="eventType" type="java.lang.Integer">
+            <column name="eventtype" />
+        </property>
+        <property name="helperID" type="java.lang.Integer">
+            <column name="helperid" />
+        </property>
+        <many-to-one  name="helperBean" class="com.cab.bean.HelperBean" column="helperid" unique="true" not-null="true" insert="false" update="false"/>
     </class>
     <!-- <class name="org.emr.bean.ModuleBean" table="fmodule">
     	<id name="id" type="java.lang.Long">

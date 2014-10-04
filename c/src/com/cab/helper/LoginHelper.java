@@ -1,10 +1,20 @@
 package com.cab.helper;
 
+import hibernate.HibernateConfiguartion;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.apache.log4j.Logger;
+import org.hibernate.Session;
+
+import com.cab.bean.UserBean;
+/*
+* @author : Nimesh Makwana
+*/
 public class LoginHelper {
 	private String userName,password,__userType;
+	Logger logger=Logger.getLogger(LoginHelper.class);
 	public String getUserName() {
 		return userName;
 	}
@@ -23,18 +33,35 @@ public class LoginHelper {
 	public void set__userType(String __userType) {
 		this.__userType = __userType;
 	}
-	public boolean validateParams(ServletRequest req,ServletResponse res){
+	public UserBean validateParams(ServletRequest req,ServletResponse res){
 		userName = req.getParameter("username");
 		password = req.getParameter("password");
 		__userType = req.getParameter("__usertype");
+		if(userName == null || password == null)
+			return null;
 		if(userName.contains(" ")){
 			req.setAttribute("__loginvalidatormessage", "username can not contain space");
-			return false;
+			return null;
 		}
 		return authenticate(userName, password);
 	}
-	public boolean authenticate(String userName,String password){
-		//AUTHENTICATION CODE GOES HERE , CALL HIBERNATE QUERIES TO GET USERNAME ACCORDING TO ITS TYPE AND MATCH
-		return true;
+	public UserBean authenticate(String userName,String password){
+		HibernateConfiguartion hibernateConfiguartion ;
+		Session session  = null;
+		UserBean userBean = null;
+		try{
+			hibernateConfiguartion = new HibernateConfiguartion();
+			session = hibernateConfiguartion.getSession(true);
+			session.beginTransaction();
+			userBean = (UserBean)session.createQuery("from UserBean where username = " + userName + " and password = " + password);
+		}catch(Exception e){
+			logger.debug("LoginHelper authenticationFailed");
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}
+		return userBean;
+	
 	}
 }

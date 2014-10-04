@@ -1,8 +1,9 @@
 package com.cab.bean;
 
-public class SubEntityBean  extends BaseBean {
+public class SubEntityBean  extends SystemBean {
 	private int subentityID,entityID;
 	private String name,description;
+	private EntityBean entityBean;
 	public int getSubentityID() {
 		return subentityID;
 	}
@@ -27,9 +28,10 @@ public class SubEntityBean  extends BaseBean {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	@Override
-	public boolean validateBean(StringBuffer messageOfValidation) {
-		// TODO Auto-generated method stub
-		return false;
+	public EntityBean getEntityBean() {
+		return entityBean;
+	}
+	public void setEntityBean(EntityBean entityBean) {
+		this.entityBean = entityBean;
 	}
 }

@@ -1,9 +1,7 @@
 package com.cab;
 
-import hibernate.HibernateConfiguartion;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
-import com.cab.bean.BaseBean;
 import com.cab.unittest.Tester;
 
 import reqfilter.constants.FilterConstants;
@@ -51,6 +48,7 @@ public class CentralController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("do post");
 		JSONObject jsonObjectOfRequest = getRequestParamMap((HttpServletRequest)request);
+		
 		tester.testHibernateSelectQuery();
 	}
 	
@@ -74,5 +72,5 @@ public class CentralController extends HttpServlet {
 		}
 		return jsonObject;
 	}
-
+	
 }

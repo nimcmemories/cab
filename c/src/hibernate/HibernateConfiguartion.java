@@ -18,6 +18,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import com.cab.bean.BaseBean;
+import com.cab.bean.SystemBean;
 /*
 * @author : Nimesh Makwana
 */
@@ -65,7 +66,7 @@ public class HibernateConfiguartion {
 	public static void main(String[] args) {
 		createSessionFactory();
 	}
-	public List<BaseBean> selectQuery(String qry){
+	public List<SystemBean> selectQuery(String qry){
 		Session session = null;
 		try{
 			session = sessionFactory.openSession();
@@ -77,12 +78,16 @@ public class HibernateConfiguartion {
 			if(session != null){
 				try{
 				session.close();
+				logger.debug("Hibernate session closed successfully");
 				}catch(Exception e){
 					logger.error("clossing hibernate session failed ", e);
 				}
 			}
 		}
 		return null;
+	}
+	public Session getSession(boolean isReadOnly){
+		return sessionFactory.openSession();
 	}
 	public void getUniqueResultFromBean(BaseBean bean){
 		Session session = null;

@@ -13,5 +13,8 @@ public abstract class BaseHelper {
 	public void updateRecord(){
 		
 	}
+	public void customProcedure(){
+		System.out.println("base Helper custom procedure : ");
+	}
 }
 

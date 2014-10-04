@@ -5,6 +5,7 @@ import hibernate.HibernateConfiguartion;
 import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.Filter;
@@ -17,14 +18,24 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import reqfilter.constants.FilterConstants;
 
 import com.cab.CentralController;
 import com.cab.bean.BaseBean;
+import com.cab.bean.EventBean;
+import com.cab.bean.HelperBean;
+import com.cab.bean.ProfileDetailBean;
+import com.cab.bean.SubEntityBean;
+import com.cab.bean.SystemBean;
+import com.cab.bean.UserBean;
 import com.cab.helper.LoginHelper;
 
 import constant.SystemWideConstants;
@@ -48,6 +59,16 @@ public class RequestFilter implements Filter {
     		session.setMaxInactiveInterval(SystemWideConstants.USER_SESSION_TIMEOUT);
     		return false;
     	}
+    }
+    public UserBean getUserBean(HttpSession session){
+    	UserBean userBean = new UserBean();
+    	Object userName = session.getAttribute("__isGuest");
+    	Object userType = session.getAttribute("__usertype");
+    	userBean.setUsername(userName!=null?"__guestuser":(session.getAttribute("__username")!=null?((String)session.getAttribute("__username")):"__unown"));
+    	userBean.setUserType(userName!=null?(Integer)userType:null);
+    	userBean.setParentID(0);
+    	logger.debug("userBean : " + userBean);
+    	return userBean;
     }
     /*
      * Logging initiated
@@ -95,13 +116,45 @@ public class RequestFilter implements Filter {
 		/*
 		 * initialize hibernate engine
 		 */
-		//HibernateConfiguartion.createSessionFactory();
+		HibernateConfiguartion.createSessionFactory();
 	}
 	@Override
 	public void destroy() {
 		logger.debug("RequestFilter : destroy" );
 	}
-
+	
+	private int checkACL(UserBean userBean,int __eventId){
+		 List<SystemBean> list = null;
+	        HelperBean helperBean = null;
+	        Session hibernateSession = null;
+	        Transaction tx = null;
+	        try{
+		        hibernateSession = new HibernateConfiguartion().getSession(true);
+		        tx = hibernateSession.beginTransaction();
+		        		//selectQuery(");
+		        // get action access check here
+		        	list = hibernateSession.createQuery("from EventBean where eventID = " + __eventId).list();
+		        	EventBean eventBean = (EventBean)list.get(0);
+			        Hibernate.initialize(eventBean.getHelperBean());
+			        helperBean = eventBean.getHelperBean();
+			        SubEntityBean subEntityBean = eventBean.getHelperBean().getSubEntityBean();
+			        logger.debug("Subentity resolved : " + subEntityBean.getName());
+			        userBean = (UserBean)hibernateSession.createQuery("from UserBean where username = '" + 
+			        		(userBean.getUsername().equals("__guestuser")?"guestuser":userBean.getUsername()) + "' and parentID = " + userBean.getParentID()).uniqueResult();
+			        ProfileDetailBean profileDetailBean = (ProfileDetailBean)hibernateSession.createQuery("from ProfileDetaiBean where profileID = " + userBean.getProfileID() + " and subEntityID = " + subEntityBean.getSubentityID());
+			        return profileDetailBean.getAccessType();
+	        }catch (Exception e){
+	        	//*** ITS TOO CRITICAL IF I FALL IN THIS BLOCK 
+	        	logger.debug(" ITS TOO CRITICAL TO BE HERE .. RESOLVE ME FIRST for now I am replying with denial of access : ");
+	        	e.printStackTrace();
+	        	return 0;
+	        }finally{
+	        	if(hibernateSession!=null){
+	        		logger.debug("hibernate session closed in checkACL(*,*) method");
+	        		hibernateSession.close();
+	        	}
+	        }
+	}
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
@@ -118,49 +171,72 @@ public class RequestFilter implements Filter {
          */
         logger.debug("session state : isNewSession " + isNewSession);
         
-        
-        
-        
-        
-        
-        
+        UserBean userBean = null;
         if(isNewSession){
-
             if(__eventId == 10914){
+            	logger.debug("DO FILTER  : LOGIN ACTION");
             	LoginHelper loginHelper = new LoginHelper();
-            	if(loginHelper.validateParams(request, response)){
-            		session.setAttribute("__username",loginHelper.getUserName());
-            		session.setAttribute("__usertype",loginHelper.get__userType());
-            		//***REDIRECT TO LOGIN PAGE
+            	userBean = loginHelper.validateParams(request, response);
+            	if(userBean != null){
+            		session.setAttribute("__username",userBean.getUsername());
+            		session.setAttribute("__usertype",userBean.getUserType());
             	}else{
             		//***AUTHENTICATION FAILURE
             		//***REDIRECT TO LOGIN PAGE WITH FAILURE REASON
+            		System.out.println("login request with 10914 event id ");
+            		session.invalidate();
+            		return;
             	}
             }else{
             	//session creation for non login request
             	session.setAttribute("__username", session.getId());
             	session.setAttribute("__isGuest", true);
         		session.setAttribute("__usertype",3);
+        		userBean = this.getUserBean(session);
         		isGuest = true;
             }
-        } 
-        
-        HibernateConfiguartion hibernateConfiguration = new HibernateConfiguartion();
-        List<BaseBean> list = hibernateConfiguration.selectQuery("from HelperBean where subentityID = 3");
-        if(list!= null){
-        	logger.debug("HELPER BEAN SELECT QUERY : HELPER NOT NULL ");
-        }else
-        	logger.debug("HELPER BEAN SELECT QUERY : HELPER is NULL ");
-        Cookie[] cookies = req.getCookies();
-        if(cookies != null){
-            for(Cookie cookie : cookies){
-                this.context.log(req.getRemoteAddr() + "::Cookie::{"+cookie.getName()+","+cookie.getValue()+"}");
-            }
+            session.setAttribute("userBean", userBean);
         }
-        // pass the request along the filter chain
-        chain.doFilter(request, response);	
+        
+        userBean = (UserBean)session.getAttribute("userBean");
+        int aclStatus = checkACL(userBean, __eventId);
+        if(aclStatus == 2){
+        	/*
+        	 * userHas readWrite access for event
+        	 */
+        	logger.debug("acl status is 2");
+        }else if(aclStatus == 1){
+        	/*
+        	 * userHas readOnly access for event
+        	 */
+        	logger.debug("acl status is 1");
+        }else{
+        	/*
+        	 * denial of access for this event
+        	 */
+        	logger.debug("acl status is 0");
+        }
+        
+       /* if(list != null){
+	        	
+	        	        
+	        if(list!= null){
+	        	logger.debug("HELPER BEAN SELECT QUERY : HELPER NOT NULL " );
+	        }else
+	        	logger.debug("HELPER BEAN SELECT QUERY : HELPER is NULL ");
+	        Cookie[] cookies = req.getCookies();
+	        if(cookies != null){
+	            for(Cookie cookie : cookies){
+	                this.context.log(req.getRemoteAddr() + "::Cookie::{"+cookie.getName()+","+cookie.getValue()+"}");
+	            }
+	        }
+	        // pass the request along the filter chain
+	        System.out.println("doFilter chain controll pass on ");
+        }*/
+      // chain.doFilter(request, response);	
 	}
 	public void eventIDManipulate(int eventID){
-		
+		HibernateConfiguartion hibernateConfiguration = new HibernateConfiguartion();
+		hibernateConfiguration.selectQuery("from EventBean");
 	}
 }

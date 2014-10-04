@@ -1,10 +1,11 @@
 package com.cab.bean;
 
-public class HelperBean extends BaseBean{
+public class HelperBean extends SystemBean{
 
 	private int helperID;
 	private int subentityID;
 	private String name;
+	private SubEntityBean subEntityBean ;
 	public int getHelperID() {
 		return helperID;
 	}
@@ -23,9 +24,11 @@ public class HelperBean extends BaseBean{
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Override
-	public boolean validateBean(StringBuffer messageOfValidation) {
-		return false;
+	public SubEntityBean getSubEntityBean() {
+		return subEntityBean;
+	}
+	public void setSubEntityBean(SubEntityBean subEntityBean) {
+		this.subEntityBean = subEntityBean;
 	}
 
 }

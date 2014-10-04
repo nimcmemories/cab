@@ -3,8 +3,6 @@ package reqfilter.constants;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.jdt.internal.compiler.ast.ThisReference;
-
 import reqfilter.base.BaseFilter;
 /*
 * @author : Nimesh Makwana

@@ -3,6 +3,10 @@ package com.cab.bean;
 public class ProfileDetailBean extends BaseBean{
 	private int profileDetailID ;
 	private int profileID,subEntityID;
+	/*
+	 * accessType ranges from 0 to 2 where 0 is for none 1 is for readOnly and 2 is for read write access for
+	 * particular entity.
+	 */
 	private int accessType;
 	
 	public int getProfileDetailID() {
