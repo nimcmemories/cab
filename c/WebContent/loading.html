@@ -2,18 +2,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login Form</title>
-	<link rel="stylesheet" href="css/commonStyle.css">
-	<link rel="stylesheet" href="css/styleSheet.css">
-    <link rel="stylesheet" href="css/iconFont.css">
-    <link rel="stylesheet" href="css/customStyle.css">    
-    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-	<script type="text/javascript" src="js/javaScript.js"></script>
-
+<title>Loading</title>
+<style type="text/css">
+#bg_color{background:#1FB6DB;position:absolute;width:99.4%;height:100%;top:0;opacity:0.1;}
+#bonfire-pageloader svg{fill:#000;}
+#circle{width:100px;height:94px;background: url(img/logo.png) no-repeat;position: relative;background-size:100%;margin:0 auto;top:200px;				 -webkit-animation:spin 2s linear infinite;-moz-animation:spin 2s linear infinite;animation:spin 2s linear infinite;z-index:9999;right:70px;}
+#pageloader h1{margin:0 auto;text-align: center;position: relative;margin-top: 130px;text-shadow: 0px 2px 0px lightblue;left: 85px;font-weight: 400;width:80%;font-family: cursive;}
+@-webkit-keyframes spin { 100% { -webkit-transform: rotateY(360deg);} }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg);}}
+#bonfire-pageloader{position:absolute;z-index:99999999999999;left:0;right:0;top:0;bottom:0;margin-top:-50px;}
+/* the loading icon */
+.bonfire-pageloader-icon {width:100px;height:100px;position:absolute;margin:115px 0 0 0;opacity:1;top:0;}
+#bonfire-pageloader svg {-webkit-animation:spin1 2s linear infinite;-moz-animation:spin1 2s linear infinite;animation:spin1 2s linear infinite;width:100px;
+height:100px;}
+@-webkit-keyframes spin1 { 100% { -webkit-transform: rotate(-360deg); } }
+@-moz-keyframes spin1 { 100% { -moz-transform: rotate(-360deg); } }
+@keyframes spin1 { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg);}}
+svg{fill:#fff;}
+</style>
 </head>
 
 <body>
-<!-- Start Loading  -->
 		<div id="pageloader">
         <div id="bg_color"></div>
              <div id="circle"></div><h1>smartSense</h1>
@@ -45,38 +55,5 @@
          </div>
 	<!-- END THE ICON -->
 </div>
-<!-- END Loading  -->
-	<div class="login_form">
-    	<form action="#" method="post">
-        	<h3>Partner Register Form</h3>
-            <div class="border-bottom"></div>
-        	<table>
-            	<tr>
-                	<td><label>User Name :</label></td>
-                	<td>
-                    	<span class="input-icon icon-user-3 left fa-lg"></span>
-                    	<input type="text" placeholder="User Name" alt="userName" name="password" required/>
-                    </td>
-                </tr>
-                <tr>
-                	<td><label>Password :</label></td>
-                	<td>
-                    	<span class="input-icon icon-key left fa-lg"></span>
-                    	<input type="password" placeholder="Password" alt="Password" name="password" required/>
-                    </td>
-                </tr>
-                <tr>
-                	<td></td>
-                	<td><input type="submit" class="primary" alt="Submit" value="Submit"/>
-                	<input type="reset" class="danger" alt="Cancel" value="Cancel"/></td>
-                </tr>
-                <tr>
-                	<td></td>
-                    <td><a href="#">Forgot Password ?</a></td>
-                </tr>
-            </table>
-        </form>
-    </div>
-    
 </body>
 </html>

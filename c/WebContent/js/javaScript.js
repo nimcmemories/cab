@@ -1,6 +1,13 @@
 // JavaScript Document
-$('document').ready(function(){
+$('document').ready(function(){	
     /*  Top and Sidebar Tab */
+			/* Page Load  */
+	window.onload=loading();
+	function loading(){
+		setTimeout(function(){
+			$('#pageloader').css('display','none');
+		},1000);
+	}	
 	$('.topMenu [class^="tab-"] a').click(function(){
 		topTabDeactive();
 		$(this).addClass('active');
@@ -216,3 +223,4 @@ function topmenuHide(){
 		'autoclose': true
 	});
 	$('.datePairExample').datepair();
+	

@@ -1,7 +1,13 @@
 // JavaScript Document
 
 $('document').ready(function(){
-	
+	/* Page Load  */
+	window.onload=loading();
+	function loading(){
+		setTimeout(function(){
+			$('#pageloader').css('display','none');
+		},1000);
+	}		
 	/* Pop up Form */
 	$('.create_row').click(function(){
 		$('.createPopup_Bg').fadeIn(50);

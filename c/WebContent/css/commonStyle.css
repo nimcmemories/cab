@@ -67,6 +67,9 @@ input[type=password],input[type=date],input[type=file],textarea{
 	outline: 0;
 	background:#FCFCFC;
 }
+input[type="search"]{
+	height:30px;
+}
 select{
 	height:35px;
 	width:103%;
@@ -94,9 +97,6 @@ select:focus,input:focus,textarea:focus{
 input[type="radio"],input[type="checkbox"]{
 	cursor:pointer;
 }
-
-
-
 /*    Button   */
 
 input[type="button"],input[type="reset"],input[type="submit"],button{
@@ -263,30 +263,16 @@ input[type="button"].mini,input[type="submit"].mini,input[type="reset"].mini,but
   bottom: 0;
   right: 0;
 }
-.padding5 {
-  padding: 5px;
-}
-.padding10 {
-  padding: 10px;
-}
-.padding15 {
-  padding: 15px;
-}
-.padding20 {
-  padding: 20px;
-}
-.margin5 {
-  margin: 5px;
-}
-.margin10 {
-  margin: 10px;
-}
-.margin15 {
-  margin: 15px;
-}
-.margin20 {
-  margin: 20px;
-}
+.padding1{padding:1px;}
+.padding2{padding:2px;}
+.padding5{padding: 5px;}
+.padding10{padding: 10px;}
+.padding15{padding: 15px;}
+.padding20{padding: 20px;}
+.margin5{margin: 5px;}
+.margin10{margin: 10px;}
+.margin15{margin: 15px;}
+.margin20{margin: 20px;}
 /* margin 5px */
 .rm5{margin-right:5px;}
 .lm5{margin-left:5px;}
@@ -890,4 +876,7 @@ a{
 }
 .fnt-size22{
 	font-size:22px!important;
+}
+.hover{
+	cursor:pointer;
 }
