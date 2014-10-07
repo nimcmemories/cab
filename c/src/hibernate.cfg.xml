@@ -5,9 +5,9 @@
 
 <session-factory>
 <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cab</property>
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/taxi?zeroDateTimeBehavior=convertToNull</property>
 <property name="hibernate.connection.username">root</property>
-<property name="hibernate.connection.password">root10</property>
+<property name="hibernate.connection.password">nitin</property>
 <property name="hibernate.connection.pool_size">10</property>
 <property name="show_sql">true</property>
 <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -18,7 +18,8 @@
  <property name="hibernate.c3p0.timeout">300</property>
  <property name="hibernate.c3p0.max_statements">50</property>
  <property name="hibernate.c3p0.idle_test_period">3000</property>
- <mapping resource="system.hbm.xml" />
+ <!-- <mapping resource="system.hbm.xml" /> -->
+ <mapping resource="cab.hbm.xml" />
 
 </session-factory>
 </hibernate-configuration>

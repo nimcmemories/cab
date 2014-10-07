@@ -1,0 +1,1749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="hibernate.bean.AirportTaxi" table="airport_taxi" catalog="taxi">
+        <id name="airportTaxiId" type="java.lang.Integer">
+            <column name="airport_taxi_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="perKmRate" class="hibernate.bean.PerKmRate" fetch="select">
+            <column name="per_km_rate_id" not-null="true" />
+        </many-to-one>
+    </class>
+    
+    <class name="hibernate.bean.AirportTransaction" table="airport_transaction" catalog="taxi">
+        <id name="airportTransactionId" type="java.lang.Integer">
+            <column name="airport_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMasterByPickupAreaMasterId" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="pickup_area_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMasterByDropAreaMasterId" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="drop_area_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <property name="date" type="date">
+            <column name="date" length="10" not-null="true" />
+        </property>
+        <property name="pickupTime" type="time">
+            <column name="pickup_time" length="8" not-null="true" />
+        </property>
+        <property name="pickupAddress" type="string">
+            <column name="pickup_address" length="65535" not-null="true" />
+        </property>
+        <property name="dropAddress" type="string">
+            <column name="drop_address" length="65535" not-null="true" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" not-null="true" />
+        </property>
+        <property name="estimateCost" type="double">
+            <column name="estimate_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estimateTime" type="time">
+            <column name="estimate_time" length="8" not-null="true" />
+        </property>
+        <property name="estimateKm" type="double">
+            <column name="estimate_km" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="commitAirportTransactions" table="commit_airport_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="airport_transaction_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitAirportTransaction" />
+        </set>
+    </class>
+    
+    
+     <class name="hibernate.bean.AreaMaster" table="area_master" catalog="taxi">
+        <id name="areaMasterId" type="java.lang.Integer">
+            <column name="area_master_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cityMaster" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="city_master_id" not-null="true" />
+        </many-to-one>
+        <property name="areaName" type="string">
+            <column name="area_name" length="65535" not-null="true" />
+        </property>
+        <property name="longitude" type="string">
+            <column name="longitude" length="65535" not-null="true" />
+        </property>
+        <property name="latitude" type="string">
+            <column name="latitude" length="65535" not-null="true" />
+        </property>
+        <set name="taxiTicketTransactions" table="taxi_ticket_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pickup_area_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.TaxiTicketTransaction" />
+        </set>
+        <set name="airportTransactionsForPickupAreaMasterId" table="airport_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pickup_area_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.AirportTransaction" />
+        </set>
+        <set name="outstationTransactions" table="outstation_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pickup_area_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.OutstationTransaction" />
+        </set>
+        <set name="busTransactionsForDropAreaMasterId" table="bus_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="drop_area_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BusTransaction" />
+        </set>
+        <set name="airportTransactionsForDropAreaMasterId" table="airport_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="drop_area_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.AirportTransaction" />
+        </set>
+        <set name="ptopTransactionsForDropAreaMasterId" table="ptop_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="drop_area_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PtopTransaction" />
+        </set>
+        <set name="bikeTransactions" table="bike_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="area_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BikeTransaction" />
+        </set>
+        <set name="ptopTransactionsForPickupAreaMasterId" table="ptop_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pickup_area_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PtopTransaction" />
+        </set>
+        <set name="caronrentTransactions" table="caronrent_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pickup_area_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CaronrentTransaction" />
+        </set>
+        <set name="busTransactionsForPickupAreaMasterId" table="bus_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pickup_area_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BusTransaction" />
+        </set>
+    </class>
+    
+    
+    <class name="hibernate.bean.BikeDetails" table="bike_details" catalog="taxi">
+        <id name="bikeDetailsId" type="java.lang.Integer">
+            <column name="bike_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <property name="bikeName" type="string">
+            <column name="bike_name" length="45" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" not-null="true" />
+        </property>
+        <property name="perHourRate" type="double">
+            <column name="per_hour_rate" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="perDayRate" type="double">
+            <column name="per_day_rate" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="deposite" type="double">
+            <column name="deposite" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="bikeImagePath" type="string">
+            <column name="bike_image_path" length="65535" not-null="true" />
+        </property>
+        <set name="bikeTransactions" table="bike_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="bike_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BikeTransaction" />
+        </set>
+    </class>
+    
+    
+     <class name="hibernate.bean.BikeTransaction" table="bike_transaction" catalog="taxi">
+        <id name="bikeTransactionId" type="java.lang.Integer">
+            <column name="bike_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bikeDetails" class="hibernate.bean.BikeDetails" fetch="select">
+            <column name="bike_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cityMaster" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="city_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMaster" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="area_id" not-null="true" />
+        </many-to-one>
+        <property name="time" type="time">
+            <column name="time" length="8" not-null="true" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" not-null="true" />
+        </property>
+        <property name="estimateCost" type="double">
+            <column name="estimate_cost" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+    
+    
+     <class name="hibernate.bean.BusDetails" table="bus_details" catalog="taxi">
+        <id name="busDetailsId" type="java.lang.Integer">
+            <column name="bus_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="busType" class="hibernate.bean.BusType" fetch="select">
+            <column name="bus_type_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <property name="busTittle" type="string">
+            <column name="bus_tittle" length="20" not-null="true" />
+        </property>
+        <property name="noOfSeat" type="int">
+            <column name="no_of_seat" not-null="true" />
+        </property>
+        <property name="perKmRate" type="int">
+            <column name="per_km_rate" not-null="true" />
+        </property>
+        <property name="waitingChargeHour" type="int">
+            <column name="waiting_charge_hour" not-null="true" />
+        </property>
+        <property name="busImage" type="string">
+            <column name="bus_image" length="65535" not-null="true" />
+        </property>
+        <property name="busNumber" type="string">
+            <column name="bus_number" length="20" not-null="true" />
+        </property>
+        <property name="enableForTicker" type="byte">
+            <column name="enable_for_ticker" not-null="true" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" not-null="true" />
+        </property>
+    </class>
+    
+     <class name="hibernate.bean.BusTransaction" table="bus_transaction" catalog="taxi">
+        <id name="busTransactionId" type="java.lang.Integer">
+            <column name="bus_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cityMasterByDestinationCityId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="destination_city_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMasterByPickupAreaMasterId" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="pickup_area_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cityMasterBySouceCityId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="souce_city_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMasterByDropAreaMasterId" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="drop_area_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <property name="pickupTime" type="time">
+            <column name="pickup_time" length="8" not-null="true" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="10" not-null="true" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" not-null="true" />
+        </property>
+        <property name="estimateKm" type="double">
+            <column name="estimate_km" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estimateCost" type="double">
+            <column name="estimate_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estimateTime" type="time">
+            <column name="estimate_time" length="8" not-null="true" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.BusType" table="bus_type" catalog="taxi">
+        <id name="busTypeId" type="java.lang.Integer">
+            <column name="bus_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="busType" type="string">
+            <column name="bus_type" length="20" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" not-null="true" />
+        </property>
+        <set name="busDetailses" table="bus_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="bus_type_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BusDetails" />
+        </set>
+    </class>
+    
+     <class name="hibernate.bean.CaronrentTransaction" table="caronrent_transaction" catalog="taxi">
+        <id name="carOnRentId" type="java.lang.Integer">
+            <column name="car_on_rent_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMaster" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="pickup_area_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perHourRate" class="hibernate.bean.PerHourRate" fetch="select">
+            <column name="per_hour_rate_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perKmRate" class="hibernate.bean.PerKmRate" fetch="select">
+            <column name="per_km_rate_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perDayRate" class="hibernate.bean.PerDayRate" fetch="select">
+            <column name="per_day_rate_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <property name="pickupAddress" type="string">
+            <column name="pickup_address" length="65535" not-null="true" />
+        </property>
+        <property name="pickupTime" type="time">
+            <column name="pickup_time" length="8" not-null="true" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="10" not-null="true" />
+        </property>
+        <property name="estimateKm" type="double">
+            <column name="estimate_km" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estimateCost" type="double">
+            <column name="estimate_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" not-null="true" />
+        </property>
+    </class>
+    
+    
+    <class name="hibernate.bean.CityMaster" table="city_master" catalog="taxi">
+        <id name="cityMasterId" type="java.lang.Integer">
+            <column name="city_master_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="stateMaster" class="hibernate.bean.StateMaster" fetch="select">
+            <column name="state_master_id" not-null="true" />
+        </many-to-one>
+        <property name="cityName" type="string">
+            <column name="city_name" length="45" not-null="true" />
+        </property>
+        <property name="latitude" type="string">
+            <column name="latitude" length="65535" not-null="true" />
+        </property>
+        <property name="longitute" type="string">
+            <column name="longitute" length="65535" not-null="true" />
+        </property>
+        <set name="taxiTicketTransactionsForEndCityMasterId" table="taxi_ticket_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="end__city_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.TaxiTicketTransaction" />
+        </set>
+        <set name="taxiTicketTransactionsForStartCityMasterId" table="taxi_ticket_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="start_city_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.TaxiTicketTransaction" />
+        </set>
+        <set name="moversTransactionsForStartCityId" table="movers_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="start_city_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversTransaction" />
+        </set>
+        <set name="moversTransactionsForEndCityId" table="movers_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="end_city_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversTransaction" />
+        </set>
+        <set name="bikeTransactions" table="bike_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="city_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BikeTransaction" />
+        </set>
+        <set name="shippingTransactionsForEndCityId" table="shipping_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="end_city_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.ShippingTransaction" />
+        </set>
+        <set name="shippingTransactionsForStartCityId" table="shipping_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="start_city_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.ShippingTransaction" />
+        </set>
+        <set name="busTransactionsForSouceCityId" table="bus_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="souce_city_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BusTransaction" />
+        </set>
+        <set name="outstationTransactionsForEndCityMasterId" table="outstation_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="end_city_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.OutstationTransaction" />
+        </set>
+        <set name="outstationTransactionsForStartCityMasterId" table="outstation_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="start_city_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.OutstationTransaction" />
+        </set>
+        <set name="busTransactionsForDestinationCityId" table="bus_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="destination_city_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BusTransaction" />
+        </set>
+        <set name="placeMasters" table="place_master" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="city_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PlaceMaster" />
+        </set>
+        <set name="areaMasters" table="area_master" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="city_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.AreaMaster" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.CommitAirportTransaction" table="commit_airport_transaction" catalog="taxi">
+        <id name="commitAirportTransactionId" type="java.lang.Integer">
+            <column name="commit_airport_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="driverDetails" class="hibernate.bean.DriverDetails" fetch="select">
+            <column name="driver_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="airportTransaction" class="hibernate.bean.AirportTransaction" fetch="select">
+            <column name="airport_transaction_id" not-null="true" />
+        </many-to-one>
+        <property name="totalTime" type="double">
+            <column name="total_time" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="totalCost" type="double">
+            <column name="total_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="commitTime" type="timestamp">
+            <column name="commit_time" length="19" not-null="true" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.CommitBusTransaction" table="commit_bus_transaction" catalog="taxi">
+        <id name="commitBusTransaction" type="java.lang.Integer">
+            <column name="commit_bus_transaction" />
+            <generator class="identity" />
+        </id>
+        <property name="busTransactionId" type="int">
+            <column name="bus_transaction_id" not-null="true" />
+        </property>
+    </class>
+    
+     <class name="hibernate.bean.CommitMoversTransaction" table="commit_movers_transaction" catalog="taxi">
+        <id name="commitMoversTransactionId" type="java.lang.Integer">
+            <column name="commit_movers_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="moversTransaction" class="hibernate.bean.MoversTransaction" fetch="select">
+            <column name="movers_transaction_id" not-null="true" />
+        </many-to-one>
+        <property name="totalTime" type="double">
+            <column name="total_time" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="totalCost" type="double">
+            <column name="total_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="commitTime" type="timestamp">
+            <column name="commit_time" length="19" not-null="true" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.CommitOutstationTransaction" table="commit_outstation_transaction" catalog="taxi">
+        <id name="commitOutstationTransactionId" type="java.lang.Integer">
+            <column name="commit_outstation_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="outstationTransaction" class="hibernate.bean.OutstationTransaction" fetch="select">
+            <column name="outstation_transaction_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="driverDetails" class="hibernate.bean.DriverDetails" fetch="select">
+            <column name="driver_details_id" not-null="true" />
+        </many-to-one>
+        <property name="totalTime" type="double">
+            <column name="total_time" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="totalCost" type="double">
+            <column name="total_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="commitTime" type="timestamp">
+            <column name="commit_time" length="19" not-null="true" />
+        </property>
+    </class>
+    
+     <class name="hibernate.bean.CommitPackageTransaction" table="commit_package_transaction" catalog="taxi">
+        <id name="commitPackageTransactionId" type="java.lang.Integer">
+            <column name="commit_package_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="driverDetails" class="hibernate.bean.DriverDetails" fetch="select">
+            <column name="driver_details_id" not-null="true" />
+        </many-to-one>
+        <property name="packageTransactionId" type="int">
+            <column name="package_transaction_id" not-null="true" />
+        </property>
+        <property name="totalTime" type="double">
+            <column name="total_time" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="totalCost" type="double">
+            <column name="total_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="commitTime" type="timestamp">
+            <column name="commit_time" length="19" not-null="true" />
+        </property>
+    </class>
+    <class name="hibernate.bean.CommitPtopTransaction" table="commit_ptop_transaction" catalog="taxi">
+        <id name="commitPtopTransactionId" type="java.lang.Integer">
+            <column name="commit_ptop_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="ptopTransaction" class="hibernate.bean.PtopTransaction" fetch="select">
+            <column name="ptop_transaction_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="driverDetails" class="hibernate.bean.DriverDetails" fetch="select">
+            <column name="driver_details_id" not-null="true" />
+        </many-to-one>
+        <property name="totalCost" type="double">
+            <column name="total_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="totalTime" type="double">
+            <column name="total_time" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="commitTime" type="timestamp">
+            <column name="commit_time" length="19" not-null="true" />
+        </property>
+    </class>
+     <class name="hibernate.bean.CommitShippingTransaction" table="commit_shipping_transaction" catalog="taxi">
+        <id name="commitShippingTransactionId" type="java.lang.Integer">
+            <column name="commit_shipping_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="driverDetails" class="hibernate.bean.DriverDetails" fetch="select">
+            <column name="driver_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="shippingTransaction" class="hibernate.bean.ShippingTransaction" fetch="select">
+            <column name="shipping_transaction_id" not-null="true" />
+        </many-to-one>
+        <property name="totalTime" type="double">
+            <column name="total_time" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="totalCost" type="double">
+            <column name="total_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="commitTime" type="timestamp">
+            <column name="commit_time" length="19" not-null="true" />
+        </property>
+    </class>
+    <class name="hibernate.bean.CommitTaxiTicketTransaction" table="commit_taxi_ticket_transaction" catalog="taxi">
+        <id name="commitTaxiTicketTransaction" type="java.lang.Integer">
+            <column name="commit_taxi_ticket_transaction" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="driverDetails" class="hibernate.bean.DriverDetails" fetch="select">
+            <column name="driver_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="taxiTicketTransaction" class="hibernate.bean.TaxiTicketTransaction" fetch="select">
+            <column name="taxi_ticket_transaction_id" not-null="true" />
+        </many-to-one>
+        <property name="totalTime" type="double">
+            <column name="total_time" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="totalCost" type="double">
+            <column name="total_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="commitTime" type="timestamp">
+            <column name="commit_time" length="19" not-null="true" />
+        </property>
+    </class>
+    
+    
+    <class name="hibernate.bean.CustomerLoginDetails" table="customer_login_details" catalog="taxi">
+        <id name="customerLoginId" type="java.lang.Integer">
+            <column name="customer_login_id" />
+            <generator class="identity" />
+        </id>
+        <timestamp name="timestamp" column="timestamp" />
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <property name="ip" type="string">
+            <column name="ip" length="65535" not-null="true" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" length="65535" not-null="true" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.CustomerRegistration" table="customer_registration" catalog="taxi">
+        <id name="customerRegistrationId" type="java.lang.Integer">
+            <column name="customer_registration_id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="65535" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="65535" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="65535" not-null="true" />
+        </property>
+        <property name="mobileNo" type="string">
+            <column name="mobile_no" length="65535" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="65535" not-null="true" />
+        </property>
+        <set name="busTransactions" table="bus_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BusTransaction" />
+        </set>
+        <set name="airportTransactions" table="airport_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.AirportTransaction" />
+        </set>
+        <set name="ptopTransactions" table="ptop_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PtopTransaction" />
+        </set>
+        <set name="caronrentTransactions" table="caronrent_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CaronrentTransaction" />
+        </set>
+        <set name="outstationTransactions" table="outstation_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.OutstationTransaction" />
+        </set>
+        <set name="partnerRatingDetailses" table="partner_rating_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PartnerRatingDetails" />
+        </set>
+        <set name="moversTransactions" table="movers_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversTransaction" />
+        </set>
+        <set name="customerLoginDetailses" table="customer_login_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CustomerLoginDetails" />
+        </set>
+        <set name="bikeTransactions" table="bike_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BikeTransaction" />
+        </set>
+        <set name="shippingTransactions" table="shipping_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_registration_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.ShippingTransaction" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.DeviceDetails" table="device_details" catalog="taxi">
+        <id name="deviceDetailsId" type="java.lang.Integer">
+            <column name="device_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <property name="location" type="string">
+            <column name="location" length="65535" not-null="true" />
+        </property>
+        <set name="deviceLocations" table="device_location" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="device_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.DeviceLocation" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.DeviceLocation" table="device_location" catalog="taxi">
+        <id name="deviceLocationId" type="java.lang.Integer">
+            <column name="device_location_id" />
+            <generator class="identity" />
+        </id>
+        <timestamp name="timestamp" column="timestamp" />
+        <many-to-one name="deviceDetails" class="hibernate.bean.DeviceDetails" fetch="select">
+            <column name="device_details_id" not-null="true" />
+        </many-to-one>
+        <property name="longitude" type="string">
+            <column name="longitude" length="65535" not-null="true" />
+        </property>
+        <property name="latitude" type="string">
+            <column name="latitude" length="65535" not-null="true" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.DriverDetails" table="driver_details" catalog="taxi">
+        <id name="driverDetailsId" type="java.lang.Integer">
+            <column name="driver_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="first_name" length="20" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="20" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="30" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="65535" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="65535" not-null="true" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="65535" not-null="true" />
+        </property>
+        <property name="drivingLicenceNo" type="string">
+            <column name="driving_licence_no" length="30" not-null="true" />
+        </property>
+        <property name="electionCardNo" type="string">
+            <column name="election_card_no" length="30" not-null="true" />
+        </property>
+        <property name="lightBillNo" type="string">
+            <column name="light_bill_no" length="30" not-null="true" />
+        </property>
+        <property name="panCardNo" type="string">
+            <column name="pan_card_no" length="30" not-null="true" />
+        </property>
+        <property name="mobileNo" type="string">
+            <column name="mobile_no" length="15" not-null="true" />
+        </property>
+        <property name="registrationNo" type="string">
+            <column name="registration_no" length="30" not-null="true" />
+        </property>
+        <set name="commitAirportTransactions" table="commit_airport_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="driver_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitAirportTransaction" />
+        </set>
+        <set name="commitShippingTransactions" table="commit_shipping_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="driver_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitShippingTransaction" />
+        </set>
+        <set name="commitOutstationTransactions" table="commit_outstation_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="driver_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitOutstationTransaction" />
+        </set>
+        <set name="commitTaxiTicketTransactions" table="commit_taxi_ticket_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="driver_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitTaxiTicketTransaction" />
+        </set>
+        <set name="commitPtopTransactions" table="commit_ptop_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="driver_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitPtopTransaction" />
+        </set>
+        <set name="commitPackageTransactions" table="commit_package_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="driver_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitPackageTransaction" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.GoodsType" table="goods_type" catalog="taxi">
+        <id name="goodsTypeId" type="java.lang.Integer">
+            <column name="goods_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="goodsType" type="string">
+            <column name="goods_type" length="45" not-null="true" />
+        </property>
+        <set name="shippingTransactions" table="shipping_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="goods_type_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.ShippingTransaction" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.LogisticType" table="logistic_type" catalog="taxi">
+        <id name="logisticTypeId" type="java.lang.Integer">
+            <column name="logistic_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="logisticType" type="string">
+            <column name="logistic_type" length="25" not-null="true" />
+        </property>
+        <set name="moversTransactions" table="movers_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="logistic_type_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversTransaction" />
+        </set>
+    </class>
+    
+     <class name="hibernate.bean.MoversRate" table="movers_rate" catalog="taxi">
+        <id name="moversRateId" type="java.lang.Integer">
+            <column name="movers_rate_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="perKgRate" class="hibernate.bean.PerKgRate" fetch="select">
+            <column name="per_kg_rate_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perKmRate" class="hibernate.bean.PerKmRate" fetch="select">
+            <column name="per_km_rate_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <set name="moversTransactions" table="movers_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="movers_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversTransaction" />
+        </set>
+    </class>
+    
+     <class name="hibernate.bean.MoversTransaction" table="movers_transaction" catalog="taxi">
+        <id name="moversTransactionId" type="java.lang.Integer">
+            <column name="movers_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cityMasterByStartCityId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="start_city_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cityMasterByEndCityId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="end_city_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="shippingType" class="hibernate.bean.ShippingType" fetch="select">
+            <column name="shipping_type_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="moversRate" class="hibernate.bean.MoversRate" fetch="select">
+            <column name="movers_rate_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="logisticType" class="hibernate.bean.LogisticType" fetch="select">
+            <column name="logistic_type_id" not-null="true" />
+        </many-to-one>
+        <property name="date" type="date">
+            <column name="date" length="10" not-null="true" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="time" length="19" not-null="true" />
+        </property>
+        <property name="estimateKm" type="string">
+            <column name="estimate_km" length="20" not-null="true" />
+        </property>
+        <property name="estimateCost" type="double">
+            <column name="estimate_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="pickupAddress" type="string">
+            <column name="pickup_address" length="65535" not-null="true" />
+        </property>
+        <property name="dropAddress" type="string">
+            <column name="drop_address" length="65535" not-null="true" />
+        </property>
+        <set name="commitMoversTransactions" table="commit_movers_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="movers_transaction_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitMoversTransaction" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.OutstationTransaction" table="outstation_transaction" catalog="taxi">
+        <id name="outstationTransactionId" type="java.lang.Integer">
+            <column name="outstation_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cityMasterByEndCityMasterId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="end_city_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMaster" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="pickup_area_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cityMasterByStartCityMasterId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="start_city_master_id" not-null="true" />
+        </many-to-one>
+        <property name="date" type="date">
+            <column name="date" length="10" not-null="true" />
+        </property>
+        <property name="pickupAddress" type="string">
+            <column name="pickup_address" length="65535" not-null="true" />
+        </property>
+        <property name="pickupTime" type="time">
+            <column name="pickup_time" length="8" not-null="true" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" not-null="true" />
+        </property>
+        <property name="estimateCost" type="double">
+            <column name="estimate_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estimateTime" type="time">
+            <column name="estimate_time" length="8" not-null="true" />
+        </property>
+        <property name="estimateKm" type="double">
+            <column name="estimate_km" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="viaCityMasterId" type="string">
+            <column name="via_city_master_id" length="65535" not-null="true" />
+        </property>
+        <set name="commitOutstationTransactions" table="commit_outstation_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="outstation_transaction_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitOutstationTransaction" />
+        </set>
+    </class>
+     <class name="hibernate.bean.PackageTaxi" table="package_taxi" catalog="taxi">
+        <id name="packageTaxiId" type="java.lang.Integer">
+            <column name="package_taxi_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="perKmRate" class="hibernate.bean.PerKmRate" fetch="select">
+            <column name="per_km_rate_id" not-null="true" />
+        </many-to-one>
+    </class>
+    <class name="hibernate.bean.PartnerAccountDetails" table="partner_account_details" catalog="taxi">
+        <id name="partnerAccountId" type="java.lang.Integer">
+            <column name="partner_account_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+    </class>
+    
+    <class name="hibernate.bean.PartnerDetails" table="partner_details" catalog="taxi">
+        <id name="partnerDetailsId" type="java.lang.Integer">
+            <column name="partner_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="partnerType" class="hibernate.bean.PartnerType" fetch="select">
+            <column name="partner_type_id" not-null="true" />
+        </many-to-one>
+        <property name="partnerTittle" type="string">
+            <column name="partner_tittle" length="65535" not-null="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="first_name" length="65535" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="65535" not-null="true" />
+        </property>
+        <property name="partnerMobile" type="string">
+            <column name="partner_mobile" length="65535" not-null="true" />
+        </property>
+        <property name="partnerEmail" type="string">
+            <column name="partner_email" length="65535" not-null="true" />
+        </property>
+        <property name="partnerPassword" type="string">
+            <column name="partner_password" length="65535" not-null="true" />
+        </property>
+        <property name="partnerAddress" type="string">
+            <column name="partner_address" length="65535" not-null="true" />
+        </property>
+        <set name="ptopTransactions" table="ptop_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PtopTransaction" />
+        </set>
+        <set name="moversRates" table="movers_rate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversRate" />
+        </set>
+        <set name="partnerAccountDetailses" table="partner_account_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PartnerAccountDetails" />
+        </set>
+        <set name="bikeTransactions" table="bike_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BikeTransaction" />
+        </set>
+        <set name="busDetailses" table="bus_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BusDetails" />
+        </set>
+        <set name="taxiDetailses" table="taxi_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.TaxiDetails" />
+        </set>
+        <set name="shippingTransactions" table="shipping_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.ShippingTransaction" />
+        </set>
+        <set name="driverDetailses" table="driver_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.DriverDetails" />
+        </set>
+        <set name="bikeDetailses" table="bike_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BikeDetails" />
+        </set>
+        <set name="partnerRatingDetailses" table="partner_rating_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PartnerRatingDetails" />
+        </set>
+        <set name="busTransactions" table="bus_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.BusTransaction" />
+        </set>
+        <set name="caronrentTransactions" table="caronrent_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CaronrentTransaction" />
+        </set>
+        <set name="outstationTransactions" table="outstation_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.OutstationTransaction" />
+        </set>
+        <set name="airportTransactions" table="airport_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.AirportTransaction" />
+        </set>
+        <set name="shippingVehicleDetailses" table="shipping_vehicle_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.ShippingVehicleDetails" />
+        </set>
+        <set name="perKgRates" table="per_kg_rate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PerKgRate" />
+        </set>
+        <set name="moversTransactions" table="movers_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversTransaction" />
+        </set>
+    </class>
+    <class name="hibernate.bean.PartnerRatingDetails" table="partner_rating_details" catalog="taxi">
+        <id name="partnerRatingDetailsId" type="java.lang.Integer">
+            <column name="partner_rating_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <property name="rating" type="java.lang.Byte">
+            <column name="rating" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="65535" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.PartnerType" table="partner_type" catalog="taxi">
+        <id name="partnerTypeId" type="java.lang.Integer">
+            <column name="partner_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="partnerType" type="string">
+            <column name="partner_type" length="45" not-null="true" />
+        </property>
+        <set name="partnerDetailses" table="partner_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="partner_type_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PartnerDetails" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.PerDayRate" table="per_day_rate" catalog="taxi">
+        <id name="perDayRateId" type="java.lang.Integer">
+            <column name="per_day_rate_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <property name="ratePerDay" type="double">
+            <column name="rate_per_day" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="caronrentTransactions" table="caronrent_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="per_day_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CaronrentTransaction" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.PerHourRate" table="per_hour_rate" catalog="taxi">
+        <id name="perHourRateId" type="java.lang.Integer">
+            <column name="per_hour_rate_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <property name="ratePerHour" type="double">
+            <column name="rate_per_hour" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="caronrentTransactions" table="caronrent_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="per_hour_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CaronrentTransaction" />
+        </set>
+    </class>
+    
+     <class name="hibernate.bean.PerKgRate" table="per_kg_rate" catalog="taxi">
+        <id name="perKgRateId" type="java.lang.Integer">
+            <column name="per_kg_rate_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <property name="perKgRate" type="string">
+            <column name="per_kg_rate" length="20" not-null="true" />
+        </property>
+        <set name="moversRates" table="movers_rate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="per_kg_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversRate" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.PerKmRate" table="per_km_rate" catalog="taxi">
+        <id name="perKmRateId" type="java.lang.Integer">
+            <column name="per_km_rate_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="taxiType" class="hibernate.bean.TaxiType" fetch="select">
+            <column name="taxi_type_id" not-null="true" />
+        </many-to-one>
+        <property name="ratePerKm" type="double">
+            <column name="rate_per_km" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="minRate" type="double">
+            <column name="min_rate" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="waitingCharge" type="double">
+            <column name="waiting_charge" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="driverCost" type="double">
+            <column name="driver_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="packageTaxis" table="package_taxi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="per_km_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PackageTaxi" />
+        </set>
+        <set name="tourTaxis" table="tour_taxi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="per_km_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.TourTaxi" />
+        </set>
+        <set name="moversRates" table="movers_rate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="per_km_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversRate" />
+        </set>
+        <set name="ptopTaxis" table="ptop_taxi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="per_km_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PtopTaxi" />
+        </set>
+        <set name="caronrentTransactions" table="caronrent_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="per_km_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CaronrentTransaction" />
+        </set>
+        <set name="airportTaxis" table="airport_taxi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="per_km_rate_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.AirportTaxi" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.PlaceMaster" table="place_master" catalog="taxi">
+        <id name="placeMasterId" type="java.lang.Integer">
+            <column name="place_master_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cityMaster" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="city_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="stateMaster" class="hibernate.bean.StateMaster" fetch="select">
+            <column name="state_master_id" not-null="true" />
+        </many-to-one>
+        <property name="placeName" type="string">
+            <column name="place_name" length="65535" not-null="true" />
+        </property>
+        <property name="longitude" type="string">
+            <column name="longitude" length="65535" />
+        </property>
+        <property name="latitude" type="string">
+            <column name="latitude" length="65535" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.PtopTaxi" table="ptop_taxi" catalog="taxi">
+        <id name="ptopTaxiId" type="java.lang.Integer">
+            <column name="ptop_taxi_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="perKmRate" class="hibernate.bean.PerKmRate" fetch="select">
+            <column name="per_km_rate_id" not-null="true" />
+        </many-to-one>
+    </class>
+    
+    <class name="hibernate.bean.PtopTransaction" table="ptop_transaction" catalog="taxi">
+        <id name="ptopTransactionId" type="java.lang.Integer">
+            <column name="ptop_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMasterByPickupAreaMasterId" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="pickup_area_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMasterByDropAreaMasterId" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="drop_area_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <property name="date" type="date">
+            <column name="date" length="10" not-null="true" />
+        </property>
+        <property name="pickupTime" type="time">
+            <column name="pickup_time" length="8" not-null="true" />
+        </property>
+        <property name="pickupAddress" type="string">
+            <column name="pickup_address" length="65535" not-null="true" />
+        </property>
+        <property name="dropAddress" type="string">
+            <column name="drop_address" length="65535" not-null="true" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" not-null="true" />
+        </property>
+        <property name="estimateKm" type="double">
+            <column name="estimate_km" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estimateTime" type="time">
+            <column name="estimate_time" length="8" not-null="true" />
+        </property>
+        <property name="estimateCost" type="double">
+            <column name="estimate_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="commitPtopTransactions" table="commit_ptop_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ptop_transaction_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitPtopTransaction" />
+        </set>
+    </class>
+    
+     <class name="hibernate.bean.ShippingTransaction" table="shipping_transaction" catalog="taxi">
+        <id name="shippingTransactionId" type="java.lang.Integer">
+            <column name="shipping_transaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="goodsType" class="hibernate.bean.GoodsType" fetch="select">
+            <column name="goods_type_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cityMasterByStartCityId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="start_city_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cityMasterByEndCityId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="end_city_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerRegistration" class="hibernate.bean.CustomerRegistration" fetch="select">
+            <column name="customer_registration_id" not-null="true" />
+        </many-to-one>
+        <property name="date" type="date">
+            <column name="date" length="10" not-null="true" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="time" length="19" not-null="true" />
+        </property>
+        <property name="estimateKm" type="double">
+            <column name="estimate_km" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estimateCost" type="double">
+            <column name="estimate_cost" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="weight" type="double">
+            <column name="weight" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="startAddress" type="string">
+            <column name="start_address" length="65535" not-null="true" />
+        </property>
+        <property name="dropAddress" type="string">
+            <column name="drop_address" length="65535" not-null="true" />
+        </property>
+        <property name="driverDetailsId" type="int">
+            <column name="driver_details_id" not-null="true" />
+        </property>
+        <set name="commitShippingTransactions" table="commit_shipping_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="shipping_transaction_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitShippingTransaction" />
+        </set>
+    </class>
+    
+     <class name="hibernate.bean.ShippingType" table="shipping_type" catalog="taxi">
+        <id name="shippingTypeId" type="java.lang.Integer">
+            <column name="shipping_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="shippingType" type="string">
+            <column name="shipping_type" length="20" not-null="true" />
+        </property>
+        <set name="moversTransactions" table="movers_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="shipping_type_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.MoversTransaction" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.ShippingVehicleDetails" table="shipping_vehicle_details" catalog="taxi">
+        <id name="shippingVehicleDetailsId" type="java.lang.Integer">
+            <column name="shipping_vehicle_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="shippingVehicleType" class="hibernate.bean.ShippingVehicleType" fetch="select">
+            <column name="shipping_vehicle_type_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="shippingVehicleNo" type="string">
+            <column name="shipping_vehicle_no" length="45" not-null="true" />
+        </property>
+        <property name="capacity" type="int">
+            <column name="capacity" not-null="true" />
+        </property>
+        <property name="perKmRate" type="double">
+            <column name="per_km_rate" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="perKgRate" type="double">
+            <column name="per_kg_rate" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="shippingVehicleImage" type="string">
+            <column name="shipping_vehicle_image" length="65535" />
+        </property>
+        <property name="perDayRate" type="java.lang.Double">
+            <column name="per_day_rate" precision="22" scale="0" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.ShippingVehicleType" table="shipping_vehicle_type" catalog="taxi">
+        <id name="shippingVehicleTypeId" type="java.lang.Integer">
+            <column name="shipping_vehicle_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="shippingVehicleType" type="string">
+            <column name="shipping_vehicle_type" length="20" not-null="true" />
+        </property>
+        <set name="shippingVehicleDetailses" table="shipping_vehicle_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="shipping_vehicle_type_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.ShippingVehicleDetails" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.StateMaster" table="state_master" catalog="taxi">
+        <id name="stateMasterId" type="java.lang.Integer">
+            <column name="state_master_id" />
+            <generator class="identity" />
+        </id>
+        <property name="stateName" type="string">
+            <column name="state_name" length="65535" not-null="true" />
+        </property>
+        <set name="cityMasters" table="city_master" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="state_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CityMaster" />
+        </set>
+        <set name="placeMasters" table="place_master" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="state_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PlaceMaster" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.TaxiAmenities" table="taxi_amenities" catalog="taxi">
+        <id name="taxiAmenitiesId" type="java.lang.Integer">
+            <column name="taxi_amenities_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <property name="isAc" type="boolean">
+            <column name="is_ac" not-null="true" />
+        </property>
+        <property name="isMovie" type="boolean">
+            <column name="is_movie" not-null="true" />
+        </property>
+        <property name="isMusic" type="boolean">
+            <column name="is_music" not-null="true" />
+        </property>
+        <property name="isCharger" type="boolean">
+            <column name="is_charger" not-null="true" />
+        </property>
+        <property name="isWifi" type="boolean">
+            <column name="is_wifi" not-null="true" />
+        </property>
+        <property name="isNewspaper" type="boolean">
+            <column name="is_newspaper" not-null="true" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.TaxiAvailability" table="taxi_availability" catalog="taxi">
+        <id name="taxiAvailabilityId" type="java.lang.Integer">
+            <column name="taxi_availability_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <property name="forPtop" type="byte">
+            <column name="for_ptop" not-null="true" />
+        </property>
+        <property name="forPackage" type="byte">
+            <column name="for_package" not-null="true" />
+        </property>
+        <property name="forOutstation" type="byte">
+            <column name="for_outstation" not-null="true" />
+        </property>
+        <property name="forAirport" type="byte">
+            <column name="for_airport" not-null="true" />
+        </property>
+        <property name="forTaxiticket" type="byte">
+            <column name="for_taxiticket" not-null="true" />
+        </property>
+        <property name="forCaronrent" type="byte">
+            <column name="for_caronrent" not-null="true" />
+        </property>
+    </class>
+    
+    <class name="hibernate.bean.TaxiDetails" table="taxi_details" catalog="taxi">
+        <id name="taxiDetailsId" type="java.lang.Integer">
+            <column name="taxi_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiType" class="hibernate.bean.TaxiType" fetch="select">
+            <column name="taxi_type_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="partnerDetails" class="hibernate.bean.PartnerDetails" fetch="select">
+            <column name="partner_details_id" not-null="true" />
+        </many-to-one>
+        <property name="taxiName" type="string">
+            <column name="taxi_name" length="65535" not-null="true" />
+        </property>
+        <property name="taxiNumber" type="string">
+            <column name="taxi_number" length="65535" not-null="true" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" />
+        </property>
+        <property name="imgPath" type="string">
+            <column name="img_path" length="65535" />
+        </property>
+        <property name="enableForTicket" type="boolean">
+            <column name="enable_for_ticket" not-null="true" />
+        </property>
+        <set name="taxiTicketTransactions" table="taxi_ticket_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.TaxiTicketTransaction" />
+        </set>
+        <set name="ptopTransactions" table="ptop_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PtopTransaction" />
+        </set>
+        <set name="outstationTransactions" table="outstation_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.OutstationTransaction" />
+        </set>
+        <set name="taxiAmenitieses" table="taxi_amenities" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.TaxiAmenities" />
+        </set>
+        <set name="taxiAvailabilities" table="taxi_availability" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.TaxiAvailability" />
+        </set>
+        <set name="airportTransactions" table="airport_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.AirportTransaction" />
+        </set>
+        <set name="perDayRates" table="per_day_rate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PerDayRate" />
+        </set>
+        <set name="perHourRates" table="per_hour_rate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PerHourRate" />
+        </set>
+        <set name="deviceDetailses" table="device_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.DeviceDetails" />
+        </set>
+        <set name="caronrentTransactions" table="caronrent_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CaronrentTransaction" />
+        </set>
+        <set name="perKmRates" table="per_km_rate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_details_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PerKmRate" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.TaxiTicketTransaction" table="taxi_ticket_transaction" catalog="taxi">
+        <id name="taxiTicketTrasactionId" type="java.lang.Integer">
+            <column name="taxi_ticket_trasaction_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="taxiDetails" class="hibernate.bean.TaxiDetails" fetch="select">
+            <column name="taxi_details_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cityMasterByEndCityMasterId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="end__city_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaMaster" class="hibernate.bean.AreaMaster" fetch="select">
+            <column name="pickup_area_master_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cityMasterByStartCityMasterId" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="start_city_master_id" not-null="true" />
+        </many-to-one>
+        <property name="seatAvailable" type="int">
+            <column name="seat_available" not-null="true" />
+        </property>
+        <property name="pickupTime" type="time">
+            <column name="pickup_time" length="8" not-null="true" />
+        </property>
+        <property name="pickupAddress" type="string">
+            <column name="pickup_address" length="65535" not-null="true" />
+        </property>
+        <set name="commitTaxiTicketTransactions" table="commit_taxi_ticket_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_ticket_transaction_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.CommitTaxiTicketTransaction" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.TaxiType" table="taxi_type" catalog="taxi">
+        <id name="taxiTypeId" type="java.lang.Integer">
+            <column name="taxi_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="taxiType" type="string">
+            <column name="taxi_type" length="65535" not-null="true" />
+        </property>
+        <property name="seat" type="int">
+            <column name="seat" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" not-null="true" />
+        </property>
+        <property name="maxPassengerAllow" type="int">
+            <column name="max_passenger_allow" not-null="true" />
+        </property>
+        <set name="perKmRates" table="per_km_rate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_type_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.PerKmRate" />
+        </set>
+        <set name="taxiDetailses" table="taxi_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="taxi_type_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.TaxiDetails" />
+        </set>
+    </class>
+    
+    <class name="hibernate.bean.TourTaxi" table="tour_taxi" catalog="taxi">
+        <id name="tourTaxiId" type="java.lang.Integer">
+            <column name="tour_taxi_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="perKmRate" class="hibernate.bean.PerKmRate" fetch="select">
+            <column name="per_km_rate_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

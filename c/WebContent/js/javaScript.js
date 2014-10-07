@@ -212,15 +212,17 @@ function topmenuHide(){
 	$('.taxi-section').hide();
 	$('.bus-section').hide();
 }
-<!-- Time Picker -->
+//<!-- Time Picker -->
 	$(function() {
    		$('.timeformatExample1').timepicker({ 'timeFormat': 'H:i:s', constrainInput: false });
         $('.timeformatExample2').timepicker({ 'timeFormat': 'h:i A' , constrainInput: false});
 	});
-<!-- Date Picker  -->        
+//<!-- Date Picker  -->        
 	$('.datePairExample').datepicker({
 		'format': 'd/m/yyyy',
-		'autoclose': true
+		'autoclose': true,
+		 startDate: '+0d',
+		 endDate: '+15d'
 	});
 	$('.datePairExample').datepair();
 	
