@@ -1640,3 +1640,107 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2014-10-01 12:59:09
+
+
+DROP TABLE IF EXISTS `cbentity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cbentity` (
+  `entityid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `profiledetailid` bigint(20) NOT NULL,
+  PRIMARY KEY (`entityid`),
+  UNIQUE KEY `name_UNIQUE` (`name`),
+  KEY `fk_cbentity_1_idx` (`profiledetailid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cbentity`
+--
+
+LOCK TABLES `cbentity` WRITE;
+/*!40000 ALTER TABLE `cbentity` DISABLE KEYS */;
+INSERT INTO `cbentity` VALUES (1,'system_manager','system manager entity is only for cbsuper profile ',0),(2,'reservation','book/reserve service.',1);
+/*!40000 ALTER TABLE `cbentity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cbevents`
+--
+
+DROP TABLE IF EXISTS `cbevents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cbevents` (
+  `eventid` int(11) NOT NULL AUTO_INCREMENT,
+  `eventtype` int(11) NOT NULL,
+  `helperid` int(11) NOT NULL,
+  PRIMARY KEY (`eventid`),
+  KEY `fk_cbevents_1_idx` (`helperid`),
+  CONSTRAINT `fk_cbevents_1` FOREIGN KEY (`helperid`) REFERENCES `cbhelpers` (`helperid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cbevents`
+--
+
+LOCK TABLES `cbevents` WRITE;
+/*!40000 ALTER TABLE `cbevents` DISABLE KEYS */;
+INSERT INTO `cbevents` VALUES (1,1,1);
+/*!40000 ALTER TABLE `cbevents` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cbhelpers`
+--
+
+DROP TABLE IF EXISTS `cbhelpers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cbhelpers` (
+  `helperid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `subentityid` int(11) NOT NULL,
+  PRIMARY KEY (`helperid`),
+  UNIQUE KEY `name_UNIQUE` (`name`),
+  KEY `fk_cbhelpers_1_idx` (`subentityid`),
+  CONSTRAINT `fk_cbhelpers_1` FOREIGN KEY (`subentityid`) REFERENCES `cbsubentity` (`subentityid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cbhelpers`
+--
+
+LOCK TABLES `cbhelpers` WRITE;
+/*!40000 ALTER TABLE `cbhelpers` DISABLE KEYS */;
+INSERT INTO `cbhelpers` VALUES (1,'com.cab.helper.TestHelper',3);
+/*!40000 ALTER TABLE `cbhelpers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cbprofile`
+--
+
+DROP TABLE IF EXISTS `cbprofile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cbprofile` (
+  `profileid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL COMMENT 'profile name should be unique. Any user must have one profile assigned, user may not have more then one profile.',
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`profileid`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cbprofile`
+--
+
+LOCK TABLES `cbprofile` WRITE;
+/*!40000 ALTER TABLE `cbprofile` DISABLE KEYS */;
+INSERT INTO `cbprofile` VALUES (1,'cbsuper','cbsuper is a super user of entire system including everything.'),(2,'cbenduser','user is an enduser who consumes system\'s services');
