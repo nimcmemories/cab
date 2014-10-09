@@ -66,7 +66,7 @@ public class HibernateConfiguartion {
 	public static void main(String[] args) {
 		createSessionFactory();
 	}
-	public List<SystemBean> selectQuery(String qry){
+	public List<SystemBean> selectSystemBeanQuery(String qry){
 		Session session = null;
 		try{
 			session = sessionFactory.openSession();
@@ -86,7 +86,7 @@ public class HibernateConfiguartion {
 		}
 		return null;
 	}
-	public List<hibernate.bean.BaseBean> selectBaseBeanQuery(String qry){
+	public List<BaseBean> selecBaseBeanQuery(String qry){
 		Session session = null;
 		try{
 			session = sessionFactory.openSession();

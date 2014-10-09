@@ -15,7 +15,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -28,7 +27,6 @@ import org.hibernate.Transaction;
 
 import reqfilter.constants.FilterConstants;
 
-import com.cab.CentralController;
 import com.cab.bean.BaseBean;
 import com.cab.bean.EventBean;
 import com.cab.bean.HelperBean;
@@ -116,16 +114,22 @@ public class RequestFilter implements Filter {
 		/*
 		 * initialize hibernate engine
 		 */
+		System.out.println("=========================================================");
 		HibernateConfiguartion.createSessionFactory();
+		HibernateConfiguartion hbConf = new HibernateConfiguartion();
+		//List<BaseBean> list = hbConf.selecBaseBeantQuery("from CityMaster");
+		List<BaseBean> userList = hbConf.selecBaseBeanQuery("from UserBean");
+		System.out.println("********************************************user****************>"+userList.size());
+		//System.out.println("*********************************************area***************>"+list.size());
+		
 	}
 	@Override
 	public void destroy() {
 		logger.debug("RequestFilter : destroy" );
 	}
 	
-	private int checkACL(UserBean userBean,int __eventId){
+	private int checkACL(UserBean userBean,int __eventId,HelperBean helperBean){
 		 List<SystemBean> list = null;
-	        HelperBean helperBean = null;
 	        Session hibernateSession = null;
 	        Transaction tx = null;
 	        try{
@@ -164,7 +168,7 @@ public class RequestFilter implements Filter {
         boolean isNewSession = checkSession(req);
         HttpSession session = req.getSession();
         boolean isGuest = false;
-        int __eventId = Integer.parseInt((String)request.getParameter(FilterConstants.__EVENT_ID));
+        int __eventId = 0;//Integer.parseInt((String)request.getParameter(FilterConstants.__EVENT_ID));
         // userTypes can be : Admin,Partner,EndUser,Guest respectively 0,1,2,3 where 2,3 type are for end user 3 is guest user 2 is authenticated user
         /*
          * Check session for users's autheticity : 
@@ -197,23 +201,32 @@ public class RequestFilter implements Filter {
             }
             session.setAttribute("userBean", userBean);
         }
-        
+        HelperBean helperBean = null ;
         userBean = (UserBean)session.getAttribute("userBean");
-        int aclStatus = checkACL(userBean, __eventId);
+        int aclStatus = checkACL(userBean, __eventId,helperBean);
+        if(helperBean!=null){
+        	System.out.println("helperbean is not null");
+        }else
+        	System.out.println("helperbean is null");
+        
         if(aclStatus == 2){
         	/*
         	 * userHas readWrite access for event
         	 */
+        	request.setAttribute("permission", "allowRW");
+        	request.setAttribute("helperBean", helperBean);
         	logger.debug("acl status is 2");
         }else if(aclStatus == 1){
         	/*
         	 * userHas readOnly access for event
         	 */
+        	request.setAttribute("permission", "allowRO");
         	logger.debug("acl status is 1");
         }else{
         	/*
         	 * denial of access for this event
         	 */
+        	request.setAttribute("permission", "deny");
         	logger.debug("acl status is 0");
         }
         
@@ -233,10 +246,10 @@ public class RequestFilter implements Filter {
 	        // pass the request along the filter chain
 	        System.out.println("doFilter chain controll pass on ");
         }*/
-      // chain.doFilter(request, response);	
+       chain.doFilter(request, response);	
 	}
 	public void eventIDManipulate(int eventID){
 		HibernateConfiguartion hibernateConfiguration = new HibernateConfiguartion();
-		hibernateConfiguration.selectQuery("from EventBean");
+		hibernateConfiguration.selectSystemBeanQuery("from EventBean");
 	}
 }
