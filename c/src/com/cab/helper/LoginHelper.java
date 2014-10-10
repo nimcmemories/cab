@@ -12,6 +12,7 @@ import com.cab.bean.UserBean;
 /*
 * @author : Nimesh Makwana
 */
+
 public class LoginHelper {
 	private String userName,password,__userType;
 	Logger logger=Logger.getLogger(LoginHelper.class);
@@ -37,8 +38,10 @@ public class LoginHelper {
 		userName = req.getParameter("username");
 		password = req.getParameter("password");
 		__userType = req.getParameter("__usertype");
-		if(userName == null || password == null)
+		if(userName == null || password == null){
+			System.out.println("username/password is null");
 			return null;
+		}
 		if(userName.contains(" ")){
 			req.setAttribute("__loginvalidatormessage", "username can not contain space");
 			return null;
@@ -53,9 +56,10 @@ public class LoginHelper {
 			hibernateConfiguartion = new HibernateConfiguartion();
 			session = hibernateConfiguartion.getSession(true);
 			session.beginTransaction();
-			userBean = (UserBean)session.createQuery("from UserBean where username = " + userName + " and password = " + password);
+			userBean = (UserBean)session.createQuery("from UserBean where username = '" + userName + "' and password = '" + password + "'").uniqueResult();
 		}catch(Exception e){
 			logger.debug("LoginHelper authenticationFailed");
+			e.printStackTrace();
 		}finally{
 			if(session!=null){
 				session.close();
