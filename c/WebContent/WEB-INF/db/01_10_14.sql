@@ -11487,6 +11487,7 @@ ALTER TABLE `taxi_ticket_transaction`
   ADD CONSTRAINT `FK_taxi_ticket_transaction_4` FOREIGN KEY (`pickup_area_master_id`) REFERENCES `area_master` (`area_master_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+
 -- Constraints for table `tour_taxi`
 --
 ALTER TABLE `tour_taxi`
