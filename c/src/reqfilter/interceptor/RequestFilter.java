@@ -117,10 +117,10 @@ public class RequestFilter implements Filter {
 		System.out.println("=========================================================");
 		HibernateConfiguartion.createSessionFactory();
 		HibernateConfiguartion hbConf = new HibernateConfiguartion();
-		//List<BaseBean> list = hbConf.selecBaseBeantQuery("from CityMaster");
+		List<BaseBean> list = hbConf.selecBaseBeanQuery("from CityMaster");
 		List<BaseBean> userList = hbConf.selecBaseBeanQuery("from UserBean");
 		System.out.println("********************************************user****************>"+userList.size());
-		//System.out.println("*********************************************area***************>"+list.size());
+		System.out.println("*********************************************area***************>"+list.size());
 		
 	}
 	@Override

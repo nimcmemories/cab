@@ -8964,7 +8964,7 @@ CREATE TABLE IF NOT EXISTS `cbuser` (
 --
 
 INSERT INTO `cbuser` (`id`, `username`, `password`, `typeid`, `profileid`, `parentid`) VALUES
-(1, 'super', 'super', 1, 1, NULL),
+(1, 'super', 'super', 1, 1, 0),
 (4, 'guestuser', 'guestuser', 4, 2, 0);
 
 -- --------------------------------------------------------
