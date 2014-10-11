@@ -1,228 +1,122 @@
-// JavaScript Document
-$('document').ready(function(){	
-    /*  Top and Sidebar Tab */
-			/* Page Load  */
-	window.onload=loading();
-	function loading(){
-		setTimeout(function(){
-			$('#pageloader').css('display','none');
-		},1000);
-	}	
-	$('.topMenu [class^="tab-"] a').click(function(){
-		topTabDeactive();
-		$(this).addClass('active');
-	});
-	$('.sideMenu [class^="tab-"] a').click(function(){
-		sideTabDeactive();
-		$(this).addClass('active');
-		$(this).addClass('left');
-	});
-	/*  Taxi Design  */
-	$('.point-to-point').click(function(){
-		$('[class^="taxi-"]').hide();
-		$('[class^="bus-"]').hide();
-		$('.taxi-pop').fadeIn(300);
-		$('.bus-pop').fadeIn(300);
-	});
-	$('.airport').click(function(){
-		$('[class^="taxi-"]').hide();
-		$('.taxi-airport').fadeIn(300);
-		$('.taxi-go_airport').fadeIn(300);
-		$('[class^="bus-"]').hide();
-		$('.bus-airport').fadeIn(300);
-	});
-	$('.package').click(function(){
-		$('[class^="taxi-"]').hide();
-		$('.taxi-package').fadeIn(300);
-	});
-	$('.outstation').click(function(){
-		$('[class^="taxi-"]').hide();
-		$('.taxi-outstation').fadeIn(300);
-	});
-	$('.car-on-rent').click(function(){
-		$('[class^="taxi-"]').hide();
-		$('.taxi-caronrent').fadeIn(300);
-		$('.taxi-per_hours').fadeIn(300);
-	});
-	$('.taxi-ticket').click(function(){
-		$('[class^="taxi-"]').hide();
-		$('.taxi-taxiticket').fadeIn(300);
-	});
-	
-	/* Airport Tab */
-	$('.airport_tab [class^="tab"] a').click(function(){
-		airportTabDeactive();
-		$(this).addClass('active');
-	});
-	$('.airport_tab [class^="tab"] a.go_airport').click(function(){
-		$('.taxi-pickup_airport').hide();
-		$('.taxi-go_airport').fadeIn(300);
-	});
-	$('.airport_tab [class^="tab"] a.pick_airport').click(function(){
-		$('.taxi-pickup_airport').fadeIn(300);
-		$('.taxi-go_airport').hide();
-	});
-	
-	/* Car on rent Tab*/
-	$('.caronrent_tab [class^="tab"] a').click(function(){
-		caronrentTabDeactive();
-		$(this).addClass('active');
-	});
-	$('.caronrent_tab [class^="tab"] a.per_hours').click(function(){
-		$('.taxi-day_wise').hide();
-		$('.taxi-per_hours').fadeIn(300);
-	});
-	$('.caronrent_tab [class^="tab"] a.day_wise').click(function(){
-		$('.taxi-day_wise').fadeIn(300);
-		$('.taxi-per_hours').hide();
-	});
-	/* bus Design  */
-	$('.busticket').click(function(){
-		$('[class^="bus-"]').hide();
-		$('.bus-ticket').fadeIn(300);
-	});
-	$('.busesonrent').click(function(){
-		$('[class^="bus-"]').hide();
-		$('.bus-on-rent').fadeIn(300);
-	});
-	/*Taxi Left Sidebar
-	
-	 For Partner */
-	$('.partner-seemore').click(function(){
-		if($(this).hasClass('less')){
-			document.getElementById('partner-more').innerHTML="See More";
-			$('.partner_name').css('max-height','55px');
-		    $('.partner-seemore i').addClass('fa-long-arrow-down');
-		    $('.partner-seemore i').removeClass('fa-long-arrow-up');
-			$('.partner-seemore').removeClass('less');
-		}
-		else{
-			$('.partner_name').css('max-height','inherit');
-			$('.partner-seemore i').removeClass('fa-long-arrow-down');
-			$('.partner-seemore i').addClass('fa-long-arrow-up');
-			$(this).addClass('less');
-			document.getElementById('partner-more').innerHTML="Less";
-		}
-	});
-	
-	/* For Amenities  */
-	$('.amenities-seemore').click(function(){
-		if($(this).hasClass('less')){
-			document.getElementById('amenities-more').innerHTML="See More";
-			$('.amenities-type').css('max-height','58px');
-		    $('.amenities-seemore i').addClass('fa-long-arrow-down');
-		    $('.amenities-seemore i').removeClass('fa-long-arrow-up');
-			$('.amenities-seemore').removeClass('less');
-		}
-		else{
-			$('.amenities-type').css('max-height','inherit');
-			$('.amenities-seemore i').removeClass('fa-long-arrow-down');
-			$('.amenities-seemore i').addClass('fa-long-arrow-up');
-			$(this).addClass('less');
-			document.getElementById('amenities-more').innerHTML="Less";
-		}
-	});
-	/* For Taxi type */
-	$('.type-taxi-seemore').click(function(){
-		if($(this).hasClass('less')){
-			document.getElementById('type-taxi-more').innerHTML="See More";
-			$('.type-taxi').css('max-height','58px');
-		    $('.type-taxi-seemore i').addClass('fa-long-arrow-down');
-		    $('.type-taxi-seemore i').removeClass('fa-long-arrow-up');
-			$('.type-taxi-seemore').removeClass('less');
-		}
-		else{
-			$('.type-taxi').css('max-height','inherit');
-			$('.type-taxi-seemore i').removeClass('fa-long-arrow-down');
-			$('.type-taxi-seemore i').addClass('fa-long-arrow-up');
-			$(this).addClass('less');
-			document.getElementById('type-taxi-more').innerHTML="Less";
-		}
-	});
-});
-function topTabDeactive(){
-	$('.topMenu [class^="tab-"] a').removeClass('active');
-}
-function sideTabDeactive(){
-	$('.sideMenu [class^="tab-"] a').removeClass('active');
-	$('.sideMenu [class^="tab-"] a').removeClass('left');
-}
-function airportTabDeactive(){
-	$('.airport_tab [class^="tab"] a').removeClass('active');
-}
-function caronrentTabDeactive(){
-	$('.caronrent_tab [class^="tab"] a').removeClass('active');
-}
+<div class="main">
+    <!-- Start Left SideBar -->
+    <div class="left-siderbar-Taxi left">
+        <!-- Partners  -->
+    	<div class="partner">
+        	<h4>Partners</h4>
+            <div class="border-bottom"></div>
+            <span class="search-icon icon-search left hover"></span>
+            <input type="search" placeholder="Search Partners name">
+            <div class="partner_name lm5 tm5">
+                <div><input type="checkbox" value="ABC" id="ABC" required/><label class="fnt-size14" for="ABC">Aqwe dwe</label></div>
+                <div class="padding1"><input type="checkbox" value="ABC" id="ABC1" required/><label class="fnt-size14" for="ABC1">Aqweq we</label></div>
+                <div class="padding1"><input type="checkbox" value="ABC" id="ABC2" required/><label class="fnt-size14" for="ABC2">Awqwe</label></div>
+                <div class="padding1"><input type="checkbox" value="ABC" id="ABC3" required/><label class="fnt-size14" for="ABC3">ABwqeqweqew</label></div>
+                <div class="padding1"><input type="checkbox" value="ABC" id="ABC4" required/><label class="fnt-size14" for="ABC4">Awqeqw</label></div>
+                <div class="padding1"><input type="checkbox" value="ABC" id="ABC" required/><label class="fnt-size14" for="ABC">Aqweqwe</label></div>
+                <div class="padding2"><input type="checkbox" value="ABC" id="ABC1" required/><label class="fnt-size14" for="ABC1">Aqewq</label></div>
+                <div class="padding2"><input type="checkbox" value="ABC" id="ABC2" required/><label class="fnt-size14" for="ABC2">Aqwewq</label></div>
+                <div class="padding2"><input type="checkbox" value="ABC" id="ABC3" required/><label class="fnt-size14" for="ABC3">Awqeqweqw</label></div>
+                <div class="padding2"><input type="checkbox" value="ABC" id="ABC4" required/><label class="fnt-size14" for="ABC4">qweqw</label></div>
+            </div>
+            <div class="border-bottom tm5"></div>            
+            <div class="on-right partner-seemore">
+            	<a href="#" class="fnt-size12 rm5" id="partner-more">See More</a><i class="fa fa-long-arrow-down light-blue lm5 rm5 smaller"></i>
+            </div>  
+            <div class="clear"></div>
+            <div class="border-bottom tm5"></div>            
+        </div>
+                <!-- Taxi Type  -->
+        <div class="type-of-taxi">
+        	<h4>Taxi Type</h4>
+            <div class="border-bottom"></div>
+            <span class="search-icon icon-search left hover"></span>
+            <input type="search" placeholder="Search Type"/>            
+            <div class="type-taxi lm5 tm5">
+	            <div><input type="checkbox" value="ABC" id="AC" required/><label class="fnt-size14" for="AC">Hatchback(4 Seater)</label></div>
+                <div><input type="checkbox" value="ABC" id="NON-AC" required/><label class="fnt-size14" for="NON-AC">Sedau(4 Seater)</label></div>
+                <div><input type="checkbox" value="ABC" id="A1" required/><label class="fnt-size14" for="A1">SOV(6 Seater)</label></div>
+                <div><input type="checkbox" value="ABC" id="A2" required/><label class="fnt-size14" for="A2">fsfsdf</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC2" required/><label class="fnt-size14" for="ABC2">sdfsdfsdf</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC3" required/><label class="fnt-size14" for="ABC3">sdfsf</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC4" required/><label class="fnt-size14" for="ABC4">fgjgj</label></div>
+            </div>
+            <div class="border-bottom tm5"></div>            
+            <div class="on-right type-taxi-seemore">
+            	<a href="#" class="fnt-size12 rm5" id="type-taxi-more">See More</a><i class="fa fa-long-arrow-down light-blue lm5 rm5 smaller"></i>
+            </div>  
+            <div class="clear"></div>
+            <div class="border-bottom tm5"></div>            
+        </div>
+         <!-- Amenities  -->
+        <div class="amenities">
+        	<h4>Amenities</h4>
+            <div class="border-bottom"></div>
+            <span class="search-icon icon-search left hover"></span>
+            <input type="search" placeholder="Search Amenities">            
+            <div class="amenities-type lm5 tm5">
+	            <div><input type="checkbox" value="ABC" id="wifi" required/><label class="fnt-size14" for="wifi">Wifi</label></div>
+                <div><input type="checkbox" value="ABC" id="newspaper" required/><label class="fnt-size14" for="newspaper">News Paper</label></div>
+                <div><input type="checkbox" value="ABC" id="charger" required/><label class="fnt-size14" for="charger">Charger</label></div>
+	            <div><input type="checkbox" value="ABC" id="wifi" required/><label class="fnt-size14" for="wifi">Wifi</label></div>
+                <div><input type="checkbox" value="ABC" id="newspaper" required/><label class="fnt-size14" for="newspaper">News Paper</label></div>
+                <div><input type="checkbox" value="ABC" id="charger" required/><label class="fnt-size14" for="charger">Charger</label></div>
+            </div>
+            <div class="border-bottom tm5"></div>            
+            <div class="on-right amenities-seemore">
+            	<a href="#" class="fnt-size12 rm5" id="amenities-more">See More</a><i class="fa fa-long-arrow-down light-blue lm5 rm5 smaller"></i>
+            </div>  
+            <div class="clear"></div>
+        </div>
+        <div class="border-bottom tm5"></div>         
+        
+        <!-- Offers  -->
+        <div class="offers">
+        	<h4>Offers</h4>
+            <div class="border-bottom"></div>
+            <span class="search-icon icon-search left hover"></span>
+            <input type="search" placeholder="Search offers"/>            
+            <div class="lm5 tm5">
+                <div><input type="radio" value="ABC" id="AB" name="offer" required/><label class="fnt-size14" for="AB">A</label></div>
+                <div><input type="radio" value="ABC" id="AB1" name="offer" required/><label class="fnt-size14" for="AB1">B</label></div>
+                <div><input type="radio" value="ABC" id="AB2" name="offer" required/><label class="fnt-size14" for="AB2">C</label></div>
+                <div><input type="radio" value="ABC" id="AB3" name="offer" required/><label class="fnt-size14" for="AB3">D</label></div>
+                <div><input type="radio" value="ABC" id="AB4" name="offer" required/><label class="fnt-size14" for="AB4">E</label></div>
+            </div>
+        </div>
+        <div class="border-bottom tm5"></div> 
 
-/* Taxi outStation */
-function addRow(){
-	var addrow="";
-	    addrow='<tr>';
-        addrow+='<td><label>To :</label></td>';
-        addrow+='<td><input type="text" placeholder="Pickup Area" required></td>';
-        addrow+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red"></label></td>';
-        addrow+='</tr>';
-		$('.addrow').append(addrow);
-}
+                      
+    </div>
+    <!-- End Left SideBar -->
 
-
-/*  SideBar Menu */
-
-$('document').ready(function(){
-	$('.sideMenu-taxi').click(function(){
-		topmenuHide();
-	  	$('.topmenu-taxi').show();
-   	   	$('.taxi-section').show();
-		$('[class^="taxi-"]').hide();
-		$('.taxi-pop').fadeIn(300);
-		$('.topmenu-taxi li a').removeClass('active');	
-		$('.topmenu-taxi li:first-child a').addClass('active');	
-	});
-    $('.sideMenu-bus').click(function(){
-		topmenuHide();
-		$('[class^="taxi-"]').hide();
-		$('.topmenu-bus').show();
-		$('.bus-section').show();
-		$('[class^="bus-"]').hide();
-		$('.bus-pop').fadeIn(300);
-		$('.topmenu-bus li a').removeClass('active');			
-		$('.topmenu-bus li:first-child a').addClass('active');		
-	});
-	$('.sideMenu-truck').click(function(){
-		topmenuHide();
- 	    $('.topmenu-truck').show();
-	//	$('[class^="truck-"]').hide();	   
-		$('.topmenu-truck li a').removeClass('active');					
-		$('.topmenu-truck li:first-child a').addClass('active');	
-	});
-	$('.sideMenu-motorCycle').click(function(){
-		topmenuHide();
-	    $('.topmenu-motorCycle').show();
-//		$('[class^="bike-"]').hide();	   
-		$('.topmenu-motorCycle li a').removeClass('active');					
-		$('.topmenu-motorCycle li:first-child a').addClass('active');	
-	});
-});
-function topmenuHide(){
-	$('.topmenu-taxi').hide();
-	$('.topmenu-bus').hide();
-	$('.topmenu-truck').hide();
-	$('.topmenu-motorCycle').hide();
-		
-	$('.taxi-section').hide();
-	$('.bus-section').hide();
-}
-//<!-- Time Picker -->
-	$(function() {
-   		$('.timeformatExample1').timepicker({ 'timeFormat': 'H:i:s', constrainInput: false });
-        $('.timeformatExample2').timepicker({ 'timeFormat': 'h:i A' , constrainInput: false});
-	});
-//<!-- Date Picker  -->        
-	$('.datePairExample').datepicker({
-		'format': 'd/m/yyyy',
-		'autoclose': true,
-		 startDate: '+0d',
-		 endDate: '+15d'
-	});
-	$('.datePairExample').datepair();
-	
+    <!-- Content part  -->
+    <div class="main-content left">
+    	<div class="content border">
+            <table class="tbl-100p">
+                <tr>
+                    <th class="border-bottom">Title</th>
+                    <th class="border-bottom">Taxi Name</th>
+                    <th class="border-bottom">Rating</th>
+                    <th class="border-bottom">Seats</th>
+                    <th class="border-bottom">Per KM Rates</th>
+                    <th class="border-bottom">Estimate KM</th>
+                    <th class="border-bottom">Fare</th>
+                    <th class="border-bottom"></th>
+                </tr>
+                <tr>
+                    <td class="border-bottom">Title</td>
+                    <td class="border-bottom">Taxi Name</td>
+                    <td class="border-bottom">Rating</td>
+                    <td class="border-bottom">Seats</td>
+                    <td class="border-bottom">Per KM Rates</td>
+                    <td class="border-bottom">Estimate KM</td>
+                    <td class="border-bottom">Fare</td>
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Taxi"/></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
