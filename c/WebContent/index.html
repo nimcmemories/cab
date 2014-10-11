@@ -22,7 +22,7 @@
 <!-- Start Loading  -->
 		<div id="pageloader">
         <div id="bg_color"></div>
-             <div id="circle"></div><h1>smartSense</h1>
+         <div id="circle"></div><h1>smartSense</h1>
         <div id="bonfire-pageloader" class="bonfire-pageloader-fade">
 	<!-- BEGIN THE ICON -->
             <div class="bonfire-pageloader-icon" style="right: 633px; top: 244.5px;">
@@ -69,28 +69,25 @@
         <ul class="header-tab8 on-right topMenu topmenu-taxi">
             <li class="tab-6"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
             <li class="tab-6"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
+            <li class="tab-6"><a class="left taxi-ticket" href="#"><i class="fa fa-ticket on-left"></i>Taxi Ticket</a></li>            
             <li class="tab-6"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
             <li class="tab-6"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Outstation</a></li>
             <li class="tab-6"><a class="left car-on-rent" href="#"><i class="icon1-wrench large on-left"></i>Car on Rent</a></li>
-            <li class="tab-6"><a class="left taxi-ticket" href="#"><i class="fa fa-ticket on-left"></i>Taxi Ticket</a></li>
 	        <div class="clear"></div>
 	    </ul>
         <ul class="header-tab8 on-right topMenu topmenu-bus">
-            <li class="tab-4"><a class="left point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
-            <li class="tab-4"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
-            <li class="tab-4"><a class="left busticket" href="#"><i class="fa fa-ticket on-left"></i>Bus Ticket</a></li>
-            <li class="tab-4"><a class="left busesonrent" href="#"><i class="fa fa-key on-left"></i>Bus on Rent</a></li>
+            <li class="tab-2"><a class="left busticket" href="#"><i class="fa fa-ticket on-left"></i>Bus Ticket</a></li>
+            <li class="tab-2"><a class="left busesonrent" href="#"><i class="fa fa-key on-left"></i>Bus on Rent</a></li>
 	        <div class="clear"></div>
 	    </ul>
         <ul class="header-tab8 on-right topMenu topmenu-truck">
-            <li class="tab-2"><a class="active left" href="#"><i class="icon1-move on-left"></i>Packers/Movers</a></li>
-            <li class="tab-2"><a class="left" href="#"><i class="fa fa-truck on-left"></i>Shipping</a></li>
+            <li class="tab-2"><a class="active left  truckpacker" href="#"><i class="icon1-move on-left"></i>Packers/Movers</a></li>
+            <li class="tab-2"><a class="left truckshipping" href="#"><i class="fa fa-truck on-left"></i>Shipping</a></li>
 	        <div class="clear"></div>
 	    </ul>
         <ul class="header-tab8 on-right topMenu topmenu-motorCycle">
-            <li class="tab-8"><a class="left active airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
-            <li class="tab-8"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
-            <li class="tab-8"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Bike on Rent</a></li>
+            <li class="tab-2"><a class="left bikepackage" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
+            <li class="tab-2"><a class="left bikeonrent" href="#"><i class="fa fa-outdent on-left"></i>Bike on Rent</a></li>
 	        <div class="clear"></div>
 	    </ul>
 
@@ -118,9 +115,11 @@
                	<table class="table">
                     <tr>
                     	<td><label>Pickup Area :</label></td>                    
-                        <td><input type="text" placeholder="Pickup Area" required></td>
+                        <td><input type="text" placeholder="Pickup Area" name="firstName" data-validation="required"/></td>
+                        <span class="help-block" id="firstNameMessage" />
                         <td><label>Drop Area :</label></td>
-                        <td><input type="text" placeholder="Drop Area" required></td>
+                        <td><input type="text" placeholder="Drop Area" name="lastName"/></td>
+                         <span class="help-block lastNameMessage" />
                     </tr>
                     <tr>
 	                    <td><label>Pickup Date :</label></td>                    
@@ -254,8 +253,12 @@
                 </div>
                	<table class="table">
                     <tr>
+                    	<td><label>From :</label></td>                    
+                        <td><input type="text" placeholder="Pickup City" required></td>
+                    </tr>
+                    <tr>
                     	<td><label>To :</label></td>                    
-                        <td><input type="text" placeholder="Pickup Area" required></td>
+                        <td><input type="text" placeholder="Drop City" required></td>
                         <td><label class="fa fa-plus-square lm20 fa-lg" onClick="addRow()"></label></td>
                     </tr>
                     <tbody class="addrow"></tbody>
@@ -340,10 +343,10 @@
             <form action="#" method="post">
                	<table class="table">
                     <tr>
-                    	<td><label>Source City:</label></td>                    
-                        <td><input type="text" placeholder="Source City" required></td>
-                        <td><label>Destination City:</label></td>
-                        <td><input type="text" placeholder="Destination City" required></td>
+                    	<td><label>From:</label></td>                    
+                        <td><input type="text" placeholder="Pickup City" required></td>
+                        <td><label>To:</label></td>
+                        <td><input type="text" placeholder="Drop City" required></td>
                     </tr>
                      <tr>
 	                    <td><label>Pickup Area :</label></td>                    
@@ -366,111 +369,8 @@
          	</div>
         </div>
         <!-- Taxi section End -->
-        
         <!-- Bus Section Start  -->
         <div class="main-contain bus-section" id="bus-section">
-	       	<!--Taxi Point to Point Design -->
-            <div class="bus-pop">
-            <form action="#" method="post">
-            	<div class="select_city">
-		           		<label>Select City :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>
-               	<table class="table">
-                    <tr>
-                    	<td><label>Pickup Area :</label></td>                    
-                        <td><input type="text" placeholder="Pickup Area" required></td>
-                        <td><label>Drop Area :</label></td>
-                        <td><input type="text" placeholder="Drop Area" required></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-            </div>
-            <!-- Airport Design -->
-            <div class="bus-airport">
-            <div class="select_city">
-		           		<label>Select city :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>
-            <div class="airport_tab">
-            	<span class="tab-2"><a href="#" class="active go_airport">Going To Airport</a></span>
-                <span class="tab-2"><a href="#" class="pick_airport">Pickup From Airport</a></span>
-            </div>
-            <div class="border-bottom"></div>
-            <!-- Go to Airport -->
-            <div class="taxi-go_airport">
-            <form action="#" method="post">
-            	
-               	<table class="table">
-                    <tr>
-                    	<td><label>Airport Name :</label></td>                    
-                        <td><select>
-                        	<option>Airport</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select></td>
-                        <td><label>Pickup Area :</label></td>
-                        <td><input type="text" placeholder="Pickup Area" required></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-            </div>
-            <!-- Pick up from Airport -->
-            <div class="taxi-pickup_airport">
-               	<table class="table">
-                    <tr>
-                    	<td><label>Airport Name :</label></td>                    
-                        <td><select>
-                        	<option>Airport</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select></td>
-                        <td><label>Drop Area :</label></td>
-                        <td><input type="text" placeholder="Drop Area" required></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                         <td><input id="" type="text" class="timeformatExample2 input-cmn33p" placeholder="Pickup time" required></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-            </div>
-
-         	</div>
             <!-- Package Design -->
             <div class="bus-ticket">
             <form action="#" method="post">
@@ -485,9 +385,9 @@
                	<table class="table">
                     <tr>
                     	<td><label>From :</label></td>                    
-                        <td><input type="text" placeholder="Pickup Area" required></td>
+                        <td><input type="text" placeholder="Pickup City" required></td>
                         <td><label>To :</label></td>
-                        <td><input type="text" placeholder="Drop Area" required></td>
+                        <td><input type="text" placeholder="Drop City" required></td>
                     </tr>
                     <tr>
 	                    <td><label>Date of Journey :</label></td>                    
@@ -525,7 +425,7 @@
                     </tr>
                     <tbody class="addrow"></tbody>
                     <tr>
-	                    <td><label>ON :</label></td>                    
+	                    <td><label>Date :</label></td>                    
                         <td><input type="text" class="datePairExample" placeholder="ON Date" required/></td>
 	                    <td><label>For :</label></td>                    
                         <td><input type="text" placeholder="No. of Days" required/></td>
@@ -547,6 +447,206 @@
          	</div>
         </div>
         <!-- Bus Section End  -->
+        <!-- Truck Section Start  -->
+        <div class="main-contain truck-section" id="truck-section">
+	       	<!--Truck Packer Design -->
+            <div class="truck-packer">
+            	<div class="select_city">
+		           		<label>Select City :</label>
+                		<select>
+                        	<option>w</option>
+                            <option>w</option>
+                            <option>w</option>
+                        </select>
+                </div>
+            <form action="#" method="post">
+               	<table class="table">
+                    <tr>
+                    	<td><label>From :</label></td>                    
+                        <td><input type="text" placeholder="Pickup City" required></td>
+                        <td><label>To :</label></td>
+                        <td><input type="text" placeholder="Drop City" required></td>
+                    </tr>
+                    <tr>
+	                    <td><label>Pickup Date :</label></td>                    
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
+	                    <td><label>Pickup Time :</label></td>                    
+                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
+                    </tr>
+                    <tr>
+                    	<td><label>Weight :</label></td>
+                        <td>
+                        	<select>
+                        		<option>Weight</option>
+                                <option></option>
+                                <option></option>
+                        	</select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Truck"/>
+                </div>
+            </form>
+            <div class="clear"></div>
+            </div>
+            <!-- Truck Shipping Design -->
+            <div class="truck-shipping">	
+            <form action="#" method="post">
+            	
+               	<table class="table">
+                 <tr>
+                    	<td><label>From :</label></td>                    
+                        <td><input type="text" placeholder="From" required></td>
+                        <td><label>To :</label></td>
+                        <td><input type="text" placeholder="To" required></td>
+                    </tr>
+                    <tr>
+	                    <td><label>Pickup Date :</label></td>                    
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
+	                    <td><label>Pickup Time :</label></td>                    
+                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
+                    </tr>
+                    <tr>
+                    	<td><label>Weight :</label></td>
+                        <td>
+                        	<select>
+                        		<option>Weight</option>
+                                <option></option>
+                                <option></option>
+                        	</select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Truck"/>
+                </div>
+            </form>
+            <div class="clear"></div>
+            </div>
+        </div>
+        <!-- Truck Section End  -->
+        <!-- Bike Section Start  -->
+        <div class="main-contain bike-section" id="bike-section">
+	       	<!--Package Design -->
+            <div class="bike-package">
+            	<div class="select_city">
+		           		<label>Select City :</label>
+                		<select>
+                        	<option>w</option>
+                            <option>w</option>
+                            <option>w</option>
+                        </select>
+	            </div>
+            <form action="#" method="post">
+               	<table class="table">
+                    <tr>
+                    	<td><label>Package :</label></td>                    
+                        <td><select>
+                                <option>Package</option>
+                                <option>w</option>
+                                <option>w</option>
+	                        </select>
+                        </td>
+                        <td><label>Bike type :</label></td>                    
+                        <td><select>
+                                <option>Bike Type</option>
+                                <option>w</option>
+                                <option>w</option>
+	                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+	                    <td><label>Pickup Date :</label></td>                    
+                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" required/></td>
+	                    <td><label>Pickup Time :</label></td>                    
+                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" required></td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Bike"/>
+                </div>
+            </form>
+            <div class="clear"></div>
+            </div>
+            <!-- Bike on rent Design -->
+            <div class="bike-on_Rent">
+	            <div class="select_city">
+		           		<label>Select city :</label>
+                		<select>
+                        	<option>w</option>
+                            <option>w</option>
+                            <option>w</option>
+                        </select>
+                </div>
+            <div class="bikeonrent_tab">
+            	<span class="tab-2"><a href="#" class="active per_hours">Per Hours</a></span>
+                <span class="tab-2"><a href="#" class="day_wise">Per Day</a></span>
+            </div>
+            <div class="border-bottom"></div>
+            <!-- Bike Per Hours -->
+            <div class="bike-per_hours">
+            <form action="#" method="post">
+               	<table class="table">
+                    <tr>
+                        <td><label>From :</label></td>
+                        <td><input type="text" placeholder="Pickup City" required></td>
+                    	<td><label>To :</label></td>                    
+						<td><input type="text" placeholder="Drop City" required></td>                                                
+                    </tr>
+                    <tr>
+	                    <td><label>ON :</label></td>                    
+                        <td><input type="text" class="datePairExample" placeholder="ON Date" required/></td>
+	                    <td><label>Bike type :</label></td>                    
+                        <td><select>
+                                <option>Bike Type</option>
+                                <option>w</option>
+                                <option>w</option>
+	                        </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Bike"/>
+                </div>
+            </form>
+            <div class="clear"></div>
+            </div>
+            <!-- Bike Day Wise -->
+            <div class="bike-day_wise">
+               	<table class="table">
+                    <tr>
+                        <td><label>From :</label></td>
+                        <td><input type="text" placeholder="From" required></td>
+                    	<td><label>To :</label></td>                    
+						<td><input type="text" placeholder="To" required></td>                                                
+                    </tr>
+                    <tr>
+                     <td><label>ON :</label></td>                    
+                        <td><input type="text" class="datePairExample" placeholder="ON Date" required/></td>
+                    	<td><label>For :</label></td>                    
+						<td><input type="text" placeholder="No. of Days" required></td>                                                
+                    </tr>
+                    <tr>
+                    	<td><label>Bike type :</label></td>                    
+                        <td><select>
+                                <option>Bike Type</option>
+                                <option>w</option>
+                                <option>w</option>
+	                        </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Bike"/>
+                </div>
+            </form>
+            	<div class="clear"></div>
+            </div>
+           </div>
+           
+        </div>
+        <!-- Bike Section End  -->
       <div class="clear"></div>	
     </div>
     <div class="footer"></div>

@@ -1,5 +1,5 @@
 // JavaScript Document
-    <!-- Date Picker  -->        
+  //  <!-- Date Picker  -->        
 	$('.datePairExample').datepicker({
 		'format': 'd/m/yyyy',
 		'autoclose': true
