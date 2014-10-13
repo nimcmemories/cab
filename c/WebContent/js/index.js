@@ -29,3 +29,10 @@ function changeBikeRentType(){
 		$("#bikerenttype").val(jsconstant.bike_rent_per_day);
 	}
 }
+function submitTaxiPtop(formId){
+	alert(formId);
+	var data = JSON.stringify($("#"+formId+"").serializeArray());
+	var JsonData={"formData":data,"eventId":eventId.taxi_ptop,"dataType":"json","url":""};
+	cab.AJAXCall(JsonData);
+	//alert(data);
+}

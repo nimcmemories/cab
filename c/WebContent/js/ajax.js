@@ -5,12 +5,13 @@ var cab={};
 cab.contextPath="/c";
 
 cab.AJAXCall = function(data){
-	var jsonFormDate = JSON.parse(data);
+	alert(JSON.stringify(data));
+	var enetId = jsonFormData.eventId;
 	$.ajax({
-		type: jsonFormDate.method,
-		url: cab.contextPath+jsonFormDate.url,
-		data: jsonFormDate.query,
-		dataType:jsonFormDate.dataType,
+		type: data.method,
+		url: cab.contextPath+data.url,
+		data: data.formData,
+		dataType:data.dataType,
 		success: function(responseJson) {
 			return responseJson;
 		},
