@@ -2053,6 +2053,11 @@
   line-height: 1.3em;
 }
 /* makes the font 33% larger relative to the icon container */
+.fa-elg{
+  font-size:3em;
+  line-height:1em;
+  vertical-align: -15%;
+}
 .fa-lg {
   font-size: 1.33333333em;
   line-height:1em;

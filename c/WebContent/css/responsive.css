@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+/* Responsive Design   */
+
+@media only screen and (max-width:1280px){
+	.section {
+		width: 1240px;
+	}
+	.header-tab8 {
+		width: 86%;
+	}
+	.main-contain {
+		width: 87%;
+	}
+	[class^="taxi-"], [class^="bus-"], [class^="truck-"], [class^="bike-"] {
+		width: 1000px;
+	}
+}
+@media only screen and (max-width:1024px){
+	.section {
+		width: 1000px;
+	}
+	.tab-6 a {
+		width: 14.5%;
+	}
+	.header-tab8 {
+		width: 82%;
+	}
+	.topMenu li a{
+		padding: 5px 7px
+	}
+	.topMenu .active.left:after {
+		margin-left: -6%;
+		top: 46px;
+	}
+	.topMenu .airport.active.left:after {
+		margin-left: -4%;
+	}
+	.topMenu .taxi-ticket.active.left:after,.topMenu .outstation.active.left:after{
+		margin-left: -5%;
+	}
+	.topMenu .package.active.left:after {
+		margin-left: -4.2%;
+	}
+	.topMenu .car-on-rent.active.left:after {
+		margin-left: -5.4%;
+	}
+	.tab-1 a {
+		width: 100%;
+		padding: 15px 3px;
+	}
+	.sideMenu .tab-1 a.active {
+		padding: 15px 4px;
+	}
+	.sideMenu .active.left:after{
+		left:141px;
+	}
+	.sideMenu {
+		margin: 5% 0px 54px 10px;
+	}
+	.header-tab1 {
+		width: 121px;
+		margin-right: 14px!important;
+	}
+	.main-contain {
+		width: 85%;
+	}
+	[class^="taxi-"], [class^="bus-"], [class^="truck-"], [class^="bike-"] {
+		width:820px;
+	}
+	.airport_tab, .caronrent_tab, .bikeonrent_tab {
+		width: 55%;
+	}
+	[class^="taxi-"] .select_city, [class^="bus-"] .select_city, [class^="truck-"] .select_city, [class^="bike-"] .select_city {
+		width: 50%;
+	}
+	.main-content {
+		width: 75%;
+	}
+	.DyGrid-11 {
+		width: 1000px;
+		margin-top: 20px;
+	}
+}
+
+

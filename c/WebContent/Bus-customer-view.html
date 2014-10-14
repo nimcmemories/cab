@@ -7,8 +7,14 @@
 <link rel="stylesheet" href="css/commonStyle.css">
 <link rel="stylesheet" href="css/iconFont.css">
 <link rel="stylesheet" href="css/customStyle.css">
-<script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="js/javaScript.js"></script>
+<link rel="stylesheet" href="css/responsive.css">
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+  /* Page Load  */
+	window.onload=function load1(){
+		document.getElementById('pageloader').style.display="none";
+	}	
+</script>
 </head>
 
 <body>
@@ -45,9 +51,11 @@
 	<!-- END THE ICON -->
 </div>
 <!-- END Loading  -->
-
-    <div class="main">
-  <!-- Start Left SideBar -->
+<div class="main">
+	<div class="border-bottom padding10">
+	    	<i class="fa fa-home fa-elg"></i>
+    </div>
+    <!-- Start Left SideBar -->
     <div class="left-siderbar-Bus left">
         <!-- Partners  -->
     	<div class="partner">
@@ -130,6 +138,13 @@
   <!-- End Left SideBar -->    
       <!-- Content part  -->
     <div class="main-content left">
+    	<div class="padding10 bm5 border margin2">
+        	<span class="text-bold">From : </span><span class="border-bottom padding1">Ahmedabad</span>
+            <span class="lm5 text-bold">To : </span><span class="border-bottom padding1">Mahuva</span>
+            <span class="lm5 text-bold">Date : </span><span class="border-bottom padding1">08/11/2014</span>
+            <span class="lm5 text-bold">Time : </span><span class="border-bottom padding1">11:30 AM</span>
+            <span class="lm5"><a href="#">Modify Search</a></span>
+        </div>
     	<div class="content border">
             <table class="tbl-100p">
                 <tr>

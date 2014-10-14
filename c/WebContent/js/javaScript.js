@@ -193,16 +193,14 @@ function bikeonrentTabDeactive(){
 
 
 /* Taxi outStation */
-add_row_count=1;
 function addRow(){
 	var addrow="";
 	    addrow='<tr>';
         addrow+='<td><label>To :</label></td>';
-        addrow+='<td><input type="text" placeholder="Pickup Area" name="dropcity_'+add_row_count+'" required></td>';
+        addrow+='<td><input type="text" placeholder="Pickup Area" required></td>';
         addrow+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red"></label></td>';
         addrow+='</tr>';
 		$('.addrow').append(addrow);
-		add_row_count++;
 }
 
 
