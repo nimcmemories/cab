@@ -12,7 +12,7 @@
     <script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="jslib/jquery.timepicker.min.js"></script>
     <script type="text/javascript" src="jslib/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/cab.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/jsconstant.js"></script>
     <script type="text/javascript" src="js/eventconstant.js"></script>
@@ -106,7 +106,7 @@
         <div class="main-contain taxi-section" id="taxi-section">
 	       	<!--Taxi Point to Point Design -->
             <div class="taxi-pop">
-            <form action="#" method="post" id="taxi-ptop" onsubmit="submitTaxiPtop(this.id)">
+            <form action="#" method="post" id="taxi-ptop" onsubmit="">
             	<div class="select_city">
 		           		<label>Select City :</label>
                 		<select>
@@ -132,7 +132,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
+					<input type="button" class="command-button info" value="Find My Taxi" onclick="submitTaxiPtop('taxi-ptop')"/>
                 </div>
             </form>
             <div class="clear"></div>
@@ -203,7 +203,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
+					<input type="button" class="command-button info" value="Find My Taxi" onclick="submitTaxiAirport('taxi-airport')"/>
                 </div>
             </form>
             <div class="clear"></div>
@@ -240,7 +240,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
+					<input type="button" class="command-button info" value="Find My Taxi" onclick="submitTaxiPackage('taxi-package')"/>
                 </div>
             </form>
             <div class="clear"></div>
@@ -275,7 +275,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
+					<input type="button" class="command-button info" value="Find My Taxi" onclick="submitTaxiOutstation('taxi-outstation')"/>
                 </div>
             </form>
             <div class="clear"></div>

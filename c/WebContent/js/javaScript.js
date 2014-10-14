@@ -270,5 +270,5 @@ function topmenuHide(){
 		"endDate": '+15d',
 		"autoclose": true
 	});
-	$('.datePairExample').datepair();
+//	$('.datePairExample').datepair();
 	

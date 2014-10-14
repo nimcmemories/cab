@@ -6,12 +6,13 @@ var cab={};
 cab.contextPath="/c";
 
 cab.AJAXCall = function(data){
-	var jsonFormDate = JSON.parse(data);
+	alert("inside ajax ccall data---->"+JSON.stringify(data));
+	
 	$.ajax({
-		type: jsonFormDate.method,
-		url: cab.contextPath+jsonFormDate.url,
-		data: jsonFormDate.query,
-		dataType:jsonFormDate.dataType,
+		type: data.method,
+		url: cab.contextPath+data.url,
+		data: data.query,
+		dataType:data.dataType,
 		success: function(responseJson) {
 			return responseJson;
 		},
@@ -22,7 +23,7 @@ cab.AJAXCall = function(data){
 	});		
 
 };
-cab.getFormJson=function(data){
-	var formId = data;
+cab.getFormJson=function(formId){
+	alert(">"+formId+"<");
 	return JSON.stringify($("#"+formId+"").serializeArray());
 };
