@@ -42,30 +42,63 @@ svg{fill:#fff;}
 .btn-25p,.input-cmn25p{
 	width:25%!important;
 }
-.btn-30p,.input-cmn30p{
+.btn-30p,.input-cmn30p,.tbl-30p,.wdth-30p{
 	width:30%!important;
 }
-.btn-33p,.input-cmn33p{
+.btn-33p,.input-cmn33p,.tbl-33p,.wdth-33p{
 	width:33%!important;
 }
-.btn-40p,.input-cmn40p,.tbl-40p{
+.btn-40p,.input-cmn40p,.tbl-40p,.wdth-40p{
 	width:40%!important;
 }
-.btn-50p,.input-cmn50p,.tbl-50p{
+.btn-45p,.input-cmn45p,.tbl-45p,.wdth-45p{
+	width:45%!important;
+}
+.btn-47p,.input-cmn47p,.tbl-47p,.wdth-47p{
+	width:47%!important;
+}
+.btn-50p,.input-cmn50p,.tbl-50p,.wdth-50p{
 	width:50%!important;
 }
-.btn-60p,.input-cmn60p,.tbl-60p{
+.btn-55p,.input-cmn55p,.tbl-55p,.wdth-55p{
+	width:55%!important;
+}
+.btn-60p,.input-cmn60p,.tbl-60p,.wdth-60p{
 	width:60%!important;
 }
-.btn-70p,.input-cmn70p,.tbl-70p{
+.btn-70p,.input-cmn70p,.tbl-70p,.wdth-70p{
 	width:70%!important;
 }
-.btn-80p,.input-cmn80p,.tbl-80p{
+.btn-80p,.input-cmn80p,.tbl-80p,.wdth-80p{
 	width:80%!important;
 }
-.btn-90p,.input-cmn90p,.tbl-90p{
+.btn-90p,.input-cmn90p,.tbl-90p,.wdth-90p{
 	width:90%!important;
 }
-.btn-100p,.input-cmn100p,.tbl-100p{
+.btn-100p,.input-cmn100p,.tbl-100p,.wdth-100p{
 	width:100%!important;
+}
+.hgt-05p{
+	height:50px
+}
+.hgt-10p{
+	height:100px
+}
+.hgt-15p{
+	height:150px
+}
+.hgt-20p{
+	height:200px
+}
+.hgt-25p{
+	height:250px
+}
+.hgt-30p{
+	height:300px
+}
+.hgt-35p{
+	height:350px
+}
+.auto{
+	margin:0 auto;
 }

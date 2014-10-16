@@ -53,3 +53,14 @@ function submitTaxiOutstation(formId){
 	var JsonData={"formData":data,"eventId":eventId.taxi_out_station,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 }
+function submitBikePackage(formId){
+	alert('test1');
+	var data = cab.getFormJson(formId);
+	var JsonData={"formData":data,"eventId":eventId.bike_package,"dataType":"json","url":""};
+	var response=cab.AJAXCall(JsonData);
+}
+function submitTruckPackersMovers(formId) {
+	var data=cab.getFormJson(formId);
+	var JsonData={"formData":data,"eventId":eventId.truck_packermovers,"dataType":"json","url":""};
+	var response=cab.AJAXCall(JsonData);
+}

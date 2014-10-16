@@ -343,7 +343,9 @@ padding-bottom:0px;
 }
 
 /* page Contant */
-
+.main{
+	margin-top:10px!important;
+}
 .main-content{
 	width:80%;
 }
@@ -355,3 +357,4 @@ padding-bottom:0px;
 	padding:8px 5px;
 	text-align:center;
 }
+

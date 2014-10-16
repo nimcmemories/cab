@@ -10,4 +10,6 @@ eventId.taxi_ptop=1;
 eventId.taxi_got_to_airport=2;
 eventId.taxi_pickup_from_airport=3;
 eventId.taxi_package=4;
-eventId.taxi_out_station-5;
+eventId.taxi_out_station=5;
+eventId.bike_package=301;
+eventId.truck_packermovers=201;

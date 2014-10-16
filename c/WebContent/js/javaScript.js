@@ -1,4 +1,26 @@
 // JavaScript Document
+$(document).ready(function (){
+    validate();
+    $('#txt-pickup, #txt-drop, #txt-date, #txt-time').change(validate);
+});
+function validate(){
+    if ($('.pickup').val().length   >   0   &&
+        $('.drop').val().length  >   0   &&
+		$('#txt-date').val().length  >   0   &&
+        $('#txt-time').val().length    >   0) {
+        $('input[type="submit"]').removeClass('disabled');
+	    $('input[type="submit"]').addClass('info');
+        $('input[type="button"]').removeClass('disabled');
+	    $('input[type="button"]').addClass('info');
+    }
+    else {
+        $('input[type="submit"]').addClass('disabled');
+	    $('input[type="submit"]').removeClass('info');
+        $('input[type="button"]').addClass('disabled');
+	    $('input[type="button"]').removeClass('info');
+    }
+}
+
 $('document').ready(function(){	
     /*  Top and Sidebar Tab */
 			/* Page Load  */
