@@ -24,10 +24,7 @@
 </head>
 <body>
 <!-- Start Loading  -->
-		<div id="pageloader">
-        <div id="bg_color"></div>
-         <div id="circle"></div><h1>smartSense</h1>
-        <div id="bonfire-pageloader" class="bonfire-pageloader-fade">
+		
 	<!-- BEGIN THE ICON -->
             <div class="bonfire-pageloader-icon" style="right: 633px; top: 244.5px;">
                 <svg version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
@@ -107,7 +104,9 @@
         <!-- Section Div  -->
         <!-- Taxi Section Start  -->
         <div class="main-contain taxi-section" id="taxi-section">
+        
 	       	<!--Taxi Point to Point Design -->
+        
             <div class="taxi-pop">
             <form action="#" method="post" id="taxi-ptop" onSubmit="">
             	<div class="select_city">
@@ -134,7 +133,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="button" class="command-button info" value="Find My Taxi" onClick="submitTaxiPtop('taxi-ptop')"/>
+					<input type="button" class="command-button info" value="Find My Taxi" onclick="submitTaxiPtop('taxi-ptop')"/>
                 </div>
             </form>
             <div class="clear"></div>
@@ -282,6 +281,7 @@
          	</div>
             
             <!-- Car on Rent Design -->
+            
              <div class="taxi-caronrent">
              <form action="#" method="post" id="taxi-caronrent">
              <input type="hidden" name="carrenttype" id="carrenttype" value="0"/>
@@ -315,7 +315,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi" />
+					<input type="submit" class="command-button info" value="Find My Taxi" onclick="onsubmitTaxiPerHour('taxi-caronrent')" />
                 </div>
             <div class="clear"></div>
             </div>
@@ -336,7 +336,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
+					<input type="submit" class="command-button info" value="Find My Taxi" onclick="onsubmitTaxiPerHour('taxi-caronrent')"//>
                 </div>
            
             <div class="clear"></div>
@@ -411,7 +411,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
+					<input type="submit" class="command-button info" value="Find My Taxi" onclick="busTicket('bus-ticket')"/>
                 </div>
             </form>
             <div class="clear"></div>
@@ -446,7 +446,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi"/>
+					<input type="submit" class="command-button info" value="Find My Taxi" onclick="busOnRent('bus-on-rent')"/>
                 </div>
             </form>
             <div class="clear"></div>
@@ -493,7 +493,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="button" class="command-button info" value="Find My Truck" onclick="submitTruckPackersMovers"/>
+					<input type="button" class="command-button info" value="Find My Truck" onclick="submitTruckPackersMovers('truck-packer')"/>
                 </div>
             </form>
             	<div class="clear"></div>
@@ -527,7 +527,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Truck"/>
+					<input type="submit" class="command-button info" value="Find My Truck"  onclick="truckShipping('truck-shipping')"/>
                 </div>
             </form>
             <div class="clear"></div>
@@ -619,7 +619,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Bike"/>
+					<input type="submit" class="command-button info" value="Find My Bike" onclick="submitBikeOnRent('bike-on_Rent')"/>
                 </div>
             <div class="clear"></div>
             </div>
@@ -650,7 +650,7 @@
                     </tr>
                 </table>
                 <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Bike"/>
+					<input type="submit" class="command-button info" value="Find My Bike" onclick="submitBikeOnRent('bike-on_Rent')"/>
                 </div>
            
             	<div class="clear"></div>
