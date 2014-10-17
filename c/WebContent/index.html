@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Smart Cab</title>
-	<link rel="stylesheet" href="css/commonStyle.css">
-	<link rel="stylesheet" href="css/styleSheet.css">
-    <link rel="stylesheet" href="css/iconFont.css">
-    <link rel="stylesheet" href="css/customStyle.css">    
-    <link rel="stylesheet" href="css/jquery.timepicker.css" />    
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
-    <script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
-	<script type="text/javascript" src="jslib/jquery.timepicker.min.js"></script>
-    <script type="text/javascript" src="jslib/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="js/cab.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/jsconstant.js"></script>
-    <script type="text/javascript" src="js/eventconstant.js"></script>
-    <script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
-    <script type="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Smart Cab</title>
+<link rel="stylesheet" href="css/commonStyle.css">
+<link rel="stylesheet" href="css/styleSheet.css">
+<link rel="stylesheet" href="css/iconFont.css">
+<link rel="stylesheet" href="css/customStyle.css">
+<link rel="stylesheet" href="css/jquery.timepicker.css" />
+<link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+<script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="jslib/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="jslib/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="js/cab.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/jsconstant.js"></script>
+<script type="text/javascript" src="js/eventconstant.js"></script>
+<script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
+<script type="text/javascript">
     
     	//var res=cab.AJAXCall('nitin');
     </script>
 </head>
 <body>
-<!-- Start Loading  -->
-		
+	<!-- Start Loading  -->
+
 	<!-- BEGIN THE ICON -->
-            <div class="bonfire-pageloader-icon" style="right: 633px; top: 244.5px;">
-                <svg version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                <path id="loading-12-icon" d="M291,82.219c0,16.568-13.432,30-30,30s-30-13.432-30-30s13.432-30,30-30S291,65.65,291,82.219z
+	<div class="bonfire-pageloader-icon"
+		style="right: 633px; top: 244.5px;">
+		<svg version="1.1" x="0px" y="0px" width="512px" height="512px"
+			viewBox="0 0 512 512" enable-background="new 0 0 512 512"
+			xml:space="preserve">
+                <path id="loading-12-icon"
+				d="M291,82.219c0,16.568-13.432,30-30,30s-30-13.432-30-30s13.432-30,30-30S291,65.65,291,82.219z
                      M261,404.781c-15.188,0-27.5,12.312-27.5,27.5s12.312,27.5,27.5,27.5s27.5-12.312,27.5-27.5S276.188,404.781,261,404.781z
                      M361.504,113.167c-4.142,7.173-13.314,9.631-20.487,5.489c-7.173-4.141-9.631-13.313-5.49-20.487
                     c4.142-7.173,13.314-9.631,20.488-5.489C363.188,96.821,365.645,105.994,361.504,113.167z M188.484,382.851
@@ -48,339 +52,477 @@
                      M188.482,131.649c14.352-8.286,19.266-26.633,10.982-40.982c-8.285-14.348-26.631-19.264-40.982-10.98
                     c-14.346,8.285-19.264,26.633-10.98,40.982C155.787,135.017,174.137,139.932,188.482,131.649z"></path>
                 </svg>
-            </div>
-         </div>
+	</div>
+	</div>
 	<!-- END THE ICON -->
-</div>
-<!-- END Loading  -->
+	</div>
+	<!-- END Loading  -->
 
 	<!-- Header -->
-    <div class="on-right rm5 tm5">
-       	<a href="DyGrid.html" class="rm5 white" target="_blank">Grid</a>
-        <a href="login.html" class="rm5 white" target="_blank">Login</a>
-        <a href="register.html" class="white" target="_blank">Register</a>
-       	<a href="Taxi-customer-view.html" class="rm5 white" target="_blank">Taxi-Custom-View</a>
-        <a href="Bus-customer-view.html" class="rm5 white" target="_blank">Bus-Custom-View</a>
-        <a href="busConfirm.html" class="rm5 white" target="_blank">Bus-Confirm</a>
-        <a href="taxiConfirm.html" class="rm5 white" target="_blank">Taxi-Confirm</a>
-    </div>
-    <div class="header bg_color">smartCab</div>
-    <!-- City DropDown -->
-    <!--<div class="drop_down_menu">Select City<i class="fa fa-plus-square fa-lg on-right rm5"></i></div>-->
-    <div class="section">
-        <!--  Top Menu -->
-        <ul class="header-tab8 on-right topMenu topmenu-taxi">
-            <li class="tab-6"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
-            <li class="tab-6"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
-            <li class="tab-6"><a class="left taxi-ticket" href="#"><i class="fa fa-ticket on-left"></i>Taxi Ticket</a></li>            
-            <li class="tab-6"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
-            <li class="tab-6"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Outstation</a></li>
-            <li class="tab-6"><a class="left car-on-rent" href="#"><i class="icon1-wrench large on-left"></i>Car on Rent</a></li>
-	        <div class="clear"></div>
-	    </ul>
-        <ul class="header-tab8 on-right topMenu topmenu-bus">
-            <li class="tab-2"><a class="left busticket" href="#"><i class="fa fa-ticket on-left"></i>Bus Ticket</a></li>
-            <li class="tab-2"><a class="left busesonrent" href="#"><i class="fa fa-key on-left"></i>Bus on Rent</a></li>
-	        <div class="clear"></div>
-	    </ul>
-        <ul class="header-tab8 on-right topMenu topmenu-truck">
-            <li class="tab-2"><a class="active left  truckpacker" href="#"><i class="icon1-move on-left"></i>Packers/Movers</a></li>
-            <li class="tab-2"><a class="left truckshipping" href="#"><i class="fa fa-truck on-left"></i>Shipping</a></li>
-	        <div class="clear"></div>
-	    </ul>
-        <ul class="header-tab8 on-right topMenu topmenu-motorCycle">
-            <li class="tab-2"><a class="left bikepackage" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
-            <li class="tab-2"><a class="left bikeonrent" href="#"><i class="fa fa-outdent on-left"></i>Bike on Rent</a></li>
-	        <div class="clear"></div>
-	    </ul>
+	<div class="on-right rm5 tm5">
+		<a href="DyGrid.html" class="rm5 white" target="_blank">Grid</a> <a
+			href="login.html" class="rm5 white" target="_blank">Login</a> <a
+			href="register.html" class="white" target="_blank">Register</a> <a
+			href="Taxi-customer-view.html" class="rm5 white" target="_blank">Taxi-Custom-View</a>
+		<a href="Bus-customer-view.html" class="rm5 white" target="_blank">Bus-Custom-View</a>
+		<a href="busConfirm.html" class="rm5 white" target="_blank">Bus-Confirm</a>
+		<a href="taxiConfirm.html" class="rm5 white" target="_blank">Taxi-Confirm</a>
+	</div>
+	<div class="header bg_color">smartCab</div>
+	<!-- City DropDown -->
+	<!--<div class="drop_down_menu">Select City<i class="fa fa-plus-square fa-lg on-right rm5"></i></div>-->
+	<div class="section">
+		<!--  Top Menu -->
+		<ul class="header-tab8 on-right topMenu topmenu-taxi">
+			<li class="tab-6"><a class="left active point-to-point" href="#"><i
+					class="fa fa-map-marker on-left"></i>Point To Point</a></li>
+			<li class="tab-6"><a class="left airport" href="#"><i
+					class="fa fa-plane large on-left"></i>Airport</a></li>
+			<li class="tab-6"><a class="left taxi-ticket" href="#"><i
+					class="fa fa-ticket on-left"></i>Taxi Ticket</a></li>
+			<li class="tab-6"><a class="left package" href="#"><i
+					class="fa fa-cubes on-left"></i>Package</a></li>
+			<li class="tab-6"><a class="left outstation" href="#"><i
+					class="fa fa-outdent on-left"></i>Outstation</a></li>
+			<li class="tab-6"><a class="left car-on-rent" href="#"><i
+					class="icon1-wrench large on-left"></i>Car on Rent</a></li>
+			<div class="clear"></div>
+		</ul>
+		<ul class="header-tab8 on-right topMenu topmenu-bus">
+			<li class="tab-2"><a class="left busticket" href="#"><i
+					class="fa fa-ticket on-left"></i>Bus Ticket</a></li>
+			<li class="tab-2"><a class="left busesonrent" href="#"><i
+					class="fa fa-key on-left"></i>Bus on Rent</a></li>
+			<div class="clear"></div>
+		</ul>
+		<ul class="header-tab8 on-right topMenu topmenu-truck">
+			<li class="tab-2"><a class="active left  truckpacker" href="#"><i
+					class="icon1-move on-left"></i>Packers/Movers</a></li>
+			<li class="tab-2"><a class="left truckshipping" href="#"><i
+					class="fa fa-truck on-left"></i>Shipping</a></li>
+			<div class="clear"></div>
+		</ul>
+		<ul class="header-tab8 on-right topMenu topmenu-motorCycle">
+			<li class="tab-2"><a class="left bikepackage" href="#"><i
+					class="fa fa-cubes on-left"></i>Package</a></li>
+			<li class="tab-2"><a class="left bikeonrent" href="#"><i
+					class="fa fa-outdent on-left"></i>Bike on Rent</a></li>
+			<div class="clear"></div>
+		</ul>
 
-        <!--  Side Menu -->
-       	<ul class="header-tab1 sideMenu">
-        	<li class="tab-1"><a href="#" class="active left sideMenu-taxi"><i class="fa fa-car on-left fa-lg"></i>Taxi</a></li>
-            <li class="tab-1"><a href="#" class="sideMenu-bus"><i class="fa fa-bus on-left fa-lg"></i>Bus</a></li>
-            <li class="tab-1"><a href="#" class="sideMenu-truck"><i class="fa fa-truck on-left fa-lg"></i>Truck</a></li>            
-            <li class="tab-1"><a href="#" class="sideMenu-motorCycle"><img src="img/bike.png" class="on-left fa-">Bike</a></li>
-        </ul>
-        <!-- Section Div  -->
-        <!-- Taxi Section Start  -->
-        <div class="main-contain taxi-section" id="taxi-section">
-        
-	       	<!--Taxi Point to Point Design -->
-        
-            <div class="taxi-pop">
-            <form action="#" method="post" id="taxi-ptop" onSubmit="">
-            	<div class="select_city">
-		           		<label>Select City :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>
-               	<table class="table">
-                    <tr>
-                     <td><label>Pickup Area :</label></td>                    
-                     <td><input type="text" placeholder="Pickup Area" class="pickup" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                     <td><label>Drop Area :</label></td>
-                      <td><input type="text" placeholder="Drop Area" class="drop" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" id="txt-date" placeholder="DD-MM-YYYY" data-validation="date" data-validation-format="dd/mm/yyyy">
-                        </td>
-	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input type="text" class="timeformatExample2 input-cmn30p" id="txt-time" placeholder="HH:MM" data-validation="time length" data-validation-length="min8"/></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="button" class="command-button info" value="Find My Taxi" onclick="submitTaxiPtop('taxi-ptop')"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-            </div>
-            <!-- Airport Design -->
-            <div class="taxi-airport">
-            <form action="#" method="post" id="taxi-airport">
-            <div class="select_city">
-		           		<label>Select city :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>
-            <div class="airport_tab">
-            	<span class="tab-2"><a href="#" class="active go_airport" id="go_airport" onClick="changeAirportType()">Going To Airport</a></span>
-                <span class="tab-2"><a href="#" class="pick_airport" id="pick_airport" onClick="changeAirportType()">Pickup From Airport</a></span>
-            </div>
-            <div class="border-bottom"></div>
-            <!-- Go to Airport -->
-            <div class="taxi-go_airport">
-            	    <table class="table">
-                    <tr>
-                    	<td><label>Airport Name :</label></td>                    
-                        <td><select>
-                        	<option>Airport</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select></td>
-                        <td><label>Pickup Area :</label></td>
-                        <td><input type="text" placeholder="Pickup Area" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" /></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" ></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi" onClick="submitTaxiAirport('taxi-airport')"/>
-                </div>
-            <!--</form>-->
-            <div class="clear"></div>
-            </div>
-            <!-- Pick up from Airport -->
-            <div class="taxi-pickup_airport">
-               	<table class="table">
-                    <tr>
-                    	<td><label>Airport Name :</label></td>                    
-                        <td><select>
-                        	<option>Airport</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select></td>
-                        <td><label>Drop Area :</label></td>
-                        <td><input type="text" placeholder="Drop Area" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" /></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" ></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi" onClick="submitTaxiAirport('taxi-airport')" />
-                </div>
+		<!--  Side Menu -->
+		<ul class="header-tab1 sideMenu">
+			<li class="tab-1"><a href="#" class="active left sideMenu-taxi"><i
+					class="fa fa-car on-left fa-lg"></i>Taxi</a></li>
+			<li class="tab-1"><a href="#" class="sideMenu-bus"><i
+					class="fa fa-bus on-left fa-lg"></i>Bus</a></li>
+			<li class="tab-1"><a href="#" class="sideMenu-truck"><i
+					class="fa fa-truck on-left fa-lg"></i>Truck</a></li>
+			<li class="tab-1"><a href="#" class="sideMenu-motorCycle"><img
+					src="img/bike.png" class="on-left fa-">Bike</a></li>
+		</ul>
+		<!-- Section Div  -->
+		<!-- Taxi Section Start  -->
+		<div class="main-contain taxi-section" id="taxi-section">
 
-            <div class="clear"></div>
-            </div>
-            </form>
-         	</div>
-            
-            <!-- Package Design -->
-            <div class="taxi-package">
-			<form action="#" method="post" id="taxi-package">
-            	<div class="select_city">
-		           		<label>Select City :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>
-               	<table class="table">
-                    <tr>
-                        <td><label>Package :</label></td>
-                        <td><select>
-                        	<option>Package</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select></td>
-                    	<td><label>Pickup Area :</label></td>                    
-                        <td><input type="text" placeholder="Pickup Area" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" /></td>
-	                    <td><label>Pickup Time :</label></td>                    
-						<td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" ></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="button" class="command-button info" value="Find My Taxi" onclick="submitTaxiPackage('taxi-package')"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-         	</div>
-            <!-- outStation Design -->
-            <div class="taxi-outstation">
-            <form action="#" method="post" id="taxi-outstation">
-            	<div class="select_city">
-		           		<label>Select City :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>
-               	<table class="table">
-                    <tr>
-                    	<td><label>From :</label></td>                    
-                        <td><input type="text" placeholder="Pickup City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-                    	<td><label>To :</label></td>                    
-                        <td><input type="text" placeholder="Drop City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                        <td><label class="fa fa-plus-square lm20 fa-lg" onClick="addRow()"></label></td>
-                    </tr>
-                    <tbody class="addrow"></tbody>
-                    <tr>
-	                    <td><label>Departure Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Departure Date" /></td>
-	                    <td><label>Return Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Return Date" /></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="button" class="command-button info" value="Find My Taxi" onclick="submitTaxiOutstation('taxi-outstation')"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-         	</div>
-            
-            <!-- Car on Rent Design -->
-            
-             <div class="taxi-caronrent">
-             <form action="#" method="post" id="taxi-caronrent">
-             <input type="hidden" name="carrenttype" id="carrenttype" value="0"/>
-                 <div class="select_city">
-		           		<label>Select city :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>
-           <div class="caronrent_tab">
-            	<span class="tab-2"><a href="#" class="active per_hours" id="car_per_hours" onclick="changeCarRentType()">Per Hours</a></span>
-                <span class="tab-2"><a href="#" class="day_wise" id="per_day" onclick="changeCarRentType()">Day Wise</a></span>
-            </div>
-            <div class="border-bottom"></div>
-            <!-- Taxi Per Hours -->
-            <div class="taxi-per_hours">
-               	<table class="table">
-                    <tr>
-                        <td><label>Pickup Area :</label></td>
-                        <td><input type="text" placeholder="Pickup Area" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"></td>
-                    	<td><label>No. of Hours :</label></td>                    
-						<td><input type="text" placeholder="No. of Hours" ></td>                                                
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" /></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" ></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi" onclick="onsubmitTaxiPerHour('taxi-caronrent')" />
-                </div>
-            <div class="clear"></div>
-            </div>
-            <!-- Taxi Day Wise -->
-            <div class="taxi-day_wise">
-               	<table class="table">
-                    <tr>
-                        <td><label>Pickup Address :</label></td>
-                        <td><textarea placeholder="Pickup Address" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"></textarea></td>
-                        <td><label>Pickup Date :</label></td>
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date"/></td>
-                    </tr>
-                    <tr>
-                    	<td><label>No. of Days :</label></td>                    
-						<td><input type="text" placeholder="No. of Days" ></td>                                                
-	                    <td><label>Drop Address :</label></td>
-                        <td><textarea placeholder="Drop Address" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"></textarea></td>                                                
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi" onclick="onsubmitTaxiPerHour('taxi-caronrent')"//>
-                </div>
-           
-            <div class="clear"></div>
-            </div>
-             </form>
-         	</div>
+			<!--Taxi Point to Point Design -->
+
+			<div class="taxi-pop">
+				<form action="#" method="post" id="taxi-ptop" onSubmit="">
+					<div class="select_city">
+						<label>Select City :</label> <select name="city" id="ptopcity">
+							<option>w</option>
+							<option>w</option>
+							<option>w</option>
+						</select>
+					</div>
+					<table class="table">
+						<tr>
+							<td><label>Pickup Area :</label></td>
+							<td><input type="text" placeholder="Pickup Area"
+								id="pickuparea" name="pickuparea" class="pickup"
+								data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$"
+								data-validation-error-msg="please enter valid pickup area" /></td>
+							<td><label>Drop Area :</label></td>
+							<td><input type="text" placeholder="Drop Area" id="droparea"
+								name="droparea" class="drop" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$"
+								data-validation-error-msg="please enter valid drop area" /></td>
+						</tr>
+						<tr>
+							<td><label>Pickup Date :</label></td>
+							<td><input type="text" class="datePairExample" id="txt-date"
+								name="pickupdate" onkeypress="return false;"
+								placeholder="dd-mm-yyyy" data-validation="date"
+								data-validation-format="dd-mm-yyyy"
+								data-validation-error-msg="
+                     please select valid pickup date"></td>
+							<td><label>Pickup Time :</label></td>
+							<td><input type="text"
+								class="timeformatExample2 input-cmn30p" id="txt-time"
+								name="pickuptime" placeholder="HH:MM" onkeypress="return false;"
+								data-validation="time length" data-validation-length="min8"
+								data-validation-error-msg="
+                     please select valid pickup time" /></td>
+						</tr>
+					</table>
+					<div class="btn-15p">
+						<input type="submit" class="command-button info"
+							value="Find My Taxi" onclick="submitTaxiPtop('taxi-ptop')" />
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+
+			<!-- Airport Design -->
+
+			<div class="taxi-airport">
+				<form action="#" method="post" id="taxi-airport">
+					<div class="select_city">
+						<label>Select city :</label> <select name="city" id="airportcity">
+							<option>w</option>
+							<option>w</option>
+							<option>w</option>
+						</select>
+					</div>
+					<div class="airport_tab">
+						<span class="tab-2"><a href="#" class="active go_airport"
+							id="go_airport" onClick="changeAirportType()">Going To
+								Airport</a></span> <span class="tab-2"><a href="#"
+							class="pick_airport" id="pick_airport"
+							onClick="changeAirportType()">Pickup From Airport</a></span>
+					</div>
+					<div class="border-bottom"></div>
+
+					<!-- Go to Airport -->
+
+					<div class="taxi-go_airport">
+
+						<input type="hidden" name="airporttype" id="airporttype" value="0" />
+						<table class="table">
+							<tr>
+								<td><label>Airport Name :</label></td>
+								<td><select>
+										<option>Airport</option>
+										<option>w</option>
+										<option>w</option>
+								</select></td>
+								<td><label>Pickup Area :</label></td>
+								<td><input type="text" placeholder="Pickup Area"
+									id="pickuparea" name="pickuparea" data-validation="custom"
+									data-validation-regexp="^([a-zA-Z\s]+)$"
+									data-validation-error-msg="please enter valid pickup area" /></td>
+							</tr>
+							<tr>
+								<td><label>Pickup Date :</label></td>
+								<td><input type="text" class="datePairExample"
+									placeholder="Pickup Date" name="pickupdate" id="pickupdate"
+									onkeypress="return false;" placeholder="dd-mm-yyyy"
+									data-validation="date" data-validation-format="dd-mm-yyyy"
+									data-validation-error-msg="please select valid pickup date"  /></td>
+								<td><label>Pickup Time :</label></td>
+								<td><input id="" type="text"
+									class="timeformatExample2 input-cmn30p"
+									placeholder="Pickup time" name="pickuptime" id="pickuptime"
+									onkeypress="return false;" data-validation="time length"
+									data-validation-error-msg="please select valid pickup time"></td>
+							</tr>
+						</table>
+						<div class="btn-15p">
+							<input type="submit" class="command-button info"
+								value="Find My Taxi" onClick="submitTaxiAirport('taxi-airport')" />
+						</div>
+						<!--</form>-->
+						<div class="clear"></div>
+					</div>
+					<!-- Pick up from Airport -->
+					<div class="taxi-pickup_airport">
+						<table class="table">
+							<tr>
+								<td><label>Airport Name :</label></td>
+								<td><select>
+										<option>Airport</option>
+										<option>w</option>
+										<option>w</option>
+								</select></td>
+								<td><label>Drop Area :</label></td>
+								<td><input type="text" placeholder="Drop Area"
+									name="droparea" id="droparea" data-validation="custom"
+									data-validation-regexp="^([a-zA-Z\s]+)$" 
+									data-validation-error-msg="please select valid drop area"/></td>
+							</tr>
+							<tr>
+								<td><label>Pickup Date :</label></td>
+								<td><input type="text" class="datePairExample"
+									placeholder="Pickup Date" name="pickupdate" id="pickupdate"
+									onkeypress="return false;" placeholder="dd-mm-yyyy"
+									data-validation="date" data-validation-format="dd-mm-yyyy" 
+									data-validation-error-msg="please select valid select pickup date"/></td>
+								<td><label>Pickup Time :</label></td>
+								<td><input id="" type="text"
+									class="timeformatExample2 input-cmn30p"
+									placeholder="Pickup time" name="pickuptime" id="pickuptime"
+									onkeypress="return false;" data-validation="time length"
+									data-validation-error-msg="please select valid pickup time"></td>
+							</tr>
+						</table>
+						<div class="btn-15p">
+							<input type="submit" class="command-button info"
+								value="Find My Taxi" onClick="submitTaxiAirport('taxi-airport')" />
+						</div>
+
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+
+			<!-- Package Design -->
+
+			<div class="taxi-package">
+				<form action="#" method="post" id="taxi-package">
+					<div class="select_city">
+						<label>Select City :</label> <select name="city" id="packagecity">
+							<option>w</option>
+							<option>w</option>
+							<option>w</option>
+						</select>
+					</div>
+					<table class="table">
+						<tr>
+							<td><label>Package :</label></td>
+							<td><select name="package">
+									<option>Package</option>
+									<option>w</option>
+									<option>w</option>
+							</select></td>
+							<td><label>Pickup Area :</label></td>
+							<td><input type="text" placeholder="Pickup Area"
+								data-validation="custom" name="pickuparea" id="pickuparea"
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please enter valid pickup area"/></td>
+						</tr>
+						<tr>
+							<td><label>Pickup Date :</label></td>
+							<td><input type="text" class="datePairExample"
+								placeholder="Pickup Date" name="pickupdate" id="pickupdate"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy" 
+								data-validation-error-msg="please select valid pickup date"/></td>
+							<td><label>Pickup Time :</label></td>
+							<td><input id="" type="text"
+								class="timeformatExample2 input-cmn30p"
+								placeholder="Pickup time" name="pickuptime" id="pickuptime"
+								onkeypress="return false;" data-validation="time length"
+								data-validation-error-msg="please select valid pickup time"></td>
+						</tr>
+					</table>
+					<div class="btn-15p">
+						<input type="button" class="command-button info"
+							value="Find My Taxi" onclick="submitTaxiPackage('taxi-package')" />
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+
+			<!-- outStation Design -->
+
+			<div class="taxi-outstation">
+				<form action="#" method="post" id="taxi-outstation">
+					<div class="select_city">
+						<label>Select City :</label> <select>
+							<option>w</option>
+							<option>w</option>
+							<option>w</option>
+						</select>
+					</div>
+					<table class="table">
+						<tr>
+							<td><label>From :</label></td>
+							<td><input type="text" placeholder="Pickup City"
+								name="pickupcity" id="pickupcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please enter valid pickup area" /></td>
+						</tr>
+						<tr>
+							<td><label>To :</label></td>
+							<td><input type="text" placeholder="Drop City"
+								name="dropcity" id="dropcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please enter valid pickup area"/></td>
+							<td><label class="fa fa-plus-square lm20 fa-lg"
+								onClick="addRow()"></label></td>
+						</tr>
+						<tbody class="addrow"></tbody>
+						<tr>
+							<td><label>Departure Date :</label></td>
+							<td><input type="text" class="datePairExample"
+								placeholder="Departure Date" name="departure-date"
+								id="departure-date" onkeypress="return false;"
+								placeholder="dd-mm-yyyy" data-validation="date"
+								data-validation-format="dd-mm-yyyy" 
+								data-validation-error-msg="please select valid pickup date"/></td>
+							<td><label>Return Date :</label></td>
+							<td><input type="text" class="datePairExample"
+								placeholder="Return Date" name="return-date" id="return-date"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy"
+								data-validation-error-msg="please select valid return date" /></td>
+						</tr>
+					</table>
+					<div class="btn-15p">
+						<input type="button" class="command-button info"
+							value="Find My Taxi"
+							onclick="submitTaxiOutstation('taxi-outstation')" />
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+
+			<!-- Car on Rent Design -->
+
+			<div class="taxi-caronrent">
+				<form action="#" method="post" id="taxi-caronrent">
+					<input type="hidden" name="carrenttype" id="carrenttype" value="0" />
+					<div class="select_city">
+						<label>Select city :</label> <select>
+							<option>w</option>
+							<option>w</option>
+							<option>w</option>
+						</select>
+					</div>
+					<div class="caronrent_tab">
+						<span class="tab-2"><a href="#" class="active per_hours"
+							id="car_per_hours" onclick="changeCarRentType()">Per Hours</a></span> <span
+							class="tab-2"><a href="#" class="day_wise" id="per_day"
+							onclick="changeCarRentType()">Day Wise</a></span>
+					</div>
+					<div class="border-bottom"></div>
+
+					<!-- Taxi Per Hours -->
+
+					<div class="taxi-per_hours">
+						<table class="table">
+							<tr>
+								<td><label>Pickup Area :</label></td>
+								<td><input type="text" placeholder="Pickup Area"
+									name="pickuparea" id="pickuparea" data-validation="custom"
+									data-validation-regexp="^([a-zA-Z\s]+)$"
+									data-validation-error-msg="please enter valid pickup area"></td>
+								<td><label>No. of Hours :</label></td>
+								<td><input type="text" placeholder="No. of Hours"
+									name="noofhours" id="noofhours"
+									data-validation="number" data-validation-allowing="range[1;24]"
+									data-validation-error-msg="please enter valid number(max-24)"></td>
+							</tr>
+							<tr>
+								<td><label>Pickup Date :</label></td>
+								<td><input type="text" class="datePairExample"
+									placeholder="Pickup Date" name="pickupdate" id="pickupdate"
+									onkeypress="return false;" placeholder="dd-mm-yyyy"
+									data-validation="date" data-validation-format="dd-mm-yyyy"
+									data-validation-error-msg="please select valid pickup date" /></td>
+								<td><label>Pickup Time :</label></td>
+								<td><input id="" type="text"
+									class="timeformatExample2 input-cmn30p"
+									placeholder="Pickup time" name="pickuptime" id="pickuptime"
+									onkeypress="return false;" data-validation="time length"
+									data-validation-error-msg="please select valid pickup time"></td>
+							</tr>
+						</table>
+						<div class="btn-15p">
+							<input type="submit" class="command-button info"
+								value="Find My Taxi"
+								onclick="onsubmitTaxiPerHour('taxi-caronrent')" />
+						</div>
+						<div class="clear"></div>
+					</div>
+
+					<!-- Taxi Day Wise -->
+
+					<div class="taxi-day_wise">
+						<table class="table">
+							<tr>
+								<td><label>Pickup Address :</label></td>
+								<td><textarea placeholder="Pickup Address"
+										name="pickupaddress" id="pickupaddress"
+										data-validation="custom"
+										data-validation="length" data-validation-length="max100"></textarea></td>
+								<td><label>Pickup Date :</label></td>
+								<td><input type="text" class="datePairExample"
+									name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+									onkeypress="return false;" placeholder="dd-mm-yyyy"
+									data-validation="date" data-validation-format="dd-mm-yyyy"
+									data-validation-error-msg="please select valid pickup date"/></td>
+							</tr>
+							<tr>
+								<td><label>No. of Days :</label></td>
+								<td><input type="text" placeholder="No. of Days"
+									name="noofdays" id="noofdays" data-validation="number" data-validation-allowing="range[1;10]">>
+									</td>
+								<td><label>Drop Address :</label></td>
+								<td><textarea placeholder="Drop Address" name="droparea"
+										id="droparea" data-validation="custom"
+										data-validation-regexp="^([a-zA-Z\s]+)$"></textarea></td>
+							</tr>
+						</table>
+						<div class="btn-15p">
+							<input type="submit" class="command-button info"
+								value="Find My Taxi"
+								onclick="onsubmitTaxiPerHour('taxi-caronrent')" />
+						</div>
+
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+
 			<!-- Taxi Ticket Design -->
-            <div class="taxi-taxiticket">
-            <form action="#" method="post" id="taxi-taxiticket">
-               	<table class="table">
-                    <tr>
-                    	<td><label>From:</label></td>                    
-                        <td><input type="text" placeholder="Pickup City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                        <td><label>To:</label></td>
-                        <td><input type="text" placeholder="Drop City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                  <!--   <tr>
-	                    <td><label>Pickup Area :</label></td>                    
-                        <td><input type="text" placeholder="Pickup Area" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$" ></td>						
-                        <td><label>Drop Area :</label></td>
-                        <td><input type="text" placeholder="Drop Area" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$" ></td>						
-                    </tr>-->
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" /></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                        <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" ></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi" onclick="submitTaxiTicket('taxi-taxiticket')"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-         	</div>
-        </div>
-        <!-- Taxi section End -->
-        
-        <!-- Bus Section Start  -->
-        <div class="main-contain bus-section" id="bus-section">
-            <!-- Package Design -->
-            <div class="bus-ticket">
-            <form action="#" method="post" id="bus-ticket">
-            <!--	<div class="select_city">
+
+			<div class="taxi-taxiticket">
+				<form action="#" method="post" id="taxi-taxiticket">
+					<table class="table">
+						<tr>
+							<td><label>From:</label></td>
+							<td><input type="text" placeholder="Pickup City"
+								name="pickupity" id="pickupity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+							<td><label>To:</label></td>
+							<td><input type="text" placeholder="Drop City"
+								name="dropcity" id="dropcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+						</tr>
+						<tr>
+							<td><label>Pickup Date :</label></td>
+							<td><input type="text" class="datePairExample"
+								placeholder="Pickup Date" name="pickupdate" id="pickupdate"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+							<td><label>Pickup Time :</label></td>
+							<td><input id="" type="text"
+								class="timeformatExample2 input-cmn30p"
+								placeholder="Pickup time" name="pickuptime" id="pickuptime"
+								onkeypress="return false;" data-validation="time length"></td>
+						</tr>
+					</table>
+					<div class="btn-15p">
+						<input type="submit" class="command-button info"
+							value="Find My Taxi"
+							onclick="submitTaxiTicket('taxi-taxiticket')" />
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<!-- Taxi section End -->
+
+		<!-- Bus Section Start  -->
+
+		<div class="main-contain bus-section" id="bus-section">
+			<!-- Package Design -->
+			<div class="bus-ticket">
+				<form action="#" method="post" id="bus-ticket">
+					<!--	<div class="select_city">
 		           		<label>Select City :</label>
                 		<select>
                         	<option>w</option>
@@ -388,283 +530,354 @@
                             <option>w</option>
                         </select>
                 </div>-->
-               	<table class="table">
-                    <tr>
-                    	<td><label>From :</label></td>                    
-                        <td><input type="text" placeholder="Pickup City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                        <td><label>To :</label></td>
-                        <td><input type="text" placeholder="Drop City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Date of Journey :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Date of Journey" /></td>
-	                    <td><label>Date of Return :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Date of Return" /></td>
-                    </tr>
-                      <tr>
-	                    <td><label>Bus Type :</label></td>                    
-                        <td><select>
-                        	<option>ALL</option>
-                            <option>AC</option>
-                            <option>NON AC</option>
-                        </select></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi" onclick="busTicket('bus-ticket')"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-         	</div>
-            <!-- Bus on Rent -->
-            <div class="bus-on-rent">
-            <form action="#" method="post" id="bus-on-rent">
-               	<table class="table">
-                    <tr>
-                    	<td><label>From :</label></td>                    
-                        <td><input type="text" placeholder="From" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-                    	<td><label>To :</label></td>                    
-                        <td><input type="text" placeholder="To" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                        <td><label class="fa fa-plus-square lm20 fa-lg" onClick="addRow()"></label></td>
-                    </tr>
-                    <tbody class="addrow"></tbody>
-                    <tr>
-	                    <td><label>Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="ON Date" /></td>
-	                    <td><label>For :</label></td>                    
-                        <td><input type="text" placeholder="No. of Days" /></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Bus Type :</label></td>                    
-                        <td><select>
-                        	<option>ALL</option>
-                            <option>AC</option>
-                            <option>NON AC</option>
-                        </select></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Taxi" onclick="busOnRent('bus-on-rent')"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-         	</div>
-        </div>
-        <!-- Bus Section End  -->
-        
-        <!-- Truck Section Start  -->
-        <div class="main-contain truck-section" id="truck-section">
-	       	<!--Truck Packer Design -->
-            <div class="truck-packer">
-            <form action="#" method="post" id="truck-packer">
-            	<div class="select_city">
-		           		<label>Select City :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>
-            
-               	<table class="table">
-                    <tr>
-                    	<td><label>From :</label></td>                    
-                        <td><input type="text" placeholder="Pickup City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                        <td><label>To :</label></td>
-                        <td><input type="text" placeholder="Drop City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" /></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" ></td>
-                    </tr>
-                    <tr>
-                    	<td><label>Weight :</label></td>
-                        <td>
-                        	<select>
-                        		<option>Weight</option>
-                                <option></option>
-                                <option></option>
-                        	</select>
-                        </td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="button" class="command-button info" value="Find My Truck" onclick="submitTruckPackersMovers('truck-packer')"/>
-                </div>
-            </form>
-            	<div class="clear"></div>
-            </div>
-            
-            <!-- Truck Shipping Design -->
-            <div class="truck-shipping">	
-            <form action="#" method="post" name="truck-shipping" id="truck-shipping">
-               	<table class="table">
-                 <tr>
-                    	<td><label>From :</label></td>                    
-                        <td><input type="text" placeholder="From" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                        <td><label>To :</label></td>
-                        <td><input type="text" placeholder="To" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" /></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" ></td>
-                    </tr>
-                    <tr>
-                    	<td><label>Weight :</label></td>
-                        <td>
-                        	<select>
-                        		<option>Weight</option>
-                                <option></option>
-                                <option></option>
-                        	</select>
-                        </td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Truck"  onclick="truckShipping('truck-shipping')"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-            </div>
-        </div>
-        <!-- Truck Section End  -->
-        
-        <!-- Bike Section Start  -->
-        <div class="main-contain bike-section" id="bike-section">
-	       	<!--Package Design -->
-            <div class="bike-package">
-            <form action="#" method="post" name="bike-package" id="bike-package">
-            	<div class="select_city">
-		           		<label>Select City :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-	            </div>
-               	<table class="table">
-                    <tr>
-                    	<td><label>Package :</label></td>                    
-                        <td><select>
-                                <option>Package</option>
-                                <option>w</option>
-                                <option>w</option>
-	                        </select>
-                        </td>
-                        <td><label>Bike type :</label></td>                    
-                        <td><select>
-                                <option>Bike Type</option>
-                                <option>w</option>
-                                <option>w</option>
-	                        </select>
-                        </td>
-                    </tr>
-                    <tr>
-	                    <td><label>Pickup Date :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="Pickup Date" /></td>
-	                    <td><label>Pickup Time :</label></td>                    
-                         <td><input id="" type="text" class="timeformatExample2 input-cmn30p" placeholder="Pickup time" ></td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="button" class="command-button info" value="Find My Bike" onclick="submitBikePackage('bike-package')"/>
-                </div>
-            </form>
-            <div class="clear"></div>
-            </div>
-            
-            <!-- Bike on rent Design -->
-            <div class="bike-on_Rent">
-             <form action="#" method="post" name="bike-on_Rent" id="bike-on_Rent">
-	            <div class="select_city">
-		           		<label>Select city :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>
-            <div class="bikeonrent_tab">
-            	<span class="tab-2"><a href="#" class="per_hours" id="bike_per_hours" onclick="changeBikeRentType('bike-on_Rent')">Per Hours</a></span>
-                <span class="tab-2"><a href="#" class="car_day_wise" onclick="changeBikeRentType()">Per Day</a></span>
-            </div>
-            <div class="border-bottom"></div>
-            
-            <!-- Bike Per Hours -->
-            <div class="bike-per_hours">
-            <input type="hidden" name="bikerenttype" id="bikerenttype" value="0">
-               	<table class="table">
-                    <tr>
-                        <td><label>From :</label></td>
-                        <td><input type="text" placeholder="Pickup City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    	<td><label>To :</label></td>                    
-						<td><input type="text" placeholder="Drop City" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    </tr>
-                    <tr>
-	                    <td><label>ON :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="ON Date" /></td>
-	                    <td><label>Bike type :</label></td>                    
-                        <td><select>
-                                <option>Bike Type</option>
-                                <option>w</option>
-                                <option>w</option>
-	                        </select>
-                        </td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Bike" onclick="submitBikeOnRent('bike-on_Rent')"/>
-                </div>
-            <div class="clear"></div>
-            </div>
-            
-            <!-- Bike Day Wise -->
-            <div class="bike-day_wise">
-               	<table class="table">
-                    <tr>
-                        <td><label>From :</label></td>
-                        <td><input type="text" placeholder="From" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>
-                    	<td><label>To :</label></td>                    
-						<td><input type="text" placeholder="To" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$"/></td>                                                
-                    </tr>
-                    <tr>
-                     <td><label>ON :</label></td>                    
-                        <td><input type="text" class="datePairExample" placeholder="ON Date" /></td>
-                    	<td><label>For :</label></td>                    
-						<td><input type="text" placeholder="No. of Days" ></td>                                                
-                    </tr>
-                    <tr>
-                    	<td><label>Bike type :</label></td>                    
-                        <td><select>
-                                <option>Bike Type</option>
-                                <option>w</option>
-                                <option>w</option>
-	                        </select>
-                        </td>
-                    </tr>
-                </table>
-                <div class="btn-15p">
-					<input type="submit" class="command-button info" value="Find My Bike" onclick="submitBikeOnRent('bike-on_Rent')"/>
-                </div>
-           
-            	<div class="clear"></div>
-            </div>
-             </form>
-           </div>
-           
-        </div>
-        <!-- Bike Section End  -->
-      <div class="clear"></div>	
-    </div>
-    <div class="footer"></div>
-   <script type="text/javascript" src="js/javaScript.js"></script>
-       <script type="text/javascript">
+					<table class="table">
+						<tr>
+							<td><label>From :</label></td>
+							<td><input type="text" placeholder="Pickup City"
+								name="pickupcity" id="pickupcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+							<td><label>To :</label></td>
+							<td><input type="text" placeholder="Drop City"
+								name="dropcity" id="dropcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+						</tr>
+						<tr>
+							<td><label>Date of Journey :</label></td>
+							<td><input type="text" class="datePairExample"
+								name="startdate" id="startdate" placeholder="Date of Journey"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+							<td><label>Date of Return :</label></td>
+							<td><input type="text" class="datePairExample"
+								name="enddate" id="enddate" placeholder="Date of Return"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+						</tr>
+						<tr>
+							<td><label>Bus Type :</label></td>
+							<td><select>
+									<option>ALL</option>
+									<option>AC</option>
+									<option>NON AC</option>
+							</select></td>
+						</tr>
+					</table>
+					<div class="btn-15p">
+						<input type="submit" class="command-button info"
+							value="Find My Taxi" onclick="busTicket('bus-ticket')" />
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+
+			<!-- Bus on Rent -->
+
+			<div class="bus-on-rent">
+				<form action="#" method="post" id="bus-on-rent">
+					<table class="table">
+						<tr>
+							<td><label>From :</label></td>
+							<td><input type="text" placeholder="From" name="fromcity"
+								id="fromcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+						</tr>
+						<tr>
+							<td><label>To :</label></td>
+							<td><input type="text" placeholder="To" name="dropcity"
+								id="dropcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+							<td><label class="fa fa-plus-square lm20 fa-lg"
+								onClick="addRow()"></label></td>
+						</tr>
+						<tbody class="addrow"></tbody>
+						<tr>
+							<td><label>Date :</label></td>
+							<td><input type="text" class="datePairExample"
+								name="pickupdate" id="buspickupdate" placeholder="Pickup Date"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+							<td><label>For :</label></td>
+							<td><input type="text" placeholder="Number of Days"
+								name="noofday" id="noofday" data-validation="number"
+								data-validation-allowing="range[1;10]" /></td>
+						</tr>
+						<tr>
+							<td><label>Bus Type :</label></td>
+							<td><select>
+									<option>ALL</option>
+									<option>AC</option>
+									<option>NON AC</option>
+							</select></td>
+						</tr>
+					</table>
+					<div class="btn-15p">
+						<input type="submit" class="command-button info"
+							value="Find My Taxi" onclick="busOnRent('bus-on-rent')" />
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<!-- Bus Section End  -->
+
+		<!-- Truck Section Start  -->
+
+		<div class="main-contain truck-section" id="truck-section">
+
+			<!--Truck Packer Design -->
+
+			<div class="truck-packer">
+				<form action="#" method="post" id="truck-packer">
+					<div class="select_city">
+						<label>Select City :</label> <select>
+							<option>w</option>
+							<option>w</option>
+							<option>w</option>
+						</select>
+					</div>
+
+					<table class="table">
+						<tr>
+							<td><label>From :</label></td>
+							<td><input type="text" placeholder="Pickup City"
+								name="pickupcity" id="pickupcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+							<td><label>To :</label></td>
+							<td><input type="text" placeholder="Drop City"
+								name="dropcity" id="dropcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+						</tr>
+						<tr>
+							<td><label>Pickup Date :</label></td>
+							<td><input type="text" class="datePairExample"
+								name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+							<td><label>Pickup Time :</label></td>
+							<td><input id="" type="text"
+								class="timeformatExample2 input-cmn30p" name="pickuptime"
+								id="pickuptime" placeholder="Pickup time"
+								onkeypress="return false;" data-validation="time length"></td>
+						</tr>
+						<tr>
+							<td><label>Weight :</label></td>
+							<td><select>
+									<option>Weight</option>
+									<option></option>
+									<option></option>
+							</select></td>
+						</tr>
+					</table>
+					<div class="btn-15p">
+						<input type="button" class="command-button info"
+							value="Find My Truck"
+							onclick="submitTruckPackersMovers('truck-packer')" />
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+
+			<!-- Truck Shipping Design -->
+
+			<div class="truck-shipping">
+				<form action="#" method="post" name="truck-shipping"
+					id="truck-shipping">
+					<table class="table">
+						<tr>
+							<td><label>From :</label></td>
+							<td><input type="text" placeholder="From" name="pickupcity"
+								id="pickupcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+							<td><label>To :</label></td>
+							<td><input type="text" placeholder="To" name="dropcity"
+								id="dropcity" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+						</tr>
+						<tr>
+							<td><label>Pickup Date :</label></td>
+							<td><input type="text" class="datePairExample"
+								name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+							<td><label>Pickup Time :</label></td>
+							<td><input id="" type="text"
+								class="timeformatExample2 input-cmn30p" name="pickuptime"
+								id="pickuptime" placeholder="Pickup time"
+								onkeypress="return false;" data-validation="time length"></td>
+						</tr>
+						<tr>
+							<td><label>Weight :</label></td>
+							<td><select>
+									<option>Weight</option>
+									<option></option>
+									<option></option>
+							</select></td>
+						</tr>
+					</table>
+					<div class="btn-15p">
+						<input type="submit" class="command-button info"
+							value="Find My Truck" onclick="truckShipping('truck-shipping')" />
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<!-- Truck Section End  -->
+
+		<!-- Bike Section Start  -->
+		<div class="main-contain bike-section" id="bike-section">
+			<!--Package Design -->
+			<div class="bike-package">
+				<form action="#" method="post" name="bike-package" id="bike-package">
+					<div class="select_city">
+						<label>Select City :</label> <select>
+							<option>w</option>
+							<option>w</option>
+							<option>w</option>
+						</select>
+					</div>
+					<table class="table">
+						<tr>
+							<td><label>Package :</label></td>
+							<td><select>
+									<option>Package</option>
+									<option>w</option>
+									<option>w</option>
+							</select></td>
+							<td><label>Bike type :</label></td>
+							<td><select>
+									<option>Bike Type</option>
+									<option>w</option>
+									<option>w</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td><label>Pickup Date :</label></td>
+							<td><input type="text" class="datePairExample"
+								name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+							<td><label>Pickup Time :</label></td>
+							<td><input id="" type="text"
+								class="timeformatExample2 input-cmn30p" name="pickuptime"
+								id="pickuptime" placeholder="Pickup time"
+								onkeypress="return false;" data-validation="time length"></td>
+						</tr>
+					</table>
+					<div class="btn-15p">
+						<input type="button" class="command-button info"
+							value="Find My Bike" onclick="submitBikePackage('bike-package')" />
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+
+			<!-- Bike on rent Design -->
+
+			<div class="bike-on_Rent">
+				<form action="#" method="post" name="bike-on_Rent" id="bike-on_Rent">
+					<div class="select_city">
+						<label>Select city :</label> <select>
+							<option>w</option>
+							<option>w</option>
+							<option>w</option>
+						</select>
+					</div>
+					<div class="bikeonrent_tab">
+						<span class="tab-2"><a href="#" class="per_hours"
+							id="bike_per_hours" onclick="changeBikeRentType('bike-on_Rent')">Per
+								Hours</a></span> <span class="tab-2"><a href="#"
+							class="car_day_wise" onclick="changeBikeRentType()">Per Day</a></span>
+					</div>
+					<div class="border-bottom"></div>
+
+					<!-- Bike Per Hours -->
+
+					<div class="bike-per_hours">
+						<input type="hidden" name="bikerenttype" id="bikerenttype"
+							value="0">
+						<table class="table">
+							<tr>
+								<td><label>From :</label></td>
+								<td><input type="text" placeholder="Pickup City"
+									name="pickupcity" id="pickupcity" data-validation="custom"
+									data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								<td><label>To :</label></td>
+								<td><input type="text" placeholder="Drop City"
+									name="dropcity" id="dropcity" data-validation="custom"
+									data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+							</tr>
+							<tr>
+								<td><label>Pickup Date :</label></td>
+								<td><input type="text" class="datePairExample"
+									name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+									onkeypress="return false;" placeholder="dd-mm-yyyy"
+									data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+								<td><label>Bike type :</label></td>
+								<td><select>
+										<option>Bike Type</option>
+										<option>w</option>
+										<option>w</option>
+								</select></td>
+							</tr>
+						</table>
+						<div class="btn-15p">
+							<input type="submit" class="command-button info"
+								value="Find My Bike" onclick="submitBikeOnRent('bike-on_Rent')" />
+						</div>
+						<div class="clear"></div>
+					</div>
+
+					<!-- Bike Day Wise -->
+
+					<div class="bike-day_wise">
+						<table class="table">
+							<tr>
+								<td><label>From :</label></td>
+								<td><input type="text" placeholder="From" name="pickupcity"
+									id="pickupcity" data-validation="custom"
+									data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								<td><label>To :</label></td>
+								<td><input type="text" placeholder="To" name="dropcity"
+									id="dropcity" data-validation="custom"
+									data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+							</tr>
+							<tr>
+								<td><label>Pickup Date :</label></td>
+								<td><input type="text" class="datePairExample"
+									name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+									onkeypress="return false;" placeholder="dd-mm-yyyy"
+									data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+								<td><label>For :</label></td>
+								<td><input type="text" name="noofdays" id="noofdays"
+									placeholder="No. of Days"></td>
+							</tr>
+							<tr>
+								<td><label>Bike type :</label></td>
+								<td><select>
+										<option>Bike Type</option>
+										<option>w</option>
+										<option>w</option>
+								</select></td>
+							</tr>
+						</table>
+						<div class="btn-15p">
+							<input type="submit" class="command-button info"
+								value="Find My Bike" onclick="submitBikeOnRent('bike-on_Rent')" />
+						</div>
+
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+		<!-- Bike Section End  -->
+		<div class="clear"></div>
+	</div>
+	<div class="footer"></div>
+	<script type="text/javascript" src="js/javaScript.js"></script>
+	<script type="text/javascript">
     	$.validate({
 			modules : 'location, date, security, file',
 			onModulesLoaded : function() {

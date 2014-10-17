@@ -12,12 +12,16 @@ function validate(){
 	    $('input[type="submit"]').addClass('info');
         $('input[type="button"]').removeClass('disabled');
 	    $('input[type="button"]').addClass('info');
+	    $('input[type="submit"]').removeAttr('disabled','disable');
+	    $('input[type="button"]').removeAttr('disabled','disable');
     }
     else {
         $('input[type="submit"]').addClass('disabled');
 	    $('input[type="submit"]').removeClass('info');
         $('input[type="button"]').addClass('disabled');
 	    $('input[type="button"]').removeClass('info');
+	    $('input[type="submit"]').attr('disabled','disable');
+	    $('input[type="button"]').attr('disabled','disable');
     }
 }
 
@@ -287,7 +291,7 @@ function topmenuHide(){
 	});
 /* Date Picker  */
 	$('.datePairExample').datepicker({
-		"format": 'd/m/yyyy',
+		"format": 'd-m-yyyy',
 		"startDate": '+0d',
 		"endDate": '+15d',
 		"autoclose": true
