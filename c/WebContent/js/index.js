@@ -34,6 +34,7 @@ function onsubmitTaxiPerHour(formId) {
 		var JsonData={"formdata":cab.getFormJson(formId),"eventId":eventId.taxi_on_rent_per_day,"carrenttype":jsconstant.car_rent_per_day,"datatype":"json","url":""};
 		var response=cab.AJAXCall(JsonData);
 	}
+	
 }
 function changeBikeRentType(){
 	if($("#bike_per_hours").attr('class')=="per_hours active"){

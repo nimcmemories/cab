@@ -21,3 +21,4 @@ eventId.truck_shipping=202;
 eventId.bike_package=301;
 eventId.bike_on_rent_per_hour=302;
 eventId.bike_on_rent_per_day=303;
+

@@ -130,17 +130,17 @@ $('document').ready(function(){
 		$('.bike-on_Rent').fadeIn(300);
 		$('.bike-per_hours').fadeIn(300);
 		bikeonrentTabDeactive();
-		$('.bikeonrent_tab [class^="tab"] a.per_hours').addClass('active');
+		$('.bikeonrent_tab [class^="tab"] a.bike_per_hours').addClass('active');
 	});
 	$('.bikeonrent_tab [class^="tab"] a').click(function(){
 		bikeonrentTabDeactive();
 		$(this).addClass('active');
 	});
-	$('.bikeonrent_tab [class^="tab"] a.per_hours').click(function(){
+	$('.bikeonrent_tab [class^="tab"] a.bike_per_hours').click(function(){
 		$('.bike-day_wise').hide();
 		$('.bike-per_hours').fadeIn(300);
 	});
-	$('.bikeonrent_tab [class^="tab"] a.day_wise').click(function(){
+	$('.bikeonrent_tab [class^="tab"] a.bike_day_wise').click(function(){
 		$('.bike-day_wise').fadeIn(300);
 		$('.bike-per_hours').hide();
 	});
