@@ -26,3 +26,12 @@ cab.getFormJson=function(formId){
 	alert(">"+formId+"<");
 	return JSON.stringify($("#"+formId+"").serializeArray());
 };
+
+cab.reloadValidation=function(){
+	$.validate({
+		modules : 'location, date, security, file',
+		onModulesLoaded : function() {
+		  $('#country').suggestCountry();
+		}
+	 });
+};
