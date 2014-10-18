@@ -328,6 +328,7 @@
 
 			<div class="taxi-outstation">
 				<form action="#" method="post" id="taxi-outstation">
+				<input  value="" name="taxirowarray" type="hidden" id="taxirowarray"/>
 					<div class="select_city">
 						<label>Select City :</label> <select name="city" id="taxioutstationcity">
 							<option>w</option>
@@ -352,7 +353,7 @@
 							<td><label class="fa fa-plus-square lm20 fa-lg"
 								onClick="addTaxiRow()"></label></td>
 						</tr>
-						<tbody class="addrow1"></tbody>
+						<tbody class="addtexirow"></tbody>
 						<tr>
 							<td><label>Departure Date :</label></td>
 							<td><input type="text" class="datePairExample"
@@ -582,6 +583,7 @@
 
 			<div class="bus-on-rent">
 				<form action="#" method="post" id="bus-on-rent">
+				<input  value="" name="busrowarray" type="hidden" id="busrowarray"/>
 					<table class="table">
 						<tr>
 							<td><label>From :</label></td>
@@ -599,7 +601,7 @@
 							<td><label class="fa fa-plus-square lm20 fa-lg"
 								onClick="addBusRow()"></label></td>
 						</tr>
-						<tbody class="addrow"></tbody>
+						<tbody class="addbusrow"></tbody>
 						<tr>
 							<td><label>Date :</label></td>
 							<td><input type="text" class="datePairExample"
