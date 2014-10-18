@@ -291,10 +291,9 @@ function topmenuHide(){
 	});
 /* Date Picker  */
 	$('.datePairExample').datepicker({
-		"format": 'd-m-yyyy',
-		"startDate": '+0d',
-		"endDate": '+15d',
-		"autoclose": true
+		dateFormat: "dd-mm-yy",
+		minDate:new Date(),
+		maxDate:"+1w"
 	});
 //	$('.datePairExample').datepair();
 	

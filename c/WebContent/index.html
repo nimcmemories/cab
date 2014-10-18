@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="css/iconFont.css">
 <link rel="stylesheet" href="css/customStyle.css">
 <link rel="stylesheet" href="css/jquery.timepicker.css" />
-<link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
 <script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="jslib/jquery.timepicker.min.js"></script>
-<script type="text/javascript" src="jslib/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="jslib/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/cab.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/jsconstant.js"></script>
@@ -226,7 +226,7 @@
 									class="timeformatExample2 input-cmn30p"
 									placeholder="Pickup time" name="pickuptime" id="pickuptime"
 									onkeypress="return false;" data-validation="time length"
-									data-validation-error-msg="please select valid pickup time"></td>
+									data-validation-error-msg="please select valid pickup time" data-validation-length="min8"></td>
 							</tr>
 						</table>
 						<div class="btn-15p">
@@ -255,7 +255,7 @@
 							<tr>
 								<td><label>Pickup Date :</label></td>
 								<td><input type="text" class="datePairExample"
-									placeholder="Pickup Date" name="pickupdate" id="pickupdate"
+									name="pickupdate" id="taxipickupairportpickupdate"
 									onkeypress="return false;" placeholder="dd-mm-yyyy"
 									data-validation="date" data-validation-format="dd-mm-yyyy" 
 									data-validation-error-msg="please select valid select pickup date"/></td>
@@ -264,7 +264,7 @@
 									class="timeformatExample2 input-cmn30p"
 									placeholder="Pickup time" name="pickuptime" id="pickuptime"
 									onkeypress="return false;" data-validation="time length"
-									data-validation-error-msg="please select valid pickup time"></td>
+									data-validation-error-msg="please select valid pickup time" data-validation-length="min8"></td>
 							</tr>
 						</table>
 						<div class="btn-15p">
@@ -305,7 +305,7 @@
 						<tr>
 							<td><label>Pickup Date :</label></td>
 							<td><input type="text" class="datePairExample"
-								placeholder="Pickup Date" name="pickupdate" id="pickupdate"
+								 name="pickupdate" id="taxipackagepickupdate"
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
 								data-validation="date" data-validation-format="dd-mm-yyyy" 
 								data-validation-error-msg="please select valid pickup date"/></td>
@@ -314,7 +314,7 @@
 								class="timeformatExample2 input-cmn30p"
 								placeholder="Pickup time" name="pickuptime" id="pickuptime"
 								onkeypress="return false;" data-validation="time length"
-								data-validation-error-msg="please select valid pickup time"></td>
+								data-validation-error-msg="please select valid pickup time" data-validation-length="min8"></td>
 						</tr>
 					</table>
 					<div class="btn-15p">
@@ -418,7 +418,7 @@
 							<tr>
 								<td><label>Pickup Date :</label></td>
 								<td><input type="text" class="datePairExample"
-									placeholder="Pickup Date" name="pickupdate" id="pickupdate"
+									name="pickupdate" id="taxihourrentpickupdate"
 									onkeypress="return false;" placeholder="dd-mm-yyyy"
 									data-validation="date" data-validation-format="dd-mm-yyyy"
 									data-validation-error-msg="please select valid pickup date" /></td>
@@ -427,7 +427,7 @@
 									class="timeformatExample2 input-cmn30p"
 									placeholder="Pickup time" name="pickuptime" id="pickuptime"
 									onkeypress="return false;" data-validation="time length"
-									data-validation-error-msg="please select valid pickup time"></td>
+									data-validation-error-msg="please select valid pickup time" data-validation-length="min8"></td>
 							</tr>
 						</table>
 						<div class="btn-15p">
@@ -450,7 +450,7 @@
 										data-validation="length" data-validation-length="max100"></textarea></td>
 								<td><label>Pickup Date :</label></td>
 								<td><input type="text" class="datePairExample"
-									name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+									name="pickupdate" id="taxidayrentpickupdate"
 									onkeypress="return false;" placeholder="dd-mm-yyyy"
 									data-validation="date" data-validation-format="dd-mm-yyyy"
 									data-validation-error-msg="please select valid pickup date"/></td>
@@ -458,7 +458,7 @@
 							<tr>
 								<td><label>No. of Days :</label></td>
 								<td><input type="text" placeholder="No. of Days"
-									name="noofdays" id="noofdays" data-validation="number" data-validation-allowing="range[1;10]">>
+									name="noofdays" id="noofdays" data-validation="number" data-validation-allowing="range[1;10]">
 									</td>
 								<td><label>Drop Address :</label></td>
 								<td><textarea placeholder="Drop Address" name="droparea"
@@ -495,14 +495,16 @@
 						<tr>
 							<td><label>Pickup Date :</label></td>
 							<td><input type="text" class="datePairExample"
-								placeholder="Pickup Date" name="pickupdate" id="pickupdate"
+								name="pickupdate" id="taxiticketpickupdate"
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
-								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+								data-validation="date" data-validation-format="dd-mm-yyyy"
+								data-validation-error-msg="please select valid pickup date"/></td>
 							<td><label>Pickup Time :</label></td>
 							<td><input id="" type="text"
 								class="timeformatExample2 input-cmn30p"
 								placeholder="Pickup time" name="pickuptime" id="pickuptime"
-								onkeypress="return false;" data-validation="time length"></td>
+								onkeypress="return false;" data-validation="time length"
+								data-validation-error-msg="please select valid pickup time" data-validation-length="min8"></td>
 						</tr>
 					</table>
 					<div class="btn-15p">
@@ -650,14 +652,17 @@
 						<tr>
 							<td><label>Pickup Date :</label></td>
 							<td><input type="text" class="datePairExample"
-								name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+								name="pickupdate" id="truckpackerpickupdate"
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
-								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+								data-validation="date" data-validation-format="dd-mm-yyyy"
+								data-validation-error-msg="please select valid pickup date" /></td>
 							<td><label>Pickup Time :</label></td>
 							<td><input id="" type="text"
 								class="timeformatExample2 input-cmn30p" name="pickuptime"
 								id="pickuptime" placeholder="Pickup time"
-								onkeypress="return false;" data-validation="time length"></td>
+								onkeypress="return false;" data-validation-length="min8" data-validation="time length"
+								data-validation-error-msg="
+                     please select valid pickup time"></td>
 						</tr>
 						<tr>
 							<td><label>Weight :</label></td>
@@ -696,14 +701,18 @@
 						<tr>
 							<td><label>Pickup Date :</label></td>
 							<td><input type="text" class="datePairExample"
-								name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+								name="pickupdate" id="truckshippingpickupdate" 
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
-								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+								data-validation="date" data-validation-format="dd-mm-yyyy" 
+								data-validation-error-msg="
+                     please select valid pickup date"/></td>
 							<td><label>Pickup Time :</label></td>
 							<td><input id="" type="text"
 								class="timeformatExample2 input-cmn30p" name="pickuptime"
 								id="pickuptime" placeholder="Pickup time"
-								onkeypress="return false;" data-validation="time length"></td>
+								onkeypress="return false;" data-validation="time length"
+								data-validation-error-msg="
+                     please select valid pickup time" data-validation-length="min8"></td>
 						</tr>
 						<tr>
 							<td><label>Weight :</label></td>
@@ -730,7 +739,7 @@
 			<div class="bike-package">
 				<form action="#" method="post" name="bike-package" id="bike-package">
 					<div class="select_city">
-						<label>Select City :</label> <select>
+						<label>Select City :</label> <select name="city">
 							<option>w</option>
 							<option>w</option>
 							<option>w</option>
@@ -754,14 +763,14 @@
 						<tr>
 							<td><label>Pickup Date :</label></td>
 							<td><input type="text" class="datePairExample"
-								name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+								name="pickupdate" id="bikepackagepickupdate" placeholder="Pickup Date"
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
-								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+								data-validation="date" data-validation-format="dd-mm-yyyy" data-validation-error-msg="please select valid pickup date"/></td>
 							<td><label>Pickup Time :</label></td>
 							<td><input id="" type="text"
 								class="timeformatExample2 input-cmn30p" name="pickuptime"
 								id="pickuptime" placeholder="Pickup time"
-								onkeypress="return false;" data-validation="time length"></td>
+								onkeypress="return false;" data-validation="time length" data-validation-length="min8" data-validation-error-msg="please select valid pickup time"></td>
 						</tr>
 					</table>
 					<div class="btn-15p">
@@ -777,7 +786,7 @@
 			<div class="bike-on_Rent">
 				<form action="#" method="post" name="bike-on_Rent" id="bike-on_Rent">
 					<div class="select_city">
-						<label>Select city :</label> <select>
+						<label>Select city :</label> <select name="city">
 							<option>w</option>
 							<option>w</option>
 							<option>w</option>
@@ -810,9 +819,9 @@
 							<tr>
 								<td><label>Pickup Date :</label></td>
 								<td><input type="text" class="datePairExample"
-									name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+									name="pickupdate" id="bikehourrentpickupdate" placeholder="Pickup Date"
 									onkeypress="return false;" placeholder="dd-mm-yyyy"
-									data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+									data-validation="date" data-validation-format="dd-mm-yyyy" data-validation-error-msg="please select valid pickup date"/></td>
 								<td><label>Bike type :</label></td>
 								<td><select>
 										<option>Bike Type</option>
@@ -845,9 +854,9 @@
 							<tr>
 								<td><label>Pickup Date :</label></td>
 								<td><input type="text" class="datePairExample"
-									name="pickupdate" id="pickupdate" placeholder="Pickup Date"
+									name="pickupdate" id="bikedayrentpickupdate" placeholder="Pickup Date"
 									onkeypress="return false;" placeholder="dd-mm-yyyy"
-									data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+									data-validation="date" data-validation-format="dd-mm-yyyy" data-validation-error-msg="please select valid pickup date"/></td>
 								<td><label>For :</label></td>
 								<td><input type="text" name="noofdays" id="noofdays"
 									placeholder="No. of Days"></td>
