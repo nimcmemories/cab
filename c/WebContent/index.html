@@ -463,7 +463,7 @@
 								<td><label>Drop Address :</label></td>
 								<td><textarea placeholder="Drop Address" name="droparea"
 										id="droparea" data-validation="custom"
-										data-validation-regexp="^([a-zA-Z\s]+)$"></textarea></td>
+										data-validation="length" data-validation-length="max100""></textarea></td>
 							</tr>
 						</table>
 						<div class="btn-15p">
@@ -486,11 +486,13 @@
 							<td><label>From:</label></td>
 							<td><input type="text" placeholder="Pickup City"
 								name="pickupity" id="pickupity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please select valid pickup area"/></td>
 							<td><label>To:</label></td>
 							<td><input type="text" placeholder="Drop City"
 								name="dropcity" id="dropcity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please select valid drop area"/></td>
 						</tr>
 						<tr>
 							<td><label>Pickup Date :</label></td>
@@ -537,23 +539,29 @@
 							<td><label>From :</label></td>
 							<td><input type="text" placeholder="Pickup City"
 								name="pickupcity" id="pickupcity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please enter valid pickup city"/></td>
+								
 							<td><label>To :</label></td>
 							<td><input type="text" placeholder="Drop City"
 								name="dropcity" id="dropcity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please enter valid pickup city"/></td>
 						</tr>
 						<tr>
 							<td><label>Date of Journey :</label></td>
 							<td><input type="text" class="datePairExample"
 								name="startdate" id="startdate" placeholder="Date of Journey"
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
-								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+								data-validation="date" data-validation-format="dd-mm-yyyy" 
+								data-validation-error-msg="please select valid journey date"/></td>
 							<td><label>Date of Return :</label></td>
 							<td><input type="text" class="datePairExample"
 								name="enddate" id="enddate" placeholder="Date of Return"
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
-								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+								data-validation="date" data-validation-format="dd-mm-yyyy" 
+								data-validation-error-msg="please select valid return date"/></td>
 						</tr>
 						<tr>
 							<td><label>Bus Type :</label></td>
@@ -581,13 +589,15 @@
 							<td><label>From :</label></td>
 							<td><input type="text" placeholder="From" name="fromcity"
 								id="fromcity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please enter valid pickup city"/></td>
 						</tr>
 						<tr>
 							<td><label>To :</label></td>
 							<td><input type="text" placeholder="To" name="dropcity"
 								id="dropcity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please enter valid drop city"/></td>
 							<td><label class="fa fa-plus-square lm20 fa-lg"
 								onClick="addRow()"></label></td>
 						</tr>
@@ -597,11 +607,13 @@
 							<td><input type="text" class="datePairExample"
 								name="pickupdate" id="buspickupdate" placeholder="Pickup Date"
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
-								data-validation="date" data-validation-format="dd-mm-yyyy" /></td>
+								data-validation="date" data-validation-format="dd-mm-yyyy" 
+								data-validation-error-msg="please select valid pickup date"/></td>
 							<td><label>For :</label></td>
 							<td><input type="text" placeholder="Number of Days"
 								name="noofday" id="noofday" data-validation="number"
-								data-validation-allowing="range[1;10]" /></td>
+								data-validation-allowing="range[1;10]"
+								data-validation-error-msg="please enter valid number of day" /></td>
 						</tr>
 						<tr>
 							<td><label>Bus Type :</label></td>
@@ -643,11 +655,13 @@
 							<td><label>From :</label></td>
 							<td><input type="text" placeholder="Pickup City"
 								name="pickupcity" id="pickupcity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation-regexp="^([a-zA-Z\s]+)$" 
+								data-validation-error-msg="please enter valid pickup city"/></td>
 							<td><label>To :</label></td>
 							<td><input type="text" placeholder="Drop City"
 								name="dropcity" id="dropcity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation-regexp="^([a-zA-Z\s]+)$"
+								data-validation-error-msg="please enter valid drop city" /></td>
 						</tr>
 						<tr>
 							<td><label>Pickup Date :</label></td>
@@ -661,8 +675,7 @@
 								class="timeformatExample2 input-cmn30p" name="pickuptime"
 								id="pickuptime" placeholder="Pickup time"
 								onkeypress="return false;" data-validation-length="min8" data-validation="time length"
-								data-validation-error-msg="
-                     please select valid pickup time"></td>
+								data-validation-error-msg="please select valid pickup time"></td>
 						</tr>
 						<tr>
 							<td><label>Weight :</label></td>
@@ -692,11 +705,13 @@
 							<td><label>From :</label></td>
 							<td><input type="text" placeholder="From" name="pickupcity"
 								id="pickupcity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation-regexp="^([a-zA-Z\s]+)$"
+								data-validation-error-msg="please enter valid pickup city" /></td>
 							<td><label>To :</label></td>
 							<td><input type="text" placeholder="To" name="dropcity"
 								id="dropcity" data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+								data-validation-regexp="^([a-zA-Z\s]+)$"
+								data-validation-error-msg="please enter valid drop city" /></td>
 						</tr>
 						<tr>
 							<td><label>Pickup Date :</label></td>
@@ -704,15 +719,13 @@
 								name="pickupdate" id="truckshippingpickupdate" 
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
 								data-validation="date" data-validation-format="dd-mm-yyyy" 
-								data-validation-error-msg="
-                     please select valid pickup date"/></td>
+								data-validation-error-msg="please select valid pickup date"/></td>
 							<td><label>Pickup Time :</label></td>
 							<td><input id="" type="text"
 								class="timeformatExample2 input-cmn30p" name="pickuptime"
 								id="pickuptime" placeholder="Pickup time"
 								onkeypress="return false;" data-validation="time length"
-								data-validation-error-msg="
-                     please select valid pickup time" data-validation-length="min8"></td>
+								data-validation-error-msg="please select valid pickup time" data-validation-length="min8"></td>
 						</tr>
 						<tr>
 							<td><label>Weight :</label></td>
@@ -765,12 +778,14 @@
 							<td><input type="text" class="datePairExample"
 								name="pickupdate" id="bikepackagepickupdate" placeholder="Pickup Date"
 								onkeypress="return false;" placeholder="dd-mm-yyyy"
-								data-validation="date" data-validation-format="dd-mm-yyyy" data-validation-error-msg="please select valid pickup date"/></td>
+								data-validation="date" data-validation-format="dd-mm-yyyy" 
+								data-validation-error-msg="please select valid pickup date"/></td>
 							<td><label>Pickup Time :</label></td>
 							<td><input id="" type="text"
 								class="timeformatExample2 input-cmn30p" name="pickuptime"
 								id="pickuptime" placeholder="Pickup time"
-								onkeypress="return false;" data-validation="time length" data-validation-length="min8" data-validation-error-msg="please select valid pickup time"></td>
+								onkeypress="return false;" data-validation="time length" data-validation-length="min8" 
+								data-validation-error-msg="please select valid pickup time"></td>
 						</tr>
 					</table>
 					<div class="btn-15p">
@@ -810,18 +825,21 @@
 								<td><label>From :</label></td>
 								<td><input type="text" placeholder="Pickup City"
 									name="pickupcity" id="pickupcity" data-validation="custom"
-									data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+									data-validation-regexp="^([a-zA-Z\s]+)$" 
+									data-validation-error-msg="please enter valid pickup area"/></td>
 								<td><label>To :</label></td>
 								<td><input type="text" placeholder="Drop City"
 									name="dropcity" id="dropcity" data-validation="custom"
-									data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+									data-validation-regexp="^([a-zA-Z\s]+)$" 
+									data-validation-error-msg="please enter valid drop area"/></td>
 							</tr>
 							<tr>
 								<td><label>Pickup Date :</label></td>
 								<td><input type="text" class="datePairExample"
 									name="pickupdate" id="bikehourrentpickupdate" placeholder="Pickup Date"
 									onkeypress="return false;" placeholder="dd-mm-yyyy"
-									data-validation="date" data-validation-format="dd-mm-yyyy" data-validation-error-msg="please select valid pickup date"/></td>
+									data-validation="date" data-validation-format="dd-mm-yyyy" 
+									data-validation-error-msg="please select valid pickup date"/></td>
 								<td><label>Bike type :</label></td>
 								<td><select>
 										<option>Bike Type</option>
@@ -845,18 +863,21 @@
 								<td><label>From :</label></td>
 								<td><input type="text" placeholder="From" name="pickupcity"
 									id="pickupcity" data-validation="custom"
-									data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+									data-validation-regexp="^([a-zA-Z\s]+)$"
+									data-validation-error-msg="please select valid pickup area" /></td>
 								<td><label>To :</label></td>
 								<td><input type="text" placeholder="To" name="dropcity"
 									id="dropcity" data-validation="custom"
-									data-validation-regexp="^([a-zA-Z\s]+)$" /></td>
+									data-validation-regexp="^([a-zA-Z\s]+)$" 
+									data-validation-error-msg="please enter valid drop area"/></td>
 							</tr>
 							<tr>
 								<td><label>Pickup Date :</label></td>
 								<td><input type="text" class="datePairExample"
 									name="pickupdate" id="bikedayrentpickupdate" placeholder="Pickup Date"
 									onkeypress="return false;" placeholder="dd-mm-yyyy"
-									data-validation="date" data-validation-format="dd-mm-yyyy" data-validation-error-msg="please select valid pickup date"/></td>
+									data-validation="date" data-validation-format="dd-mm-yyyy" 
+									data-validation-error-msg="please select valid pickup date"/></td>
 								<td><label>For :</label></td>
 								<td><input type="text" name="noofdays" id="noofdays"
 									placeholder="No. of Days"></td>
