@@ -223,22 +223,21 @@ var taxiRowCount=1;
 var busRowCount=1;
 function addTaxiRow(){
 	alert(taxiRowCount)
-	var addrow="";
-	    addrow='<tr>';
-        addrow+='<td><label>To :</label></td>';
-        addrow+='<td><input type="text" placeholder="via city" name="dropcity_'+taxiRowCount+'" id="taxioutstationdropcity_'+taxiRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city"></td>';
-        addrow+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red"></label></td>';
-        addrow+='</tr>';
-		$('.addrow').append(addrow);
+	var addrow1="";
+	    addrow1='<tr>';
+        addrow1+='<td><label>To :</label></td>';
+        addrow1+='<td><input type="text" placeholder="via city" name="dropcity_'+taxiRowCount+'" id="taxioutstationdropcity_'+taxiRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city"></td>';
+        addrow1+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red"></label></td>';
+        addrow1+='</tr>';
+		$('.addrow1').append(addrow1);
 		taxiRowCount++;
 		cab.reloadValidation();
 }
-
 function addBusRow(){
 	var addrow="";
 	    addrow='<tr>';
         addrow+='<td><label>To :</label></td>';
-        addrow+='<td><input type="text" placeholder="via city" name="dropcity_'+busRowCount+'" id="busonrentdropcity_'+busRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city></td>';
+        addrow+='<td><input type="text" placeholder="via city" name="dropcity_'+busRowCount+'" id="busonrentdropcity_'+busRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city"></td>';
         addrow+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red"></label></td>';
         addrow+='</tr>';
 		$('.addrow').append(addrow);

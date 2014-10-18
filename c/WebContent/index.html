@@ -218,11 +218,10 @@
 								<td><label>Pickup Date :</label></td>
 								<td><input type="text" class="datePairExample"
 									placeholder="Pickup Date" name="pickupdate" id="gotoairportpickupdate"
-									onkeypress="return false;" placeholder="dd-mm-yyyy"
-									data-validation="date" data-validation-format="dd-mm-yyyy"
+									onkeypress="return false;"data-validation="date" data-validation-format="dd-mm-yyyy"
 									data-validation-error-msg="please select valid pickup date"  /></td>
 								<td><label>Pickup Time :</label></td>
-								<td><input id="" type="text"
+								<td><input type="text"
 									class="timeformatExample2 input-cmn30p"
 									placeholder="Pickup time" name="pickuptime" id="gotoairportpickuptime"
 									onkeypress="return false;" data-validation="time length"
@@ -260,7 +259,7 @@
 									data-validation="date" data-validation-format="dd-mm-yyyy" 
 									data-validation-error-msg="please select valid select pickup date"/></td>
 								<td><label>Pickup Time :</label></td>
-								<td><input id="" type="text"
+								<td><input type="text"
 									class="timeformatExample2 input-cmn30p"
 									placeholder="Pickup time" name="pickuptime" id="taxipickupairporttime"
 									onkeypress="return false;" data-validation="time length"
@@ -310,7 +309,7 @@
 								data-validation="date" data-validation-format="dd-mm-yyyy" 
 								data-validation-error-msg="please select valid pickup date"/></td>
 							<td><label>Pickup Time :</label></td>
-							<td><input id="" type="text"
+							<td><input type="text"
 								class="timeformatExample2 input-cmn30p"
 								placeholder="Pickup time" name="pickuptime" id="taxipackagepickuptime"
 								onkeypress="return false;" data-validation="time length"
@@ -353,7 +352,7 @@
 							<td><label class="fa fa-plus-square lm20 fa-lg"
 								onClick="addTaxiRow()"></label></td>
 						</tr>
-						<tbody class="addrow"></tbody>
+						<tbody class="addrow1"></tbody>
 						<tr>
 							<td><label>Departure Date :</label></td>
 							<td><input type="text" class="datePairExample"
@@ -423,7 +422,7 @@
 									data-validation="date" data-validation-format="dd-mm-yyyy"
 									data-validation-error-msg="please select valid pickup date" /></td>
 								<td><label>Pickup Time :</label></td>
-								<td><input id="" type="text"
+								<td><input type="text"
 									class="timeformatExample2 input-cmn30p"
 									placeholder="Pickup time" name="pickuptime" id="taxiperhourpickuptime"
 									onkeypress="return false;" data-validation="time length"
@@ -446,8 +445,8 @@
 								<td><label>Pickup Address :</label></td>
 								<td><textarea placeholder="Pickup Address"
 										name="pickupaddress" id="taxiperdaypickupaddress"
-										data-validation="custom"
-										data-validation="length" data-validation-length="max100"></textarea></td>
+										data-validation="custom length"
+										data-validation-length="max100"></textarea></td>
 								<td><label>Pickup Date :</label></td>
 								<td><input type="text" class="datePairExample"
 									name="pickupdate" id="taxiperdaypickupdate"
@@ -462,8 +461,8 @@
 									</td>
 								<td><label>Drop Address :</label></td>
 								<td><textarea placeholder="Drop Address" name="droparea"
-										id="taxiperdaydroparea" data-validation="custom"
-										data-validation="length" data-validation-length="max100""></textarea></td>
+										id="taxiperdaydroparea" data-validation="custom length"
+										data-validation-length="max100"></textarea></td>
 							</tr>
 						</table>
 						<div class="btn-15p">
@@ -502,7 +501,7 @@
 								data-validation="date" data-validation-format="dd-mm-yyyy"
 								data-validation-error-msg="please select valid pickup date"/></td>
 							<td><label>Pickup Time :</label></td>
-							<td><input id="" type="text"
+							<td><input type="text"
 								class="timeformatExample2 input-cmn30p"
 								placeholder="Pickup time" name="pickuptime" id="taxiticketpickuptime"
 								onkeypress="return false;" data-validation="time length"
@@ -539,7 +538,6 @@
 							<td><label>From :</label></td>
 							<td><input type="text" placeholder="Pickup City"
 								name="pickupcity" id="busticketpickupcity" data-validation="custom"
-								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$" 
 								data-validation-error-msg="please enter valid pickup city"/></td>
 								
@@ -599,7 +597,7 @@
 								data-validation-regexp="^([a-zA-Z\s]+)$" 
 								data-validation-error-msg="please enter valid drop city"/></td>
 							<td><label class="fa fa-plus-square lm20 fa-lg"
-								onClick="addRow()"></label></td>
+								onClick="addBusRow()"></label></td>
 						</tr>
 						<tbody class="addrow"></tbody>
 						<tr>
