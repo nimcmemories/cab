@@ -6,11 +6,19 @@ option:hover{
 	background:yellow!important;
 	display:block;
 }
-span.form-error.help-block {
+/*span.form-error.help-block {
 	display: block;
 	color: red;
 	margin-top: 6px;
 	padding-left: 0;
+}*/
+span.form-error.help-block {
+    display: block;
+    color: #F00;
+	margin-top:-16px;
+    padding-left:0px;
+    position: relative;
+    top: 22px;
 }
 .form-horizontal input+.help-block, .form-horizontal select+.help-block, .form-horizontal textarea+.help-block {
 	margin-top: 10px;

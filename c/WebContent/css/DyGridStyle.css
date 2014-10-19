@@ -1,7 +1,5 @@
 @charset "utf-8";
 /* CSS Document */
-body{background:url(images/background.jpg);}
-@font-face {font-family: myFirstFont;src: url(sansation_light.woff);}
 .clear{clear:both;}
 
 /* Only Grid Style   */
@@ -15,7 +13,7 @@ body{background:url(images/background.jpg);}
 .DyGrid-11,.DyGrid-10,.DyGrid-9,.DyGrid-8,.DyGrid-7,.DyGrid-6{
 	margin:0 auto;
 	border-top:none;
-	font-family: myFirstFont;
+	font-family: Verdana, Geneva, sans-serif;
 	border-top-left-radius:2px;
 	border-top-right-radius:2px;
 	box-shadow: 0px 0px 0px 1px #f1f1f1;
@@ -44,7 +42,7 @@ body{background:url(images/background.jpg);}
 	background: -moz-linear-gradient(top, #FFFFFF, #FFFFFF);
 	border-top-left-radius:2px;
 	border-top-right-radius:2px;
-	box-shadow: 0px 0px 0px 1px #f1f1f1;
+	box-shadow: 0px 0px 0px 0px #f1f1f1;
 }
 header a.add,header a.cancel{
 	float:left;
@@ -56,7 +54,6 @@ header a.add,header a.cancel{
 	background:#08C;
 	background:-webkit-linear-gradient(top,#06A,#08C);
 	background:-moz-linear-gradient(top,#06A,#08C);
-	font-family:Arial,Helvetica,sans-serif;
 	color:#fff;
 	border-radius:3px;
 }
@@ -73,7 +70,6 @@ img:hover{cursor:pointer;}
 	text-align:center;
 	float:left;
 	width:70%;
-	font-family:Verdana;
 }
 
 /* Grid Table Div  */
@@ -92,15 +88,14 @@ img:hover{cursor:pointer;}
 	font-weight:900;
 	padding:4px 0px;
 	position: relative;
-	background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#fff), to(#fff));
-	background: -moz-linear-gradient(top, #08C,#fff);
+	background:#fff;
 	border-bottom: 1px solid #9B9B9B;
 }
 
 /*  for Header exp. TD */
 .DyGrid-td-1,.DyGrid-td-2,.DyGrid-td-3,.DyGrid-td-4,.DyGrid-td-5,.DyGrid-td-6,.DyGrid-td-7,
 .DyGrid-td-8,.DyGrid-td-9,.DyGrid-td-10,.DyGrid-td-sm,.DyGrid-td-md,.DyGrid-td-lg,.table_row .check{
-	padding:8px 0px;
+	padding:13px 0px;
 	height:15px;
 	border-bottom: 1px solid #ffffff;
 	border-bottom: 1px solid #e0e0e0;
@@ -171,7 +166,6 @@ img:hover{cursor:pointer;}
 	text-align:center;
 	padding:5px;
 	margin-bottom:10px;
-	font-family:Verdana;
 	border-radius: 2px;
 }
 .createPopup label,.editPopup label{
