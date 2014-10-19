@@ -6,23 +6,21 @@ body{background:url(images/background.jpg);}
 
 /* Only Grid Style   */
 
-.DyGrid-11,.DyGrid-10,.DyGrid-9,.DyGrid-8,.DyGrid-7,.DyGrid-6{
-	margin:0 auto;
-	border-top:none;
-	font-family: myFirstFont;
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
-	text-shadow: 1px 1px 0px #fff;
-	box-shadow: 0px 0px 1px 1px #d1d1d1;
-}
 .DyGrid-11{width:1100px;margin:0 auto;height:auto;}
 .DyGrid-10{width:1000px;margin:0 auto;height:auto;}
 .DyGrid-9{width:900px;}
 .DyGrid-8{width:800px;}
 .DyGrid-7{width:700px;}
 .DyGrid-6{width:600px;}
-
-
+.DyGrid-11,.DyGrid-10,.DyGrid-9,.DyGrid-8,.DyGrid-7,.DyGrid-6{
+	margin:0 auto;
+	border-top:none;
+	font-family: myFirstFont;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+	box-shadow: 0px 0px 0px 1px #f1f1f1;
+	margin-top:10px;
+}
 /* Table Main Header */
 [class^="popup_form"] table{
 	width: 100%;
@@ -41,26 +39,34 @@ body{background:url(images/background.jpg);}
 	font-weight:900;
 	padding:13px 0px;
 	position: relative;
-	background:-webkit-gradient(linear, 0% 0%, 0% 20%, from(#FFFFFF), to(#FAFAFA));
-	background: -moz-linear-gradient(top, #ededed, #ebebeb);
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
-	box-shadow: 0px 0px 0px 1px #e0e0e0;
+	background:#fff;
+	background:-webkit-gradient(linear, 0% 0%, 0% 20%, from(#FFFFFF), to(#fff));
+	background: -moz-linear-gradient(top, #FFFFFF, #FFFFFF);
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+	box-shadow: 0px 0px 0px 1px #f1f1f1;
 }
-.DyGrid-11 header a,.DyGrid-10 header a,.DyGrid-9 header a,.DyGrid-8 header a,.DyGrid-7 header a,.DyGrid-6 header a{
+header a.add,header a.cancel{
 	float:left;
 	margin-left:15px;
 	text-decoration:none;
-	padding:3px 10px;
+	padding:5px 13px;
 	font-size:13px;
 	border:1px solid #f1f1f1;
-	background:#f1f1f1;
-	background:-webkit-linear-gradient(top,#fff,#f1f1f1);
+	background:#08C;
+	background:-webkit-linear-gradient(top,#06A,#08C);
+	background:-moz-linear-gradient(top,#06A,#08C);
 	font-family:Arial,Helvetica,sans-serif;
-	color:#000;
+	color:#fff;
+	border-radius:3px;
 }
-.DyGrid-11 header a:active,.DyGrid-10 header a:active,.DyGrid-9 header a:active,.DyGrid-8 header a:active,.DyGrid-7 header a:active,.DyGrid-6 header a:active{
-	background:#f1f1f1;
+header a.cancel{
+	background:#9a1616;
+	background:-webkit-linear-gradient(top,#9a1010,#9a1616);
+	background:-moz-linear-gradient(top,#9a1010,#9a1616);
+}
+header a.add:active,header a.cancel:active{
+	background:black;
 }
 img:hover{cursor:pointer;}
 .DyGrid-11 header span,.DyGrid-10 header span,.DyGrid-9 header span,.DyGrid-8 header span.DyGrid-7 header span,.DyGrid-6 header span{
@@ -71,7 +77,7 @@ img:hover{cursor:pointer;}
 }
 
 /* Grid Table Div  */
-.DyGrid-tbl{width:100%;margin:0 auto;}
+.DyGrid-tbl{width:100%;margin:0 auto;border:1px solid #fafafa;margin-top:1px;padding-bottom:3px;}
 .table_header,.table_row{width:100%;float:left;}
 .DyGrid-tbl .table_header span,.DyGrid-tbl .table_row span{float:left;margin:0 auto;}
 .table_row span img{margin-right:5px;}
@@ -84,11 +90,11 @@ img:hover{cursor:pointer;}
 	text-align: center;
 	font-size: 17px;
 	font-weight:900;
-	padding:2px 0px;
+	padding:4px 0px;
 	position: relative;
-	background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
-	background: -moz-linear-gradient(top, #ededed,#e8eaeb);
-	box-shadow: 0px 0px 0px 1px #e8eaeb;
+	background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#fff), to(#fff));
+	background: -moz-linear-gradient(top, #08C,#fff);
+	border-bottom: 1px solid #9B9B9B;
 }
 
 /*  for Header exp. TD */
@@ -96,12 +102,11 @@ img:hover{cursor:pointer;}
 .DyGrid-td-8,.DyGrid-td-9,.DyGrid-td-10,.DyGrid-td-sm,.DyGrid-td-md,.DyGrid-td-lg,.table_row .check{
 	padding:8px 0px;
 	height:15px;
-	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #ffffff;
 	border-bottom: 1px solid #e0e0e0;
-	background: #fafafa;
-	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
-	background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
-	box-shadow:0px 0px 1px 0px #e0e0e0;
+	background: #fff;
+/*	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top, #fbfbfb, #fafafa);*/
 	text-align:center;
 }
 .DyGrid-th-1,.DyGrid-td-1{width:88%;}
@@ -117,15 +122,8 @@ img:hover{cursor:pointer;}
 .DyGrid-th-sm,.DyGrid-td-sm{width:5%;}
 .DyGrid-th-md,.DyGrid-td-md{width:9.5%;}
 .DyGrid-th-lg,.DyGrid-td-lg{width:20%;}
-.DyGrid-tbl .table_row:nth-child(odd) span{
-	background: #f6f6f6;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
-	background: -moz-linear-gradient(top, #f8f8f8, #f6f6f6);
-}
 .DyGrid-tbl .table_row:hover span{
-	background: #f2f2f2;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
-	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);
+	background:#EDFCFF;
 	cursor:auto;	
 }
 .DyGrid-tbl .table_row:last-child span{border-bottom:0;}
@@ -134,7 +132,7 @@ img:hover{cursor:pointer;}
 
 /* Checkbox and Oprations  */
 
-.table_row .check,.table_header .check{margin:0px 2px 0px 2px!important;width:2%;}
+.table_row .check,.table_header .check{margin:0px 1px 0px 1px!important;width:2%;}
 .table_row .opration{width:10%;}
 
 /* Create Row PopUp */
