@@ -3,12 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Register Form</title>
-	<link rel="stylesheet" href="css/commonStyle.css">
-	<link rel="stylesheet" href="css/styleSheet.css">
-    <link rel="stylesheet" href="css/iconFont.css">
-    <link rel="stylesheet" href="css/customStyle.css">   
-    <script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
-	<script type="text/javascript">
+<link rel="stylesheet" href="css/commonStyle.css">
+<link rel="stylesheet" href="css/styleSheet.css">
+<link rel="stylesheet" href="css/iconFont.css">
+<link rel="stylesheet" href="css/customStyle.css">
+<script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
+<script type="text/javascript">
 	  /* Page Load  */
 		window.onload=function load1(){
 			document.getElementById('pageloader').style.display="none";
@@ -17,15 +18,20 @@
 </head>
 
 <body>
-<!-- Start Loading  -->
-		<div id="pageloader">
-        <div id="bg_color"></div>
-             <div id="circle"></div><h1>smartSense</h1>
-        <div id="bonfire-pageloader" class="bonfire-pageloader-fade">
-	<!-- BEGIN THE ICON -->
-            <div class="bonfire-pageloader-icon" style="right: 633px; top: 244.5px;">
-                <svg version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                <path id="loading-12-icon" d="M291,82.219c0,16.568-13.432,30-30,30s-30-13.432-30-30s13.432-30,30-30S291,65.65,291,82.219z
+	<!-- Start Loading  -->
+	<div id="pageloader">
+		<div id="bg_color"></div>
+		<div id="circle"></div>
+		<h1>smartSense</h1>
+		<div id="bonfire-pageloader" class="bonfire-pageloader-fade">
+			<!-- BEGIN THE ICON -->
+			<div class="bonfire-pageloader-icon"
+				style="right: 633px; top: 244.5px;">
+				<svg version="1.1" x="0px" y="0px" width="512px" height="512px"
+					viewBox="0 0 512 512" enable-background="new 0 0 512 512"
+					xml:space="preserve">
+                <path id="loading-12-icon"
+						d="M291,82.219c0,16.568-13.432,30-30,30s-30-13.432-30-30s13.432-30,30-30S291,65.65,291,82.219z
                      M261,404.781c-15.188,0-27.5,12.312-27.5,27.5s12.312,27.5,27.5,27.5s27.5-12.312,27.5-27.5S276.188,404.781,261,404.781z
                      M361.504,113.167c-4.142,7.173-13.314,9.631-20.487,5.489c-7.173-4.141-9.631-13.313-5.49-20.487
                     c4.142-7.173,13.314-9.631,20.488-5.489C363.188,96.821,365.645,105.994,361.504,113.167z M188.484,382.851
@@ -45,73 +51,94 @@
                      M188.482,131.649c14.352-8.286,19.266-26.633,10.982-40.982c-8.285-14.348-26.631-19.264-40.982-10.98
                     c-14.346,8.285-19.264,26.633-10.98,40.982C155.787,135.017,174.137,139.932,188.482,131.649z"></path>
                 </svg>
-            </div>
-         </div>
-	<!-- END THE ICON -->
-</div>
-<!-- END Loading  -->
+			</div>
+		</div>
+		<!-- END THE ICON -->
+	</div>
+	<!-- END Loading  -->
 
 	<div class="register_form">
-    	<form action="#" method="post">
-        	<h3>Partner Register Form</h3>
-            <div class="border-bottom"></div>
-        	<table>
-            	<tr>
-                	<td><label>Partner-Type :</label></td>
-                	<td><select>
-                    	<option>Partner Type</option>
-                        <option></option>
-                        <option></option>
-                    </select></td>
-                </tr>
-                <tr>
-                	<td><label>Partner-Tittle :</label></td>
-                	<td>
-                    	<span class="input-icon icon-tag left fa-lg"></span>
-                    	<input type="text" placeholder="Partner Tittle" alt="Partner-Tittle" name="password" required/>
-                    </td>
-                </tr>
-                <tr>
-                	<td><label>First-Name :</label></td>
-                	<td>
-                    	<span class="input-icon icon-user left fa-lg"></span>
-                    	<input type="text" placeholder="First Name" alt="FirstName" name="FirstName" required/>
-                    </td>
-                </tr>
-                <tr>
-                	<td><label>Last-Name :</label></td>
-                	<td>
-                    	<span class="input-icon icon-user left fa-lg"></span>
-                    	<input type="text" placeholder="Last Name" alt="LastName" name="LastName" required/>
-                    </td>
-                </tr>
-                 <tr>
-                	<td><label>Mobile Number :</label></td>
-                	<td>
-                    	<span class="input-icon icon-mobile-2 left fa-lg"></span>
-                    	<input type="text" placeholder="Mobile Number" alt="mobileNumber" name="mobileNumber" required/>
-                    </td>
-                </tr>
-                <tr>
-                	<td><label>Email Id :</label></td>
-                	<td>
-                    	<span class="input-icon icon-mail-2 left fa-lg"></span>
-                    	<input type="email" placeholder="Email Id" alt="emailId" name="emailId" required/>
-                    </td>
-                </tr>
-                <tr>
-                	<td><label>Address :</label></td>
-                	<td>
-                    	<textarea placeholder="address" alt="address" name="address" required></textarea>
-                    </td>
-                </tr>
-                <tr>
-                	<td></td>
-                	<td><input type="submit" class="primary" alt="Submit" value="Register"/>
-                	<input type="reset" class="danger" alt="Cancel" value="Cancel"/></td>
-                </tr>
-            </table>
-        </form>
-    </div>
+		<form action="#" method="post">
+			<h3>Partner Register Form</h3>
+			<div class="border-bottom"></div>
+			<table>
+				<tr>
+					<td><label>Partner-Type :</label></td>
+					<td><select name="partnertype" id="taxipartnertype">
+							<option>Partner Type</option>
+							<option>cab partner</option>
+							<option>bus partner</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><label>Partner-Tittle :</label></td>
+					<td><span class="input-icon icon-tag left fa-lg"></span> <input
+						type="text" placeholder="Partner Tittle" alt="Partner-Tittle"
+						id="partnertittle" name="partnertittle" data-validation="custom"
+						data-validation-regexp="^([a-zA-Z]+)$"
+						data-validation-error-msg="please enter tittle" /></td>
+				</tr>
+				<tr>
+					<td><label>First-Name :</label></td>
+					<td><span class="input-icon icon-user left fa-lg"></span> <input
+						type="text" placeholder="First Name" alt="FirstName"
+						name="FirstName" 
+						id="registerfirstname" name="firstname" data-validation="custom"
+						data-validation-regexp="^([a-zA-Z]+)$"
+						data-validation-error-msg="please enter first name"/></td>
+				</tr>
+				<tr>
+					<td><label>Last-Name :</label></td>
+					<td><span class="input-icon icon-user left fa-lg"></span> <input
+						type="text" placeholder="Last Name" alt="LastName" name="LastName"
+						id="registerlastname" name="lastname" data-validation="custom"
+						data-validation-regexp="^([a-zA-Z]+)$"
+						data-validation-error-msg="please enter last name" /></td>
+				</tr>
+				<tr>
+					<td><label>Mobile Number :</label></td>
+					<td><span class="input-icon icon-mobile-2 left fa-lg"></span>
+						<input type="text" placeholder="Mobile Number" alt="mobileNumber"
+						name="mobileNumber" 
+						id="registermobilenumber" name="registermobilenumber" data-validation="custom"
+						data-validation-regexp="^(0-9)$" data-validation-length="max10"
+						data-validation-error-msg="please enter valid number" /></td>
+				</tr>
+				<tr>
+					<td><label>Email Id :</label></td>
+					<td><span class="input-icon icon-mail-2 left fa-lg"></span> <input
+						type="email" placeholder="Email Id" alt="emailId" name="emailId"
+						id="registeremailid" data-validation="custom"
+						data-validation-regexp="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/"
+						data-validation-error-msg="please enter valid emailId" /></td>
+				</tr>
+				<tr>
+					<td><label>Address :</label></td>
+					<td><textarea placeholder="address" alt="address"
+							name="address" 
+							name="registeraddress" id="registeraddress"
+							data-validation="custom length"
+							data-validation-length="max100">></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" class="primary" alt="Submit"
+						value="Register" /> <input type="reset" class="danger"
+						alt="Cancel" value="Cancel" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script type="text/javascript">
+		$.validate({
+			modules : 'location, date, security, file',
+			onModulesLoaded : function() {
+				$('#country').suggestCountry();
+			}
+		});
+		// Restrict presentation length
+		$('#presentation').restrictLength($('#pres-max-length'));
+	</script>
 </body>
+
 </html>
