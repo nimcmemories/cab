@@ -74,7 +74,7 @@ img:hover{cursor:pointer;}
 
 /* Grid Table Div  */
 .DyGrid-tbl{width:100%;margin:0 auto;border:1px solid #fafafa;margin-top:1px;padding-bottom:3px;}
-.table_header,.table_row{width:100%;float:left;}
+.table_header,.table_row{width:100%;float:left;font-family: sans-serif;}
 .DyGrid-tbl .table_header span,.DyGrid-tbl .table_row span{float:left;margin:0 auto;}
 .table_row span img{margin-right:5px;}
 
@@ -100,9 +100,8 @@ img:hover{cursor:pointer;}
 	border-bottom: 1px solid #ffffff;
 	border-bottom: 1px solid #e0e0e0;
 	background: #fff;
-/*	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
-	background: -moz-linear-gradient(top, #fbfbfb, #fafafa);*/
 	text-align:center;
+	font-size: 14px!important;
 }
 .DyGrid-th-1,.DyGrid-td-1{width:88%;}
 .DyGrid-th-2,.DyGrid-td-2{width:44%;}
