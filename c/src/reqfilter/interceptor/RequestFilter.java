@@ -116,12 +116,6 @@ public class RequestFilter implements Filter {
 		 */
 		System.out.println("=========================================================");
 		HibernateConfiguartion.createSessionFactory();
-		HibernateConfiguartion hbConf = new HibernateConfiguartion();
-		List<BaseBean> list = hbConf.selecBaseBeanQuery("from CityMaster");
-		List<BaseBean> userList = hbConf.selecBaseBeanQuery("from UserBean");
-		System.out.println("********************************************user****************>"+userList.size());
-		System.out.println("*********************************************area***************>"+list.size());
-		
 	}
 	@Override
 	public void destroy() {
@@ -145,7 +139,7 @@ public class RequestFilter implements Filter {
 			        logger.debug("Subentity resolved : " + subEntityBean.getName());
 			        userBean = (UserBean)hibernateSession.createQuery("from UserBean where username = '" + 
 			        		(userBean.getUsername().equals("__guestuser")?"guestuser":userBean.getUsername()) + "' and parentID = " + userBean.getParentID()).uniqueResult();
-			        ProfileDetailBean profileDetailBean = (ProfileDetailBean)hibernateSession.createQuery("from ProfileDetaiBean where profileID = " + userBean.getProfileID() + " and subEntityID = " + subEntityBean.getSubentityID());
+			        ProfileDetailBean profileDetailBean = (ProfileDetailBean)hibernateSession.createQuery("from ProfileDetailBean where profileID = " + userBean.getProfileID() + " and subEntityID = " + subEntityBean.getSubentityID()).uniqueResult();
 			        return profileDetailBean.getAccessType();
 	        }catch (Exception e){
 	        	//*** ITS TOO CRITICAL IF I FALL IN THIS BLOCK 
@@ -168,7 +162,15 @@ public class RequestFilter implements Filter {
         boolean isNewSession = checkSession(req);
         HttpSession session = req.getSession();
         boolean isGuest = false;
-        int __eventId = 0;//Integer.parseInt((String)request.getParameter(FilterConstants.__EVENT_ID));
+        String event_ID = request.getParameter(FilterConstants.__EVENT_ID);
+        int __eventId ;
+        if(event_ID != null){
+        	__eventId = Integer.parseInt((String)request.getParameter(FilterConstants.__EVENT_ID));
+        	if (__eventId == 10914)
+        		isNewSession = true;
+        }
+        else 
+        	__eventId = 0;
         // userTypes can be : Admin,Partner,EndUser,Guest respectively 0,1,2,3 where 2,3 type are for end user 3 is guest user 2 is authenticated user
         /*
          * Check session for users's autheticity : 
