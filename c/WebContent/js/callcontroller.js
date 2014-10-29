@@ -23,6 +23,10 @@ function getAJAXObject() {
     }
     return ajaxObject;
 }
+function bingo(data){
+	alert("i am back from controller");
+	alert(data);
+}
 function sendAJAXRequest(method, query, bingo) {
     xmlObject = getAJAXObject();
     var currentPath = window.location.toString();

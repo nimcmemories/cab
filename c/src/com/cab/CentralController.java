@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
+import com.cab.bean.HelperBean;
 import com.cab.unittest.Tester;
 
 import reqfilter.constants.FilterConstants;
@@ -48,7 +49,10 @@ public class CentralController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("do post");
 		JSONObject jsonObjectOfRequest = getRequestParamMap((HttpServletRequest)request);
-		
+		HelperBean helperBean = (HelperBean)request.getAttribute("helperBean");
+		if(helperBean != null){
+			System.out.println("helperbean in central controller is not null load helper -> " + helperBean.getName());
+		}
 		tester.testHibernateSelectQuery();
 	}
 	

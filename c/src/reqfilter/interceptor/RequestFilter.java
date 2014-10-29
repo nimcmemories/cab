@@ -44,7 +44,23 @@ public class RequestFilter implements Filter {
 	Logger logger = Logger.getLogger(RequestFilter.class);
     private ServletContext context;
     public static String webappPath ;
-    
+    private class BeanBag{
+    	private UserBean userBean ;
+    	private HelperBean helperBean ;
+		public HelperBean getHelperBean() {
+			return helperBean;
+		}
+		public void setHelperBean(HelperBean helperBean) {
+			this.helperBean = helperBean;
+		}
+		public UserBean getUserBean() {
+			return userBean;
+		}
+		public void setUserBean(UserBean userBean) {
+			this.userBean = userBean;
+		}
+    	
+    }
     
     public boolean checkSession(HttpServletRequest req){
     	HttpSession session = req.getSession();
@@ -122,7 +138,8 @@ public class RequestFilter implements Filter {
 		logger.debug("RequestFilter : destroy" );
 	}
 	
-	private int checkACL(UserBean userBean,int __eventId,HelperBean helperBean){
+	private int checkACL(UserBean userBean,int __eventId,BeanBag beanBag){
+		HelperBean helperBean;
 		 List<SystemBean> list = null;
 	        Session hibernateSession = null;
 	        Transaction tx = null;
@@ -135,6 +152,7 @@ public class RequestFilter implements Filter {
 		        	EventBean eventBean = (EventBean)list.get(0);
 			        Hibernate.initialize(eventBean.getHelperBean());
 			        helperBean = eventBean.getHelperBean();
+			        beanBag.setHelperBean(helperBean);
 			        SubEntityBean subEntityBean = eventBean.getHelperBean().getSubEntityBean();
 			        logger.debug("Subentity resolved : " + subEntityBean.getName());
 			        userBean = (UserBean)hibernateSession.createQuery("from UserBean where username = '" + 
@@ -203,11 +221,13 @@ public class RequestFilter implements Filter {
             }
             session.setAttribute("userBean", userBean);
         }
-        HelperBean helperBean = null ;
+        HelperBean helperBean = null;
         userBean = (UserBean)session.getAttribute("userBean");
-        int aclStatus = checkACL(userBean, __eventId,helperBean);
+        BeanBag beanBag = new BeanBag();
+        int aclStatus = checkACL(userBean, __eventId,beanBag);
+        helperBean = beanBag.getHelperBean();
         if(helperBean!=null){
-        	System.out.println("helperbean is not null");
+        	System.out.println("helperbean is not null " + helperBean.getName() + " and acl status is " + aclStatus);
         }else
         	System.out.println("helperbean is null");
         
