@@ -12,9 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
+import com.cab.bean.EventBean;
 import com.cab.bean.HelperBean;
+import com.cab.helper.BaseHelper;
 import com.cab.unittest.Tester;
 
+import constant.SystemWideConstants;
 import reqfilter.constants.FilterConstants;
 
 /**
@@ -50,8 +53,39 @@ public class CentralController extends HttpServlet {
 		System.out.println("do post");
 		JSONObject jsonObjectOfRequest = getRequestParamMap((HttpServletRequest)request);
 		HelperBean helperBean = (HelperBean)request.getAttribute("helperBean");
-		if(helperBean != null){
+		EventBean eventBean = (EventBean)request.getAttribute("eventBean");
+		if(helperBean != null && eventBean != null){
 			System.out.println("helperbean in central controller is not null load helper -> " + helperBean.getName());
+			Class baseClass;
+			BaseHelper baseHelper;
+			try {
+				baseClass = Class.forName(helperBean.getName());
+				baseHelper = (BaseHelper)baseClass.newInstance();
+				if(SystemWideConstants.SYSTEM_READ_EVENT == eventBean.getEventType()){
+					System.out.println("system read event");
+					baseHelper.readRecords(jsonObjectOfRequest);
+				}else if(SystemWideConstants.SYSTEM_INSERT_EVENT== eventBean.getEventType()){
+					System.out.println("system insert event");
+					baseHelper.insertRecord(jsonObjectOfRequest);
+				}else if(SystemWideConstants.SYSTEM_UPDATE_EVENT == eventBean.getEventType()){
+					System.out.println("system update event");
+					baseHelper.updateRecord(jsonObjectOfRequest);
+				}else if(SystemWideConstants.SYSTEM_DELETE_EVENT == eventBean.getEventType()){
+					System.out.println("system delete event");
+					baseHelper.deleteRecord(jsonObjectOfRequest);
+				}else if(SystemWideConstants.SYSTEM_CUSTOM_EVENT == eventBean.getEventType()){
+					System.out.println("system custom event");
+					baseHelper.customProcedure(jsonObjectOfRequest);
+				}
+				System.out.println("printing helper "  + baseHelper.toString());
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (InstantiationException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
+			 
 		}
 		tester.testHibernateSelectQuery();
 	}

@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `cab` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `cab`;
--- MySQL dump 10.13  Distrib 5.5.38, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.40, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: cab
 -- ------------------------------------------------------
--- Server version	5.5.38-0ubuntu0.14.04.1
+-- Server version	5.5.40-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,11 +28,9 @@ CREATE TABLE `cbentity` (
   `entityid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` varchar(50) NOT NULL,
-  `profiledetailid` bigint(20) NOT NULL,
   PRIMARY KEY (`entityid`),
-  UNIQUE KEY `name_UNIQUE` (`name`),
-  KEY `fk_cbentity_1_idx` (`profiledetailid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +39,7 @@ CREATE TABLE `cbentity` (
 
 LOCK TABLES `cbentity` WRITE;
 /*!40000 ALTER TABLE `cbentity` DISABLE KEYS */;
-INSERT INTO `cbentity` VALUES (1,'system_manager','system manager entity is only for cbsuper profile ',0),(2,'reservation','book/reserve service.',1);
+INSERT INTO `cbentity` VALUES (1,'system_manager','system manager entity is only for cbsuper profile '),(2,'reservation','book/reserve service.'),(3,'dashboard_user','dashboard for user');
 /*!40000 ALTER TABLE `cbentity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,12 +52,13 @@ DROP TABLE IF EXISTS `cbevents`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cbevents` (
   `eventid` int(11) NOT NULL AUTO_INCREMENT,
-  `eventtype` int(11) NOT NULL,
+  `eventtype` int(11) NOT NULL COMMENT '0 - read 1 insert 2 update 3 delete 4 custom tasks',
   `helperid` int(11) NOT NULL,
   PRIMARY KEY (`eventid`),
+  UNIQUE KEY `index3` (`eventtype`,`helperid`),
   KEY `fk_cbevents_1_idx` (`helperid`),
   CONSTRAINT `fk_cbevents_1` FOREIGN KEY (`helperid`) REFERENCES `cbhelpers` (`helperid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +67,7 @@ CREATE TABLE `cbevents` (
 
 LOCK TABLES `cbevents` WRITE;
 /*!40000 ALTER TABLE `cbevents` DISABLE KEYS */;
-INSERT INTO `cbevents` VALUES (1,1,1);
+INSERT INTO `cbevents` VALUES (2,0,1),(1,1,1),(6,2,1),(0,2,2),(7,3,1),(8,4,1);
 /*!40000 ALTER TABLE `cbevents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +86,7 @@ CREATE TABLE `cbhelpers` (
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `fk_cbhelpers_1_idx` (`subentityid`),
   CONSTRAINT `fk_cbhelpers_1` FOREIGN KEY (`subentityid`) REFERENCES `cbsubentity` (`subentityid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +95,7 @@ CREATE TABLE `cbhelpers` (
 
 LOCK TABLES `cbhelpers` WRITE;
 /*!40000 ALTER TABLE `cbhelpers` DISABLE KEYS */;
-INSERT INTO `cbhelpers` VALUES (1,'com.cab.helper.TestHelper',3);
+INSERT INTO `cbhelpers` VALUES (1,'com.cab.helper.TestHelper',3),(2,'com.cab.helper.DashBoardHelper',4);
 /*!40000 ALTER TABLE `cbhelpers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +142,7 @@ CREATE TABLE `cbprofiledetail` (
   KEY `fk_cbprofiledetail_2_idx` (`subentityid`),
   CONSTRAINT `fk_cbprofiledetail_1` FOREIGN KEY (`profileid`) REFERENCES `cbprofile` (`profileid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_cbprofiledetail_2` FOREIGN KEY (`subentityid`) REFERENCES `cbsubentity` (`subentityid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +151,7 @@ CREATE TABLE `cbprofiledetail` (
 
 LOCK TABLES `cbprofiledetail` WRITE;
 /*!40000 ALTER TABLE `cbprofiledetail` DISABLE KEYS */;
-INSERT INTO `cbprofiledetail` VALUES (1,1,1,2),(3,1,2,2),(4,2,3,2);
+INSERT INTO `cbprofiledetail` VALUES (1,1,1,2),(3,1,2,2),(4,2,3,2),(5,2,4,1);
 /*!40000 ALTER TABLE `cbprofiledetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,7 +171,7 @@ CREATE TABLE `cbsubentity` (
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `fk_cbsubentity_1_idx` (`entityid`),
   CONSTRAINT `fk_cbsubentity_1` FOREIGN KEY (`entityid`) REFERENCES `cbentity` (`entityid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +180,7 @@ CREATE TABLE `cbsubentity` (
 
 LOCK TABLES `cbsubentity` WRITE;
 /*!40000 ALTER TABLE `cbsubentity` DISABLE KEYS */;
-INSERT INTO `cbsubentity` VALUES (1,'alert_system','alert system will provide different types of alert',1),(2,'users','list users and its tree with their access type and',1),(3,'reserve_cab','book/reserve cab ',2);
+INSERT INTO `cbsubentity` VALUES (1,'alert_system','alert system will provide different types of alert',1),(2,'users','list users and its tree with their access type and',1),(3,'reserve_cab','book/reserve cab ',2),(4,'dashboard','users dashboard',3);
 /*!40000 ALTER TABLE `cbsubentity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,4 +252,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-09  7:57:30
+-- Dump completed on 2014-11-01 15:48:07

@@ -13,6 +13,11 @@ import org.apache.log4j.Logger;
 public class SystemWideConstants {
 	public static int USER_SESSION_TIMEOUT ;
 	public static String WEBAPPPATH = "";
+	public static int SYSTEM_READ_EVENT = 0;
+	public static int SYSTEM_INSERT_EVENT = 1;
+	public static int SYSTEM_UPDATE_EVENT = 2;
+	public static int SYSTEM_DELETE_EVENT = 3;
+	public static int SYSTEM_CUSTOM_EVENT = 4;
 	static  Logger logger = Logger.getLogger(SystemWideConstants.class);
 	static public void loadProperties(){
 		WEBAPPPATH = WEBAPPPATH  + "/WEB-INF/classes/";
