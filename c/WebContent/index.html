@@ -17,6 +17,7 @@
 <script type="text/javascript" src="js/jsconstant.js"></script>
 <script type="text/javascript" src="js/eventconstant.js"></script>
 <script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
+<script type="text/javascript" src="js/callcontroller.js"></script>
 <script type="text/javascript">
 	//var res=cab.AJAXCall('nitin');
 </script>
@@ -127,6 +128,9 @@
 			<!--Taxi Point to Point Design -->
 
 			<div class="taxi-pop">
+				<form action="/c/">
+					<input type="button" onclick='sendAJAXRequest("POST","name=nimesh&__eventid=1","bingo");' />
+				</form>
 				<form action="#" method="post" id="taxi-ptop" onSubmit="">
 					<div class="select_city">
 						<label>Select City :</label> <select name="city" id="taxiptopcity">

@@ -34,9 +34,6 @@ public class Tester {
 		try {
 			Class classObject = Class.forName("com.cab.helper.TestHelper");
 			BaseHelper baseHelper = (BaseHelper)classObject.newInstance();
-			 baseHelper.customProcedure();
-			 baseHelper.insertRecord();
-			 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

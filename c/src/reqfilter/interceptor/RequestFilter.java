@@ -47,6 +47,7 @@ public class RequestFilter implements Filter {
     private class BeanBag{
     	private UserBean userBean ;
     	private HelperBean helperBean ;
+    	private EventBean eventBean;
 		public HelperBean getHelperBean() {
 			return helperBean;
 		}
@@ -58,6 +59,12 @@ public class RequestFilter implements Filter {
 		}
 		public void setUserBean(UserBean userBean) {
 			this.userBean = userBean;
+		}
+		public EventBean getEventBean() {
+			return eventBean;
+		}
+		public void setEventBean(EventBean eventBean) {
+			this.eventBean = eventBean;
 		}
     	
     }
@@ -153,6 +160,7 @@ public class RequestFilter implements Filter {
 			        Hibernate.initialize(eventBean.getHelperBean());
 			        helperBean = eventBean.getHelperBean();
 			        beanBag.setHelperBean(helperBean);
+			        beanBag.setEventBean(eventBean);
 			        SubEntityBean subEntityBean = eventBean.getHelperBean().getSubEntityBean();
 			        logger.debug("Subentity resolved : " + subEntityBean.getName());
 			        userBean = (UserBean)hibernateSession.createQuery("from UserBean where username = '" + 
@@ -237,6 +245,7 @@ public class RequestFilter implements Filter {
         	 */
         	request.setAttribute("permission", "allowRW");
         	request.setAttribute("helperBean", helperBean);
+        	request.setAttribute("eventBean",beanBag.getEventBean());
         	logger.debug("acl status is 2");
         }else if(aclStatus == 1){
         	/*
