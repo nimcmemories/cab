@@ -9,12 +9,7 @@
 <link rel="stylesheet" href="css/customStyle.css">
 <script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
-<script type="text/javascript">
-	  /* Page Load  */
-		window.onload=function load1(){
-			document.getElementById('pageloader').style.display="none";
-		}	
-	</script>
+<script type="text/javascript"></script>
 </head>
 
 <body>
@@ -64,7 +59,7 @@
 			<table>
 				<tr>
 					<td><label>Partner-Type :</label></td>
-					<td><select name="partnertype" id="taxipartnertype">
+					<td><select name="partnertype" id="taxipartnertype" >
 							<option>Partner Type</option>
 							<option>cab partner</option>
 							<option>bus partner</option>
@@ -82,26 +77,24 @@
 					<td><label>First-Name :</label></td>
 					<td><span class="input-icon icon-user left fa-lg"></span> <input
 						type="text" placeholder="First Name" alt="FirstName"
-						name="FirstName" 
 						id="registerfirstname" name="firstname" data-validation="custom"
 						data-validation-regexp="^([a-zA-Z]+)$"
-						data-validation-error-msg="please enter first name"/></td>
+						data-validation-error-msg="please enter valid name"/></td>
 				</tr>
 				<tr>
 					<td><label>Last-Name :</label></td>
 					<td><span class="input-icon icon-user left fa-lg"></span> <input
-						type="text" placeholder="Last Name" alt="LastName" name="LastName"
+						type="text" placeholder="Last Name" alt="LastName"
 						id="registerlastname" name="lastname" data-validation="custom"
 						data-validation-regexp="^([a-zA-Z]+)$"
-						data-validation-error-msg="please enter last name" /></td>
+						data-validation-error-msg="please enter valid name" /></td>
 				</tr>
 				<tr>
 					<td><label>Mobile Number :</label></td>
 					<td><span class="input-icon icon-mobile-2 left fa-lg"></span>
 						<input type="text" placeholder="Mobile Number" alt="mobileNumber"
-						name="mobileNumber" 
 						id="registermobilenumber" name="registermobilenumber" data-validation="custom"
-						data-validation-regexp="^(0-9)$" data-validation-length="max10"
+						data-validation-regexp="/^\d{10}$/" data-validation-length="max10"
 						data-validation-error-msg="please enter valid number" /></td>
 				</tr>
 				<tr>
@@ -115,16 +108,14 @@
 				<tr>
 					<td><label>Address :</label></td>
 					<td><textarea placeholder="address" alt="address"
-							name="address" 
-							name="registeraddress" id="registeraddress"
+							name="address" id="registeraddress"
 							data-validation="custom length"
-							data-validation-length="max100">></textarea></td>
+							data-validation-length="max100"></textarea></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="submit" class="primary" alt="Submit"
-						value="Register" /> <input type="reset" class="danger"
-						alt="Cancel" value="Cancel" /></td>
+					<td><input type="submit" class="primary" alt="Submit" value="Register" id="registerpartner"/> 
+						<input type="reset" class="danger" alt="Cancel" value="Cancel" id="cancelregisterpartner" /></td>
 				</tr>
 			</table>
 		</form>

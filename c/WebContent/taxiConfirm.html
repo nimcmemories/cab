@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/customStyle.css">    
     <link rel="stylesheet" href="css/jquery.timepicker.css" />    
     <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+	<script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
+	<script type="text/javascript"> </script>
 </head>
 
 <body>
@@ -19,28 +22,37 @@
         	<table class="tbl-90p br2">
             	<tr>
                 	<td><label>Email Id :</label></td>
-                   	<td><input type="email" placeholder="Email Address" name=""/></td>
+                   	<td><input type="email" placeholder="Email Address" 
+                   	name="emailid" id="taxiconfirmemailid"
+                   	data-validation-regexp="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/"
+					data-validation-error-msg="please enter valid emailId" /></td>
                 </tr>
                 <tr> 
                     <td><label>Area :</label></td>
                     <td class="border-bottom"><label>area</label></td>
-
-                </tr>
+				</tr>
                 <tr>
                     <td><label>Address :</label></td>                    
-                    <td><textarea placeholder="Address" name=""></textarea></td>
+                    <td><textarea placeholder="Address" name="address" id="taxiconfirmaddress"
+                    data-validation="custom length"
+					data-validation-length="max100"
+					data-validation-error-msg="please enter valid address"></textarea></td>
                 </tr>
                 <tr>
                     <td><label>Landmark :</label></td>                    
-                    <td><input type="text" placeholder="Landmark" name=""/></td>
+                    <td><input type="text" placeholder="Landmark" name="landmark" id="taxiconfirmlandmark"
+                    data-validation-regexp="^([a-zA-Z]+)$"
+					data-validation-error-msg="please enter landmark"/></td>
                 </tr>
                 <tr>
                     <td><label>Mobile :</label></td>                    
-                    <td><input type="text" placeholder="Mobile Number" name=""/></td>
+                    <td><input type="text" placeholder="Mobile Number" name="mobile" id="taxiconfirmmobile"
+                    data-validation-regexp="/^\d{10}$/" data-validation-length="max10"
+					data-validation-error-msg="please enter valid number"/></td>
                 </tr>
                 <tr>
                     <td></td>                    
-                    <td><input type="submit" value="Confirm Booking" class="primary on-right" name=""/></td>
+                    <td><input type="submit" value="Confirm Booking" class="primary on-right" id="taxiconfirm" /></td>
                 </tr>
             </table>
         </div>
@@ -53,5 +65,15 @@
         </div>
         <div class="clear"></div>
     </div>
+    <script type="text/javascript">
+		$.validate({
+			modules : 'location, date, security, file',
+			onModulesLoaded : function() {
+				$('#country').suggestCountry();
+			}
+		});
+		// Restrict presentation length
+		$('#presentation').restrictLength($('#pres-max-length'));
+	</script>
 </body>
 </html>
