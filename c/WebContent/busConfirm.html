@@ -20,7 +20,7 @@
 	<div class="main padding2 border br2 wdth-70p auto">
     	<h2 class="border-bottom padding5">Confirm Booking</h2>
         <div class="left border margin2 padding2 wdth-50p br2">
-        <form action="#">
+        <form action="#" method="post" id="bus-confirm">
         	<table class="tbl-90p br2">
                 <tr>
                     <td><label>Name :</label></td>                    
@@ -43,25 +43,27 @@
                     <td><label>Age :</label></td>
                     <td><input type="text" placeholder="Enter Age"
                      name="age" id="busconfirmage" 
-                    data-validation-regexp="(0-9)" data-validation-length="max2"
-                    data-validation-error-msg="please enter valid number" /></td>
+                     data-validation-allowing="range[1;80]" data-validation="number"
+                     data-validation-error-msg="please enter valid number" /></td>
                 </tr>
             	<tr>
                 	<td><label>Email Id :</label></td>
-                   	<td><input type="email" placeholder="Email Address" name="emailid"
-                   	id="busconfirmemailid" data-validation="custom"
-					data-validation-regexp="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/"
-					data-validation-error-msg="please enter valid emailId"/></td>
+                   	<td><input type="email" placeholder="Email Address" 
+                   	name="emailid" id="busconfirmemailid" 
+                   	data-validation="email"
+					data-validation-error-msg="please enter valid email-id"/></td>
                 </tr>
                 <tr>
                     <td><label>Mobile :</label></td>                    
-                    <td><input type="text" placeholder="Mobile Number" name="mobilenumber"
-                    data-validation-regexp="/^\d{10}$/" data-validation-length="max10"
+                    <td><input type="text" placeholder="Mobile Number" 
+                    name="mobilenumber" id="busconfirmmobile"
+                    data-validation="number"
+                    data-validation-length="max10"
 					data-validation-error-msg="please enter valid number" /></td>
                 </tr>
                 <tr>
                     <td></td>                    
-                    <td><input type="submit" value="Confirm Booking" class="primary on-right" id="busconfirm"/></td>
+                    <td><input type="submit" value="Confirm Booking" class="primary on-right" onclick="busconfirm('bus-confirm')"/></td>
                 </tr>
             </table>
             </form>
@@ -74,13 +76,14 @@
             </div>
             <div class="clear"></div>
         </div>
-    <script type="text/javascript">
+        <script type="text/javascript" src="js/javaScript.js"></script>
+    	<script type="text/javascript">
 		$.validate({
 			modules : 'location, date, security, file',
-			onModulesLoaded : function() {
+			 onModulesLoaded : function() {
 				$('#country').suggestCountry();
 			}
-		});
+		}); 
 		// Restrict presentation length
 		$('#presentation').restrictLength($('#pres-max-length'));
 	</script>
