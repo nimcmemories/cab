@@ -4,7 +4,7 @@ $(document).ready(function (){
     $('#txt-pickup, #txt-drop, #txt-date, #txt-time').change(validate);
 });
 function validate(){
-    if ($('.pickup').val().length   >   0   &&
+    /*if ($('.pickup').val().length   >   0   &&
         $('.drop').val().length  >   0   &&
 		$('#txt-date').val().length  >   0   &&
         $('#txt-time').val().length    >   0) {
@@ -12,17 +12,17 @@ function validate(){
 	    $('input[type="submit"]').addClass('info');
         $('input[type="button"]').removeClass('disabled');
 	    $('input[type="button"]').addClass('info');
-	  /*  $('input[type="submit"]').removeAttr('disabled','disable');
-	    $('input[type="button"]').removeAttr('disabled','disable');*/
+	    $('input[type="submit"]').removeAttr('disabled','disable');
+	    $('input[type="button"]').removeAttr('disabled','disable');
     }
     else {
         $('input[type="submit"]').addClass('disabled');
 	    $('input[type="submit"]').removeClass('info');
         $('input[type="button"]').addClass('disabled');
 	    $('input[type="button"]').removeClass('info');
-	   /* $('input[type="submit"]').attr('disabled','disable');
-	    $('input[type="button"]').attr('disabled','disable');*/
-    }
+	    $('input[type="submit"]').attr('disabled','disable');
+	    $('input[type="button"]').attr('disabled','disable');
+    }*/
 }
 
 $('document').ready(function(){	
