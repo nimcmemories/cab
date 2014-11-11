@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/iconFont.css">
     <link rel="stylesheet" href="css/customStyle.css">    
     <script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
 	<script type="text/javascript">
 	  /* Page Load  */
 		window.onload=function load1(){
@@ -52,27 +53,27 @@
 </div>
 <!-- END Loading  -->
 	<div class="login_form">
-    	<form action="#" method="post">
-        	<h3>Partner Register Form</h3>
+    	<form action="#" method="post" id="login">
+        	<h3>Login Form</h3>
             <div class="border-bottom"></div>
         	<table>
             	<tr>
                 	<td><label>User Name :</label></td>
                 	<td>
                     	<span class="input-icon icon-user-3 left fa-lg"></span>
-                    	<input type="text" placeholder="User Name" alt="userName" name="password" required/>
+                    	<input type="text" placeholder="User Name" name="username" id="loginusername"/>
                     </td>
                 </tr>
                 <tr>
                 	<td><label>Password :</label></td>
                 	<td>
                     	<span class="input-icon icon-key left fa-lg"></span>
-                    	<input type="password" placeholder="Password" alt="Password" name="password" required/>
+                    	<input type="password" placeholder="Password" name="password" id="loginpass"/>
                     </td>
                 </tr>
                 <tr>
                 	<td></td>
-                	<td><input type="submit" class="primary" alt="Submit" value="Submit"/>
+                	<td><input type="submit" class="primary" alt="Submit" value="Submit" onclick="login"/>
                 	<input type="reset" class="danger" alt="Cancel" value="Cancel"/></td>
                 </tr>
                 <tr>
@@ -82,6 +83,16 @@
             </table>
         </form>
     </div>
-    
+    <script type="text/javascript" src="js/javaScript.js"></script>
+    	<script type="text/javascript">
+		$.validate({
+			modules : 'location, date, security, file',
+			 onModulesLoaded : function() {
+				$('#country').suggestCountry();
+			}
+		}); 
+		// Restrict presentation length
+		$('#presentation').restrictLength($('#pres-max-length'));
+	</script>
 </body>
 </html>

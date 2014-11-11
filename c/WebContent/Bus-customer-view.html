@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Customer View For Bus</title>
+<link rel="stylesheet" href="css/styleSheet.css">
+<link rel="stylesheet" href="css/commonStyle.css">
+<link rel="stylesheet" href="css/iconFont.css">
+<link rel="stylesheet" href="css/customStyle.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+  /* Page Load  */
+	window.onload=function load1(){
+		document.getElementById('pageloader').style.display="none";
+	}	
+</script>
+</head>
+
+<body>
+<!-- Start Loading  -->
+		<div id="pageloader">
+        <div id="bg_color"></div>
+             <div id="circle"></div><h1>smartSense</h1>
+        <div id="bonfire-pageloader" class="bonfire-pageloader-fade">
+	<!-- BEGIN THE ICON -->
+            <div class="bonfire-pageloader-icon" style="right: 633px; top: 244.5px;">
+                <svg version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                <path id="loading-12-icon" d="M291,82.219c0,16.568-13.432,30-30,30s-30-13.432-30-30s13.432-30,30-30S291,65.65,291,82.219z
+                     M261,404.781c-15.188,0-27.5,12.312-27.5,27.5s12.312,27.5,27.5,27.5s27.5-12.312,27.5-27.5S276.188,404.781,261,404.781z
+                     M361.504,113.167c-4.142,7.173-13.314,9.631-20.487,5.489c-7.173-4.141-9.631-13.313-5.49-20.487
+                    c4.142-7.173,13.314-9.631,20.488-5.489C363.188,96.821,365.645,105.994,361.504,113.167z M188.484,382.851
+                    c-14.348-8.284-32.697-3.368-40.98,10.98c-8.285,14.349-3.367,32.696,10.98,40.981c14.35,8.283,32.697,3.367,40.98-10.981
+                    C207.75,409.482,202.834,391.135,188.484,382.851z M421.33,184.888c-8.368,4.831-19.07,1.965-23.901-6.404
+                    c-4.832-8.368-1.965-19.07,6.404-23.902c8.368-4.831,19.069-1.964,23.9,6.405C432.566,169.354,429.699,180.056,421.33,184.888z
+                     M135.399,329.767c-8.285-14.35-26.633-19.266-40.982-10.982c-14.348,8.285-19.264,26.633-10.979,40.982
+                    c8.284,14.348,26.632,19.264,40.981,10.98C138.767,362.462,143.683,344.114,135.399,329.767z M436.031,277.249
+                    c-11.044,0-20-8.953-20-19.999c0-11.045,8.955-20.001,20.001-20.001c11.044,0,19.999,8.955,19.999,20.002
+                    C456.031,268.295,447.078,277.249,436.031,277.249z M115.97,257.251c-0.001-16.57-13.433-30.001-30.001-30.002
+                    c-16.568,0.001-29.999,13.432-30,30.002c0.001,16.566,13.433,29.998,30.001,30C102.538,287.249,115.969,273.817,115.97,257.251z
+                     M401.333,364.248c-10.759-6.212-14.446-19.97-8.234-30.73c6.212-10.759,19.971-14.446,30.731-8.233
+                    c10.759,6.211,14.445,19.971,8.232,30.73C425.852,366.774,412.094,370.46,401.333,364.248z M135.398,184.736
+                    c8.285-14.352,3.368-32.698-10.98-40.983c-14.349-8.283-32.695-3.367-40.981,10.982c-8.282,14.348-3.366,32.696,10.981,40.981
+                    C108.768,204,127.115,199.082,135.398,184.736z M326.869,421.328c-6.902-11.953-2.807-27.242,9.148-34.145
+                    s27.243-2.806,34.146,9.149c6.902,11.954,2.806,27.243-9.15,34.145C349.059,437.381,333.771,433.284,326.869,421.328z
+                     M188.482,131.649c14.352-8.286,19.266-26.633,10.982-40.982c-8.285-14.348-26.631-19.264-40.982-10.98
+                    c-14.346,8.285-19.264,26.633-10.98,40.982C155.787,135.017,174.137,139.932,188.482,131.649z"></path>
+                </svg>
+            </div>
+         </div>
+	<!-- END THE ICON -->
+</div>
+<!-- END Loading  -->
+<div class="main">
+	<div class="border-bottom padding10">
+	    	<i class="fa fa-home fa-elg"></i>
+    </div>
+    <!-- Start Left SideBar -->
+    <div class="left-siderbar-Bus left">
+        <!-- Partners  -->
+    	<div class="partner">
+        	<h4>Partners</h4>
+            <div class="border-bottom"></div>
+            <span class="search-icon icon-search left hover"></span>
+            <input type="search" placeholder="Search Partners name">                        
+            <div class="partner_name lm5 tm5">
+                <div><input type="checkbox" value="ABC" id="ABC" required/><label class="fnt-size14" for="ABC">ABC</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC1" required/><label class="fnt-size14" for="ABC1">ABC1</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC2" required/><label class="fnt-size14" for="ABC2">ABC2</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC3" required/><label class="fnt-size14" for="ABC3">ABC3</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC4" required/><label class="fnt-size14" for="ABC4">ABC4</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC" required/><label class="fnt-size14" for="ABC">ABC</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC1" required/><label class="fnt-size14" for="ABC1">ABC1</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC2" required/><label class="fnt-size14" for="ABC2">ABC2</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC3" required/><label class="fnt-size14" for="ABC3">ABC3</label></div>
+                <div><input type="checkbox" value="ABC" id="ABC4" required/><label class="fnt-size14" for="ABC4">ABC4</label></div>
+            </div>
+            <div class="border-bottom tm5"></div>            
+            <div class="on-right partner-seemore">
+            	<a href="#" class="fnt-size12 rm5" id="partner-more">See More</a><i class="fa fa-long-arrow-down light-blue lm5 rm5 smaller"></i>
+            </div>  
+            <div class="clear"></div>
+            <div class="border-bottom tm5"></div>            
+        </div>
+                <!-- Bus Type  -->
+        <div class="type-of-bus">
+        	<h4>Bus Type</h4>
+            <div class="border-bottom"></div>
+            <span class="search-icon icon-search left hover"></span>
+            <input type="search" placeholder="Search Bus Type">                        
+            <div class="lm5 tm5">
+	            <div><input type="checkbox" value="ABC" id="AC" required/><label class="fnt-size14" for="AC">AC</label></div>
+                <div><input type="checkbox" value="ABC" id="NON-AC" required/><label class="fnt-size14" for="NON-AC">NON-AC</label></div>
+                <div><input type="checkbox" value="ABC" id="A1" required/><label class="fnt-size14" for="A1">Sleeper</label></div>
+            </div>
+            <div class="border-bottom tm5"></div>            
+        </div>
+         <!-- Amenities  -->
+        <div class="amenities">
+        	<h4>Amenities</h4>
+            <div class="border-bottom"></div>
+            <span class="search-icon icon-search left hover"></span>
+            <input type="search" placeholder="Search Amenities">                        
+            <div class="amenities-type lm5 tm5">
+	            <div><input type="checkbox" value="ABC" id="wifi" required/><label class="fnt-size14" for="wifi">Wifi</label></div>
+                <div><input type="checkbox" value="ABC" id="newspaper" required/><label class="fnt-size14" for="newspaper">News Paper</label></div>
+                <div><input type="checkbox" value="ABC" id="charger" required/><label class="fnt-size14" for="charger">Charger</label></div>
+	            <div><input type="checkbox" value="ABC" id="wifi" required/><label class="fnt-size14" for="wifi">Wifi</label></div>
+                <div><input type="checkbox" value="ABC" id="newspaper" required/><label class="fnt-size14" for="newspaper">News Paper</label></div>
+                <div><input type="checkbox" value="ABC" id="charger" required/><label class="fnt-size14" for="charger">Charger</label></div>
+            </div>
+            <div class="border-bottom tm5"></div>            
+            <div class="on-right amenities-seemore">
+            	<a href="#" class="fnt-size12 rm5" id="amenities-more">See More</a><i class="fa fa-long-arrow-down light-blue lm5 rm5 smaller"></i>
+            </div>  
+            <div class="clear"></div>
+        </div>
+        <div class="border-bottom tm5"></div>         
+        
+        <!-- Offers  -->
+        <div class="building-point">
+        	<h4>Bording Points</h4>
+            <div class="border-bottom"></div>
+            <span class="search-icon icon-search left hover"></span>
+            <input type="search" placeholder="Search Offers">                        
+             <div class="lm5 tm5">
+                <div><input type="radio" value="ABC" id="AB" name="offer" required/><label class="fnt-size14" for="AB">A</label></div>
+                <div><input type="radio" value="ABC" id="AB1" name="offer" required/><label class="fnt-size14" for="AB1">B</label></div>
+                <div><input type="radio" value="ABC" id="AB2" name="offer" required/><label class="fnt-size14" for="AB2">C</label></div>
+                <div><input type="radio" value="ABC" id="AB3" name="offer" required/><label class="fnt-size14" for="AB3">D</label></div>
+                <div><input type="radio" value="ABC" id="AB4" name="offer" required/><label class="fnt-size14" for="AB4">E</label></div>
+            </div>
+        </div>
+        <div class="border-bottom tm5"></div> 
+
+                      
+    </div>
+  <!-- End Left SideBar -->    
+      <!-- Content part  -->
+    <div class="main-content left">
+    	<div class="padding10 bm5 border margin2">
+        	<span class="text-bold">From : </span><span class="border-bottom padding1">Ahmedabad</span>
+            <span class="lm5 text-bold">To : </span><span class="border-bottom padding1">Mahuva</span>
+            <span class="lm5 text-bold">Date : </span><span class="border-bottom padding1">08/11/2014</span>
+            <span class="lm5 text-bold">Time : </span><span class="border-bottom padding1">11:30 AM</span>
+            <span class="lm5"><a href="#">Modify Search</a></span>
+        </div>
+    	<div class="content border">
+            <table class="tbl-100p">
+                <tr>
+                    <th class="border-bottom">Title</th>
+                    <th class="border-bottom">Bus Type</th>
+                    <th class="border-bottom">Pickup Time</th>
+                    <th class="border-bottom">Duration</th>
+                    <th class="border-bottom">Drop Off Time</th>
+                    <th class="border-bottom">Seats</th>
+                    <th class="border-bottom">mTicket</th>
+                    <th class="border-bottom">Fare</th>                    
+                    <th class="border-bottom"></th>
+                </tr>
+                <tr>
+                    <td class="border-bottom">Mahasagar</td>
+                    <td class="border-bottom">Ac</td>
+                    <td class="border-bottom">11:30 pm</td>
+                    <td class="border-bottom">6 hours</td>
+                    <td class="border-bottom">5:50 am</td>
+                    <td class="border-bottom">45 available</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">400</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Shree Hari</td>
+                    <td class="border-bottom">non ac</td>
+                    <td class="border-bottom">9:00 pm</td>
+                    <td class="border-bottom">9 hours</td>
+                    <td class="border-bottom">6 am</td>
+                    <td class="border-bottom">30</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">600</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Neeta</td>
+                    <td class="border-bottom">volvo</td>
+                    <td class="border-bottom">10 pm</td>
+                    <td class="border-bottom">7 hours</td>
+                    <td class="border-bottom">3 am</td>
+                    <td class="border-bottom">30</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">800</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Shree Jalaram Viral</td>
+                    <td class="border-bottom">non ac</td>
+                    <td class="border-bottom">10:30 pm</td>
+                    <td class="border-bottom">6 hours</td>
+                    <td class="border-bottom">4:30</td>
+                    <td class="border-bottom">40</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">350</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Mahasagar</td>
+                    <td class="border-bottom">Ac</td>
+                    <td class="border-bottom">11:30 pm</td>
+                    <td class="border-bottom">6 hours</td>
+                    <td class="border-bottom">5:50 am</td>
+                    <td class="border-bottom">45 available</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">400</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Shree Hari</td>
+                    <td class="border-bottom">non ac</td>
+                    <td class="border-bottom">9:00 pm</td>
+                    <td class="border-bottom">9 hours</td>
+                    <td class="border-bottom">6 am</td>
+                    <td class="border-bottom">30</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">600</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Neeta</td>
+                    <td class="border-bottom">volvo</td>
+                    <td class="border-bottom">10 pm</td>
+                    <td class="border-bottom">7 hours</td>
+                    <td class="border-bottom">3 am</td>
+                    <td class="border-bottom">30</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">800</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Shree Jalaram Viral</td>
+                    <td class="border-bottom">non ac</td>
+                    <td class="border-bottom">10:30 pm</td>
+                    <td class="border-bottom">6 hours</td>
+                    <td class="border-bottom">4:30</td>
+                    <td class="border-bottom">40</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">350</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                <tr>
+                    <td class="border-bottom">Mahasagar</td>
+                    <td class="border-bottom">Ac</td>
+                    <td class="border-bottom">11:30 pm</td>
+                    <td class="border-bottom">6 hours</td>
+                    <td class="border-bottom">5:50 am</td>
+                    <td class="border-bottom">45 available</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">400</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Shree Hari</td>
+                    <td class="border-bottom">non ac</td>
+                    <td class="border-bottom">9:00 pm</td>
+                    <td class="border-bottom">9 hours</td>
+                    <td class="border-bottom">6 am</td>
+                    <td class="border-bottom">30</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">600</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Neeta</td>
+                    <td class="border-bottom">volvo</td>
+                    <td class="border-bottom">10 pm</td>
+                    <td class="border-bottom">7 hours</td>
+                    <td class="border-bottom">3 am</td>
+                    <td class="border-bottom">30</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">800</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Shree Jalaram Viral</td>
+                    <td class="border-bottom">non ac</td>
+                    <td class="border-bottom">10:30 pm</td>
+                    <td class="border-bottom">6 hours</td>
+                    <td class="border-bottom">4:30</td>
+                    <td class="border-bottom">40</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">350</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                <tr>
+                    <td class="border-bottom">Mahasagar</td>
+                    <td class="border-bottom">Ac</td>
+                    <td class="border-bottom">11:30 pm</td>
+                    <td class="border-bottom">6 hours</td>
+                    <td class="border-bottom">5:50 am</td>
+                    <td class="border-bottom">45 available</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">400</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Shree Hari</td>
+                    <td class="border-bottom">non ac</td>
+                    <td class="border-bottom">9:00 pm</td>
+                    <td class="border-bottom">9 hours</td>
+                    <td class="border-bottom">6 am</td>
+                    <td class="border-bottom">30</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">600</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Neeta</td>
+                    <td class="border-bottom">volvo</td>
+                    <td class="border-bottom">10 pm</td>
+                    <td class="border-bottom">7 hours</td>
+                    <td class="border-bottom">3 am</td>
+                    <td class="border-bottom">30</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">800</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                 <tr>
+                    <td class="border-bottom">Shree Jalaram Viral</td>
+                    <td class="border-bottom">non ac</td>
+                    <td class="border-bottom">10:30 pm</td>
+                    <td class="border-bottom">6 hours</td>
+                    <td class="border-bottom">4:30</td>
+                    <td class="border-bottom">40</td>
+                    <td class="border-bottom">yes</td>
+                    <td class="border-bottom">350</td>                    
+                    <td class="border-bottom"><input type="submit" class="primary" value="Get Bus"/></td>
+                </tr>
+                </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
