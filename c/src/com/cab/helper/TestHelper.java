@@ -1,11 +1,17 @@
 package com.cab.helper;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class TestHelper extends BaseHelper{
 	@Override
 	public void insertRecord(JSONObject jsonObject){
 		System.out.println("TestHelper : insertRecord method called.." );
+		try {
+			jsonObject.append("name","nimesh");
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public void readRecords(JSONObject jsonObject) {System.out.println("TestHelper : readRecord method called.." );};

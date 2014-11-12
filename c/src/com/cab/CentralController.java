@@ -2,6 +2,7 @@ package com.cab;
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -77,7 +78,10 @@ public class CentralController extends HttpServlet {
 					System.out.println("system custom event");
 					baseHelper.customProcedure(jsonObjectOfRequest);
 				}
-				System.out.println("printing helper "  + baseHelper.toString());
+				System.out.println("printing helper "  + baseHelper.toString() + " json to reply : " + jsonObjectOfRequest);
+				PrintWriter pw = response.getWriter();
+				pw.write(jsonObjectOfRequest.toString());
+				pw.close();
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (InstantiationException e) {
