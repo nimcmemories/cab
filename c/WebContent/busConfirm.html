@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/customStyle.css">    
     <link rel="stylesheet" href="css/jquery.timepicker.css" />    
     <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
-    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
 	<script type="text/javascript">
 	</script>
@@ -19,32 +19,103 @@
 	<div class="header bg_color">smartCab</div>
 	<div class="main padding2 border br2 wdth-70p auto">
     	<h2 class="border-bottom padding5">Confirm Booking</h2>
-        <div class="left border margin2 padding2 wdth-50p br2">
+        <div class="left border margin2 padding2 wdth-65p br2">
         <form action="#" method="post" id="bus-confirm">
-        	<table class="tbl-90p br2">
+        <h4>Passenger Details :</h4>
+        	<table class="cinform_bus_table br2">
                 <tr>
-                    <td><label>Name :</label></td>                    
-                    <td><input type="text" placeholder="Name"
-                    name="name" id="busconfirmname" 
-					data-validation="custom"
-					data-validation-regexp="^([a-zA-Z]+)$"
-					data-validation-length="max25"
-					data-validation-error-msg="please enter valid name"/></td>
+                    <td><label>Name :</label></td>  
+                    <td><label>Gender :</label></td>                    
+                    <td><label class="text-left">Age :</label></td>
                 </tr>
                 <tr>
-                    <td><label>Gender :</label></td>                    
-                    <td><select name="gender" id="busconfirmgender">
+                    <td><input type="text" placeholder="Name"
+                        name="name" id="busconfirmname" 
+                        data-validation="custom"
+                        data-validation-regexp="^([a-zA-Z]+)$"
+                        data-validation-length="max25"
+                        data-validation-error-msg="please enter valid name" class="wdth-100p"/></td>
+                    <td><select name="gender" class="wdth-70p lm20" id="busconfirmgender">
                     	<option>Male</option>
                         <option>Female</option>
                         <option>Other</option>
                     </select></td>
-                </tr>
-                <tr> 
-                    <td><label>Age :</label></td>
                     <td><input type="text" placeholder="Enter Age"
                      name="age" id="busconfirmage" 
                      data-validation-allowing="range[1;80]" data-validation="number"
-                     data-validation-error-msg="please enter valid number" /></td>
+                     data-validation-error-msg="please enter valid number" class="wdth-40p" /></td>                    
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Name"
+                        name="name" id="busconfirmname" 
+                        data-validation="custom"
+                        data-validation-regexp="^([a-zA-Z]+)$"
+                        data-validation-length="max25"
+                        data-validation-error-msg="please enter valid name" class="wdth-100p"/></td>
+                    <td><select name="gender" class="wdth-70p lm20" id="busconfirmgender">
+                    	<option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select></td>
+                    <td><input type="text" placeholder="Enter Age"
+                     name="age" id="busconfirmage" 
+                     data-validation-allowing="range[1;80]" data-validation="number"
+                     data-validation-error-msg="please enter valid number" class="wdth-40p" /></td>                    
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Name"
+                        name="name" id="busconfirmname" 
+                        data-validation="custom"
+                        data-validation-regexp="^([a-zA-Z]+)$"
+                        data-validation-length="max25"
+                        data-validation-error-msg="please enter valid name" class="wdth-100p"/></td>
+                    <td><select name="gender" class="wdth-70p lm20" id="busconfirmgender">
+                    	<option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select></td>
+                    <td><input type="text" placeholder="Enter Age"
+                     name="age" id="busconfirmage" 
+                     data-validation-allowing="range[1;80]" data-validation="number"
+                     data-validation-error-msg="please enter valid number" class="wdth-40p" /></td>                    
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Name"
+                        name="name" id="busconfirmname" 
+                        data-validation="custom"
+                        data-validation-regexp="^([a-zA-Z]+)$"
+                        data-validation-length="max25"
+                        data-validation-error-msg="please enter valid name" class="wdth-100p"/></td>
+                    <td><select name="gender" class="wdth-70p lm20" id="busconfirmgender">
+                    	<option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select></td>
+                    <td><input type="text" placeholder="Enter Age"
+                     name="age" id="busconfirmage" 
+                     data-validation-allowing="range[1;80]" data-validation="number"
+                     data-validation-error-msg="please enter valid number" class="wdth-40p" /></td>                    
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="Name"
+                        name="name" id="busconfirmname" 
+                        data-validation="custom"
+                        data-validation-regexp="^([a-zA-Z]+)$"
+                        data-validation-length="max25"
+                        data-validation-error-msg="please enter valid name" class="wdth-100p"/></td>
+                    <td><select name="gender" class="wdth-70p lm20" id="busconfirmgender">
+                    	<option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select></td>
+                    <td><input type="text" placeholder="Enter Age"
+                     name="age" id="busconfirmage" 
+                     data-validation-allowing="range[1;80]" data-validation="number"
+                     data-validation-error-msg="please enter valid number" class="wdth-40p" /></td>                    
+                </tr>
+                <tr><td></td></tr>
+                <tr>
+                	<th colspan="2">Contact Details:</th>
                 </tr>
             	<tr>
                 	<td><label>Email Id :</label></td>

@@ -304,9 +304,9 @@ padding-bottom:0px;
 }
 .login_form .input-icon,.register_form .input-icon{
 	position: absolute;
-	margin: 6px 0px 0px 0.5px;
+	margin: 6px 1px;
 	background: #EEEEEE;
-	padding: 7.5px 8px;
+	padding: 7.4px 8px;
 	box-shadow: -1px 0px 0px 0px #DFDCDC inset;
 }
 .login_form input,.login_form,.register_form input{
@@ -384,3 +384,48 @@ padding-bottom:0px;
 	text-align:center;
 }
 
+/* Taxi Details  */
+
+.sidebar-taxi{
+	width:100%;
+	height:auto;
+	position:relative;
+	left:0;
+	top:0;
+	border:1px solid lightgray;
+	padding-bottom:5px;
+	margin:2px;
+	margin-bottom:30px;
+}
+.sidebar-taxi table.header1{
+}
+.table-taxi th{
+	font-weight:700;
+	text-align:left;
+}
+.sidebar-taxi table{
+	width:auto;
+	border:1px solid lightgray;
+	border-left:none;
+	padding-bottom:5px;
+}
+.sidebar-taxi table tr th,.sidebar-taxi table tr td{
+	padding:5px;
+}
+.sidebar-taxi table.header1{
+	border-right: 2px solid lightgray;
+	position: relative;
+	z-index: 9999;
+	background:#fff;
+}
+.detail_contain{
+	width:85%;
+	height:675px;
+	float:left;
+	margin-bottom:5px;
+}
+/* confirm bus  */
+.cinform_bus_table{
+	width:650px;
+	margin:0 auto;
+}
