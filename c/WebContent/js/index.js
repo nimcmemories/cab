@@ -98,3 +98,12 @@ function truckShipping(formId) {
 	var JsonData={"formData":data,"eventId":eventId.truck_shipping,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 }
+
+//set city drop down
+$( document ).ready(function() {
+   // console.log( "ready!" );
+	var data = JSON.stringify({"__eventid":100,"dataType":"json","url":"/c"});
+	var JsonData={"formData":data,"__eventid":100,"dataType":"json","url":"/c"};
+	var cityData=cab.AJAXCall(JsonData);
+	
+});

@@ -5,12 +5,12 @@ var cab={};
 cab.contextPath="/c";
 
 cab.AJAXCall = function(data){
-	alert("inside ajax ccall data---->"+JSON.stringify(data));
+alert("inside ajax ccall data---->"+data);
 	
 	$.ajax({
 		type: data.method,
 		url: cab.contextPath+data.url,
-		data: data.query,
+		data: data,
 		dataType:data.dataType,
 		success: function(responseJson) {
 			return responseJson;
