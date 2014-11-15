@@ -1,14 +1,6 @@
 // JavaScript Document
 
-$('document').ready(function(){
-	/* Page Load  */
-	window.onload=loading();
-	function loading(){
-		setTimeout(function(){
-			$('#pageloader').css('display','none');
-		},1000);
-	}		
-	/* Pop up Form */
+$(document).ready(function(){
 	$('.create_row').click(function(){
 		$('.createPopup_Bg').fadeIn(50);
 		$('.createPopup').fadeIn(100);
