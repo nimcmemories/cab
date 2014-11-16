@@ -386,37 +386,40 @@ padding-bottom:0px;
 
 /* Taxi Details  */
 
-.sidebar-taxi{
+[class^="sidebar-"]{
 	width:100%;
 	height:auto;
 	position:relative;
 	left:0;
 	top:0;
-	border:1px solid lightgray;
+	#border:1px solid lightgray;
 	padding-bottom:5px;
 	margin:2px;
 	margin-bottom:30px;
 }
-.sidebar-taxi table.header1{
+[class^="sidebar-"] table.header1{
 }
-.table-taxi th{
+[class^="table-"] th{
 	font-weight:700;
 	text-align:left;
 }
-.sidebar-taxi table{
+[class^="sidebar-"] table{
 	width:auto;
 	border:1px solid lightgray;
-	border-left:none;
+	#border-left:none;
 	padding-bottom:5px;
 }
-.sidebar-taxi table tr th,.sidebar-taxi table tr td{
+[class^="sidebar-"] table tr th,[class^="sidebar-"] table tr td{
 	padding:5px;
 }
-.sidebar-taxi table.header1{
-	border-right: 2px solid lightgray;
+[class^="sidebar-"] table.header1{
+	border-right:2px solid rgb(119, 183, 216);
 	position: relative;
 	z-index: 9999;
 	background:#fff;
+}
+[class^="sidebar-"] .primary{
+	padding:5px 25px;
 }
 .detail_contain{
 	width:85%;
@@ -424,6 +427,8 @@ padding-bottom:0px;
 	float:left;
 	margin-bottom:5px;
 }
+
+
 /* confirm bus  */
 .cinform_bus_table{
 	width:650px;
