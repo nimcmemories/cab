@@ -12,10 +12,10 @@ function changeAirportType(){
 }
 function submitTaxiAirport(formId){
 	if($("#airporttype").val()==jsconstant.going_to_airport){
-		var JsonData={"formdata":cab.getFormJson(formId),"eventId":eventId.taxi_got_to_airport,"airporttype":jsconstant.going_to_airport,"dataType":"json","url":""};
+		var JsonData={"formdata":cab.getFormJson(formId),"__eventid":eventId.taxi_got_to_airport,"airporttype":jsconstant.going_to_airport,"dataType":"json","url":""};
 		var response=cab.AJAXCall(JsonData); 
 	}else{
-		var JsonData={"formdata":cab.getFormJson(formId),"eventId":eventId.taxi_pickup_from_airport,"airporttype":jsconstant.pickup_from_airport,"dataType":"json","url":""};
+		var JsonData={"formdata":cab.getFormJson(formId),"__eventid":eventId.taxi_pickup_from_airport,"airporttype":jsconstant.pickup_from_airport,"dataType":"json","url":""};
 		var response=cab.AJAXCall(JsonData);
 	}
 }
@@ -28,10 +28,10 @@ function changeCarRentType(){
 }
 function onsubmitTaxiPerHour(formId) {
 	if($("#carrenttype").val()==jsconstant.car_rent_per_hour){
-		var JsonData={"formdata":cab.getFormJson(formId),"eventId":eventId.taxi_on_rent_per_hour,"carrenttype":jsconstant.car_rent_per_hour,"datatype":"json","url":""};
+		var JsonData={"formdata":cab.getFormJson(formId),"__eventid":eventId.taxi_on_rent_per_hour,"carrenttype":jsconstant.car_rent_per_hour,"datatype":"json","url":""};
 		var response=cab.AJAXCall(JsonData);
 	}else{
-		var JsonData={"formdata":cab.getFormJson(formId),"eventId":eventId.taxi_on_rent_per_day,"carrenttype":jsconstant.car_rent_per_day,"datatype":"json","url":""};
+		var JsonData={"formdata":cab.getFormJson(formId),"__eventid":eventId.taxi_on_rent_per_day,"carrenttype":jsconstant.car_rent_per_day,"datatype":"json","url":""};
 		var response=cab.AJAXCall(JsonData);
 	}
 	
@@ -45,65 +45,69 @@ function changeBikeRentType(){
 }
 function submitBikeOnRent(formId) {
 	if($("bikerenttype").val()==jsconstant.bike_rent_per_hour){
-		var JsonData={"formdata":cab.getFormJson(formId),"eventId":eventId.bike_on_rent_per_hour,"bikerenttype":jsconstant.bike_rent_per_hour,"datatype":"json","url":""};
+		var JsonData={"formdata":cab.getFormJson(formId),"__eventid":eventId.bike_on_rent_per_hour,"bikerenttype":jsconstant.bike_rent_per_hour,"datatype":"json","url":""};
 		var response=cab.AJAXCall(JsonData);
 	}else{
-		var JsonData={"formdata":cab.getFormJson(formId),"eventId":eventId.bike_on_rent_per_day,"bikerenttype":jsconstant.bike_rent_per_day,"datatype":"json","url":""};
+		var JsonData={"formdata":cab.getFormJson(formId),"__eventid":eventId.bike_on_rent_per_day,"bikerenttype":jsconstant.bike_rent_per_day,"datatype":"json","url":""};
 		var response=cab.AJAXCall(JsonData);
 	}
 }
 function submitTaxiPtop(formId){
 	var data = cab.getFormJson(formId);
-	var JsonData={"formData":data,"eventId":eventId.taxi_ptop,"dataType":"json","url":""};
+	var JsonData={"formData":data,"__eventid":eventId.taxi_ptop,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 }
 
 function submitTaxiPackage(formId){
 	var data = cab.getFormJson(formId);
-	var JsonData={"formData":data,"eventId":eventId.taxi_package,"dataType":"json","url":""};
+	var JsonData={"formData":data,"__eventid":eventId.taxi_package,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 }
 function submitTaxiOutstation(formId){
 	var data = cab.getFormJson(formId);
-	var JsonData={"formData":data,"eventId":eventId.taxi_out_station,"dataType":"json","url":""};
+	var JsonData={"formData":data,"__eventid":eventId.taxi_out_station,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 }
 function submitTaxiTicket(formId) {
 	var data = cab.getFormJson(formId);
-	var JsonData={"formData":data,"eventId":eventId.taxi_ticket,"dataType":"json","url":""};
+	var JsonData={"formData":data,"__eventid":eventId.taxi_ticket,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 }
 function busTicket(formId) {
 	var data = cab.getFormJson(formId);
-	var JsonData={"formData":data,"eventId":eventId.bus_ticket,"dataType":"json","url":""};
+	var JsonData={"formData":data,"__eventid":eventId.bus_ticket,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 } 
 function busOnRent(formId) {
 	var data = cab.getFormJson(formId);
-	var Jsondata={"formData":data,"eventId":eventId.bus_on_rent,"dataType":"json","url":""};
+	var Jsondata={"formData":data,"__eventid":eventId.bus_on_rent,"dataType":"json","url":""};
 	var response=cab.AJAXCall(Jsondata);	
 }
 function submitBikePackage(formId){
 	var data = cab.getFormJson(formId);
-	var JsonData={"formData":data,"eventId":eventId.bike_package,"dataType":"json","url":""};
+	var JsonData={"formData":data,"__eventid":eventId.bike_package,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 }
 function submitTruckPackersMovers(formId) {
 	var data=cab.getFormJson(formId);
-	var JsonData={"formData":data,"eventId":eventId.truck_packermovers,"dataType":"json","url":""};
+	var JsonData={"formData":data,"__eventid":eventId.truck_packermovers,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 }
 function truckShipping(formId) {
 	var data = cab.getFormJson(formId);
-	var JsonData={"formData":data,"eventId":eventId.truck_shipping,"dataType":"json","url":""};
+	var JsonData={"formData":data,"__eventid":eventId.truck_shipping,"dataType":"json","url":""};
 	var response=cab.AJAXCall(JsonData);
 }
 
 //set city drop down
 $( document ).ready(function() {
    // console.log( "ready!" );
-	var data = JSON.stringify({"__eventid":100,"dataType":"json","url":"/c"});
-	var JsonData={"formData":data,"__eventid":100,"dataType":"json","url":"/c"};
-	var cityData=cab.AJAXCall(JsonData);
 	
+	getCityList();
 });
+
+function getCityList(){
+	var data = JSON.stringify({"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"});
+	var JsonData={"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
+	var cityData=cab.AJAXCall(JsonData);
+}

@@ -5,7 +5,6 @@ var cab={};
 cab.contextPath="/c";
 
 cab.AJAXCall = function(data){
-alert("inside ajax ccall data---->"+data);
 	
 	$.ajax({
 		type: data.method,

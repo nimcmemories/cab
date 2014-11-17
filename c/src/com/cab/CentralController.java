@@ -108,6 +108,9 @@ public class CentralController extends HttpServlet {
 				jsonObject.put("ipType", request.getParameter("ipType"));
 			jsonObject.put(FilterConstants.__EVENT_ID, request.getParameter(FilterConstants.__EVENT_ID));
 			jsonObject.put(FilterConstants.__REQUEST_TYPE, request.getParameter(FilterConstants.__REQUEST_TYPE));
+			if(request.getParameter("formData")!=null){
+				jsonObject.put("formData", new JSONObject(request.getParameter("formData")));
+			}
 			System.out.println("req json :  " + jsonObject);
 		} catch (Exception e) {
 			System.out.println("Exception while casting to JSON");
