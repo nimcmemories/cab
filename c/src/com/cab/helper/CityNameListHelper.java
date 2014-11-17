@@ -18,9 +18,10 @@ public class CityNameListHelper extends BaseHelper{
 	}
 	@Override
 	public void readRecords(JSONObject jsonObject) {System.out.println("TestHelper : readRecord method called.." );
-		try {
+	Session session = new HibernateConfiguartion().getSession(true);	
+	try {
 			System.out.println("----------------------1");
-			Session session = new HibernateConfiguartion().getSession(true);
+			
 			List<CityMaster> cityList = session.createQuery("from CityMaster").list();
 			JSONObject cityObject = new JSONObject();
 			JSONArray cityArray = new JSONArray();
@@ -42,7 +43,7 @@ public class CityNameListHelper extends BaseHelper{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
-			
+			session.close();
 		}
 	}
 	@Override

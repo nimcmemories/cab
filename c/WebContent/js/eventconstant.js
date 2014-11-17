@@ -1,10 +1,8 @@
 /**
  * 
  */
-//1-100 use for Taxi
-//101-200 use for Bus
-//201-300 use truck
-//301-400 use bike
+//100-199 -->nitin
+//200-299--->amit
 var eventId={};
 eventId.taxi_ptop=1;
 eventId.taxi_got_to_airport=2;
