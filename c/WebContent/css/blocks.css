@@ -146,3 +146,9 @@ width: auto;
 #best-sellers_block_center ul li {
   margin-bottom: 15px;
 }
+.sidebar-Bike #featured-products_block_center a#featured_scroll_right,
+.sidebar-Bike #featured-products_block_center span#featured_scroll_right,
+.sidebar-Bike #featured-products_block_center a#featured_scroll_left,
+.sidebar-Bike #featured-products_block_center span#featured_scroll_left{
+	margin-top:12%;
+}

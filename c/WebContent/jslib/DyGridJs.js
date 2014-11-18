@@ -2,23 +2,46 @@
 
 $(document).ready(function(){
 	$('.create_row').click(function(){
-		$('.createPopup_Bg').fadeIn(50);
+		$('.createPopup1_Bg').fadeIn(50);
 		$('.createPopup').fadeIn(100);
 	});
 	$('.close_button').click(function(){
-		$('.createPopup_Bg').fadeOut(300);
+		$('.createPopup1_Bg').fadeOut(300);
 		$('.createPopup').fadeOut(500);
 		$('.editPopup').fadeOut(500);
+		$('.createPopup1_Bg').fadeOut(500);
+		$('.createPopup_taxi').fadeOut(500);
+		$('.createPopup_bus').fadeOut(500);
+		$('.createPopup_bike').fadeOut(100);
 	});
-	$('.createPopup_Bg').click(function(){
+	$('.createPopup1_Bg').click(function(){
 		$(this).fadeOut(300);
 		$('.createPopup').fadeOut(500);
 		$('.editPopup').fadeOut(100);
+		$('.createPopup_taxi').fadeOut(100);
+		$('.createPopup_bus').fadeOut(100);
+		$('.createPopup_bike').fadeOut(100);
 	});
 
 	$('.edit_button').click(function(){
-		$('.createPopup_Bg').fadeIn(50);
+		$('.createPopup1_Bg').fadeIn(50);
 		$('.editPopup').fadeIn(100);
+	});
+	
+	/*  Taxi Details Form  */
+    $('.add_taxi').click(function(){
+		$('.createPopup1_Bg').show();
+		$('.createPopup_taxi').show();
+	});
+	/*  Bus Details Form  */
+    $('.add_bus').click(function(){
+		$('.createPopup1_Bg').show();
+		$('.createPopup_bus').show();
+	});
+	/*  Bus Details Form  */
+    $('.add_bike').click(function(){
+		$('.createPopup1_Bg').show();
+		$('.createPopup_bike').show();
 	});
 	
 	/* Table Button Click Events */

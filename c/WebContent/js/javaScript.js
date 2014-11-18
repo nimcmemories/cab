@@ -319,6 +319,9 @@ function topmenuHide(){
 	$('.truck-section').hide();	
 	$('.bike-section').hide();	
 }
+/* End  */
+
+
 /* Time Picker */
 	$(function() {
    		$('.timeformatExample1').timepicker({ 'timeFormat': 'H:i:s', constrainInput: false });
@@ -331,4 +334,3 @@ function topmenuHide(){
 		maxDate:"+1w"
 	});
 //	$('.datePairExample').datepair();
-	

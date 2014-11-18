@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Taxi Details</title>
 	<link rel="stylesheet" href="css/commonStyle.css">
 	<link rel="stylesheet" href="css/styleSheet.css">
     <link rel="stylesheet" href="css/iconFont.css">
     <link rel="stylesheet" href="css/customStyle.css">
-     <link rel="stylesheet" href="css/blocks.css">
+    <link rel="stylesheet" href="css/blocks.css">
     <link href="css/blocks.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/homefeatured.js"></script>
-    <style>
-		
-    </style>
+    <script type="text/javascript" src="jslib/DyGridJs.js"></script>    
 </head>
+
 <body>
     <div class="sidebar-taxi">
     	<div class="auto block-disp left5 padding2">
-	   		<button class="primary">add</button>
+	   		<input type="button" class="primary add_taxi" value="add"/>
         </div>
         <table class="tm5 fnt-size14 left5 table-taxi header1 left">
             <!-- Table Header  -->
@@ -614,5 +613,93 @@
          <!-- Taxi Body div -->
         <div class="clear"></div>
     </div>
+    
+     <!-- Add Row  PopUP   -->
+    <div class="createPopup1_Bg"></div>
+    <div class="createPopup_taxi">
+    	<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
+    	<header>Add Driver</header>
+    	<form action="#" method="post" class="popup_form">
+        	<table>
+            	<tr>
+                	<td class="label"><label>Taxi Name </label></td>
+                    <td><input type="text" name="taxiName" alt="taxiName" placeholder="Taxi Name" required/></td>
+                    <td class="label"><label>Taxi Type </label></td>
+                    <td><select>
+                    	<option>Audi</option>
+                        <option>Alto</option>
+                        <option>swift</option>
+                    </select></td>
+                </tr>
+                <tr>
+                	<td class="label"><label>Taxi Number </label></td>
+                    <td><input type="text" name="taxiEmail" alt="taxiEmail" placeholder="Taxi Email" required/></td>
+                    <td class="label"><label>GPS Device Id </label></td>
+                    <td><input type="text" name="gpsId" alt="gpsId" placeholder="GPS Device Id" required/></td>
+                </tr>
+                <tr>
+                	<td class="label"><label>Image </label></td>
+                    <td><input type="file" name="taxi_images" alt="taxi_images" class="file" required/></td>                    
+                    <td class="label"><label>Seat</label></td>
+                    <td><input type="text" name="No_of_seat" alt="No_of_seat" placeholder="Number of seats" required/></td>                    
+                </tr>
+                <tr>
+                	<td class="label"><label>Max allow psngr </label></td>
+                    <td><input type="text" name="max_capacity" alt="max_capacity" placeholder="Maximum Allow Passanger" required/></td>
+                    <td class="label"><label>Per KM rate </label></td>
+                    <td><input type="text" name="perkmrate" alt="perkmrate" placeholder="Per KM Rate" required/></td>
+                </tr>
+                <tr>
+                    <td class="label"><label>Per Day rate </label></td>
+                    <td><input type="text" name="perdayrate" alt="perdayrate" placeholder="Per Day Rate" required/></td>
+                	<td class="label"><label>waiting Chrg/min</label></td>
+                    <td><input type="text" name="waitingchrg_min" alt="waitingchrg_min" placeholder="Waiting Charge Per Minitus" required/></td>
+                </tr>
+                <tr>
+                    <td class="label"><label>Driver Cost</label></td>
+                    <td><input type="text" name="drivercost" alt="drivercost" placeholder="Driver Cost" required/></td>
+                    <td class="label"><label>Description/note</label></td>
+                    <td><textarea name="description" alt="description" placeholder="Description" required></textarea></td>
+                </tr>
+                </table>
+                <div class="taxi_add_details">
+                    <div><label>For P to P</label></div>
+                    <div><input type="checkbox" required/></div>
+                	<div><label>For Package</label></div>
+                    <div><input type="checkbox" required/></div>
+                    <div><label>Out Station</label></div>
+                    <div><input type="checkbox" required/></div>
+                </div>
+                 <div class="taxi_add_details">
+                    <div><label>For Airport</label></div>
+                    <div><input type="checkbox" required/></div>
+                	<div><label>For Taxi Ticket</label></div>
+                    <div><input type="checkbox" required/></div>
+                    <div><label>For car on rent</label></div>
+                    <div><input type="checkbox" required/></div>
+                </div>
+                <div class="taxi_add_details">
+                    <div><label>Is AC</label></div>
+                    <div><input type="checkbox" required/></div>
+                	<div><label>Is Movie</label></div>
+                    <div><input type="checkbox" required/></div>
+                    <div><label>Is Music</label></div>
+                    <div><input type="checkbox" required/></div>
+                 </div>
+                 <div class="taxi_add_details">
+                    <div><label>Is Charge</label></div>
+                    <div><input type="checkbox" required/></div>
+                	<div><label>Is Wifi</label></div>
+                    <div><input type="checkbox" required/></div>
+                </div>
+                <div class="clear"></div>
+               	<div class="on-right">
+                   	<input type="submit" class="primary" alt="Submit" value="Submit"/>
+                	<input type="reset" class="danger close_button" alt="Cancel" value="Cancel"/>
+                </div>
+        </form>
+    </div>
+    
+    
 </body>
 </html>

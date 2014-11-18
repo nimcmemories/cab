@@ -71,7 +71,7 @@ table label{
 }
 select,input[type="search"],input[type=text],input[type=email],input[type=url],input[type=tel],input[type=number],input[type=time],
 input[type=password],input[type=date],input[type=file],textarea{
-	width:98%;
+	width:255px;
 	margin:0 auto;
 	background-color: #ffffff;
 	border:1px solid #cccccc;

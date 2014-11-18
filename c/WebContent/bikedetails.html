@@ -11,6 +11,7 @@
     <link href="css/blocks.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/homefeatured.js"></script>
+    <script type="text/javascript" src="jslib/DyGridJs.js"></script>   
     <style>
 		
     </style>
@@ -18,7 +19,7 @@
 <body>
     <div class="sidebar-Bike">
     	<div class="auto block-disp left5 padding2">
-	   		<button class="primary">add</button>
+	   		<button class="primary add_bike">add</button>
         </div>
         <table class="tm5 fnt-size14 left5 table-Bike header1 left">
             <!-- Table Header  -->
@@ -255,5 +256,45 @@
          <!-- Bike Body div -->
         <div class="clear"></div>
     </div>
+    
+        <!-- Bike add PopUP   -->
+    <div class="createPopup1_Bg"></div>
+    <div class="createPopup_bike">
+    	<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
+    	<header>Add Driver</header>
+    	<form action="#" method="post" class="popup_form">
+        	<table>
+            	<tr>
+                	<td class="label"><label>Bike Name </label></td>
+                    <td><input type="text" name="bikeName" alt="bikeName" placeholder="bike Name" required/></td>
+                	<td class="label"><label>Bike Number </label></td>
+                    <td><input type="text" name="bikeEmail" alt="bikeEmail" placeholder="bike Email" required/></td>
+                </tr>
+                <tr>
+					<td class="label"><label>Bike Image </label></td>
+                    <td><input type="file" name="bike_images" alt="bike_images" class="file" required/></td>                   
+                	<td class="label"><label>Description/note</label></td>
+                    <td><textarea name="description" alt="description" placeholder="Description" required></textarea></td>
+               </tr>
+               <tr>
+                    <td class="label"><label>Per Hour rate </label></td>
+                    <td><input type="text" name="perkmrate" alt="perkmrate" placeholder="Per KM Rate" required/></td>
+                    <td class="label"><label>Per Day rate </label></td>
+                    <td><input type="text" name="perkmrate" alt="perkmrate" placeholder="Per KM Rate" required/></td>
+                </tr>
+                <tr>
+                	<td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="on-right">
+                        <input type="submit" class="primary" alt="Submit" value="Submit"/>
+                        <input type="reset" class="danger close_button" alt="Cancel" value="Cancel"/>
+                    </td>
+                </tr>
+                </table>
+        </form>
+    </div>
+    <!-- Bike Popup End  -->
+
 </body>
 </html>

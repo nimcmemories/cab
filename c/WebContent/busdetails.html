@@ -11,6 +11,7 @@
     <link href="css/blocks.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/homefeatured.js"></script>
+    <script type="text/javascript" src="jslib/DyGridJs.js"></script>        
     <style>
 		
     </style>
@@ -18,7 +19,7 @@
 <body>
     <div class="sidebar-bus">
     	<div class="auto block-disp left5 padding2">
-	   		<button class="primary">add</button>
+	   		<button class="primary add_bus">add</button>
         </div>
         <table class="tm5 fnt-size14 left5 table-bus header1 left">
             <!-- Table Header  -->
@@ -497,5 +498,78 @@
          <!-- Bus Body div -->
         <div class="clear"></div>
     </div>
+    
+    <!-- Bus add PopUP   -->
+    <div class="createPopup1_Bg"></div>
+    <div class="createPopup_bus">
+    	<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
+    	<header>Add Driver</header>
+    	<form action="#" method="post" class="popup_form">
+        	<table>
+            	<tr>
+                	<td class="label"><label>Bus Name </label></td>
+                    <td><input type="text" name="BusName" alt="BusName" placeholder="Bus Name" required/></td>
+                    <td class="label"><label>Bus Type </label></td>
+                    <td><select>
+                    	<option>Audi</option>
+                        <option>Alto</option>
+                        <option>swift</option>
+                    </select></td>
+                </tr>
+                <tr>
+                	<td class="label"><label>Bus Number </label></td>
+                    <td><input type="text" name="BusEmail" alt="BusEmail" placeholder="Bus Email" required/></td>
+					<td class="label"><label>Bus Image </label></td>
+                    <td><input type="file" name="Bus_images" alt="Bus_images" class="file" required/></td>                   
+                </tr>
+                <tr>
+                    <td class="label"><label>No. of Seat</label></td>
+                    <td><input type="text" name="No_of_seat" alt="No_of_seat" placeholder="Number of seats" required/></td>
+                    <td class="label"><label>Enable on Rent</label></td>
+                    <td><input type="checkbox" name="No_of_seat" alt="No_of_seat" required/></td>                     
+                </tr>
+                <tr>
+                	<td class="label"><label>Description/note</label></td>
+                    <td><textarea name="description" alt="description" placeholder="Description" required></textarea></td>
+                    <td class="label"><label>Per KM rate </label></td>
+                    <td><input type="text" name="perkmrate" alt="perkmrate" placeholder="Per KM Rate" required/></td>
+                </tr>
+                <tr>
+                	<td class="label"><label>waiting Chrg/min</label></td>
+                    <td><input type="text" name="waitingchrg_min" alt="waitingchrg_min" placeholder="Waiting Charge Per Minitus" required/></td>
+                    <td class="label"><label>Per Day rate </label></td>
+                    <td><input type="text" name="perdayrate" alt="perdayrate" placeholder="Per Day Rate" required/></td>
+                </tr>
+                <tr>
+                    <td class="label"><label>Driver Cost</label></td>
+                    <td><input type="text" name="drivercost" alt="drivercost" placeholder="Driver Cost" required/></td>
+                    <td><label>Is Wifi</label></td>
+                    <td><input type="checkbox" required/></td>
+                </tr>
+                </table>
+                <div class="bus_add_details">
+                	<div><label>Is Movie</label></div>
+                    <div><input type="checkbox" required/></div>
+                    <div><label>Is Charger</label></div>
+                    <div><input type="checkbox" required/></div>
+                    <div><label>Is WaterBottle</label></div>
+                    <div><input type="checkbox" required/></div>
+                </div>
+                 <div class="bus_add_details">
+                	<div><label>Is Blanket</label></div>
+                    <div><input type="checkbox" required/></div>
+                    <div><label>Is AC</label></div>
+                    <div><input type="checkbox" required/></div>
+                    <div><label>Is Enable</label></div>
+                    <div><input type="checkbox" required/></div>
+                </div>
+                <div class="clear"></div>
+               	<div class="on-right">
+                   	<input type="submit" class="primary" alt="Submit" value="Submit"/>
+                	<input type="reset" class="danger close_button" alt="Cancel" value="Cancel"/>
+                </div>
+        </form>
+    </div>
+    <!-- Bus Popup End  -->
 </body>
 </html>
