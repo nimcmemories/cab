@@ -110,5 +110,5 @@ function getCityList(){
 	var data = JSON.stringify({"__eventid":eventId.get_city_list});
 	var JsonData={"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
 	var cityData=cab.AJAXCall(JsonData);
-	alert(JSON.stringify(citydata));
+	alert(JSON.stringify(cityData));
 }
