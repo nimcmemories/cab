@@ -112,3 +112,4 @@ function getCityList(){
 	var cityData=cab.AJAXCall(JsonData);
 	alert(JSON.stringify(cityData));
 }
+
