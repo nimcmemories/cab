@@ -123,14 +123,14 @@ width: auto;
 #featured-products_block_center span#featured_scroll_left {
 	margin-top: 26%;
   	right: 30px;
-  	background: #DBDBDB url(../img/prev.png) 11px no-repeat;
-  	padding: 9px;
+  	background:url(../img/prev.png) -2px no-repeat;
+  	padding:10px;
 }
 #featured-products_block_center a#featured_scroll_right,
 #featured-products_block_center span#featured_scroll_right {
 	margin-top: 26%;
 	right: 1px;
-	background: #DBDBDB url(../img/next.png) 11px no-repeat;
+	background:url(../img/next.png) -2px no-repeat;
 	padding: 9px;
 }
 #featured-products_block_center span#featured_scroll_left,
