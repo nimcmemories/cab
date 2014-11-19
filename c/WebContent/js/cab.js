@@ -4,7 +4,7 @@
 var cab={};
 cab.contextPath="/c";
 
-cab.AJAXCall = function(data){
+cab.AJAXCall = function(data,responseFunction){
 	
 	$.ajax({
 		type: data.method,
@@ -12,7 +12,8 @@ cab.AJAXCall = function(data){
 		data: data,
 		dataType:data.dataType,
 		success: function(responseJson) {
-			return responseJson;
+			debugger;
+			responseFunction(responseJson);
 		},
 		error: function (data, status, e){
 			return null;
@@ -23,7 +24,7 @@ cab.AJAXCall = function(data){
 };
 cab.getFormJson=function(formId){
 	alert(">"+formId+"<");
-	return JSON.stringify($("#"+formId+"").serializeArray());
+	return $("#"+formId+"").serializeArray();
 };
 
 cab.reloadValidation=function(){

@@ -98,11 +98,13 @@ function addDriver(formId){
 	var data = JSON.stringify({"formData":cab.getFormJson(formId)});
 	var JsonData={"formData":data,"__eventid":eventId.add_driver,"dataType":"json","url":"/c"};
 //	var res=cab.AJAXCall(JsonData);
-	addDriverResponse(cab.AJAXCall(JsonData));
+	//alert(JSON.stringify(JsonData));
+	//addDriverResponse(cab.AJAXCall(JsonData,addDriverResponse));
+	cab.AJAXCall(JsonData,addDriverResponse);
 	//alert("1");
 }
 function addDriverResponse(resData){
-	alert("resData-->"+resData);
+	alert("nitin res-->"+JSON.stringify(resData));
 }
 
 
