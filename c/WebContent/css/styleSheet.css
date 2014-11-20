@@ -515,7 +515,7 @@ padding-bottom:0px;
 	width: 268px;
 }
 .taxi_add_details,.bus_add_details,.bike_add_details{
-	width:691px;
+	width:730px;
 	margin:0 auto;
 	margin-top:5px;
 }
@@ -523,6 +523,12 @@ padding-bottom:0px;
 	float:left;
 	width:115px;
 	padding:5px 0px;
+}
+.taxi_add_details .label{
+	width:115px;
+}
+.taxi_add_details input.cmn-toggle-round + label,.bus_add_details input.cmn-toggle-round + label,.createPopup_bus input.cmn-toggle-round + label{
+	margin:0;
 }
 .table-Bike{
 	width:175px!important;
