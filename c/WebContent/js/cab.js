@@ -12,7 +12,6 @@ cab.AJAXCall = function(data,responseFunction){
 		data: data,
 		dataType:data.dataType,
 		success: function(responseJson) {
-			debugger;
 			responseFunction(responseJson);
 		},
 		error: function (data, status, e){

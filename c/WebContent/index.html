@@ -36,7 +36,7 @@
         <a href="busdetails.html" class="rm5 white" target="_blank">Bus-Details</a>        
         <a href="bikedetails.html" class="rm5 white" target="_blank">Bike-Details</a>        
 	</div>
-	<div class="header bg_color">smartCab</div>
+	<div class="header bg_color"></div>
 	<!-- City DropDown -->
 	<!--<div class="drop_down_menu">Select City<i class="fa fa-plus-square fa-lg on-right rm5"></i></div>-->
 	<div class="section">
@@ -102,9 +102,7 @@
 				<form action="#" method="post" id="taxi-ptop" onSubmit="">
 					<div class="select_city">
 						<label>Select City :</label> <select name="city" id="taxiptopcity">
-							<option>w</option>
-							<option>w</option>
-							<option>w</option>
+							<option value="1224">Ahmedabad</option>
 						</select>
 					</div>
 					<table class="table">
@@ -113,8 +111,8 @@
 							<td><input type="text" placeholder="Pickup Area"
 								id="taxiptoppickuparea" name="pickuparea" class="pickup"
 								data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid pickup area" /></td>
+								data-validation-regexp="^([a-zA-Z\s,]+)$"
+								data-validation-error-msg="please enter valid pickup area"  onkeyup="getPickupAreaList($('#taxiptopcity').val(),this.value)"/></td>
 							<td><label>Drop Area :</label></td>
 							<td><input type="text" placeholder="Drop Area"
 								id="taxiptopdroparea" name="droparea" class="drop"

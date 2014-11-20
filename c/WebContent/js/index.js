@@ -53,9 +53,16 @@ function submitBikeOnRent(formId) {
 	}
 }
 function submitTaxiPtop(formId){
-	var data = cab.getFormJson(formId);
-	var JsonData={"formData":data,"__eventid":eventId.taxi_ptop,"dataType":"json","url":""};
-	var response=cab.AJAXCall(JsonData);
+	if($('#'+formId).validateForm()){
+		alert("data is valid")
+		var data = cab.getFormJson(formId);
+		var JsonData={"formData":data,"__eventid":eventId.taxi_ptop,"dataType":"json","url":""};
+		var response=cab.AJAXCall(JsonData);
+	}else{
+		alert("Please enter valid data.");
+		return;
+	}
+	
 }
 
 function submitTaxiPackage(formId){
@@ -109,7 +116,30 @@ $( document ).ready(function() {
 function getCityList(){
 	var data = JSON.stringify({"__eventid":eventId.get_city_list});
 	var JsonData={"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
-	var cityData=cab.AJAXCall(JsonData);
+	cab.AJAXCall(JsonData,getCityListResponce);
+}
+function getCityListResponce(cityData){
 	alert(JSON.stringify(cityData));
+}
+function getPickupAreaList(cityId,areaName){
+	console.log(areaName);
+	if(areaName.length>3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData,getAreaListResponse);
+	}
+}
+function getAreaListResponse(data){
+	var areaNameList=[];
+	var areaIdList=[];
+	for(var i=0;i<data.areaList.length;i++){
+		areaNameList.push(data.areaList[i].areaName);
+		areaIdList.push(data.areaList[i].id);
+	}
+	console.log(areaNameList);
+	$( "#taxiptoppickuparea").autocomplete({
+	      source: areaNameList,
+	      delay: 500
+	});
 }
 
