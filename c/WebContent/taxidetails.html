@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/iconFont.css">
     <link rel="stylesheet" href="css/customStyle.css">
     <link rel="stylesheet" href="css/blocks.css">
+    <link rel="stylesheet" href="css/toggle.css">    
     <link href="css/blocks.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/homefeatured.js"></script>
@@ -22,29 +23,29 @@
         </div>
         <table class="tm5 fnt-size14 left5 table-taxi header1 left">
             <!-- Table Header  -->
-           	<tr><th class="border-bottom">Taxi Name</th></tr>
-            <tr><th class="border-bottom">Taxi Type</th></tr>
-            <tr><th class="border-bottom">Taxi Number</th></tr>
-            <tr><th class="border-bottom">GPS Device Id</th></tr>
-            <tr><th class="border-bottom">Current Location</th></tr>
-            <tr><th class="border-bottom">Image</th></tr>
-            <tr><th class="border-bottom">Seat</th></tr>
-            <tr><th class="border-bottom">Per Day Rate</th></tr>
-            <tr><th class="border-bottom">Per KM Rate</th></tr>
-            <tr><th class="border-bottom">Waiting Chrg/Min</th></tr>
-            <tr><th class="border-bottom">Driver Cost</th></tr>
-            <tr><th class="border-bottom">For - Po to P</th></tr>                       
-            <tr><th class="border-bottom">For - Package</th></tr>
-            <tr><th class="border-bottom">For - Outstation</th></tr>                        
-            <tr><th class="border-bottom">For - Airport</th></tr>
-            <tr><th class="border-bottom">For - Taxi Ticket</th></tr>
-            <tr><th class="border-bottom">For - Car on Rent</th></tr>            
-            <tr><th class="border-bottom">is AC</th></tr>
-            <tr><th class="border-bottom">is Movie</th></tr>                        
-            <tr><th class="border-bottom">is Music</th></tr>                        
-            <tr><th class="border-bottom">is charger</th></tr>                        
-            <tr><th class="border-bottom">is Wifi</th></tr>
-            <tr><th class="border-bottom">is Enable</th></tr>                            
+           	<tr><th >Taxi Name</th></tr>
+            <tr><th >Taxi Type</th></tr>
+            <tr><th >Taxi Number</th></tr>
+            <tr><th >GPS Device Id</th></tr>
+            <tr><th >Current Location</th></tr>
+            <tr><th >Image</th></tr>
+            <tr><th >Seat</th></tr>
+            <tr><th >Per Day Rate</th></tr>
+            <tr><th >Per KM Rate</th></tr>
+            <tr><th >Waiting Chrg/Min</th></tr>
+            <tr><th >Driver Cost</th></tr>
+            <tr><th >For - Po to P</th></tr>                       
+            <tr><th >For - Package</th></tr>
+            <tr><th >For - Outstation</th></tr>                        
+            <tr><th >For - Airport</th></tr>
+            <tr><th >For - Taxi Ticket</th></tr>
+            <tr><th >For - Car on Rent</th></tr>            
+            <tr><th >is AC</th></tr>
+            <tr><th >is Movie</th></tr>                        
+            <tr><th >is Music</th></tr>                        
+            <tr><th >is charger</th></tr>                        
+            <tr><th >is Wifi</th></tr>
+            <tr><th >is Enable</th></tr>                            
             <!-- End -->                    
         </table>
         <!-- Taxi Body -->
@@ -57,552 +58,1376 @@
           <ul class="course-box" style="width:30000px;">
             <li class="ajax_block_product new">
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4">wdq</td></tr>                       
-            <tr><td class="border-bottom margin2 padding4">qwdw</td></tr>
-            <tr><td class="border-bottom margin2 padding4">wqdw</td></tr>                        
-            <tr><td class="border-bottom margin2 padding4">asd</td></tr>
-            <tr><td class="border-bottom margin2 padding4">qwq</td></tr>
-            <tr><td class="border-bottom margin2 padding4">qw</td></tr>            
-            <tr><td class="border-bottom margin2 padding4">qwd</td></tr>
-            <tr><td class="border-bottom margin2 padding4">wer</td></tr>                        
-            <tr><td class="border-bottom margin2 padding4">werw</td></tr>                        
-            <tr><td class="border-bottom margin2 padding4">werew</td></tr>                        
-            <tr><td class="border-bottom margin2 padding4">asd</td></tr>
-            <tr><td class="border-bottom margin2 padding4">asdsa</td></tr> 
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+            <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr>                       
+            <tr><td class="switch">
+                	<input id="cmn-toggle-2" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-2"></label>
+            	</td></tr>
+            <tr><td class="switch">
+                	<input id="cmn-toggle-3" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-3"></label>
+            	</td></tr>                        
+            <tr><td class="switch">
+                	<input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-4"></label>
+            	</td></tr>
+            <tr><td class="switch">
+                	<input id="cmn-toggle-5" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-5"></label>
+             	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-6" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-6"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-7"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-8" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-8"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-9" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-9"></label>
+            	</td></tr>                        
+            <tr><td class="switch">
+                	<input id="cmn-toggle-10" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-10"></label>
+                </td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-11" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-11"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-12" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-12"></label>
+            	</td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr> 
         </table>
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>       
         </table>	
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
         <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>
 	    <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>
         <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>			
 			</li>
             <li class="ajax_block_product">
         <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>   
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>   
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
          <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>	
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>
         <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
 	    <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr> 
+                     
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
         <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr> 
+                 <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>  
+                <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>             
         </table>			
             </li>
             <li class="ajax_block_product">
         <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>  
+                 <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>  
+                   
+                <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>	
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>      
+                 <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr> 
+                <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>		        
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>   
+                 <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>    
+                <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>		        
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>     
+                 <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr> 
+                <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>          
         </table>	
             </li>
             <li class="ajax_block_product">
         <table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>  
+                 <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr> 
+                <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>             
         </table>				    
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>    
+                 <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>  
+                <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>          
         </table>		        
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>      
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>     
+                 <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr> 
+                <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>          
         </table>		        
 		<table class="tm5 fnt-size14 left5 table-taxi left">
-            <tr><th class="border-bottom ">Taxi Name</th></tr>
-            <tr><td class="border-bottom ">Taxi Type</td></tr>
-            <tr><td class="border-bottom ">Taxi Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
-            <tr><td class="border-bottom ">Seat</td></tr>
-            <tr><td class="border-bottom ">Per Day Rate</td></tr>
-            <tr><td class="border-bottom ">Per KM Rate</td></tr>
-            <tr><td class="border-bottom ">Waiting Charge/Minite</td></tr>
-            <tr><td class="border-bottom ">Driver Cost</td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                       
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>            
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="border-bottom margin2 padding4"><input type="checkbox"></td></tr>                        
-            <tr><td class="margin2 padding4"><input type="checkbox"></td></tr>
+            <tr><th>Taxi Name</th></tr>
+            <tr><td>Taxi Type</td></tr>
+            <tr><td>Taxi Number</td></tr>
+            <tr><td>GPS Device Id</td></tr>
+            <tr><td>Current Location</td></tr>
+            <tr><td>Image</td></tr>
+            <tr><td>Seat</td></tr>
+            <tr><td>Per Day Rate</td></tr>
+            <tr><td>Per KM Rate</td></tr>
+            <tr><td>Waiting Charge/Minite</td></tr>
+            <tr><td>Driver Cost</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                       
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>            
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+           <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr>                        
+            <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+                </td></tr>
+                 <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            	</td></tr> 
+                <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>	
         
             </li>

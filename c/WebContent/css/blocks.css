@@ -156,4 +156,6 @@ width: auto;
 	float:right;
 	text-transform:capitalize;
 	font-weight:normal;
+	position: relative;
+right: 100px;
 }

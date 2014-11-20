@@ -226,6 +226,9 @@ input.valid {
 	width: 840px;
 	margin-top:15px;
 }
+.table-taxi tr th,.table-taxi tr td,.sidebar-bus table tr th,.sidebar-bus table tr td{
+	border-bottom: 1px #eaeaea solid;
+}
 [class^="taxi-"] td,[class^="bus-"] td,[class^="truck-"] td,[class^="bike-"] td{
 	padding-bottom:20px;
 }
@@ -323,10 +326,10 @@ padding-bottom:0px;
 }
 
 .register_form select{
-	width:120%;
+	width:300px;
 }
 .register_form textarea{
-	width:114%;
+	width:288px;
 }
 .register_form .has-error {
 	position: relative;
@@ -355,6 +358,7 @@ padding-bottom:0px;
 	border:none!important;
 	background:none!important;
 	border-bottom:1px solid #999!important;
+	width:225px;
 }
 [class^="left-siderbar-"] input[type="search"]:focus{
 	outline:0!important;
@@ -412,6 +416,9 @@ padding-bottom:0px;
 [class^="sidebar-"] table tr th,[class^="sidebar-"] table tr td{
 	padding:5px;
 }
+[class^="sidebar-"] table tr td input[type="button"]{
+	display:block;
+}
 [class^="sidebar-"] table.header1{
 	border-right:2px solid rgb(119, 183, 216);
 	position: relative;
@@ -467,7 +474,7 @@ padding-bottom:0px;
 }
 [class^="createPopup_"]{
 	width:1000px;
-	left:10%;
+	left:12.5%;
 	top:5%;
 }
 [class^="popup_form"] td{
