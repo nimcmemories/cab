@@ -7,4 +7,11 @@ INSERT INTO `taxi`.`partner_details` (`partner_type_id`, `partner_tittle`, `firs
 --nitin
  insert into cbhelpers values(101,'com.cab.helper.AreaNameListHelper',3);
  insert into cbevents values(101,0,101);
+ 
+--amit
+insert into cbhelpers value(201,'com.cab.taxi.helper.EditDriverHelper',3);
+insert into cbevents values(201,1,201);
+
+insert into cbhelpers value(202,'com.cab.taxi.helper.TaxiPtopHelper',3);
+insert into cbevents values(202,1,202);
 
