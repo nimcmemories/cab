@@ -142,6 +142,7 @@ input[type="button"],input[type="reset"],input[type="submit"],button{
 	border: 1px solid transparent;
 	border-radius:2px;
 	margin:0 auto;
+	display:inline-block;
 }
 input[type="button"].command-button,input[type="reset"].command-button,input[type="submit"].command-button,button.command-button{
   font-size: 14pt;

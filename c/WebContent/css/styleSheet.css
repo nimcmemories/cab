@@ -226,6 +226,9 @@ input.valid {
 	width: 840px;
 	margin-top:15px;
 }
+.table-taxi tr th,.table-taxi tr td,.sidebar-bus table tr th,.sidebar-bus table tr td{
+	border-bottom: 1px #eaeaea solid;
+}
 [class^="taxi-"] td,[class^="bus-"] td,[class^="truck-"] td,[class^="bike-"] td{
 	padding-bottom:20px;
 }
@@ -323,10 +326,10 @@ padding-bottom:0px;
 }
 
 .register_form select{
-	width:120%;
+	width:300px;
 }
 .register_form textarea{
-	width:114%;
+	width:288px;
 }
 .register_form .has-error {
 	position: relative;
@@ -355,6 +358,7 @@ padding-bottom:0px;
 	border:none!important;
 	background:none!important;
 	border-bottom:1px solid #999!important;
+	width:225px;
 }
 [class^="left-siderbar-"] input[type="search"]:focus{
 	outline:0!important;
@@ -382,6 +386,7 @@ padding-bottom:0px;
 .content [class^="tbl-"] tr th,.content [class^="tbl-"] tr td{
 	padding:8px 5px;
 	text-align:center;
+	border-bottom:1px solid #ddd;
 }
 
 /* Taxi Details  */
@@ -412,6 +417,9 @@ padding-bottom:0px;
 [class^="sidebar-"] table tr th,[class^="sidebar-"] table tr td{
 	padding:5px;
 }
+[class^="sidebar-"] table tr td input[type="button"]{
+	display:block;
+}
 [class^="sidebar-"] table.header1{
 	border-right:2px solid rgb(119, 183, 216);
 	position: relative;
@@ -430,9 +438,20 @@ padding-bottom:0px;
 
 
 /* confirm bus  */
-.cinform_bus_table{
+.confirm_bus_table,.confirm_taxi_table{
 	width:650px;
 	margin:0 auto;
+}
+.confirm_taxi_table{
+	width:380px;
+}
+.busConfirm,.taxiConfirm
+{
+	padding:2px;
+	border:1px solid #ddd;
+	border-radius:2px;
+	margin:0 auto;
+	width:1000px;
 }
 
 /* Create Row PopUp */
@@ -467,7 +486,7 @@ padding-bottom:0px;
 }
 [class^="createPopup_"]{
 	width:1000px;
-	left:10%;
+	left:12.5%;
 	top:5%;
 }
 [class^="popup_form"] td{
@@ -508,7 +527,7 @@ padding-bottom:0px;
 	width: 268px;
 }
 .taxi_add_details,.bus_add_details,.bike_add_details{
-	width:691px;
+	width:730px;
 	margin:0 auto;
 	margin-top:5px;
 }
@@ -516,4 +535,176 @@ padding-bottom:0px;
 	float:left;
 	width:115px;
 	padding:5px 0px;
+}
+.taxi_add_details .label{
+	width:115px;
+}
+.taxi_add_details input.cmn-toggle-round + label,.bus_add_details input.cmn-toggle-round + label,.createPopup_bus input.cmn-toggle-round + label{
+	margin:0;
+}
+.taxiDetails_container{
+	float:left;
+	left:5px;
+	margin-top:5px;
+	font-size:14px;	
+}
+
+
+.table-Bike{
+	width:175px!important;
+}
+#gotoairportname,#gotoairportname option{ 
+	width:200px!important; 
+}
+
+/* Responsive Design   */
+
+@media only screen and (max-width:1280px){
+	.courses-container {
+		width: 1098px!important;
+	}
+	.taxiDetails_container{
+		font-size:12px;
+	}
+	#featured-products_block_center a#featured_scroll_right, #featured-products_block_center span#featured_scroll_right {
+		right: -13px!important;
+	}
+	#featured-products_block_center a#featured_scroll_left, #featured-products_block_center span#featured_scroll_left{
+		right:18px!important;
+	}
+	.course-box{
+		margin-top: -4px!important;
+	}
+	.section {
+		width: 1240px;
+	}
+	.header-tab8 {
+		width: 86%;
+	}
+	.main-contain {
+		width: 87%;
+	}
+	[class^="taxi-"], [class^="bus-"], [class^="truck-"], [class^="bike-"] {
+		width: 1000px;
+	}
+}
+@media only screen and (max-width:1024px){
+	.section {
+		width: 1000px;
+	}
+	.tab-6 a {
+		width: 14.5%;
+	}
+	.header-tab8 {
+		width: 82%;
+	}
+	.topMenu li a{
+		padding: 5px 7px
+	}
+	.topMenu .active.left:after {
+		margin-left: -6%;
+		top: 46px;
+	}
+	.topMenu .airport.active.left:after {
+		margin-left: -4%;
+	}
+	.topMenu .taxi-ticket.active.left:after,.topMenu .outstation.active.left:after{
+		margin-left: -5%;
+	}
+	.topMenu .package.active.left:after {
+		margin-left: -4.2%;
+	}
+	.topMenu .car-on-rent.active.left:after {
+		margin-left: -5.4%;
+	}
+	.tab-1 a {
+		width: 100%;
+		padding: 15px 3px;
+	}
+	.sideMenu .tab-1 a.active {
+		padding: 15px 4px;
+	}
+	.sideMenu .active.left:after{
+		left:141px;
+	}
+	.sideMenu {
+		margin: 5% 0px 54px 10px;
+	}
+	.header-tab1 {
+		width: 121px;
+		margin-right: 14px!important;
+	}
+	.main-contain {
+		width: 85%;
+	}
+	[class^="taxi-"], [class^="bus-"], [class^="truck-"], [class^="bike-"] {
+		width:820px;
+	}
+	.airport_tab, .caronrent_tab, .bikeonrent_tab {
+		width: 55%;
+	}
+	[class^="taxi-"] .select_city, [class^="bus-"] .select_city, [class^="truck-"] .select_city, [class^="bike-"] .select_city {
+		width: 50%;
+	}
+	.main-content {
+		width: 75%;
+	}
+	.DyGrid-11 {
+		width: 1000px;
+		margin-top: 20px;
+	}
+}
+@media only screen and (max-width:768px){
+	table label{
+		font-size:11px;
+	}
+	/*  Taxi-Customer View */
+	.left-siderbar-Taxi, .left-siderbar-Bus {
+		width: 180px;
+	}
+	[class^="left-siderbar-"] .search-icon {
+		left: 155px;
+	}
+	[class^="left-siderbar-"] input[type="search"] {
+		width: 177px;
+	}
+	.main{
+		font-size: 11px!important;
+	}
+	.content [class^="tbl-"] tr th, .content [class^="tbl-"] tr td {
+		padding: 8px 0px;
+	}
+	input[type="button"], input[type="reset"], input[type="submit"], button{
+		padding:4px 8px!important;
+		font-size: 11px!important;
+	}
+	
+	/* Bus Confirm   */
+	.confirm_bus_table {
+		width: 540px;
+		margin: 0 auto;
+	}
+	.busConfirm, .taxiConfirm {
+		width: 750px;
+	}
+	.confirm_taxi_table {
+		width: 359px;
+	}
+	/* grid  */
+	header a.add, header a.cancel{
+		font-size:10px;
+	}
+	.DyGrid-11{
+		width:760px;
+	}
+	[class^="DyGrid-"],.table_row .check{
+		font-size:12px!important;
+		padding: 7px 0px;
+	}
+	.createPopup, .editPopup{
+		left:9%;
+	}
+	input.cmn-toggle-round + label {
+		width: 14px!important;
+	}
 }

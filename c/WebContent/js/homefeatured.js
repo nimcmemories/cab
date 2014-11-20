@@ -6,7 +6,6 @@
 var cs_serialScrollNbImagesDisplayed;
 var cs_serialScrollNbImages;
 var cs_serialScrollActualImagesIndex;
-
 function cs_serialScrollFixLock(event, targeted, scrolled, items, position)
 {
 	serialScrollNbImages = $('#featured_list li:visible').length;
@@ -15,17 +14,28 @@ function cs_serialScrollFixLock(event, targeted, scrolled, items, position)
 	var leftArrow = position == 0 ? true : false;
 	var rightArrow = position + serialScrollNbImagesDisplayed >= serialScrollNbImages ? true : false;
 	
-	$('a#featured_scroll_left').css('cursor', leftArrow ? 'default' : 'pointer').css('display', leftArrow ? 'none' : 'block').fadeTo(0, leftArrow ? 0 : 1);		
+	$('a#featured_scroll_left').css('cursor', leftArrow ? 'default' : 'pointer').fadeTo(0, leftArrow ? 0 : 1).css('display', leftArrow ? 'none' : 'block');		
 	$('a#featured_scroll_right').css('cursor', rightArrow ? 'default' : 'pointer').fadeTo(0, rightArrow ? 0 : 1).css('display', rightArrow ? 'none' : 'block');
-	$('span#featured_scroll_left').css('display', !leftArrow ? 'none' : 'none').fadeTo(0, leftArrow ? 0 : 0);		
-	$('span#featured_scroll_right').fadeTo(0, !rightArrow ? 0 : 0).css('display', !rightArrow ? 'none' : 'none');
+	$('span#featured_scroll_left').css('display', !leftArrow ? 'none' : 'none').fadeTo(0, leftArrow ? 0 : 0);
+	$('span#featured_scroll_right').fadeTo(0, !rightArrow ? 0 : 0).css('display', !rightArrow ? 'none' : 'block');	
 	return true;
 }
 
 $(document).ready(function(){
+	var i=2;
+	$(document).ready(function() {
+		$('#featured_scroll_right').click(function(){
+			var a=document.getElementById('page_no1').innerHTML=i;
+			i++;
+		});
+		$('#featured_scroll_left').click(function(){
+			i--;
+			document.getElementById('page_no1').innerHTML=i-1;
+		});
+	});	
 	//init the serialScroll for thumbs
 	cs_serialScrollNbImages = $('#featured_list li').length;
-	cs_serialScrollNbImagesDisplayed = 1;
+	cs_serialScrollNbImagesDisplayed = 2;
 	cs_serialScrollActualImagesIndex = 0;
 	$('#featured_list').serialScroll({
 		items:'li',
@@ -40,7 +50,8 @@ $(document).ready(function(){
 		lazy:true,
 		lock: false,
 		force:false,
-		cycle:false
+		cycle:false,
+		
 	});
 	$('#featured_list').trigger( 'goto', 0 );
 });

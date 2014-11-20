@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/styleSheet.css">
 <link rel="stylesheet" href="css/customStyle.css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" />
+<link rel="stylesheet" href="css/toggle.css">    
 <script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="jslib/DyGridJs.js"></script>
 <script type="text/javascript" src="js/cab.js"></script>
@@ -19,8 +20,18 @@
 <script type="text/javascript" src="js/eventconstant.js"></script>
 <script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
 <script type="text/javascript" src="jslib/jquery-ui.min.js"></script>
-
-
+<style type="text/css">
+	.switch{
+		float:right!important;
+		margin-top: -5px!important;
+	}
+	input.cmn-toggle-round + label {
+		width: 34px;
+	}
+	input.cmn-toggle-round:checked + label:after {
+	  margin-left:16px;
+	}
+</style>
 </head>
 
 <body>
@@ -52,7 +63,10 @@
                 <span class="DyGrid-td-6">abcd1</span>
                 <span class="DyGrid-td-md">
                    <a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   <a href="#"><img src="img/desable.png" title="Desable"></a>
+                   <a href="#"><span class="switch">
+                        <input id="cmn-toggle-23" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-23"></label>
+             		</span></a>
                    <a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                     <input type="hidden" id="row1" value="1"/>
                 </span>
@@ -68,7 +82,10 @@
                 <span class="DyGrid-td-6">abcd1</span>
                 <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><span class="switch">
+                        <input id="cmn-toggle-12" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-12"></label>
+             		</span></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                    <input type="hidden" id="row2" value="2"/>
                 </span>
@@ -83,7 +100,10 @@
                 <span class="DyGrid-td-6">abcd1</span>
                <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><span class="switch">
+                        <input id="cmn-toggle-10" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-10"></label>
+             		</span></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                     <input type="hidden" id="row3" value="2"/>                    
                 </span>
@@ -99,7 +119,10 @@
                 <span class="DyGrid-td-6">abcd1</span>
                <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><span class="switch">
+                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-1"></label>
+             		</span></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
@@ -113,8 +136,11 @@
                 <span class="DyGrid-td-6">abcd1</span>
                <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
+                    <a href="#"><span class="switch">
+                        <input id="cmn-toggle-2" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-2"></label>
+             		</span></a>
                 </span>
             </div>
 
@@ -128,7 +154,10 @@
                 <span class="DyGrid-td-6">abcd1</span>
               <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><span class="switch">
+                        <input id="cmn-toggle-3" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-3"></label>
+             		</span></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
@@ -143,7 +172,10 @@
                 <span class="DyGrid-td-6">abcd1</span>
                <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><span class="switch">
+                        <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-4"></label>
+             		</span></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
@@ -158,7 +190,10 @@
                 <span class="DyGrid-td-6">abcd1</span>
               <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><span class="switch">
+                        <input id="cmn-toggle-5" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-5"></label>
+             		</span></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
@@ -173,7 +208,10 @@
                 <span class="DyGrid-td-6">abcd1</span>
              <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><span class="switch">
+                        <input id="cmn-toggle-6" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-6"></label>
+             		</span></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
@@ -188,7 +226,10 @@
 
                 <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><span class="switch">
+                        <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-7"></label>
+             		</span></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
@@ -204,7 +245,10 @@
 
                 <span class="DyGrid-td-md">
 					<a href="#"><img src="img/edit.png" class="edit_button" title="Edit"></a>
-                   	<a href="#"><img src="img/desable.png" title="Desable"></a>
+                   	<a href="#"><span class="switch">
+                        <input id="cmn-toggle-8" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-8"></label>
+             		</span></a>
                    	<a href="#"><img src="img/delete.png" class="delete_button" title="Delete"></a>
                 </span>
             </div>
@@ -214,7 +258,7 @@
     
    
 	<!-- Add Row  PopUP   -->
-	<div class="createPopup_Bg"></div>
+	<div class="createPopup1_Bg"></div>
 	<div class="createPopup">
 		<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
 		<header>Add Driver</header>
@@ -234,7 +278,7 @@
 						data-validation-error-msg="enter valid last name" /></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="Email" alt="Email"
+					<td><input type="text" alt="Email"
 						placeholder="Email" name="emailid" id="adddrivereid"
 						data-validation="email"
 						data-validation-error-msg="please enter valid email-id" /></td>
