@@ -110,7 +110,7 @@ function truckShipping(formId) {
 $( document ).ready(function() {
    // console.log( "ready!" );
 	
-	getCityList();
+	//getCityList();
 });
 
 function getCityList(){
@@ -122,7 +122,7 @@ function getCityListResponce(cityData){
 	alert(JSON.stringify(cityData));
 }
 function getPickupAreaList(cityId,areaName){
-	console.log(areaName);
+	//console.log(areaName);
 	if(areaName.length>3){
 		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
 		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
