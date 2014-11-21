@@ -70,7 +70,7 @@
 	  transition: margin 0.1s;
 	}
 	input.cmn-toggle-round:checked + label:before {
-	  background-color:rgb(94, 180, 224);
+	  background-color:#0088cc;
 	}
 	input.cmn-toggle-round:checked + label:after {
 	  margin-left:27px;

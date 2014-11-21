@@ -40,11 +40,11 @@ span.form-error.help-block {
 	width:98%!important;
 }
 input.error {
-	background: url(../img/icon-fail.png) no-repeat right center #ffebef;
+	background: /*url(../img/icon-fail.png) no-repeat right center*/ #ffebef;
 	color: #480000;
 }
 input.valid {
-	background: url(../img/icon-ok.png) no-repeat right center #e3ffe5;
+	background:/* url(../img/icon-ok.png) no-repeat right center*/ #e3ffe5;
 	color: #002f00;
 	border-color: #0099FF !important;
 }
@@ -226,7 +226,13 @@ input.valid {
 	width: 840px;
 	margin-top:15px;
 }
-.table-taxi tr th,.table-taxi tr td,.sidebar-bus table tr th,.sidebar-bus table tr td{
+.table-Bike{
+	float:left;
+	font-size:14px;
+	left:5px;
+	margin-top:5px;
+} 
+.table-taxi tr th,.table-taxi tr td,.sidebar-bus table tr th,.sidebar-bus table tr td,.table-Bike tr th,.table-Bike tr td{
 	border-bottom: 1px #eaeaea solid;
 }
 [class^="taxi-"] td,[class^="bus-"] td,[class^="truck-"] td,[class^="bike-"] td{
@@ -431,7 +437,7 @@ padding-bottom:0px;
 }
 .detail_contain{
 	width:85%;
-	height:675px;
+	height:auto;
 	float:left;
 	margin-bottom:5px;
 }
@@ -475,7 +481,7 @@ padding-bottom:0px;
 	top:30px;
 	margin:0 auto;
 	box-shadow:0px 0px 2px 0px rgb(161, 175, 199);
-	position:fixed;
+	position:absolute;
 	z-index:99;
 	background:#fff;
 	opacity:0.95;
@@ -526,6 +532,7 @@ padding-bottom:0px;
 	height: 35px;
 	width: 268px;
 }
+/*---------------- */
 .taxi_add_details,.bus_add_details,.bike_add_details{
 	width:730px;
 	margin:0 auto;
@@ -539,7 +546,10 @@ padding-bottom:0px;
 .taxi_add_details .label{
 	width:115px;
 }
-.taxi_add_details input.cmn-toggle-round + label,.bus_add_details input.cmn-toggle-round + label,.createPopup_bus input.cmn-toggle-round + label{
+/*---------------- */
+
+.taxi_add_details input.cmn-toggle-round + label,.bus_add_details input.cmn-toggle-round + label,.createPopup_bus input.cmn-toggle-round + label,
+.createPopup_taxi input.cmn-toggle-round + label{
 	margin:0;
 }
 .taxiDetails_container{
@@ -548,13 +558,8 @@ padding-bottom:0px;
 	margin-top:5px;
 	font-size:14px;	
 }
-
-
 .table-Bike{
 	width:175px!important;
-}
-#gotoairportname,#gotoairportname option{ 
-	width:200px!important; 
 }
 
 /* Responsive Design   */

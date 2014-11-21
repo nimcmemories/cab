@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/iconFont.css">
     <link rel="stylesheet" href="css/customStyle.css">
      <link rel="stylesheet" href="css/blocks.css">
+    <link rel="stylesheet" href="css/toggle.css">         
     <link href="css/blocks.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/homefeatured.js"></script>
@@ -23,12 +24,12 @@
         </div>
         <table class="tm5 fnt-size14 left5 header1 left">
             <!-- Table Header  -->
-           	<tr><th class="border-bottom">Bike Name</th></tr>
-            <tr><th class="border-bottom">Bike Number</th></tr>
-            <tr><th class="border-bottom">Bike Image</th></tr>
-            <tr><th class="border-bottom">Description</th></tr>
-            <tr><th class="border-bottom">Per Hour Rate</th></tr>
-            <tr><th class="border-bottom">Per Day Rate</th></tr>
+           	<tr><th >Bike Name</th></tr>
+            <tr><th >Bike Number</th></tr>
+            <tr><th >Bike Image</th></tr>
+            <tr><th >Description</th></tr>
+            <tr><th >Per Hour Rate</th></tr>
+            <tr><th >Per Day Rate</th></tr>
             <!-- End -->                    
         </table>
         <!-- Bike Body -->
@@ -40,210 +41,276 @@
         <div id="featured_list">
           <ul class="course-box" style="width:30000px;margin-left:5px!important;">
             <li class="ajax_block_product new">
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr> 
         </table>
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-2" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-2"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>       
         </table>	
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-3" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-3"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
-        <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+        <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>
-	    <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+	    <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             
                  
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>
-        <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+        <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>			
 			</li>
             <li class="ajax_block_product">
-        <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+        <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
-         <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+         <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>	
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>         
         </table>
-        <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+        <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
-	    <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+	    <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>      
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr>       
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>
-        <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+        <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>			
             </li>
             <li class="ajax_block_product">
-        <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+        <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>                         
         </table>	
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>                         
         </table>		        
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>                         
         </table>		        
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>                         
         </table>	
             </li>
             <li class="ajax_block_product">
-        <table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+        <table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>                         
         </table>				    
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>                         
         </table>		        
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>		        
-		<table class="tm5 fnt-size14 left5 table-Bike left">
-            <tr><th class="border-bottom ">Bike Name</th></tr>
-            <tr><td class="border-bottom ">Bike Type</td></tr>
-            <tr><td class="border-bottom ">Bike Number</td></tr>
-            <tr><td class="border-bottom ">GPS Device Id</td></tr>
-            <tr><td class="border-bottom ">Current Location</td></tr>
-            <tr><td class="border-bottom ">Image</td></tr>
+		<table class="table-Bike">
+            <tr><th >Bike Name</th></tr>
+            <tr><td >Bike Type</td></tr>
+            <tr><td >Bike Number</td></tr>
+            <tr><td >GPS Device Id</td></tr>
+            <tr><td >Current Location</td></tr>
+             <tr><td class="switch">
+                	<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-1"></label>
+            </td></tr> 
             <tr><td class=""><input type="button" class="primary" value="Edit"/></td></tr>        
         </table>	
         
@@ -280,7 +347,10 @@
                     <td class="label"><label>Per Hour rate </label></td>
                     <td><input type="text" name="perkmrate" alt="perkmrate" placeholder="Per KM Rate" required/></td>
                     <td class="label"><label>Per Day rate </label></td>
-                    <td><input type="text" name="perkmrate" alt="perkmrate" placeholder="Per KM Rate" required/></td>
+                    <td class="switch">
+                	<input id="cmn-toggle-11" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                    <label for="cmn-toggle-11"></label>
+		            </td>
                 </tr>
                 <tr>
                 	<td></td>
