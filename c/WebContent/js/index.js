@@ -53,14 +53,13 @@ function submitBikeOnRent(formId) {
 	}
 }
 function submitTaxiPtop(formId){
-	if($('#'+formId).validateForm()){
-		alert("data is valid")
+	if($('#'+formId).isValid()){
+		//alert("data is valid")
 		var data = cab.getFormJson(formId);
 		var JsonData={"formData":data,"__eventid":eventId.taxi_ptop,"dataType":"json","url":""};
 		var response=cab.AJAXCall(JsonData);
 	}else{
-		alert("Please enter valid data.");
-		return;
+		//alert("Please enter valid data.");
 	}
 	
 }

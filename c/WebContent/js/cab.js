@@ -45,7 +45,7 @@ cab.autocomplete=function(feildId,data,hiddenFeildId){
 	    	  event.preventDefault();
 	    	  $(this).val(ui.item.label);
 	      },
-	      focus: function(event, ui) {
+	      focus: function(event, ui) {	
 	          event.preventDefault();
 	          $(this).val(ui.item.label);
 	      },

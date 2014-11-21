@@ -99,7 +99,7 @@
 				<form>
 					<input type="button" onclick='sendAJAXRequest("POST","name=nimesh&__eventid=2","bingo");' />
 				</form>
-				<form action="#" method="post" id="taxi-ptop" onSubmit="">
+				<form  id="taxi-ptop" >
 					<div class="select_city">
 						<label>Select City :</label> <select name="city" id="taxiptopcity">
 							<option value="1224">Ahmedabad</option>
@@ -139,7 +139,7 @@
 						</tr>
 					</table>
 					<div class="btn-15p">
-						<input type="submit" class="command-button info"
+						<input type="button" class="command-button info"
 							value="Find My Taxi" onclick="submitTaxiPtop('taxi-ptop')" />
 					</div>
 				</form>
@@ -908,14 +908,14 @@
 	<div class="footer"></div>
 	<script type="text/javascript" src="js/javaScript.js"></script>
 	<script type="text/javascript">
-		$.validate({
+		/* $.validate({
 			modules : 'location, date, security, file',
 			onModulesLoaded : function() {
 				$('#country').suggestCountry();
 			}
 		});
 		// Restrict presentation length
-		$('#presentation').restrictLength($('#pres-max-length'));
+		$('#presentation').restrictLength($('#pres-max-length')); */
 	</script>
 </body>
 </html>
