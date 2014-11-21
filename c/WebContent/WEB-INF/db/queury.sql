@@ -15,3 +15,7 @@ insert into cbevents values(201,1,201);
 insert into cbhelpers value(202,'com.cab.taxi.helper.TaxiPtopHelper',3);
 insert into cbevents values(202,1,202);
 
+--nitin for p to p
+insert into cbhelpers values(102,'com.cab.helper',3);
+insert into cbevents values(102,1,102);	
+
