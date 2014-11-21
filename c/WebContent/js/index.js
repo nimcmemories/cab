@@ -120,22 +120,41 @@ function getCityList(){
 function getCityListResponce(cityData){
 	alert(JSON.stringify(cityData));
 }
-function getPickupAreaList(cityId,areaName){
-	//console.log(areaName);
-	if(areaName.length>3){
+//for pickup area
+function getPtopPickupAreaList(cityId,areaName){
+	if(areaName.length>=3){
 		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
 		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
-		cab.AJAXCall(JsonData,getAreaListResponse);
+		cab.AJAXCall(JsonData,getPtopPickupAreaListResponse);
 	}
 }
-function getAreaListResponse(data){
+function getPtopPickupAreaListResponse(data){
+	var keyValue=[];
+	for(var i=0;i<data.areaList.length;i++){
+		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);	
+	}
+	if($('#taxiptopdroparea').val()!=undefined && $('#taxiptopdroparea').val()!=""){
+		keyValue = $.grep(keyValue, function(e) { return e.label!=$('#taxiptopdroparea').val()});
+	}
+	cab.autocomplete("taxiptoppickuparea", keyValue,"taxiptoppickupareaid");
+}
+//for drop area
+function getPtopDropAreaList(cityId,areaName){
+	if(areaName.length>=3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData,getPtopDropAreaListResponse);
+	}
+}
+function getPtopDropAreaListResponse(data){
 	var keyValue=[];
 	for(var i=0;i<data.areaList.length;i++){
 		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
 		keyValue.push(tem);
 	}
-	console.log(keyValue);
-	cab.autocomplete("taxiptoppickuparea", keyValue,"taxiptoppickupareaid");
-	
+	if($('#taxiptoppickuparea').val()!=undefined && $('#taxiptoppickuparea').val()!=""){
+		keyValue = $.grep(keyValue, function(e) { return e.label!=$('#taxiptoppickuparea').val()});
+	}
+	cab.autocomplete("taxiptopdroparea", keyValue,"taxiptopdropareaid");
 }
-
