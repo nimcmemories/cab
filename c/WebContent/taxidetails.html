@@ -10,10 +10,19 @@
     <link rel="stylesheet" href="css/blocks.css">
     <link rel="stylesheet" href="css/toggle.css">    
     <link href="css/blocks.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery-1.4.2.minjs"></script>
+    <script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
+	<script type="text/javascript" src="jslib/jquery.timepicker.min.js"></script>
+	<script type="text/javascript" src="jslib/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/homefeatured.js"></script>
     <script type="text/javascript" src="jslib/DyGridJs.js"></script>    
-   
+    <script type="text/javascript" src="js/cab.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/jsconstant.js"></script>
+	<script type="text/javascript" src="js/eventconstant.js"></script>
+	<script type="text/javascript" src="js/callcontroller.js"></script>
+	   
 </head>
 
 <body>
@@ -1444,53 +1453,76 @@
     <div class="createPopup1_Bg"></div>
     <div class="createPopup_taxi">
     	<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
-    	<header>Add Driver</header>
-    	<form action="#" method="post" class="popup_form">
+    	<header>Add Taxi</header>
+    	<form action="#" method="post" class="popup_form" id="taxidetails">
         	<table>
             	<tr>
                 	<td class="label"><label>Taxi Name </label></td>
-                    <td><input type="text" name="taxiName" alt="taxiName" placeholder="Taxi Name" required/></td>
+                    <td><input type="text" name="taxiName" alt="taxiName" placeholder="Taxi Name"
+                    id="taxiname"  data-validation="custom"
+                        data-validation="length alphanumeric"
+                        data-validation-length="max15"
+                        data-validation-error-msg="please enter valid name"  /></td>
                     <td class="label"><label>Taxi Type </label></td>
                     <td><select>
-                    	<option>Audi</option>
-                        <option>Alto</option>
-                        <option>swift</option>
+                    	<option>Sadan</option>
+                        <option>SUV</option>
+                        <option>Hatchback</option>
                     </select></td>
                 </tr>
                 <tr>
                 	<td class="label"><label>Taxi Number </label></td>
-                    <td><input type="text" name="taxiEmail" alt="taxiEmail" placeholder="Taxi Email" required/></td>
+                    <td><input type="text" name="taxinumber" alt="taxinumber" placeholder="Taxi number" id="taxinumber"
+                    data-validation="length alphanumeric" 
+					data-validation-length="3-15" 
+					data-validation-error-msg="give valid taxi number"/></td>
                     <td class="label"><label>GPS Device Id </label></td>
-                    <td><input type="text" name="gpsId" alt="gpsId" placeholder="GPS Device Id" required/></td>
+                    <td><input type="text" name="gpsId" alt="gpsId" placeholder="GPS Device Id" id="taxigpsid"
+                    data-validation="length alphanumeric" 
+		 			data-validation-length="3-15" data-validation-error-msg="enter valid GPS id"/></td>
                 </tr>
                 <tr>
                 	<td class="label"><label>Image </label></td>
-                    <td><input type="file" name="taxi_images" alt="taxi_images" class="file" required/></td>                    
+                    <td><input type="file" name="taxi_images" alt="taxi_images" class="file" id="taxiimage"/></td>                    
                     <td class="label"><label>Seat</label></td>
-                    <td><input type="text" name="No_of_seat" alt="No_of_seat" placeholder="Number of seats" required/></td>                    
+                    <td><input type="text" name="No_of_seat" alt="No_of_seat" placeholder="Number of seats" id="taxiseats"
+                    data-validation="length" data-validation-length="1-2"
+                    data-validation-error-msg="enter valid number of seat" /></td>                    
                 </tr>
                 <tr>
                 	<td class="label"><label>Max allow psngr </label></td>
-                    <td><input type="text" name="max_capacity" alt="max_capacity" placeholder="Maximum Allow Passanger" required/></td>
+                    <td><input type="text" name="max_capacity" alt="max_capacity" placeholder="Maximum Allow Passanger" id="maxpassenegertaxi"
+                    data-validation="length" data-validation-length="1-2"
+                    data-validation-error-msg="enter valid number of seat" /></td>
                     <td class="label"><label>Per KM rate </label></td>
-                    <td><input type="text" name="perkmrate" alt="perkmrate" placeholder="Per KM Rate" required/></td>
+                    <td><input type="text" name="perkmrate" alt="perkmrate" placeholder="Per KM Rate" id="perkmratetaxi"
+                    data-validation="length" data-validation-length="1-3"
+                    data-validation-error-msg="enter valid number of charges/km" /></td>
                 </tr>
                 <tr>
                     <td class="label"><label>Per Day rate </label></td>
-                    <td><input type="text" name="perdayrate" alt="perdayrate" placeholder="Per Day Rate" required/></td>
+                    <td><input type="text" name="perdayrate" alt="perdayrate" placeholder="Per Day Rate" id="perdayratetaxi"
+                    data-validation="length" data-validation-length="1-5"
+                    data-validation-error-msg="enter valid rate/day" /></td>
                 	<td class="label"><label>waiting Chrg/min</label></td>
-                    <td><input type="text" name="waitingchrg_min" alt="waitingchrg_min" placeholder="Waiting Charge Per Minitus" required/></td>
+                    <td><input type="text" name="waitingchrg_min" alt="waitingchrg_min" placeholder="Waiting Charge Per Minitus" id="waitingchrgtaxi" 
+                    data-validation="length" data-validation-length="1-3"
+                    data-validation-error-msg="enter valid waiting charge/min" /></td>
                 </tr>
                 <tr>
                     <td class="label"><label>Driver Cost</label></td>
-                    <td><input type="text" name="drivercost" alt="drivercost" placeholder="Driver Cost" required/></td>
+                    <td><input type="text" name="drivercost" alt="drivercost" placeholder="Driver Cost" id="drivercosttaxi"
+                    data-validation="length" data-validation-length="2-5"
+                    data-validation-error-msg="enter valid driver cost" /></td>
                     <td class="label"><label>Description/note</label></td>
-                    <td><textarea name="description" alt="description" placeholder="Description" required></textarea></td>
+                    <td><textarea name="description" alt="description" placeholder="Description" ></textarea></td>
                 </tr>
 				<tr>                
                 	<td class="label"><label>For P to P</label></td>
                     <td class="switch">
-                        <input id="cmn-toggle-01" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <input id="cmn-toggle-01" class="cmn-toggle cmn-toggle-round" type="checkbox"
+                        data-validation="checkbox_group" data-validation-qty="min1"
+                        data-validation-error-msg="check p to p">
                         <label for="cmn-toggle-01"></label>
             		</td>
                     <td class="label"><label>For Package</label></td>
@@ -1554,14 +1586,23 @@
             		</td>
                     <td></td>
                     <td class="on-right">
-                        <input type="submit" class="primary" alt="Submit" value="Submit"/>
+                        <input type="submit" class="primary" alt="Submit" value="Submit" onclick=""/>
                         <input type="reset" class="danger close_button" alt="Cancel" value="Cancel"/>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
-    
-    
+    <script type="text/javascript" src="js/javaScript.js"></script>
+	<script type="text/javascript">
+		$.validate({
+			modules : 'location, date, security, file',
+			onModulesLoaded : function() {
+				$('#country').suggestCountry();
+			}
+		});
+		// Restrict presentation length
+		$('#presentation').restrictLength($('#pres-max-length'));
+	</script>
 </body>
 </html>
