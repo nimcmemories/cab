@@ -256,8 +256,7 @@
 		</div>
     </div>
     
-   
-	<!-- Add Row  PopUP   -->
+   <!-- Add Row  PopUP   -->
 	<div class="createPopup1_Bg"></div>
 	<div class="createPopup">
 		<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
@@ -339,7 +338,7 @@
 	<div class="editPopup">
 		<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
 		<header>Edit Table Row Form</header>
-		<form action="#" method="post" class="popup_form" id="editdriver">
+		<form action="#" method="post" class="popup_form" name="editdriver" id="edit-driver">
 			<table>
 				<tr>
 					<td><input type="text" name="firstname" alt="firstname"
@@ -398,13 +397,13 @@
 						data-validation-error-msg="enter valid lightbill number" /></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="file" class="file" required /></td>
+					<td colspan="2"><input type="file" class="file"  /></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td class="on-right"><input type="submit" class="primary"
-						alt="Submit" value="Submit" onclick="editDriver()" /> <input
-						type="reset" class="danger close_button" alt="Cancel"
+						alt="Submit" value="Submit" onclick="editDriver('edit-driver')" /> 
+						<input type="reset" class="danger close_button" alt="Cancel"
 						value="Cancel" /></td>
 				</tr>
 			</table>
@@ -424,6 +423,5 @@
 	<script>
 	  $.validate();
 	  $('#my-textarea').restrictLength( $('#max-length-element') );
-</script>    
-</body>
+</script></body>
 </html>

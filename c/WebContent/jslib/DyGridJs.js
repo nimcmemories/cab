@@ -106,6 +106,15 @@ function addDriver(formId){
 function addDriverResponse(resData){
 	alert("nitin res-->"+JSON.stringify(resData));
 }
+function editDriver(formId) {
+	var data = JSON.stringify({"formData":cab.getFormJson(formId)});
+	//alert("yes in editdata ---->>" + data);
+	var JsonData = {"formData":data,"__eventid":eventId.edit_driver,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData,editDriverRes);
+}
+function editDriverRes(resData){
+	alert("edit res---->>"+JSON.stringify(resData));
+}
 
 
 
