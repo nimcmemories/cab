@@ -50,8 +50,10 @@ cab.autocomplete=function(feildId,data,hiddenFeildId){
 	          $(this).val(ui.item.label);
 	      },
 	      change: function(event,ui){
-	    	  $(this).val((ui.item ? ui.item.id : ""));
-	    	  $(this).focus();
+	    	  if(ui.item==undefined){
+	    		  $(this).val("");
+		    	  $(this).focus();
+	    	  }
 	    }
 	});
 	
