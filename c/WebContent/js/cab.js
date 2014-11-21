@@ -34,3 +34,25 @@ cab.reloadValidation=function(){
 		}
 	 });
 };
+cab.autocomplete=function(feildId,data,hiddenFeildId){
+	//data=[{label:"nitin",value:"nitin"}]
+	$("#"+feildId).autocomplete({
+	      source: data,
+	      select: function( event, ui ) {
+	    	  if($('#'+hiddenFeildId).val()!=undefined){
+	    		  $('#'+hiddenFeildId).val(ui.item.value)
+	    	  }
+	    	  event.preventDefault();
+	    	  $(this).val(ui.item.label);
+	      },
+	      focus: function(event, ui) {
+	          event.preventDefault();
+	          $(this).val(ui.item.label);
+	      },
+	      change: function(event,ui){
+	    	  $(this).val((ui.item ? ui.item.id : ""));
+	    	  $(this).focus();
+	    }
+	});
+	
+};

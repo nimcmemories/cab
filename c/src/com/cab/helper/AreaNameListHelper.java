@@ -43,6 +43,8 @@ public class AreaNameListHelper extends BaseHelper{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			session.close();
 		}
 		
 	}

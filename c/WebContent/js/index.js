@@ -130,16 +130,13 @@ function getPickupAreaList(cityId,areaName){
 	}
 }
 function getAreaListResponse(data){
-	var areaNameList=[];
-	var areaIdList=[];
+	var keyValue=[];
 	for(var i=0;i<data.areaList.length;i++){
-		areaNameList.push(data.areaList[i].areaName);
-		areaIdList.push(data.areaList[i].id);
+		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);
 	}
-	console.log(areaNameList);
-	$( "#taxiptoppickuparea").autocomplete({
-	      source: areaNameList,
-	      delay: 500
-	});
+	console.log(keyValue);
+	cab.autocomplete("taxiptoppickuparea", keyValue,"taxiptoppickupareaid");
+	
 }
 

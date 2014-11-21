@@ -111,8 +111,10 @@
 							<td><input type="text" placeholder="Pickup Area"
 								id="taxiptoppickuparea" name="pickuparea" class="pickup"
 								data-validation="custom"
-								data-validation-regexp="^([a-zA-Z\s,]+)$"
-								data-validation-error-msg="please enter valid pickup area"  onkeyup="getPickupAreaList($('#taxiptopcity').val(),this.value)"/></td>
+								data-validation-regexp="^([a-zA-Z\s,0-9]+)$"
+								data-validation-error-msg="please enter valid pickup area"  onkeyup="getPickupAreaList($('#taxiptopcity').val(),this.value)"/>
+								<input type="hidden" id="taxiptoppickupareaid" name="taxiptoppickupareaid"/>
+								</td>
 							<td><label>Drop Area :</label></td>
 							<td><input type="text" placeholder="Drop Area"
 								id="taxiptopdroparea" name="droparea" class="drop"
