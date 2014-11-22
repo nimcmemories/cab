@@ -158,3 +158,32 @@ function getPtopDropAreaListResponse(data){
 	}
 	cab.autocomplete("taxiptopdroparea", keyValue,"taxiptopdropareaid");
 }
+
+function addTaxiDetails(formId) {
+	var data = JSON.stringify({"formData":cab.getFormJson(formId)});
+	//alert("yes in editdata ---->>" + data);
+	var JsonData = {"formData":data,"__eventid":eventId.add_taxi_details,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData,addTaxiResponse);
+}
+function addTaxiResponse(resData){
+	alert("add taxi res---->>"+JSON.stringify(resData));
+}
+function addBusDetails(formId) {
+	var data = JSON.stringify({"formData":cab.getFormJson(formId)});
+	//alert("yes in editdata ---->>" + data);
+	var JsonData = {"formData":data,"__eventid":eventId.add_bus_details,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData,addBusResponse);
+}
+function addBusResponse(resData){
+	alert("edit res---->>"+JSON.stringify(resData));
+}
+function addBikeDetails(formId) {
+	var data = JSON.stringify({"formData":cab.getFormJson(formId)});
+	//alert("yes in editdata ---->>" + data);
+	var JsonData = {"formData":data,"__eventid":eventId.add_bike_details,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData,addBikeResponse);
+}
+function addBikeResponse(resData){
+	alert("edit res---->>"+JSON.stringify(resData));
+}
+

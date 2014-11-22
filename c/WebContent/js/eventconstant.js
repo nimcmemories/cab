@@ -22,3 +22,6 @@ eventId.bike_on_rent_per_day=303;
 eventId.get_city_list=100;
 eventId.add_driver=200;
 eventId.edit_driver=201;
+eventId.add_taxi_details=203;
+eventId.add_bus_details=204;
+eventId.add_bike_details=205;
