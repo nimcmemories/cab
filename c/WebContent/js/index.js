@@ -109,7 +109,7 @@ function truckShipping(formId) {
 $( document ).ready(function() {
    // console.log( "ready!" );
 	
-	//getCityList();
+	getCityList();
 });
 
 function getCityList(){
@@ -118,7 +118,7 @@ function getCityList(){
 	cab.AJAXCall(JsonData,getCityListResponce);
 }
 function getCityListResponce(cityData){
-	alert(JSON.stringify(cityData));
+	cab.generateselect("taxiptopcity",cityData.cityArray);
 }
 //for pickup area
 function getPtopPickupAreaList(cityId,areaName){

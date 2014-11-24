@@ -22,7 +22,7 @@ public class CityNameListHelper extends BaseHelper{
 	try {
 			System.out.println("----------------------1");
 			
-			List<CityMaster> cityList = session.createQuery("from CityMaster").list();
+			List<CityMaster> cityList = session.createQuery("from CityMaster order by cityName").list();
 			JSONObject cityObject = new JSONObject();
 			JSONArray cityArray = new JSONArray();
 			JSONObject tmpJson=null;
@@ -33,7 +33,8 @@ public class CityNameListHelper extends BaseHelper{
 				city = cityList.get(i);
 				tmpJson = new JSONObject();
 				//tmpJson.put(city.getCityMasterId(),city.getCityName());
-				tmpJson.put(city.getCityMasterId()+"", city.getCityName());
+				tmpJson.put("id",city.getCityMasterId());
+				tmpJson.put("name",city.getCityName());
 				cityArray.put(tmpJson);
 			}
 			System.out.println("----------array sizw----->"+cityArray.length());

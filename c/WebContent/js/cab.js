@@ -59,3 +59,9 @@ cab.autocomplete=function(feildId,data,hiddenFeildId){
 	});
 	
 };
+cab.generateselect=function(fieldId,data){
+	//data=[{id:"nitin",name:"nitin"}]
+	 $.each(data, function(key, value) {
+         $("#"+fieldId).append($('<option></option>').val(value.id).html(value.name));
+     });
+};
