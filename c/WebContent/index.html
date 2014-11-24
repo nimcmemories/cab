@@ -153,8 +153,8 @@
 			<div class="taxi-airport">
 				<form action="#" method="post" id="taxi-airport">
 					<div class="select_city">
-						<label>Select city :</label> <select name="city" id="airportcity">
-							<option>w</option>
+						<label>Select city :</label> <select name="city" id="taxiairportcity">
+							<option value="1224">Ahmedabad</option>
 							<option>w</option>
 							<option>w</option>
 						</select>
@@ -182,10 +182,12 @@
 								</select></td>
 								<td><label>Pickup Area :</label></td>
 								<td><input type="text" placeholder="Pickup Area"
-									id="airportpickuparea" name="pickuparea"
+									id="taxigoingairportpickuparea" name="pickuparea"
 									data-validation="custom"
 									data-validation-regexp="^([a-zA-Z\s]+)$"
-									data-validation-error-msg="please enter valid pickup area" /></td>
+									data-validation-error-msg="please enter valid pickup area"
+									onkeyup="getGoingAirportPickupAreaList($('#taxiairportcity').val(),this.value)"/>
+									<input type="hidden" id="taxigoingairportpickupareaid" name="taxigoingairportpickupareaid"/></td>
 							</tr>
 							<tr>
 								<td><label>Pickup Date :</label></td>

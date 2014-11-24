@@ -268,12 +268,12 @@
 					<td><input type="text" name="firstname" alt="firstname"
 						placeholder="First Name" id="adddriverfname"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid first name" /></td>
 					<td><input type="text" name="lastname" alt="lastname"
 						placeholder="Last Name" id="adddriverlname"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid last name" /></td>
 				</tr>
 				<tr>
@@ -282,43 +282,42 @@
 						data-validation="email"
 						data-validation-error-msg="please enter valid email-id" /></td>
 					<td><input type="text" name="Mobile" alt="Mobile"
-						placeholder="Mobile" id="adddrivernumber" data-validation="number"
-						data-validation-length="10-12"
+						placeholder="Mobile" id="adddrivernumber" 
+						data-validation="length" data-validation-length="max12"
 						data-validation-error-msg="enter valid mobile number" /></td>
 				</tr>
 				<tr>
 					<td>
 					<span id="max-length-element">100</span> chars left
-					<textarea name="Address" 
-						placeholder="address" id="adddriveraddress"></textarea></td>
+    				<textarea id="the-textarea" name="text"></textarea></td>
 					<td><input type="text" name="RegisterNo" alt="RegisterNo"
 						placeholder="Register No." id="adddriverregno"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid registered number" /></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="Drivinglino" alt="Drivinglino"
 						placeholder="Driving Licence Number" id="adddriverlicno"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid licence number" /></td>
 					<td><input type="text" name="Electioncardno."
 						alt="Electioncardno" placeholder="Election Card Number"
 						id="adddrivereleno" data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid electioncard number" /></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="pancardnumber"
 						alt="pancardnumber" placeholder="Pan Card Number"
 						id="adddriverpanno" data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid pancard number" /></td>
 					<td><input type="text" name="Lightbill" alt="lightbill"
 						placeholder="Light Bill Number" id="adddriverlightbillno"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid lightbill number" /></td>
 				</tr>
 				<tr>
@@ -344,12 +343,12 @@
 					<td><input type="text" name="firstname" alt="firstname"
 						placeholder="First Name" id="editdriverfname"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid first name" /></td>
 					<td><input type="text" name="lastname" alt="lastname"
 						placeholder="Last Name" id="editdriverlname"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid last name" /></td>
 				</tr>
 				<tr>
@@ -358,8 +357,8 @@
 						data-validation="email"
 						data-validation-error-msg="enter valid email-id"/></td>
                     <td><input type="text" name="Mobile" alt="Mobile"
-						placeholder="Mobile" id="adddrivernumber" data-validation="number"
-						data-validation-length="max10"
+						placeholder="Mobile" id="adddrivernumber"
+						data-validation="length" data-validation-length="max12"
 						data-validation-error-msg="enter valid mobile number"/></td>
 				</tr>
 				<tr>
@@ -369,31 +368,31 @@
 					<td><input type="text" name="RegisterNo" alt="RegisterNo"
 						placeholder="Register No." id="editdriverfname"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid registered number" /></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="Drivinglino" alt="Drivinglino"
 						placeholder="Driving Licence Number" id="editdriverlicno"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid licence number" /></td>
 					<td><input type="text" name="Electioncardno."
 						alt="Electioncardno" placeholder="Election Card Number"
 						id="editdrivereleno" data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid electioncard number" /></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="pancardnumber"
 						alt="pancardnumber" placeholder="Pan Card Number"
 						id="editdriverpanno" data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid pancard number" /></td>
 					<td><input type="text" name="Lightbill" alt="lightbill"
 						placeholder="Light Bill Number" id="editdrivereleno"
 						data-validation="length alphanumeric"
-						data-validation-length="3-12"
+						data-validation-length="3-15"
 						data-validation-error-msg="enter valid lightbill number" /></td>
 				</tr>
 				<tr>
@@ -417,11 +416,10 @@
 				$('#country').suggestCountry();
 			}
 		});
-		// Restrict presentation length
-		$('#presentation').restrictLength($('#pres-max-length'));
 	</script>
 	<script>
-	  $.validate();
-	  $('#my-textarea').restrictLength( $('#max-length-element') );
-</script></body>
+		  $.validate();
+		  $('#my-textarea').restrictLength( $('#max-length-element') );
+</script>
+</body>
 </html>

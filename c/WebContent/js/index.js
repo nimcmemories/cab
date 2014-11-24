@@ -139,7 +139,25 @@ function getPtopPickupAreaListResponse(data){
 	}
 	cab.autocomplete("taxiptoppickuparea", keyValue,"taxiptoppickupareaid");
 }
+function getGoingAirportPickupAreaList(cityId,areaName) {
+	if(areaName.length>=3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		console.log(cityId+"---"+areaName);
+		cab.AJAXCall(JsonData, getGoingAirportPickupAreaListResponse);
+	}
+}
+function getGoingAirportPickupAreaListResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.areaList.length;i++){
+		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);
+	}
+	console.log(keyValue);
+	cab.autocomplete("taxigoingairportpickuparea", keyValue, "taxigoingairportpickupareaid");
+}
 //for drop area
+
 function getPtopDropAreaList(cityId,areaName){
 	if(areaName.length>=3){
 		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
