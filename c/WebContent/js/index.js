@@ -225,7 +225,8 @@ function getAirportDropAreaListResponse(data) {
 		var tem = {"label":data.areaList[i].areaName,"value":data.areaList[i].id};
 		keyValue.push(tem);
 	}
-	cab.autocomplete("airportdroparea", keyValue, "taxidropareaairportid");
+	console.log(keyValue);
+	cab.autocomplete("taxigoingairportpickuparea", keyValue, "taxigoingairportpickupareaid");
 }
 function addTaxiDetails(formId) {
 	var data = JSON.stringify({"formData":cab.getFormJson(formId)});
