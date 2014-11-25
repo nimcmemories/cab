@@ -36,7 +36,7 @@ cab.reloadValidation=function(){
 };
 cab.autocomplete=function(feildId,data,hiddenFeildId){
 	//data=[{label:"nitin",value:"nitin"}]
-	console.log("1");
+	//console.log("1");
 	$("#"+feildId).autocomplete({
 	      source: data,
 	      select: function( event, ui ) {

@@ -107,7 +107,7 @@ function truckShipping(formId) {
 
 //set city drop down
 $( document ).ready(function() {
-   // console.log( "ready!" );
+   //console.log( "ready!" );
 	
 	getCityList();
 });
@@ -115,12 +115,13 @@ $( document ).ready(function() {
 function getCityList(){
 	var data = JSON.stringify({"__eventid":eventId.get_city_list});
 	var JsonData={"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
-	cab.AJAXCall(JsonData,getCityListResponce);
+	cab.AJAXCall(JsonData,getCityListResponse);
 }
-function getCityListResponce(cityData){
+function getCityListResponse(cityData){
 	cab.generateselect("taxiptopcity",cityData.cityArray);
 }
 //for pickup area
+//ptop pickup
 function getPtopPickupAreaList(cityId,areaName){
 	if(areaName.length>=3){
 		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
@@ -139,11 +140,12 @@ function getPtopPickupAreaListResponse(data){
 	}
 	cab.autocomplete("taxiptoppickuparea", keyValue,"taxiptoppickupareaid");
 }
+//pickup airtport
 function getGoingAirportPickupAreaList(cityId,areaName) {
 	if(areaName.length>=3){
 		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
 		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
-		console.log(cityId+"---"+areaName);
+		//console.log(cityId+"---"+areaName);
 		cab.AJAXCall(JsonData, getGoingAirportPickupAreaListResponse);
 	}
 }
@@ -156,8 +158,41 @@ function getGoingAirportPickupAreaListResponse(data) {
 	console.log(keyValue);
 	cab.autocomplete("taxigoingairportpickuparea", keyValue, "taxigoingairportpickupareaid");
 }
-//for drop area
 
+// for package taxi
+function getPackagePickupAreaList(cityId,areaName) {
+	if(areaName.length>=3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var jsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(jsonData, getPackagePickupAreaResponse);
+	}
+}
+function getPackagePickupAreaResponse(data) {
+	var keyValue=[];
+	for(i=0;i<data.areaList.length;i++){
+		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);
+	}
+	cab.autocomplete("taxipackagepickuparea", keyValue, "taxipacakgepickupareaid");
+}
+//taxi per hour area
+function getTaxiPerHourAreaList(cityId,areaName) {
+	if(areaName.length>=3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var jsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(jsonData, taxiPerHourResponse);
+	}
+}
+function taxiPerHourResponse(data) {
+	var keyValue=[];
+	for(i=0;i<data.areaList.length;i++){
+		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);
+	}
+	cab.autocomplete("taxiperhourpickupareaid", keyValue, "taxiperhourpickuparea");
+}
+//for drop area
+//for ptop drop area
 function getPtopDropAreaList(cityId,areaName){
 	if(areaName.length>=3){
 		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
@@ -174,9 +209,24 @@ function getPtopDropAreaListResponse(data){
 	if($('#taxiptoppickuparea').val()!=undefined && $('#taxiptoppickuparea').val()!=""){
 		keyValue = $.grep(keyValue, function(e) { return e.label!=$('#taxiptoppickuparea').val()});
 	}
-	cab.autocomplete("taxiptopdroparea", keyValue,"taxiptopdropareaid");
+	cab.autocomplete("taxiptopdroparea", keyValue,"taxiptopdroparea");
 }
-
+//for airport drop area
+function getDropAreaListAirport(cityId,areaName) {
+	if(areaName.length>=3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData, getAirportDropAreaListResponse);
+	}	
+}
+function getAirportDropAreaListResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.areaList.length;i++){
+		var tem = {"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);
+	}
+	cab.autocomplete("airportdroparea", keyValue, "taxidropareaairportid");
+}
 function addTaxiDetails(formId) {
 	var data = JSON.stringify({"formData":cab.getFormJson(formId)});
 	//alert("yes in editdata ---->>" + data);
