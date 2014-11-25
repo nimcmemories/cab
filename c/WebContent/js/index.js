@@ -156,7 +156,7 @@ function getGoingAirportPickupAreaListResponse(data) {
 		keyValue.push(tem);
 	}
 	console.log(keyValue);
-	cab.autocomplete("taxigoingairportpickuparea", keyValue, "taxigoingairportpickupareaid");
+	cab.autocomplete("airportdroparea", keyValue, "taxidropareaairportid");
 }
 
 // for package taxi
