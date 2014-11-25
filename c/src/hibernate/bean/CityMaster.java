@@ -29,6 +29,7 @@ public class CityMaster  extends BaseBean {
      private Set busTransactionsForDestinationCityId = new HashSet(0);
      private Set placeMasters = new HashSet(0);
      private Set areaMasters = new HashSet(0);
+     private Set airportDetailses = new HashSet(0);
 
     public CityMaster() {
     }
@@ -186,7 +187,13 @@ public class CityMaster  extends BaseBean {
     public void setAreaMasters(Set areaMasters) {
         this.areaMasters = areaMasters;
     }
-
+    public Set getAirportDetailses() {
+        return this.airportDetailses;
+    }
+    
+    public void setAirportDetailses(Set airportDetailses) {
+        this.airportDetailses = airportDetailses;
+    }
 
 	@Override
 	public boolean validateBean(StringBuffer messageOfValidation) {

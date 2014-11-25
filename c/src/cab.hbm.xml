@@ -453,6 +453,12 @@
             </key>
             <one-to-many class="hibernate.bean.AreaMaster" />
         </set>
+        <set name="airportDetailses" table="airport_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="city_master_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.bean.AirportDetails" />
+        </set>
     </class>
     
     <class name="hibernate.bean.CommitAirportTransaction" table="commit_airport_transaction" catalog="taxi">
@@ -1745,5 +1751,20 @@
         <many-to-one name="perKmRate" class="hibernate.bean.PerKmRate" fetch="select">
             <column name="per_km_rate_id" not-null="true" />
         </many-to-one>
+    </class>
+     <class name="hibernate.bean.AirportDetails" table="airport_details" catalog="taxi">
+        <id name="airportId" type="java.lang.Integer">
+            <column name="airport_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cityMaster" class="hibernate.bean.CityMaster" fetch="select">
+            <column name="city_master_id" not-null="true" />
+        </many-to-one>
+        <property name="airportName" type="string">
+            <column name="airport_name" length="100" not-null="true" />
+        </property>
+        <property name="isEnable" type="int">
+            <column name="is_enable" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

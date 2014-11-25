@@ -31,5 +31,17 @@ insert into cbhelpers value(205,'com.cab.taxi.helper.AddBikeDetailsHelper',3);
 insert into cbevents values(205,1,205);
 
 --nitin for p to p
+--new table for airport details
 
-
+DROP TABLE IF EXISTS `airport_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `airport_details` (
+  `airport_id` int(11) NOT NULL AUTO_INCREMENT,
+  `airport_name` varchar(100) NOT NULL,
+  `city_master_id` int(11) NOT NULL,
+  `is_enable` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`airport_id`),
+  KEY `FK` (`city_master_id`),
+  CONSTRAINT `fk_airport_details_1` FOREIGN KEY (`city_master_id`) REFERENCES `city_master` (`city_master_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
