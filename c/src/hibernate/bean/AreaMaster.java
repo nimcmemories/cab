@@ -26,6 +26,7 @@ public class AreaMaster  extends BaseBean {
      private Set ptopTransactionsForPickupAreaMasterId = new HashSet(0);
      private Set caronrentTransactions = new HashSet(0);
      private Set busTransactionsForPickupAreaMasterId = new HashSet(0);
+     private Set packageTransactions = new HashSet(0);
 
     public AreaMaster() {
     }
@@ -166,7 +167,13 @@ public class AreaMaster  extends BaseBean {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	 public Set getPackageTransactions() {
+	        return this.packageTransactions;
+	    }
+	    
+	    public void setPackageTransactions(Set packageTransactions) {
+	        this.packageTransactions = packageTransactions;
+	    }
 
 
 

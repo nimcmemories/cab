@@ -30,6 +30,7 @@ public class TaxiDetails  extends BaseBean {
      private Set deviceDetailses = new HashSet(0);
      private Set caronrentTransactions = new HashSet(0);
      private Set perKmRates = new HashSet(0);
+     private Set packageTransactions = new HashSet(0);
 
     public TaxiDetails() {
     }
@@ -196,7 +197,13 @@ public class TaxiDetails  extends BaseBean {
     public void setPerKmRates(Set perKmRates) {
         this.perKmRates = perKmRates;
     }
-
+    public Set getPackageTransactions() {
+        return this.packageTransactions;
+    }
+    
+    public void setPackageTransactions(Set packageTransactions) {
+        this.packageTransactions = packageTransactions;
+    }
 
 	@Override
 	public boolean validateBean(StringBuffer messageOfValidation) {

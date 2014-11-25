@@ -27,6 +27,7 @@ public class CustomerRegistration  extends BaseBean {
      private Set customerLoginDetailses = new HashSet(0);
      private Set bikeTransactions = new HashSet(0);
      private Set shippingTransactions = new HashSet(0);
+     private Set packageTransactions = new HashSet(0);
 
     public CustomerRegistration() {
     }
@@ -170,7 +171,13 @@ public class CustomerRegistration  extends BaseBean {
         this.shippingTransactions = shippingTransactions;
     }
 
-
+    public Set getPackageTransactions() {
+        return this.packageTransactions;
+    }
+    
+    public void setPackageTransactions(Set packageTransactions) {
+        this.packageTransactions = packageTransactions;
+    }
 	@Override
 	public boolean validateBean(StringBuffer messageOfValidation) {
 		// TODO Auto-generated method stub

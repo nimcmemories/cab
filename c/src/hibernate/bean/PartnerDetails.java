@@ -37,6 +37,7 @@ public class PartnerDetails  extends BaseBean {
      private Set shippingVehicleDetailses = new HashSet(0);
      private Set perKgRates = new HashSet(0);
      private Set moversTransactions = new HashSet(0);
+     private Set packageTransactions = new HashSet(0);
 
     public PartnerDetails() {
     }
@@ -262,8 +263,12 @@ public class PartnerDetails  extends BaseBean {
     public void setMoversTransactions(Set moversTransactions) {
         this.moversTransactions = moversTransactions;
     }
-
-
+    public Set getPackageTransactions() {
+        return this.packageTransactions;
+    }
+    public void setPackageTransactions(Set packageTransactions) {
+        this.packageTransactions = packageTransactions;
+    }
 	@Override
 	public boolean validateBean(StringBuffer messageOfValidation) {
 		// TODO Auto-generated method stub
