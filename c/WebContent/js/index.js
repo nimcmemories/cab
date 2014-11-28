@@ -110,6 +110,7 @@ $( document ).ready(function() {
    //console.log( "ready!" );
 	
 	getCityList();
+	
 });
 
 function getCityList(){

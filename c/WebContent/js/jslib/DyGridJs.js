@@ -39,10 +39,7 @@ $(document).ready(function(){
 		$('.createPopup_bus').show();
 	});
 	/*  Bus Details Form  */
-    $('.add_bike').click(function(){
-		$('.createPopup1_Bg').show();
-		$('.createPopup_bike').show();
-	});
+   
 	
 	/* Table Button Click Events */
 	
