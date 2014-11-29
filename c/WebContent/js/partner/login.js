@@ -12,7 +12,10 @@ function checkLogin(formId){
 	}
 }
 function checkLoginResponse(data){
-	alert(JSON.stringify(data)+"====");
-	$(location).attr('href', cab.contextPath+"/partner/partnerhome.html");
-	
+	//alert(JSON.stringify(data)+"====");
+	if(data.res.status==200){
+		$(location).attr('href', cab.contextPath+"/partner/partnerhome.html");
+	}else{
+		$(location).attr('href', cab.contextPath+"/partner/login.html");
+	}
 }

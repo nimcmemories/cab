@@ -1,9 +1,13 @@
 package com.cab.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class EventBean extends SystemBean{
 	private int eventID;
 	private int eventType,helperID;
 	private HelperBean helperBean ;
+	 private Set cbresponseDetailses = new HashSet(0);
 	public int getEventType() {
 		return eventType;
 	}
@@ -28,5 +32,11 @@ public class EventBean extends SystemBean{
 	public void setEventID(int eventID) {
 		this.eventID = eventID;
 	}
-	
+	 public Set getCbresponseDetailses() {
+	        return this.cbresponseDetailses;
+	    }
+	    
+	    public void setCbresponseDetailses(Set cbresponseDetailses) {
+	        this.cbresponseDetailses = cbresponseDetailses;
+	    }
 }

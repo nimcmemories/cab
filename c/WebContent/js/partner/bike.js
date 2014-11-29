@@ -3,7 +3,6 @@
  */
 $( document ).ready(function() {
    console.log( "ready!" );
-   alert("----test");
 	//ajax
 });
 $('#addbike').click(function(){
