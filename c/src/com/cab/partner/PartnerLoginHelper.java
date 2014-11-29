@@ -25,6 +25,7 @@ public class PartnerLoginHelper extends BaseHelper{
 		Session session = new HibernateConfiguartion().getSession(true);
 		JSONObject resJson = new JSONObject();
 		try {
+			
 			JSONArray dataArray = jsonObject.getJSONObject("formData").getJSONArray("formData");
 			Map<String,String> formData = CabUtil.getRequestParamMap(dataArray);
 			String username = formData.get("username");

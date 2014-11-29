@@ -1,14 +1,12 @@
 package com.cab.helper;
 
-import java.util.List;
-
 import hibernate.HibernateConfiguartion;
 import hibernate.bean.CityMaster;
 
-import org.hibernate.HibernateException;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class CityNameListHelper extends BaseHelper{
@@ -21,31 +19,21 @@ public class CityNameListHelper extends BaseHelper{
 		System.out.println("TestHelper : readRecord method called.." );
 	Session session = new HibernateConfiguartion().getSession(true);	
 	try {
-			System.out.println("----------------------1");
-			
-			List<CityMaster> cityList = session.createQuery("from CityMaster order by cityName").list();
-			JSONObject cityObject = new JSONObject();
+			String cityName = jsonObject.getJSONObject("formData").getJSONObject("formData").getString("cityName");
+			List<CityMaster> cityList = session.createQuery("from CityMaster where cityName like '%"+cityName+"%' order by cityName").list();
 			JSONArray cityArray = new JSONArray();
 			JSONObject tmpJson=null;
 			CityMaster city=null;
-			System.out.println("-------cityList size---->"+cityList.size());
 			for (int i = 0; i <cityList.size(); i++) {
-				//System.out.println("--------->"+i);
-				
 				city = cityList.get(i);
 				tmpJson = new JSONObject();
-				
-				//tmpJson.put(city.getCityMasterId(),city.getCityName());
-				
 				tmpJson.put("id",city.getCityMasterId());
 				tmpJson.put("name",city.getCityName());
 				cityArray.put(tmpJson);
+				System.out.println();
 			}
-			//System.out.println("----------array sizw----->"+cityArray.length());
 			jsonObject.put("cityArray", cityArray);
-			//jsonObject.p
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			session.close();

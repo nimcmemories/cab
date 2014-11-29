@@ -5,7 +5,6 @@ var cab={};
 cab.contextPath="/c";
 
 cab.AJAXCall = function(data,responseFunction){
-	
 	$.ajax({
 		type: data.method,
 		url: cab.contextPath+data.url,
@@ -36,7 +35,7 @@ cab.reloadValidation=function(){
 };
 cab.autocomplete=function(feildId,data,hiddenFeildId){
 	//data=[{label:"nitin",value:"nitin"}]
-	//console.log("1");
+	console.log("1");
 	$("#"+feildId).autocomplete({
 	      source: data,
 	      select: function( event, ui ) {
@@ -61,6 +60,7 @@ cab.autocomplete=function(feildId,data,hiddenFeildId){
 };
 cab.generateselect=function(fieldId,data){
 	//data=[{id:"nitin",name:"nitin"}]
+	$("#"+fieldId).html('');
 	 $.each(data, function(key, value) {
          $("#"+fieldId).append($('<option></option>').val(value.id).html(value.name));
      });

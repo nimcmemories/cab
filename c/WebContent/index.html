@@ -3,38 +3,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link rel="stylesheet" href="css/commonStyle.css">
-<link rel="stylesheet" href="css/styleSheet.css">
-<link rel="stylesheet" href="css/iconFont.css">
-<link rel="stylesheet" href="css/customStyle.css">
-<link rel="stylesheet" href="css/jquery.timepicker.css" />
-<link rel="stylesheet" href="css/jquery-ui.min.css" />
-<script type="text/javascript" src="jslib/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="jslib/jquery.timepicker.min.js"></script>
-<script type="text/javascript" src="jslib/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/cab.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/jsconstant.js"></script>
-<script type="text/javascript" src="js/eventconstant.js"></script>
-<script type="text/javascript" src="js/jquery.form-validator.min.js"></script>
-<script type="text/javascript" src="js/callcontroller.js"></script>
-<script type="text/javascript">
-	//var res=cab.AJAXCall('nitin');	
-</script>
+<link rel="stylesheet" href="./css/commonStyle.css">
+<link rel="stylesheet" href="./css/styleSheet.css">
+<link rel="stylesheet" href="./css/iconFont.css">
+<link rel="stylesheet" href="./css/customStyle.css">
+<link rel="stylesheet" href="./css/csslib/jquery.timepicker.css" />
+<link rel="stylesheet" href="./css/csslib/jquery-ui.min.css" />
+<script type="text/javascript" src="./js/jslib/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="./js/jslib/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="./js/jslib/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./js/cab.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/jsconstant.js"></script>
+<script type="text/javascript" src="./js/eventconstant.js"></script>
+<script type="text/javascript"
+	src="./js/jslib/jquery.form-validator.min.js"></script>
+<script type="text/javascript" src="./js/callcontroller.js"></script>
 </head>
 <body>
 	<!-- Header -->
 	<div class="on-right rm5 tm5">
-		<a href="DyGrid.html" class="rm5 white" target="_blank">Grid</a>
-        <a href="login.html" class="rm5 white" target="_blank">Login</a> 
-        <a href="register.html" class="white" target="_blank">Register</a> 
-        <a href="Taxi-customer-view.html" class="rm5 white" target="_blank">Taxi-Custom-View</a>
-		<a href="Bus-customer-view.html" class="rm5 white" target="_blank">Bus-Custom-View</a>
-		<a href="busConfirm.html" class="rm5 white" target="_blank">Bus-Confirm</a>
-		<a href="taxiConfirm.html" class="rm5 white" target="_blank">Taxi-Confirm</a>
-        <a href="taxidetails.html" class="rm5 white" target="_blank">Taxi-Details</a>
-        <a href="busdetails.html" class="rm5 white" target="_blank">Bus-Details</a>        
-        <a href="bikedetails.html" class="rm5 white" target="_blank">Bike-Details</a>        
+		<a href="./partner/partnerhome.html" class="rm5 white" target="_blank">Partner
+			Home</a> <a href="./admin/adminhome.html" class="rm5 white"
+			target="_blank">Admin Home</a>
 	</div>
 	<div class="header bg_color"></div>
 	<!-- City DropDown -->
@@ -97,11 +88,16 @@
 
 			<div class="taxi-pop">
 				<form>
-					<input type="button" onclick='sendAJAXRequest("POST","name=nimesh&__eventid=2","bingo");' />
+					<input type="button"
+						onclick='sendAJAXRequest("POST","name=nimesh&__eventid=2","bingo");' />
 				</form>
-				<form  id="taxi-ptop" >
+				<form id="taxi-ptop">
 					<div class="select_city">
 						<label>Select city :</label> <select name="city" id="taxiptopcity">
+						<option value="1224">Ahmedabad</option>
+							<option value="1286">Surat</option>
+							<option value="1296">Vadodara</option>
+						
 						</select>
 					</div>
 					<table class="table">
@@ -111,17 +107,19 @@
 								id="taxiptoppickuparea" name="pickuparea" class="pickup"
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s,0-9]+)$"
-								data-validation-error-msg="please enter valid pickup area"  onkeyup="getPtopPickupAreaList($('#taxiptopcity').val(),this.value)"/>
-								<input type="hidden" id="taxiptoppickupareaid" name="taxiptoppickupareaid"/>
-								</td>
+								data-validation-error-msg="please enter valid pickup area"
+								onkeyup="getPtopPickupAreaList($('#taxiptopcity').val(),this.value)" />
+								<input type="hidden" id="taxiptoppickupareaid"
+								name="taxiptoppickupareaid" /></td>
 							<td><label>Drop Area :</label></td>
 							<td><input type="text" placeholder="Drop Area"
 								id="taxiptopdroparea" name="droparea" class="drop"
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s,0-9]+)$"
-								data-validation-error-msg="please enter valid drop area" onkeyup="getPtopDropAreaList($('#taxiptopcity').val(),this.value)"/>
-								<input type="hidden" id="taxiptopdropareaid" name="taxiptopdropareaid"/>
-								</td>
+								data-validation-error-msg="please enter valid drop area"
+								onkeyup="getPtopDropAreaList($('#taxiptopcity').val(),this.value)" />
+								<input type="hidden" id="taxiptopdropareaid"
+								name="taxiptopdropareaid" /></td>
 						</tr>
 						<tr>
 							<td><label>Pickup Date :</label></td>
@@ -152,12 +150,11 @@
 			<div class="taxi-airport">
 				<form action="#" method="post" id="taxi-airport">
 					<div class="select_city">
-						<label>Select city :</label> <select name="city" id="taxiairportcity">
+						<label>Select city :</label> <select name="city"
+							id="taxiairportcity" onchange="setAirportList()">
 							<option value="1224">Ahmedabad</option>
 							<option value="1286">Surat</option>
 							<option value="1296">Vadodara</option>
-							
-							
 						</select>
 					</div>
 					<div class="airport_tab">
@@ -177,18 +174,17 @@
 						<table class="table">
 							<tr>
 								<td><label>Airport Name :</label></td>
-								<td><select name="airportname" id="gotoairportname">
-										<option>Ahemdabad Airport</option>
-										<option>Sardar Vallabhbhai Patel International Airport (AMD)</option>
+								<td><select name="airportname" id="gotoairportname" >
 								</select></td>
 								<td><label>Pickup Area :</label></td>
 								<td><input type="text" placeholder="Pickup Area"
-									id="taxigoingairportpickuparea" name="taxigoingairportpickuparea"
-									data-validation="custom"
+									id="taxigoingairportpickuparea"
+									name="taxigoingairportpickuparea" data-validation="custom"
 									data-validation-regexp="^([a-zA-Z\s]+)$"
 									data-validation-error-msg="please enter valid pickup area"
-									onkeyup="getDropAreaListAirport($('#taxiairportcity').val(),this.value)"/>
-									<input type="hidden" id="taxigoingairportpickupareaid" name="taxigoingairportpickupareaid"/></td>
+									onkeyup="getDropAreaListAirport($('#taxiairportcity').val(),this.value)" />
+									<input type="hidden" id="taxigoingairportpickupareaid"
+									name="taxigoingairportpickupareaid" /></td>
 							</tr>
 							<tr>
 								<td><label>Pickup Date :</label></td>
@@ -221,15 +217,18 @@
 								<td><label>Airport Name :</label></td>
 								<td><select name="airportname" id="taxiairportcity">
 										<option>Airport</option>
-										<option>Sardar Vallabhbhai Patel International Airport (AMD)</option>
+										<option>Sardar Vallabhbhai Patel International
+											Airport (AMD)</option>
 								</select></td>
 								<td><label>Drop Area :</label></td>
 								<td><input type="text" placeholder="Drop Area"
-									name="airportdroparea" id="airportdroparea" data-validation="custom"
+									name="airportdroparea" id="airportdroparea"
+									data-validation="custom"
 									data-validation-regexp="^([a-zA-Z\s]+)$"
-									data-validation-error-msg="please select valid drop area" 
-									onkeyup="getGoingAirportPickupAreaList($('#taxiairportcity').val(),this.value)"/>
-									<input type="hidden" id="taxidropareaairportid" name="taxidropareaairportid"/></td>
+									data-validation-error-msg="please select valid drop area"
+									onkeyup="getGoingAirportPickupAreaList($('#taxiairportcity').val(),this.value)" />
+									<input type="hidden" id="taxidropareaairportid"
+									name="taxidropareaairportid" /></td>
 							</tr>
 							<tr>
 								<td><label>Pickup Date :</label></td>
@@ -263,11 +262,12 @@
 			<div class="taxi-package">
 				<form action="#" method="post" id="taxi-package">
 					<div class="select_city">
-						<label>Select city :</label> <select name="city" id="taxipackagecity">
+						<label>Select city :</label> <select name="city"
+							id="taxipackagecity">
 							<option value="1224">Ahmedabad</option>
 							<option value="1286">Surat</option>
 							<option value="1296">Vadodara</option>
-							
+
 						</select>
 					</div>
 					<table class="table">
@@ -275,16 +275,16 @@
 							<td><label>Package :</label></td>
 							<td><select name="package" id="taxipackage">
 									<option>Package</option>
-									<option>w</option>
-									<option>w</option>
 							</select></td>
 							<td><label>Pickup Area :</label></td>
 							<td><input type="text" placeholder="Pickup Area"
 								data-validation="custom" name="pickuparea"
 								id="taxipackagepickuparea"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid pickup area" onkeyup="getPackagePickupAreaList($('#taxipackagecity').val(),this.value)"/>
-								<input type="hidden" id="taxipacakgepickupareaid" name="taxipacakgepickupareaid"/></td>
+								data-validation-error-msg="please enter valid pickup area"
+								onkeyup="getPackagePickupAreaList($('#taxipackagecity').val(),this.value)" />
+								<input type="hidden" id="taxipacakgepickupareaid"
+								name="taxipacakgepickupareaid" /></td>
 						</tr>
 						<tr>
 							<td><label>Pickup Date :</label></td>
@@ -317,11 +317,12 @@
 				<form action="#" method="post" id="taxi-outstation">
 					<input value="" name="taxirowarray" type="hidden" id="taxirowarray" />
 					<div class="select_city">
-						<label>Select city :</label> <select name="city" id="taxioutstationcity">
+						<label>Select city :</label> <select name="city"
+							id="taxioutstationcity">
 							<option value="1224">Ahmedabad</option>
 							<option value="1286">Surat</option>
 							<option value="1296">Vadodara</option>
-							
+
 						</select>
 					</div>
 					<table class="table">
@@ -331,7 +332,10 @@
 								name="pickupcity" id="taxioutstationpickupcity"
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid pickup city" /></td>
+								data-validation-error-msg="please enter valid pickup city"
+								onkeyup="getTaxiOutstationPickCity($('#taxioutstationcity').val(),this.value)" />
+								<input type="hidden" id="taxioutstationpickupcityid"
+								name="taxioutstationpickupcity"></td>
 						</tr>
 						<tr>
 							<td><label>To :</label></td>
@@ -339,7 +343,10 @@
 								name="dropcity_0" id="taxioutstationdropcity_0"
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid drop city" /></td>
+								data-validation-error-msg="please enter valid drop city"
+								onkeyup="getTaxiOutstationDropCity($('#taxioutstationcity').val(),this.value)" />
+								<input type="hidden" id="taxioutstationdropcityid_0"
+								name="taxioutstationdropcityname"></td>
 							<td><label class="fa fa-plus-square lm20 fa-lg"
 								onClick="addTaxiRow()"></label></td>
 						</tr>
@@ -374,11 +381,12 @@
 				<form action="#" method="post" id="taxi-caronrent">
 					<input type="hidden" name="carrenttype" id="carrenttype" value="0" />
 					<div class="select_city">
-						<label>Select city :</label> <select name="city" id="taxicaronrentcity">
+						<label>Select city :</label> <select name="city"
+							id="taxicaronrentcity">
 							<option value="1224">Ahmedabad</option>
 							<option value="1286">Surat</option>
 							<option value="1296">Vadodara</option>
-							
+
 						</select>
 					</div>
 					<div class="caronrent_tab">
@@ -400,8 +408,9 @@
 									data-validation="custom"
 									data-validation-regexp="^([a-zA-Z\s]+)$"
 									data-validation-error-msg="please enter valid pickup area"
-									onkeyup="getTaxiPerHourAreaList($('#taxicaronrentcity').val(),this.value)"/>
-									<input type="hidden" id="taxiperhourpickuparea" name="taxiperhourpickuparea"></td>
+									onkeyup="getTaxiPerHourAreaList($('#taxicaronrentcity').val(),this.value)" />
+									<input type="hidden" id="taxiperhourpickuparea"
+									name="taxiperhourpickuparea"></td>
 								<td><label>Number of Hours :</label></td>
 								<td><input type="text" placeholder="Number of Hours"
 									name="noofhours" id="taxiperhournoofhours"
@@ -479,19 +488,23 @@
 				<form action="#" method="post" id="taxi-taxiticket">
 					<table class="table">
 						<tr>
-							<td><label>From:</label></td> 
+							<td><label>From:</label></td>
 							<td><input type="text" placeholder="Pickup City"
-								name="pickupity" id="taxiticketpickupity"
+								name="pickupity" id="taxiticketpickupcity"
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
 								data-validation-error-msg="please select valid pickup city"
-								onkeyup="getTaxiTicketCityList($('#taxiticketpickupcity').val(),this.value)"/>
-								<input type="hidden" id="taxiticketpickupcityid" name="taxiticketpickupcityid"/></td>
+								onkeyup="getTaxiTicketPickCityList(this.value)" />
+								<input type="hidden" id="taxiticketpickupcityid"
+								name="taxiticketpickupcityid" /></td>
 							<td><label>To:</label></td>
 							<td><input type="text" placeholder="Drop City"
 								name="dropcity" id="taxiticketdropcity" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please select valid drop city" /></td>
+								data-validation-error-msg="please select valid drop city"
+								onkeyup="getTaxiTicketDropCityList(this.value)" />
+								<input type="hidden" id="taxiticketdropcityid"
+								name="taxiticketdropcity" /></td>
 						</tr>
 						<tr>
 							<td><label>Pickup Date :</label></td>
@@ -527,14 +540,6 @@
 			<!-- Package Design -->
 			<div class="bus-ticket">
 				<form action="#" method="post" id="bus-ticket">
-					<!--	<div class="select_city">
-		           		<label>Select City :</label>
-                		<select>
-                        	<option>w</option>
-                            <option>w</option>
-                            <option>w</option>
-                        </select>
-                </div>-->
 					<table class="table">
 						<tr>
 							<td><label>From :</label></td>
@@ -542,13 +547,19 @@
 								name="pickupcity" id="busticketpickupcity"
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid pickup city" /></td>
+								data-validation-error-msg="please enter valid pickup city"
+								onkeyup="getBusTicketPickCityList($('#busticketpickcity').val(),this.value)" />
+								<input type="hidden" id="busticketpickupcityid"
+								name="busticketpickupcity" /></td>
 
 							<td><label>To :</label></td>
 							<td><input type="text" placeholder="Drop City"
 								name="dropcity" id="busticketdropcity" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid drop city" /></td>
+								data-validation-error-msg="please enter valid drop city"
+								onkeyup="getBusTicketDropCityList($('#busticketdropcity').val(),this.value)" />
+								<input type="hidden" id="busticketdropcityid"
+								name="busticketdropcity" /></td>
 						</tr>
 						<tr>
 							<td><label>Date of Journey :</label></td>
@@ -592,7 +603,10 @@
 							<td><input type="text" placeholder="From" name="fromcity"
 								id="busonrentfromcity" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid pickup city" /></td>
+								data-validation-error-msg="please enter valid pickup city"
+								onkeyup="getBusOnRentPickCityList($('#busrowarray').val(),this.value)" />
+								<input type="hidden" id="busonrentpickupcityid"
+								name="busonrentpickupcity" /></td>
 						</tr>
 						<tr>
 							<td><label>To :</label></td>
@@ -759,11 +773,10 @@
 			<div class="bike-package">
 				<form action="#" method="post" name="bike-package" id="bike-package">
 					<div class="select_city">
-						<label>Select City :</label> <select name="city"
-							id="bikepackagecity">
-							<option>w</option>
-							<option>w</option>
-							<option>w</option>
+						<label>Select City :</label> <select name="city" id="bikepackagecity">
+							<option value="1224">Ahmedabad</option>
+							<option value="1286">Surat</option>
+							<option value="1296">Vadodara</option>
 						</select>
 					</div>
 					<table class="table">
@@ -785,9 +798,8 @@
 							<td><label>Pickup Date :</label></td>
 							<td><input type="text" class="datePairExample"
 								name="pickupdate" id="bikepackagepickupdate"
-								onkeypress="return false;"
-								placeholder="dd-mm-yyyy" data-validation="date"
-								data-validation-format="dd-mm-yyyy"
+								onkeypress="return false;" placeholder="dd-mm-yyyy"
+								data-validation="date" data-validation-format="dd-mm-yyyy"
 								data-validation-error-msg="please select valid pickup date" /></td>
 							<td><label>Pickup Time :</label></td>
 							<td><input type="text"
@@ -812,9 +824,9 @@
 				<form action="#" method="post" name="bike-on_Rent" id="bike-on_Rent">
 					<div class="select_city">
 						<label>Select city :</label> <select name="city" id="bikerentcity">
-							<option>w</option>
-							<option>w</option>
-							<option>w</option>
+							<option value="1224">Ahmedabad</option>
+							<option value="1286">Surat</option>
+							<option value="1296">Vadodara</option>
 						</select>
 					</div>
 					<div class="bikeonrent_tab">
@@ -828,8 +840,7 @@
 					<!-- Bike Per Hours -->
 
 					<div class="bike-per_hours">
-						<input type="hidden" name="bikerenttype" id="bikerenttype"
-							value="0">
+						<input type="hidden" name="bikerenttype" id="bikerenttype" value="0">
 						<table class="table">
 							<tr>
 								<td><label>From :</label></td>
@@ -837,13 +848,17 @@
 									name="pickupcity" id="bikeperhourpickupcity"
 									data-validation="custom"
 									data-validation-regexp="^([a-zA-Z\s]+)$"
-									data-validation-error-msg="please enter valid pickup area" /></td>
+									data-validation-error-msg="please enter valid pickup area" 
+									onkeyup="getBikePerHourAreaList($('#bikerentcity').val(),this.value)"/>
+								<input type="hidden" id="bikeperhourpickupcityid" name="bikeperhourpickupcity"/></td>
 								<td><label>To :</label></td>
 								<td><input type="text" placeholder="Drop City"
 									name="dropcity" id="bikeperhourdropcity"
 									data-validation="custom"
 									data-validation-regexp="^([a-zA-Z\s]+)$"
-									data-validation-error-msg="please enter valid drop area" /></td>
+									data-validation-error-msg="please enter valid drop area" 
+									onkeyup="getBikePerHourDropAreaList($('#bikerentcity').val(),this.value)"/>
+								<input type="hidden" id="bikeperhourdropcityid" name="bikeperhourdropcity"/></td>
 							</tr>
 							<tr>
 								<td><label>Pickup Date :</label></td>
@@ -876,12 +891,16 @@
 								<td><input type="text" placeholder="From" name="pickupcity"
 									id="bikeperdaypickupcity" data-validation="custom"
 									data-validation-regexp="^([a-zA-Z\s]+)$"
-									data-validation-error-msg="please select valid from city" /></td>
+									data-validation-error-msg="please select valid from city" 
+									onkeyup="getBikePerDayPicKAreaList($('#bikerentcity').val(),this.value)"/>
+								<input type="hidden" id="bikeperdaypickupcityid" name="bikeperdaypickupcity"/></td>
 								<td><label>To :</label></td>
 								<td><input type="text" placeholder="To" name="dropcity"
 									id="bikeperdaydropcity" data-validation="custom"
 									data-validation-regexp="^([a-zA-Z\s]+)$"
-									data-validation-error-msg="please enter valid to city" /></td>
+									data-validation-error-msg="please enter valid to city" 
+									onkeyup="getBikePerDayDropAreaList($('#bikerentcity').val(),this.value)"/>
+								<input type="hidden" id="bikeperdaydropcityid" name="bikeperdaydropcity"/></td>
 							</tr>
 							<tr>
 								<td><label>Pickup Date :</label></td>
@@ -892,7 +911,7 @@
 									data-validation-error-msg="please select valid pickup date" /></td>
 								<td><label>For :</label></td>
 								<td><input type="text" name="noofdays"
-									id="bikeperdaynoofdays" placeholder="Number of Days" 
+									id="bikeperdaynoofdays" placeholder="Number of Days"
 									data-validation-allowing="range[1;10]" data-validation="number"></td>
 							</tr>
 							<tr>
@@ -919,16 +938,16 @@
 		<div class="clear"></div>
 	</div>
 	<div class="footer"></div>
-	<script type="text/javascript" src="js/javaScript.js"></script>
+	<script type="text/javascript" src="./js/javaScript.js"></script>
 	<script type="text/javascript">
-		 $.validate({
+		$.validate({
 			modules : 'location, date, security, file',
 			onModulesLoaded : function() {
 				$('#country').suggestCountry();
 			}
 		});
 		// Restrict presentation length
-		$('#presentation').restrictLength($('#pres-max-length')); 
+		$('#presentation').restrictLength($('#pres-max-length'));
 	</script>
 </body>
 </html>

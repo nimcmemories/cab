@@ -16,3 +16,6 @@ CREATE TABLE `taxi`.`cbresponse_details` (
     REFERENCES `taxi`.`cbevents` (`eventid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+insert into cbhelpers (helperid,name,subentityid) values(206,'com.cab.customer.AirportListHelper',3);
+insert into cbevents(eventid,eventtype,helperid) values(206,0,206);
