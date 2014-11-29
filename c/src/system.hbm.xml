@@ -105,6 +105,12 @@
             <column name="helperid" />
         </property>
         <many-to-one  name="helperBean" class="com.cab.bean.HelperBean" column="helperid" unique="true" not-null="true" insert="false" update="false"/>
+        <set name="cbresponseDetailses" table="cbresponse_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="eventid" not-null="true" />
+            </key>
+            <one-to-many class="com.cab.bean.ResponseDetailsBean" />
+        </set>
     </class>
     <!-- <class name="org.emr.bean.ModuleBean" table="fmodule">
     	<id name="id" type="java.lang.Long">
@@ -175,5 +181,22 @@
     		<column name="accessType" />
     	</property>
     </class> -->
-    
+    <class name="com.cab.bean.ResponseDetailsBean" table="cbresponse_details" catalog="taxi">
+        <id name="cbresponseDetailsId" type="java.lang.Integer">
+            <column name="cbresponse_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cbevents" class="com.cab.bean.EventBean" fetch="select">
+            <column name="eventid" not-null="true" />
+        </many-to-one>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="url" type="string">
+            <column name="url" length="100" />
+        </property>
+        <property name="msg" type="string">
+            <column name="msg" length="100" />
+        </property>
+    </class>
 </hibernate-mapping>
