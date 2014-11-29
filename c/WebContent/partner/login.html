@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="../css/customStyle.css">    
     <script type="text/javascript" src="../js/jslib/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="../js/jslib/jquery.form-validator.min.js"></script>
+	<script type="text/javascript" src="../js/cab.js"></script>
+	<script type="text/javascript" src="../js/eventconstant.js"></script>
+	<script type="text/javascript" src="../js/partner/login.js"></script>
 </head>
 
 <body>
 	<div class="login_form">
-    	<form action="#" method="post" id="login">
+    	<form id="partnerlogin">
         	<h3>Login Form</h3>
             <div class="border-bottom"></div>
         	<table>
@@ -21,19 +24,23 @@
                 	<td><label>User Name :</label></td>
                 	<td>
                     	<span class="input-icon icon-user-3 left fa-lg"></span>
-                    	<input type="text" placeholder="User Name" name="username" id="loginusername"/>
+                    	<input type="text" placeholder="User Name" name="username" id="loginusername" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z\s,0-9]+)$"
+								data-validation-error-msg="please enter valid user name"/>
                     </td>
                 </tr>
                 <tr>
                 	<td><label>Password :</label></td>
                 	<td>
                     	<span class="input-icon icon-key left fa-lg"></span>
-                    	<input type="password" placeholder="Password" name="password" id="loginpass"/>
+                    	<input type="password" placeholder="Password" name="password" id="loginpass" data-validation="custom"
+								data-validation-regexp="^([a-zA-Z0-9]+)$"
+								data-validation-error-msg="please enter valid password"/>
                     </td>
                 </tr>
                 <tr>
                 	<td></td>
-                	<td><input type="submit" class="primary" alt="Submit" value="Submit" onclick="login"/>
+                	<td><input type="button" class="primary" alt="Submit" value="Submit" onclick="checkLogin('partnerlogin')"/>
                 	<input type="reset" class="danger" alt="Cancel" value="Cancel"/></td>
                 </tr>
                 <tr>
