@@ -17,7 +17,8 @@ public class CityNameListHelper extends BaseHelper{
 		
 	}
 	@Override
-	public void readRecords(JSONObject jsonObject) {System.out.println("TestHelper : readRecord method called.." );
+	public void readRecords(JSONObject jsonObject) {
+		System.out.println("TestHelper : readRecord method called.." );
 	Session session = new HibernateConfiguartion().getSession(true);	
 	try {
 			System.out.println("----------------------1");
@@ -29,15 +30,18 @@ public class CityNameListHelper extends BaseHelper{
 			CityMaster city=null;
 			System.out.println("-------cityList size---->"+cityList.size());
 			for (int i = 0; i <cityList.size(); i++) {
-				System.out.println("--------->"+i);
+				//System.out.println("--------->"+i);
+				
 				city = cityList.get(i);
 				tmpJson = new JSONObject();
+				
 				//tmpJson.put(city.getCityMasterId(),city.getCityName());
+				
 				tmpJson.put("id",city.getCityMasterId());
 				tmpJson.put("name",city.getCityName());
 				cityArray.put(tmpJson);
 			}
-			System.out.println("----------array sizw----->"+cityArray.length());
+			//System.out.println("----------array sizw----->"+cityArray.length());
 			jsonObject.put("cityArray", cityArray);
 			//jsonObject.p
 		} catch (Exception e) {

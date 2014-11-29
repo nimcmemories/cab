@@ -61,9 +61,7 @@ function submitTaxiPtop(formId){
 	}else{
 		//alert("Please enter valid data.");
 	}
-	
 }
-
 function submitTaxiPackage(formId){
 	var data = cab.getFormJson(formId);
 	var JsonData={"formData":data,"__eventid":eventId.taxi_package,"dataType":"json","url":""};
@@ -112,7 +110,6 @@ $( document ).ready(function() {
 	getCityList();
 	
 });
-
 function getCityList(){
 	var data = JSON.stringify({"__eventid":eventId.get_city_list});
 	var JsonData={"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
@@ -120,6 +117,131 @@ function getCityList(){
 }
 function getCityListResponse(cityData){
 	cab.generateselect("taxiptopcity",cityData.cityArray);
+}
+// for taxi ticket pickupcity list
+function getTaxiTicketPickCityList(cityId,cityName) {
+	if(cityName.length>=3){
+		var data = JSON.stringify({"formData":{"cityName":cityName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"data","url":"/c"};
+		cab.AJAXCall(JsonData, getTaxiTicketPickCityResponse);
+	}
+}
+function getTaxiTicketPickCityResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.cityList.length;i++){
+		var tem={"label":data.cityList[i].cityName,"value":data.cityList[i].id};
+		//alert(tem);
+		keyValue.push(tem);
+	}
+	if($('#taxiticketdropcity').val()!=undefined && $('#taxiticketdropcity').val()!=""){
+		keyValue = $.grep(keyValue, function(e){ return e.label!=$('#taxiticketdropcity').val()});
+	}
+	cab.autocomplete("taxiticketpickupcity", keyValue, "taxiticketpickupcityid");
+}
+//for taxiticket drop city
+function getTaxiTicketDropCityList(cityId,cityName) {
+	if(cityName.length>=3){
+		var data = JSON.stringify({"formData":{"cityName":cityName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"data","url":"/c"};
+		cab.AJAXCall(JsonData, getTaxiTicketDropCityResponse);
+	}
+}
+function getTaxiTicketDropCityResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.cityList.length;i++){
+		var tem={"label":data.cityList[i].cityName,"value":data.cityList[i].id};
+		//alert(tem);
+		keyValue.push(tem);
+	}
+	cab.autocomplete("taxiticketdropcity", keyValue, "taxiticketdropcityid")
+}
+//for outstation from city
+function getTaxiOutstationPickCity(cityId,cityName) {
+	if(cityName.length>=3){
+		var data = JSON.stringify({"formData":{"cityName":cityName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"data","url":"/c"};
+		cab.AJAXCall(JsonData, getTaxiOutstationPickCityResponse);
+	}
+}
+function getTaxiOutstationPickCityResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.cityList.length;i++){
+		var tem={"label":data.cityList[i].cityName,"value":data.cityList[i].id};
+		//alert(tem);
+		keyValue.push(tem);
+	}
+	cab.autocomplete("taxiticketdropcity", keyValue, "taxiticketdropcityid")
+}
+//for oustation to drop city 
+function getTaxiOutstationDropCity(cityId,cityName) {
+	if(cityName.length>=3){
+		var data = JSON.stringify({"formData":{"cityName":cityName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"data","url":"/c"};
+		cab.AJAXCall(JsonData, getTaxiOutstationDropCityResponse);
+	}
+}
+function getTaxiOutstationDropCityResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.cityList.length;i++){
+		var tem={"label":data.cityList[i].cityName,"value":data.cityList[i].id};
+		//alert(tem);
+		keyValue.push(tem);
+	}
+	cab.autocomplete("taxiticketdropcity", keyValue, "taxiticketdropcityid")
+}
+//for bus ticket from city
+function getBusTicketPickCityList(cityId,cityName) {
+	if(cityName.length>=3){
+		var data = JSON.stringify({"formData":{"cityName":cityName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"data","url":"/c"};
+		cab.AJAXCall(JsonData, getBusTicketPickCityResponse);
+	}
+}
+function getBusTicketPickCityResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.cityList.length;i++){
+		var tem={"label":data.cityList[i].cityName,"value":data.cityList[i].id};
+		//alert(tem);
+		keyValue.push(tem);
+	}
+	if($('#busticketpickupcity').val()!=undefined && $('#busticketpickupcity').val()!=""){
+		keyValue = $.grep(keyValue, function(e){ return e.label!=$('#busticketpickupcity').val()});
+	}
+	cab.autocomplete("busticketpickupcity", keyValue, "busticketpickupcityid");
+}
+//for bus ticket drop city
+function getBusTicketDropCityList(cityId,cityName) {
+	if(cityName.length>=3){
+		var data = JSON.stringify({"formData":{"cityName":cityName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"data","url":"/c"};
+		cab.AJAXCall(JsonData, getBusTicketDropCityResponse);
+	}
+}
+function getBusTicketDropCityResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.cityList.length;i++){
+		var tem={"label":data.cityList[i].cityName,"value":data.cityList[i].id};
+		//alert(tem);
+		keyValue.push(tem);
+	}
+	cab.autocomplete("busticketdropcity", keyValue, "busticketdropcityid");
+}
+//for bus on rent pickcity
+function getBusOnRentPickCityList(cityId,cityName) {
+	if(cityName.length>=3){
+		var data = JSON.stringify({"formData":{"cityName":cityName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"data","url":"/c"};
+		cab.AJAXCall(JsonData, getBusOnRentPickCityResponse);
+	}
+}
+function getBusOnRentPickCityResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.cityList.length;i++){
+		var tem={"label":data.cityList[i].cityName,"value":data.cityList[i].id};
+		//alert(tem);
+		keyValue.push(tem);
+	}
+	cab.autocomplete("busonrentfromcity", keyValue, "busonrentpickupcityid");
 }
 //for pickup area
 //ptop pickup
@@ -192,7 +314,78 @@ function taxiPerHourResponse(data) {
 	}
 	cab.autocomplete("taxiperhourpickupareaid", keyValue, "taxiperhourpickuparea");
 }
+//for bike pickup area per hour
+function getBikePerHourAreaList(cityId,areaName){
+	if(areaName.length>=3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData,getBikePerHourAreaListResponse);
+	}
+}
+function getBikePerHourAreaListResponse(data){
+	var keyValue=[];
+	for(var i=0;i<data.areaList.length;i++){
+		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);	
+	}
+	if($('#bikeperhourdropcity').val()!=undefined && $('#bikeperhourdropcity').val()!=""){
+		keyValue = $.grep(keyValue, function(e) { return e.label!=$('#bikeperhourdropcity').val()});
+	}
+	cab.autocomplete("bikeperhourpickupcity", keyValue,"bikeperhourpickupcityid");
+}
+//for bike pickup area per day
+function getBikePerDayPicKAreaList(cityId,areaName){
+	if(areaName.length>=3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData,getBikePerDayPickAreaListResponse);
+	}
+}
+function getBikePerDayPickAreaListResponse(data){
+	var keyValue=[];
+	for(var i=0;i<data.areaList.length;i++){
+		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);	
+	}
+	if($('#bikeperdaydropcity').val()!=undefined && $('#bikeperdaydropcity').val()!=""){
+		keyValue = $.grep(keyValue, function(e) { return e.label!=$('#bikeperdaydropcity').val()});
+	}
+	cab.autocomplete("bikeperdaypickupcity", keyValue,"bikeperdaypickupcityid");
+}
 //for drop area
+//for bike drop area per hour
+function getBikePerHourDropAreaList(cityId,areaName){
+	if(areaName.length>=3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData,getBikePerHourDropAreaListResponse);
+	}
+}
+function getBikePerHourDropAreaListResponse(data){
+	var keyValue=[];
+	for(var i=0;i<data.areaList.length;i++){
+		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);	
+	}
+	cab.autocomplete("bikeperhourdropcity", keyValue,"bikeperhourdropcityid");
+}
+//for bike drop area per day
+function getBikePerDayDropAreaList(cityId,areaName){
+	if(areaName.length>=3){
+		var data = JSON.stringify({"formData":{"areaName":areaName,"cityId":cityId}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_area_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData,getBikePerDayAreaListResponse);
+	}
+}
+function getBikePerDayAreaListResponse(data){
+	var keyValue=[];
+	for(var i=0;i<data.areaList.length;i++){
+		var tem={"label":data.areaList[i].areaName,"value":data.areaList[i].id};
+		keyValue.push(tem);	
+	}
+	cab.autocomplete("bikeperdaydropcity", keyValue,"bikeperdaydropcityid");
+}
+
 //for ptop drop area
 function getPtopDropAreaList(cityId,areaName){
 	if(areaName.length>=3){
