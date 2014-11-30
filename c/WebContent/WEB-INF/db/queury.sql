@@ -19,3 +19,7 @@ CREATE TABLE `taxi`.`cbresponse_details` (
 
 insert into cbhelpers (helperid,name,subentityid) values(206,'com.cab.customer.AirportListHelper',3);
 insert into cbevents(eventid,eventtype,helperid) values(206,0,206);
+--adding bike
+insert into cbhelpers (helperid,name,subentityid) values(105,'com.cab.partner.BikeHelper',3);
+insert into cbevents(eventid,eventtype,helperid) values(105,1,105);
+insert into cbevents(eventid,eventtype,helperid) values(106,0,105);

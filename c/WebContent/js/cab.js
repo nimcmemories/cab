@@ -14,7 +14,8 @@ cab.AJAXCall = function(data,responseFunction){
 			responseFunction(responseJson);
 		},
 		error: function (data, status, e){
-			return null;
+			//return null;
+			//$(location).attr('href', cab.contextPath+"/error.html");
 			
 		},timeout:30*60*1000
 	});		
@@ -65,3 +66,10 @@ cab.generateselect=function(fieldId,data){
          $("#"+fieldId).append($('<option></option>').val(value.id).html(value.name));
      });
 };
+cab.setStatusMsg=function(msg,status){
+	if(status==200){
+		$('#statusbarmsg').html('<p style="color:green;font-size: 15px">'+msg+'</p>');
+	}else{
+		$('#statusbarmsg').html('<p style="color:red;font-size: 15px">'+msg+'</p>');
+	}
+}

@@ -27,3 +27,5 @@ eventId.add_taxi_details=203;
 eventId.add_bus_details=204;
 eventId.add_bike_details=205;
 eventId.get_airport_list=206;
+eventId.add_bike=105
+eventId.get_bikes=106;
