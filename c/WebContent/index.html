@@ -94,10 +94,9 @@
 				<form id="taxi-ptop">
 					<div class="select_city">
 						<label>Select city :</label> <select name="city" id="taxiptopcity">
-						<option value="1224">Ahmedabad</option>
+							<option value="1224">Ahmedabad</option>
 							<option value="1286">Surat</option>
 							<option value="1296">Vadodara</option>
-						
 						</select>
 					</div>
 					<table class="table">
@@ -316,15 +315,15 @@
 			<div class="taxi-outstation">
 				<form action="#" method="post" id="taxi-outstation">
 					<input value="" name="taxirowarray" type="hidden" id="taxirowarray" />
-					<div class="select_city">
+					<!-- -- <div class="select_city">
 						<label>Select city :</label> <select name="city"
 							id="taxioutstationcity">
 							<option value="1224">Ahmedabad</option>
 							<option value="1286">Surat</option>
 							<option value="1296">Vadodara</option>
-
 						</select>
-					</div>
+					</div>-->
+					
 					<table class="table">
 						<tr>
 							<td><label>From :</label></td>
@@ -333,7 +332,7 @@
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
 								data-validation-error-msg="please enter valid pickup city"
-								onkeyup="getTaxiOutstationPickCity($('#taxioutstationcity').val(),this.value)" />
+								onkeyup="getTaxiOutstationPickCity(this.value)" />
 								<input type="hidden" id="taxioutstationpickupcityid"
 								name="taxioutstationpickupcity"></td>
 						</tr>
@@ -344,7 +343,7 @@
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
 								data-validation-error-msg="please enter valid drop city"
-								onkeyup="getTaxiOutstationDropCity($('#taxioutstationcity').val(),this.value)" />
+								onkeyup="getTaxiOutstationDropCity(this.value)" />
 								<input type="hidden" id="taxioutstationdropcityid_0"
 								name="taxioutstationdropcityname"></td>
 							<td><label class="fa fa-plus-square lm20 fa-lg"
@@ -548,7 +547,7 @@
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
 								data-validation-error-msg="please enter valid pickup city"
-								onkeyup="getBusTicketPickCityList($('#busticketpickcity').val(),this.value)" />
+								onkeyup="getBusTicketPickCityList(this.value)" />
 								<input type="hidden" id="busticketpickupcityid"
 								name="busticketpickupcity" /></td>
 
@@ -557,7 +556,7 @@
 								name="dropcity" id="busticketdropcity" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
 								data-validation-error-msg="please enter valid drop city"
-								onkeyup="getBusTicketDropCityList($('#busticketdropcity').val(),this.value)" />
+								onkeyup="getBusTicketDropCityList(this.value)" />
 								<input type="hidden" id="busticketdropcityid"
 								name="busticketdropcity" /></td>
 						</tr>
@@ -604,7 +603,7 @@
 								id="busonrentfromcity" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
 								data-validation-error-msg="please enter valid pickup city"
-								onkeyup="getBusOnRentPickCityList($('#busrowarray').val(),this.value)" />
+								onkeyup="getBusOnRentPickCityList(this.value)" />
 								<input type="hidden" id="busonrentpickupcityid"
 								name="busonrentpickupcity" /></td>
 						</tr>
@@ -613,7 +612,9 @@
 							<td><input type="text" placeholder="To" name="dropcity_0"
 								id="busonrentdropcity_0" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid drop city" /></td>
+								data-validation-error-msg="please enter valid drop city"
+								onkeyup="getBusOnRentDropCityList(this.value)" />
+								<input type="hidden" id="busonrentdropcityid_0" name="busonrentdropcityname_0"/></td>
 							<td><label class="fa fa-plus-square lm20 fa-lg"
 								onClick="addBusRow()"></label></td>
 						</tr>
