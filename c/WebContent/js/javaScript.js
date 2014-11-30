@@ -227,8 +227,9 @@ function addTaxiRow(){
 	var addrow1="";
 	    addrow1='<tr class="taxirow_'+taxiRowCount+'">';
         addrow1+='<td><label>To :</label></td>';
-        addrow1+='<td><input type="text" placeholder="via city" name="dropcity_'+taxiRowCount+'" id="taxioutstationdropcity_'+taxiRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city"></td>';
+        addrow1+='<td><input type="text" placeholder="via city" name="dropcity_'+taxiRowCount+'" id="taxioutstationdropcity_'+taxiRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city" onkeyup="getTaxiOutstationDropCity(this.value,'+taxiRowCount+')"></td>';
         addrow1+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red" id="'+taxiRowCount+'" onclick="removeTaxiRow(this.id)"></label></td>';
+        addrow1+='<input type="hidden" id="taxioutstationdropcityid_'+taxiRowCount+'" name="taxioutstationdropcityname"></td>';
         addrow1+='</tr>';
 		$('.addtexirow').append(addrow1);
 		noOfTaxiRow.push(taxiRowCount);

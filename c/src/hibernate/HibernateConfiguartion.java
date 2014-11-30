@@ -86,7 +86,7 @@ public class HibernateConfiguartion {
 		}
 		return null;
 	}
-	public List<BaseBean> selecBaseBeanQuery(String qry){
+	public List<BaseBean> selectBaseBeanQuery(String qry){
 		Session session = null;
 		try{
 			session = sessionFactory.openSession();

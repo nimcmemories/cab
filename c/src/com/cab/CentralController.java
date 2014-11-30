@@ -113,6 +113,7 @@ public class CentralController extends HttpServlet {
 			}
 			System.out.println("req json :  " + jsonObject);
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("Exception while casting to JSON");
 		}
 		return jsonObject;

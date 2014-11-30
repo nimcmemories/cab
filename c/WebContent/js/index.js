@@ -166,19 +166,24 @@ function getTaxiOutstationPickCity(cityName) {
 		cab.AJAXCall(JsonData, getTaxiOutstationPickCityResponse);
 	}
 }
+var rowCount=0;
 function getTaxiOutstationPickCityResponse(data) {
 	var keyValue=[];
 	for(var i=0;i<data.cityArray.length;i++){
 		var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
 		keyValue.push(tem);
 	}
-	if($('#taxioutstationdropcity_0').val()!=undefined && $('#taxioutstationdropcity_0').val()!=""){
-		keyValue = $.grep(keyValue, function(e){ return e.label!=$('#taxioutstationdropcity_0').val()});
+	var tmp=noOfTaxiRow;
+	for(var i=0;i<tmp.length;i++){
+		if($('#taxioutstationdropcity_'+tmp[i]).val()!=undefined && $('#taxioutstationdropcity_'+tmp[i]).val()!=""){
+			keyValue = $.grep(keyValue, function(e){ return e.label.replace(" ","")!=$('#taxioutstationdropcity_'+tmp[i]).val().replace(" ","")});
+		}
 	}
 	cab.autocomplete("taxioutstationpickupcity", keyValue, "taxioutstationpickupcityid")
 }
 //for oustation to drop city 
-function getTaxiOutstationDropCity(cityName) {
+function getTaxiOutstationDropCity(cityName,count) {
+	rowCount=count;
 	if(cityName.length>=3){
 		var data = JSON.stringify({"formData":{"cityName":cityName}});
 		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
@@ -192,9 +197,19 @@ function getTaxiOutstationDropCityResponse(data) {
 		keyValue.push(tem);
 	}
 	if($('#taxioutstationpickupcity').val()!=undefined && $('#taxioutstationpickupcity').val()!=""){
-		keyValue = $.grep(keyValue, function(e){ return e.label!=$('#taxioutstationpickupcity').val()});
+		keyValue = $.grep(keyValue, function(e){ return e.label.replace(" ","")!=$('#taxioutstationpickupcity').val().replace(" ","")});
 	}
-	cab.autocomplete("taxioutstationdropcity_0", keyValue, "taxioutstationdropcityid_0")
+	var tmp=noOfTaxiRow;
+	for(var i=0;i<tmp.length;i++){
+		if(tmp[i]==rowCount){
+			continue;
+		}else{
+			if($('#taxioutstationdropcity_'+tmp[i]).val()!=undefined && $('#taxioutstationdropcity_'+tmp[i]).val()!=""){
+				keyValue = $.grep(keyValue, function(e){ return e.label!=$('#taxioutstationdropcity_'+tmp[i]).val()});
+			}
+		}
+	}
+	cab.autocomplete("taxioutstationdropcity_"+rowCount, keyValue, "taxioutstationdropcityid_"+rowCount)
 }
 //for bus ticket from city
 function getBusTicketPickCityList(cityName) {

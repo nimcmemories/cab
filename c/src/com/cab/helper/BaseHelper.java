@@ -1,5 +1,7 @@
 package com.cab.helper;
 
+import java.util.Map;
+
 import org.json.JSONObject;
 public abstract class BaseHelper {
 	public void insertRecord(JSONObject jsonObject){
@@ -17,5 +19,6 @@ public abstract class BaseHelper {
 	public void customProcedure(JSONObject jsonObject){
 		System.out.println("base Helper custom procedure : ");
 	}
+	public boolean validateRequest(Map<String,String> requestParamMap){return true;}
 }
 
