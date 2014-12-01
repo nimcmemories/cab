@@ -4,20 +4,34 @@
 var cab={};
 cab.contextPath="/c";
 
+cab.setOverlay=function(){
+	
+}
+cab.removeOverlay=function(){
+	
+}
 cab.AJAXCall = function(data,responseFunction){
 	$.ajax({
 		type: data.method,
 		url: cab.contextPath+data.url,
 		data: data,
 		dataType:data.dataType,
+        beforeSend : function (){
+        	console.log("before send.....");
+        	cab.setOverlay();
+        },
 		success: function(responseJson) {
+			console.log("on success.....");
 			responseFunction(responseJson);
 		},
 		error: function (data, status, e){
 			//return null;
 			//$(location).attr('href', cab.contextPath+"/error.html");
-			
-		},timeout:30*60*1000
+		},
+		complete : function (){
+           // $.unblockUI();
+			cab.removeOverlay();
+        },timeout:30*60*1000
 	});		
 
 };
