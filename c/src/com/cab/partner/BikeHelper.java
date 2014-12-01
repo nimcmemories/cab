@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +23,7 @@ public class BikeHelper extends BaseHelper {
 		
 		System.out.println("-----------inside bike helper insret method---->"+jsonObject);
 		Session session = new HibernateConfiguartion().getSession(false);
+		Transaction transaction = session.beginTransaction();
 		JSONObject res = new JSONObject();
 		try {
 			Map<String,String> requestParamMap = CabUtil.getRequestParamMap(jsonObject.getJSONObject("formData").getJSONArray("formData"));
@@ -59,6 +61,7 @@ public class BikeHelper extends BaseHelper {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			transaction.commit();
 			session.close();
 		}
 	}
