@@ -28,6 +28,7 @@ function addBikeDetails(formId){
 }
 function addBikeDetailsResponse(data){
 	cab.setStatusMsg(data.response.msg,data.response.status);
+	getBikes();
 }
 function getBikeDetails(){
 	var data = JSON.stringify({"formData":{}});
