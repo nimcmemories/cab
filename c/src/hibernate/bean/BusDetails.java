@@ -20,6 +20,7 @@ public class BusDetails  extends BaseBean {
      private String busNumber;
      private byte enableForTicker;
      private String note;
+     private byte isEnable;
 
     public BusDetails() {
     }
@@ -120,7 +121,13 @@ public class BusDetails  extends BaseBean {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	public byte getIsEnable() {
+        return this.isEnable;
+    }
+    
+    public void setIsEnable(byte isEnable) {
+        this.isEnable = isEnable;
+    }
 
 
 

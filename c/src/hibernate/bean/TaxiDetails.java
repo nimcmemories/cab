@@ -18,6 +18,7 @@ public class TaxiDetails  extends BaseBean {
      private String taxiNumber;
      private String note;
      private String imgPath;
+     private byte isEnable;
      private boolean enableForTicket;
      private Set taxiTicketTransactions = new HashSet(0);
      private Set ptopTransactions = new HashSet(0);
@@ -210,7 +211,13 @@ public class TaxiDetails  extends BaseBean {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	public byte getIsEnable() {
+        return this.isEnable;
+    }
+    
+    public void setIsEnable(byte isEnable) {
+        this.isEnable = isEnable;
+    }
 
 
 

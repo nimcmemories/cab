@@ -13,7 +13,15 @@ import org.json.JSONObject;
 public class BikeDetails  extends BaseBean {
 
 
-     private Integer bikeDetailsId;
+     public String getBikeNo() {
+		return bikeNo;
+	}
+
+
+	public void setBikeNo(String bikeNo) {
+		this.bikeNo = bikeNo;
+	}
+	private Integer bikeDetailsId;
      private PartnerDetails partnerDetails;
      private String bikeName;
      private String description;
@@ -22,6 +30,8 @@ public class BikeDetails  extends BaseBean {
      private double deposite;
      private String bikeImagePath;
      private Set bikeTransactions = new HashSet(0);
+     private String bikeNo;
+     private byte isEnable;
 
     public BikeDetails() {
     }
@@ -117,7 +127,13 @@ public class BikeDetails  extends BaseBean {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	public byte getIsEnable() {
+        return this.isEnable;
+    }
+    
+    public void setIsEnable(byte isEnable) {
+        this.isEnable = isEnable;
+    }
 	public JSONObject getJsonObj(){
 		JSONObject jsonObject = new JSONObject();
 		try{
@@ -130,6 +146,8 @@ public class BikeDetails  extends BaseBean {
 			jsonObject.put("per_day_rate", perDayRate);
 			jsonObject.put("deposite",deposite);
 			jsonObject.put("bikeImgPath", bikeImagePath);
+			jsonObject.put("isEnable", isEnable);
+			jsonObject.put("bikeNo", bikeNo);
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{

@@ -41,11 +41,12 @@ function getBikeDetailsResponse(data){
 	$.each(data.response.bikrArray, function( index, bike ) {
 		console.log( index + ": " + JSON.stringify(bike) );
 		var bikeName = bike.bikeName!=""?bike.bikeName:"-";
-		var bikeNo = "1111";
+		var bikeNo = bike.bikeNo!=""?bike.bikeNo:"=";
+		var isEnable=bike.isEnable==1?"Enable":"Disable";
 		var bikeImgPath = bike.bikeImgPath!=""?bike.bikeImgPath:"-";
 		var description = bike.description!=""?bike.description:"-";
 		var per_hour_rate = bike.per_hour_rate!=""?bike.per_hour_rate:"-";
 		var per_day_rate = bike.per_day_rate!=""?bike.per_day_rate:"-";
-		$('#bikerecords').append('<table class="table-Bike"><tr><td>'+bikeName+'</td></tr><tr><td>'+bikeNo+'</td></tr><tr><td>'+bikeImgPath+'</td></tr><tr><td>'+description+'</td></tr><tr><td class="switch">'+per_hour_rate+'</td></tr><tr><td class="switch">'+per_day_rate+'</td></tr><tr><td class=""><input type="button" class="primary"value="Edit" /></td></tr></table>');
+		$('#bikerecords').append('<table class="table-Bike"><tr><td>'+bikeName+'</td></tr><tr><td>'+bikeNo+'</td></tr><tr><td>'+bikeImgPath+'</td></tr><tr><td>'+description+'</td></tr><tr><td class="switch">'+per_hour_rate+'</td></tr><tr><td class="switch">'+per_day_rate+'</td></tr><tr><td class="switch">'+isEnable+'</td></tr><tr><td class=""><input type="button" class="primary"value="Edit" /></td></tr></table>');
 	});
 }

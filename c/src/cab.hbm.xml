@@ -162,6 +162,10 @@
         <property name="bikeName" type="string">
             <column name="bike_name" length="45" not-null="true" />
         </property>
+        <property name="bikeNo" type="string">
+            <column name="bikenumber" length="65535" not-null="true" />
+        </property>
+        
         <property name="description" type="string">
             <column name="description" length="65535" not-null="true" />
         </property>
@@ -176,6 +180,9 @@
         </property>
         <property name="bikeImagePath" type="string">
             <column name="bike_image_path" length="65535" not-null="true" />
+        </property>
+        <property name="isEnable" type="byte">
+            <column name="is_enable" not-null="true" />
         </property>
         <set name="bikeTransactions" table="bike_transaction" inverse="true" lazy="true" fetch="select">
             <key>
@@ -252,6 +259,9 @@
         </property>
         <property name="note" type="string">
             <column name="note" length="65535" not-null="true" />
+        </property>
+         <property name="isEnable" type="byte">
+            <column name="is_enable" not-null="true" />
         </property>
     </class>
     
@@ -1700,6 +1710,9 @@
             </key>
             <one-to-many class="hibernate.bean.PackageTransaction" />
         </set>
+         <property name="isEnable" type="byte">
+            <column name="is_enable" not-null="true" />
+        </property>
     </class>
     
     <class name="hibernate.bean.TaxiTicketTransaction" table="taxi_ticket_transaction" catalog="taxi">
@@ -1848,4 +1861,5 @@
             <column name="estimate_time" length="8" not-null="true" />
         </property>
     </class>
+    
 </hibernate-mapping>

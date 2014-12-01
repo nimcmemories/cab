@@ -32,6 +32,8 @@ public class BikeHelper extends BaseHelper {
 				BikeDetails bike = new BikeDetails();
 				bike.setBikeImagePath("");
 				bike.setBikeName(requestParamMap.get("bikeName"));
+				bike.setBikeNo(requestParamMap.get("bikenumber"));
+				bike.setIsEnable((byte)1);
 				bike.setDeposite(Integer.parseInt(requestParamMap.get("bikedeposite")));
 				bike.setDescription(requestParamMap.get("description"));
 				bike.setPartnerDetails((PartnerDetails)session.get(PartnerDetails.class, 1));//here partner id should be from session which partner logged in
