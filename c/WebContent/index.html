@@ -214,11 +214,7 @@
 						<table class="table">
 							<tr>
 								<td><label>Airport Name :</label></td>
-								<td><select name="airportname" id="taxiairportcity">
-										<option>Airport</option>
-										<option>Sardar Vallabhbhai Patel International
-											Airport (AMD)</option>
-								</select></td>
+								<td><select name="airportname" id="taxipickairportcity"></select></td>
 								<td><label>Drop Area :</label></td>
 								<td><input type="text" placeholder="Drop Area"
 									name="airportdroparea" id="airportdroparea"
@@ -262,7 +258,7 @@
 				<form action="#" method="post" id="taxi-package">
 					<div class="select_city">
 						<label>Select city :</label> <select name="city"
-							id="taxipackagecity">
+							id="taxipackagecity" onchange="setTaxiPackageList()">
 							<option value="1224">Ahmedabad</option>
 							<option value="1286">Surat</option>
 							<option value="1296">Vadodara</option>
@@ -272,9 +268,7 @@
 					<table class="table">
 						<tr>
 							<td><label>Package :</label></td>
-							<td><select name="package" id="taxipackage">
-									<option>Package</option>
-							</select></td>
+							<td><select name="package" id="taxipackage"></select></td>
 							<td><label>Pickup Area :</label></td>
 							<td><input type="text" placeholder="Pickup Area"
 								data-validation="custom" name="pickuparea"
@@ -385,7 +379,6 @@
 							<option value="1224">Ahmedabad</option>
 							<option value="1286">Surat</option>
 							<option value="1296">Vadodara</option>
-
 						</select>
 					</div>
 					<div class="caronrent_tab">
@@ -613,7 +606,7 @@
 								id="busonrentdropcity_0" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
 								data-validation-error-msg="please enter valid drop city"
-								onkeyup="getBusOnRentDropCityList(this.value)" />
+								onkeyup="getBusOnRentDropCityList(this.value,0)" />
 								<input type="hidden" id="busonrentdropcityid_0" name="busonrentdropcityname_0"/></td>
 							<td><label class="fa fa-plus-square lm20 fa-lg"
 								onClick="addBusRow()"></label></td>
@@ -660,14 +653,12 @@
 			<div class="truck-packer">
 				<form action="#" method="post" id="truck-packer">
 					<div class="select_city">
-						<label>Select City :</label> <select name="city"
-							id="truckpackercity">
-							<option>w</option>
-							<option>w</option>
-							<option>w</option>
+						<label>Select City :</label> <select name="city" id="truckpackercity">
+							<option value="1224">Ahmedabad</option>
+							<option value="1286">Surat</option>
+							<option value="1296">Vadodara</option>
 						</select>
 					</div>
-
 					<table class="table">
 						<tr>
 							<td><label>From :</label></td>
@@ -675,13 +666,17 @@
 								name="pickupcity" id="truckpackerpickupcity"
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid pickup city" /></td>
+								data-validation-error-msg="please enter valid pickup city" 
+								onkeyup="truckPackerFromCity(this.value)"/>
+								<input type="hidden" id="truckpackerpickupcityid" name="truckpackerpickupcity"></input> </td>
 							<td><label>To :</label></td>
 							<td><input type="text" placeholder="Drop City"
 								name="dropcity" id="truckpackerdropcity"
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid drop city" /></td>
+								data-validation-error-msg="please enter valid drop city" 
+								onkeyup="truckPackerToCity(this.value)"/>
+								<input type="hidden" id="truckpackerdropcityid" name="truckpackerdropupcity"></input></td>
 						</tr>
 						<tr>
 							<td><label>Pickup Date :</label></td>
@@ -727,12 +722,16 @@
 							<td><input type="text" placeholder="From" name="pickupcity"
 								id="truckshippingpickupcity" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid pickup city" /></td>
+								data-validation-error-msg="please enter valid pickup city" 
+								onkeyup="truckFromCityShipping(this.value)"/>
+							<input type="hidden" id="truckshippingpickupcityid" name="truckshippingpickupcity"></input></td>
 							<td><label>To :</label></td>
 							<td><input type="text" placeholder="To" name="dropcity"
 								id="truckshippingdropcity" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
-								data-validation-error-msg="please enter valid drop city" /></td>
+								data-validation-error-msg="please enter valid drop city" 
+								onkeyup="truckToCityShipping(this.value)"/>
+								<input type="hidden" id="truckshippingdropcityid" name="truckshippingdropcity"></input></td>
 						</tr>
 						<tr>
 							<td><label>Pickup Date :</label></td>

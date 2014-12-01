@@ -9,6 +9,7 @@ $( document ).ready(function() {
 	
 	//getCityList();
 	setAirportList();
+	setTaxiPackageList();
 	
 });
 function changeAirportType(){
@@ -181,6 +182,29 @@ function getTaxiOutstationPickCityResponse(data) {
 	}
 	cab.autocomplete("taxioutstationpickupcity", keyValue, "taxioutstationpickupcityid")
 }
+//for bus on rent pickcity
+function getBusOnRentPickCityList(cityName) {
+	if(cityName.length>=3){
+		var data = JSON.stringify({"formData":{"cityName":cityName}});
+		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData, getBusOnRentPickCityResponse);
+	}
+}
+var rowCount=0;
+function getBusOnRentPickCityResponse(data) {
+	var keyValue=[];
+	for(var i=0;i<data.cityArray.length;i++){
+		var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
+		keyValue.push(tem);
+	}
+	var tmp=noOfBusRow;
+	for (var i = 0; i < tmp.length; i++) {
+	if($('#busonrentdropcity_'+tmp[i]).val()!=undefined && $('#busonrentdropcity_'+tmp[i]).val()!=""){
+		keyValue = $.grep(keyValue, function(e){ return e.label.replace(" ","")!=$('#busonrentdropcity_'+tmp[i]).val().replace(" ","")});
+		}
+	}
+	cab.autocomplete("busonrentfromcity", keyValue, "busonrentpickupcityid");
+}
 //for oustation to drop city 
 function getTaxiOutstationDropCity(cityName,count) {
 	rowCount=count;
@@ -210,6 +234,35 @@ function getTaxiOutstationDropCityResponse(data) {
 		}
 	}
 	cab.autocomplete("taxioutstationdropcity_"+rowCount, keyValue, "taxioutstationdropcityid_"+rowCount)
+}
+//for bus on rent to(destination) city
+function getBusOnRentDropCityList(cityName,count) {
+	rowCount=count;
+	if(cityName.length>=3)
+	var data = JSON.stringify({"formData":{"cityName":cityName}});
+	var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData, getBusOnRentDropCityListResponse);
+}
+function getBusOnRentDropCityListResponse(data) {
+	var keyValue=[];
+	for (var i = 0; i < data.cityArray.length; i++) {
+		var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
+		keyValue.push(tem);
+	}
+	if($('#busonrentfromcity').val()!=undefined && $('#busonrentfromcity').val()!=""){
+		keyValue = $.grep(keyValue, function(e){ return e.label.replace(" ","")!=$('#busonrentfromcity').val().replace(" ","")});
+	}
+	var tmp=noOfTaxiRow;
+	for(var i=0;i<tmp.length;i++){
+		if(tmp[i]==rowCount){
+			continue;
+		}else{
+		if($('#busonrentdropcity_'+tmp[i]).val()!=undefined && $('#busonrentdropcity_'+tmp[i]).val()!="")		{
+		keyValue = $.grep(keyValue, function(e){ return e.label!=$('#busonrentdropcity_'+tmp[i]).val()});
+			}
+		}
+	}
+	cab.autocomplete("busonrentdropcity_"+rowCount, keyValue, "busonrentdropcityid_"+rowCount);
 }
 //for bus ticket from city
 function getBusTicketPickCityList(cityName) {
@@ -249,25 +302,7 @@ function getBusTicketDropCityResponse(data) {
 	}
 	cab.autocomplete("busticketdropcity", keyValue, "busticketdropcityid");
 }
-//for bus on rent pickcity
-function getBusOnRentPickCityList(cityName) {
-	if(cityName.length>=3){
-		var data = JSON.stringify({"formData":{"cityName":cityName}});
-		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
-		cab.AJAXCall(JsonData, getBusOnRentPickCityResponse);
-	}
-}
-function getBusOnRentPickCityResponse(data) {
-	var keyValue=[];
-	for(var i=0;i<data.cityArray.length;i++){
-		var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
-		keyValue.push(tem);
-	}
-	if($('#busonrentdropcity_0').val()!=undefined && $('#busonrentdropcity_0').val()!=""){
-		keyValue = $.grep(keyValue, function(e){ return e.label!=$('#busonrentdropcity_0').val()});
-	}
-	cab.autocomplete("busonrentfromcity", keyValue, "busonrentpickupcityid");
-}
+
 //for pickup area
 //ptop pickup
 function getPtopPickupAreaList(cityId,areaName){
@@ -489,21 +524,88 @@ function setAirportList(){
 function setAirportListResponse(data){
 	cab.generateselect("gotoairportname",data.airportList);
 }
-//for bus on rent to(destination) city
-function getBusOnRentDropCityList(cityName) {
-	if(cityName.length>=3)
-	var data = JSON.stringify({"formData":{"cityName":cityName}});
-	var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
-	cab.AJAXCall(JsonData, getBusOnRentDropCityListResponse);
+//for taxi package selectbox
+function setTaxiPackageList() {
+	var data = JSON.stringify({"formData":{"name":name}});
+	var JsonData = {"formData":data,"__eventid":eventId.get_taxi_package_list,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData, taxiPackageResponse);
 }
-function getBusOnRentDropCityListResponse(data) {
+function taxiPackageResponse(data) {
+	cab.generateselect("taxipackage",data.packageList);
+}
+//truck pickup city in packers/movers
+function truckPackerFromCity(cityName) {
+	if(cityName.length>=3){
+	var data=JSON.stringify({"formData":{"cityName":cityName}});
+	var JsonData={"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData, truckPackerFromCityResponse);
+	}
+}
+function truckPackerFromCityResponse(data) {
 	var keyValue=[];
-	for (var i = 0; i < data.cityArray.length; i++) {
+	for(var i=0;i<data.cityArray.length;i++){
 		var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
 		keyValue.push(tem);
 	}
-	if($('#busonrentfromcity').val()!=undefined && $('#busonrentfromcity').val()!=""){
-		keyValue = $.grep(keyValue, function(e){ return e.label!=$('#busonrentfromcity').val()});
+	if($('#truckpackerdropcity').val()!=undefined && $('#truckpackerdropcity').val()!=""){
+		keyValue = $.grep(keyValue, function(e){ return e.label!=$('#truckpackerdropcity').val()});
 	}
-	cab.autocomplete("busonrentdropcity_0", keyValue, "busonrentdropcityid_0");
+	cab.autocomplete("truckpackerpickupcity", keyValue, "truckpackerpickupcityid");
+}
+//truck drop city in packers/movers
+function truckPackerToCity(cityName) {
+	if(cityName.length>=3){
+		var data=JSON.stringify({"formData":{"cityName":cityName}});
+		var JsonData={"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData, truckPackerToCityResponse);
+		}
+	}
+function truckPackerToCityResponse(data) {
+		var keyValue=[];
+		for(var i=0;i<data.cityArray.length;i++){
+			var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
+			keyValue.push(tem);
+		}
+		if($('#truckpackerpickupcity').val()!=undefined && $('#truckpackerpickupcity').val()!=""){
+			keyValue = $.grep(keyValue, function(e){ return e.label!=$('#truckpackerpickupcity').val()});
+		}
+		cab.autocomplete("truckpackerdropcity", keyValue, "truckpackerdropcityid");
+}
+//truck from city in shipping 
+function truckFromCityShipping(cityName) {
+	if(cityName.length>=3){
+		var data=JSON.stringify({"formData":{"cityName":cityName}});
+		var JsonData={"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
+		cab.AJAXCall(JsonData, truckShippingFromCityResponse);
+		}
+	}
+function truckShippingFromCityResponse(data) {
+		var keyValue=[];
+		for(var i=0;i<data.cityArray.length;i++){
+			var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
+			keyValue.push(tem);
+		}
+		if($('#truckshippingdropcity').val()!=undefined && $('#truckshippingdropcity').val()!=""){
+			keyValue = $.grep(keyValue, function(e){ return e.label!=$('#truckshippingdropcity').val()});
+		}
+		cab.autocomplete("truckshippingpickupcity", keyValue, "truckshippingpickupcityid");
+}
+//truck from drop in shipping 
+function truckToCityShipping(cityName) {
+		if(cityName.length>=3){
+			var data=JSON.stringify({"formData":{"cityName":cityName}});
+			var JsonData={"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
+			cab.AJAXCall(JsonData, truckShippingToCityResponse);
+			}
+}
+function truckShippingToCityResponse(data) {
+			var keyValue=[];
+			for(var i=0;i<data.cityArray.length;i++){
+				var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
+				keyValue.push(tem);
+			}
+			if($('#truckshippingpickupcity').val()!=undefined && $('#truckshippingpickupcity').val()!=""){
+				keyValue = $.grep(keyValue, function(e){ return e.label!=$('#truckshippingpickupcity').val()});
+			}
+			cab.autocomplete("truckshippingdropcity", keyValue, "truckshippingdropcityid");
 }

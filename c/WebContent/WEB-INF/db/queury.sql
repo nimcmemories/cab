@@ -23,3 +23,6 @@ insert into cbevents(eventid,eventtype,helperid) values(206,0,206);
 insert into cbhelpers (helperid,name,subentityid) values(105,'com.cab.partner.BikeHelper',3);
 insert into cbevents(eventid,eventtype,helperid) values(105,1,105);
 insert into cbevents(eventid,eventtype,helperid) values(106,0,105);
+----adding helper for taxi package
+insert into cbhelpers (helperid,name,subentityid) values(207,'com.cab.customer.TaxiPackageHelper',3);
+insert into cbevents(eventid,eventtype,helperid) values(207,0,207);

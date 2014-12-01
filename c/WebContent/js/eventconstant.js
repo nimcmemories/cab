@@ -29,3 +29,4 @@ eventId.add_bike_details=205;
 eventId.get_airport_list=206;
 eventId.add_bike=105
 eventId.get_bikes=106;
+eventId.get_taxi_package_list=207;
