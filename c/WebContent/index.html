@@ -481,7 +481,7 @@
 					<table class="table">
 						<tr>
 							<td><label>From:</label></td>
-							<td><input type="text" placeholder="Pickup City"
+							<td><input type="text" placeholder="Pickup Area"
 								name="pickupity" id="taxiticketpickupcity"
 								data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
@@ -490,7 +490,7 @@
 								<input type="hidden" id="taxiticketpickupcityid"
 								name="taxiticketpickupcityid" /></td>
 							<td><label>To:</label></td>
-							<td><input type="text" placeholder="Drop City"
+							<td><input type="text" placeholder="Drop Area"
 								name="dropcity" id="taxiticketdropcity" data-validation="custom"
 								data-validation-regexp="^([a-zA-Z\s]+)$"
 								data-validation-error-msg="please select valid drop city"
@@ -607,7 +607,7 @@
 								data-validation-regexp="^([a-zA-Z\s]+)$"
 								data-validation-error-msg="please enter valid drop city"
 								onkeyup="getBusOnRentDropCityList(this.value,0)" />
-								<input type="hidden" id="busonrentdropcityid_0" name="busonrentdropcityname_0"/></td>
+								<input type="hidden" id="busonrentdropcityid_0" name="busonrentdropcityname"/></td>
 							<td><label class="fa fa-plus-square lm20 fa-lg"
 								onClick="addBusRow()"></label></td>
 						</tr>

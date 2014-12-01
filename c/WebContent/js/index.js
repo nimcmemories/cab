@@ -190,7 +190,7 @@ function getBusOnRentPickCityList(cityName) {
 		cab.AJAXCall(JsonData, getBusOnRentPickCityResponse);
 	}
 }
-var rowCount=0;
+var busRowCount=0;
 function getBusOnRentPickCityResponse(data) {
 	var keyValue=[];
 	for(var i=0;i<data.cityArray.length;i++){
@@ -205,9 +205,40 @@ function getBusOnRentPickCityResponse(data) {
 	}
 	cab.autocomplete("busonrentfromcity", keyValue, "busonrentpickupcityid");
 }
-//for oustation to drop city 
+//for bus on rent to(destination) city
+function getBusOnRentDropCityList(cityName,count) {
+	busRowCount=count;
+	if(cityName.length>=3)
+	var data = JSON.stringify({"formData":{"cityName":cityName}});
+	var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData, getBusOnRentDropCityListResponse);
+}
+function getBusOnRentDropCityListResponse(data) {
+	var keyValue=[];
+	for (var i = 0; i < data.cityArray.length; i++) {
+		var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
+		keyValue.push(tem);
+	}
+	if($('#busonrentfromcity').val()!=undefined && $('#busonrentfromcity').val()!=""){
+		keyValue = $.grep(keyValue, function(e){ return e.label.replace(" ","")!=$('#busonrentfromcity').val().replace(" ","")});
+	}
+	var tmp=noOfBusRow;
+	for(var i=0;i<tmp.length;i++){
+		if(tmp[i]==busRowCount){
+			continue;
+		}else{
+			if($('#busonrentdropcity_'+tmp[i]).val()!=undefined && $('#busonrentdropcity_'+tmp[i]).val()!=""){
+				keyValue = $.grep(keyValue, function(e){ return e.label!=$('#busonrentdropcity_'+tmp[i]).val()});
+			}
+		}
+	}
+	cab.autocomplete("busonrentdropcity_"+busRowCount, keyValue, "busonrentdropcityid_0"+busRowCount);
+}
+
+//for oustation to drop city
+var taxiRowCount=0;
 function getTaxiOutstationDropCity(cityName,count) {
-	rowCount=count;
+	taxiRowCount=count;
 	if(cityName.length>=3){
 		var data = JSON.stringify({"formData":{"cityName":cityName}});
 		var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
@@ -225,7 +256,7 @@ function getTaxiOutstationDropCityResponse(data) {
 	}
 	var tmp=noOfTaxiRow;
 	for(var i=0;i<tmp.length;i++){
-		if(tmp[i]==rowCount){
+		if(tmp[i]==taxiRowCount){
 			continue;
 		}else{
 			if($('#taxioutstationdropcity_'+tmp[i]).val()!=undefined && $('#taxioutstationdropcity_'+tmp[i]).val()!=""){
@@ -233,36 +264,7 @@ function getTaxiOutstationDropCityResponse(data) {
 			}
 		}
 	}
-	cab.autocomplete("taxioutstationdropcity_"+rowCount, keyValue, "taxioutstationdropcityid_"+rowCount)
-}
-//for bus on rent to(destination) city
-function getBusOnRentDropCityList(cityName,count) {
-	rowCount=count;
-	if(cityName.length>=3)
-	var data = JSON.stringify({"formData":{"cityName":cityName}});
-	var JsonData = {"formData":data,"__eventid":eventId.get_city_list,"dataType":"json","url":"/c"};
-	cab.AJAXCall(JsonData, getBusOnRentDropCityListResponse);
-}
-function getBusOnRentDropCityListResponse(data) {
-	var keyValue=[];
-	for (var i = 0; i < data.cityArray.length; i++) {
-		var tem={"label":data.cityArray[i].name,"value":data.cityArray[i].id};
-		keyValue.push(tem);
-	}
-	if($('#busonrentfromcity').val()!=undefined && $('#busonrentfromcity').val()!=""){
-		keyValue = $.grep(keyValue, function(e){ return e.label.replace(" ","")!=$('#busonrentfromcity').val().replace(" ","")});
-	}
-	var tmp=noOfTaxiRow;
-	for(var i=0;i<tmp.length;i++){
-		if(tmp[i]==rowCount){
-			continue;
-		}else{
-		if($('#busonrentdropcity_'+tmp[i]).val()!=undefined && $('#busonrentdropcity_'+tmp[i]).val()!="")		{
-		keyValue = $.grep(keyValue, function(e){ return e.label!=$('#busonrentdropcity_'+tmp[i]).val()});
-			}
-		}
-	}
-	cab.autocomplete("busonrentdropcity_"+rowCount, keyValue, "busonrentdropcityid_"+rowCount);
+	cab.autocomplete("taxioutstationdropcity_"+taxiRowCount, keyValue, "taxioutstationdropcityid_"+taxiRowCount);
 }
 //for bus ticket from city
 function getBusTicketPickCityList(cityName) {

@@ -219,35 +219,36 @@ function bikeonrentTabDeactive(){
 
 
 /* Taxi outStation */
-var taxiRowCount=1;
-var busRowCount=1;
+var taxiOutRowCount=1;
+var busOutRowCount=1;
 var noOfBusRow	=[0];
 var noOfTaxiRow=[0];
 function addTaxiRow(){
 	var addrow1="";
-	    addrow1='<tr class="taxirow_'+taxiRowCount+'">';
+	    addrow1='<tr class="taxirow_'+taxiOutRowCount+'">';
         addrow1+='<td><label>To :</label></td>';
-        addrow1+='<td><input type="text" placeholder="via city" name="dropcity_'+taxiRowCount+'" id="taxioutstationdropcity_'+taxiRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city" onkeyup="getTaxiOutstationDropCity(this.value,'+taxiRowCount+')"></td>';
-        addrow1+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red" id="'+taxiRowCount+'" onclick="removeTaxiRow(this.id)"></label></td>';
-        addrow1+='<input type="hidden" id="taxioutstationdropcityid_'+taxiRowCount+'" name="taxioutstationdropcityname"></td>';
+        addrow1+='<td><input type="text" placeholder="via city" name="dropcity_'+taxiOutRowCount+'" id="taxioutstationdropcity_'+taxiOutRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city" onkeyup="getTaxiOutstationDropCity(this.value,'+taxiOutRowCount+')"></td>';
+        addrow1+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red" id="'+taxiOutRowCount+'" onclick="removeTaxiRow(this.id)"></label></td>';
+        addrow1+='<input type="hidden" id="taxioutstationdropcityid_'+taxiOutRowCount+'" name="taxioutstationdropcityname"></td>';
         addrow1+='</tr>';
 		$('.addtexirow').append(addrow1);
-		noOfTaxiRow.push(taxiRowCount);
+		noOfTaxiRow.push(taxiOutRowCount);
 		$('#taxirowarray').val(noOfTaxiRow);
-		taxiRowCount++;
+		taxiOutRowCount++;
 		cab.reloadValidation();
 }
 function addBusRow(){
 	var addrow="";
-	    addrow='<tr id=busrowtr_"'+busRowCount+'" class="busrow_'+busRowCount+'">';
+	    addrow='<tr id=busrowtr_"'+busOutRowCount+'" class="busrow_'+busOutRowCount+'">';
         addrow+='<td><label>To :</label></td>';
-        addrow+='<td><input type="text" placeholder="via city" name="dropcity_'+busRowCount+'" id="busonrentdropcity_'+busRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city"></td>';
-        addrow+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red" id="'+busRowCount+'" onclick="removeBusRow(this.id)"></label></td>';
+        addrow+='<td><input type="text" placeholder="via city" name="dropcity_'+busOutRowCount+'" id="busonrentdropcity_'+busOutRowCount+'" data-validation="custom" data-validation-regexp="^([a-zA-Z\\s]+)$" data-validation-error-msg="please enter valid via city" onkeyup="getBusOnRentDropCityList(this.value,'+busOutRowCount+')"></td>';
+        addrow+='<td><label class="fa fa-minus-square lm20 fa-lg fg-red" id="'+busOutRowCount+'" onclick="removeBusRow(this.id)"></label></td>';
+        addrow+='<input type="hidden" id="busonrentdropcity_'+busOutRowCount+'" name="busonrentdropcityname"></td>';
         addrow+='</tr>';
 		$('.addbusrow').append(addrow);
-		noOfBusRow.push(busRowCount);
+		noOfBusRow.push(busOutRowCount);
 		$('#busrowarray').val(noOfBusRow);
-		busRowCount++;
+		busOutRowCount++;
 		cab.reloadValidation();
 }
 
