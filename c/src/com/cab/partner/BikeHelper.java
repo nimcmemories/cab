@@ -70,7 +70,7 @@ public class BikeHelper extends BaseHelper {
 		JSONObject res = new JSONObject();
 		Session session = new HibernateConfiguartion().getSession(true);
 		try{
-		List<BikeDetails> bikeList = session.createQuery("from BikeDetails").list();  //need to add filter by logged in partener
+		List<BikeDetails> bikeList = session.createQuery("from BikeDetails where partnerDetails.partnerDetailsId=1").list();  //need to add filter by logged in partener
 		JSONArray bikeArray = new JSONArray();
 		BikeDetails bike=null;
 		for(int i=0;i<bikeList.size();i++){
