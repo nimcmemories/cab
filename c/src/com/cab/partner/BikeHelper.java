@@ -2,7 +2,6 @@ package com.cab.partner;
 
 import hibernate.HibernateConfiguartion;
 import hibernate.bean.BikeDetails;
-import hibernate.bean.PackageDetails;
 import hibernate.bean.PartnerDetails;
 
 import java.util.List;
@@ -14,7 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.cab.bean.BaseBean;
 import com.cab.helper.BaseHelper;
 import com.cab.util.CabUtil;
 

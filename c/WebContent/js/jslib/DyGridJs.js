@@ -33,14 +33,8 @@ $(document).ready(function(){
 		$('.createPopup1_Bg').show();
 		$('.createPopup_taxi').show();
 	});
-	/*  Bus Details Form  */
-    $('.add_bus').click(function(){
-		$('.createPopup1_Bg').show();
-		$('.createPopup_bus').show();
-	});
-	/*  Bus Details Form  */
-   
 	
+	/*  Bus Details Form  */
 	/* Table Button Click Events */
 	
 	$('.edit_button').click(function(){

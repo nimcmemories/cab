@@ -30,3 +30,7 @@ eventId.get_airport_list=206;
 eventId.add_bike=105
 eventId.get_bikes=106;
 eventId.get_taxi_package_list=207;
+eventId.get_bike_package_list=208;
+eventId.get_bus_type_list=209;
+eventId.get_bus_type_list_InRent=210;
+eventId.get_buses=211;

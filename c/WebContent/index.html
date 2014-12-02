@@ -569,10 +569,7 @@
 						</tr>
 						<tr>
 							<td><label>Bus Type :</label></td>
-							<td><select name="bustype" id="busticketbustype">
-									<option>ALL</option>
-									<option>AC</option>
-									<option>NON AC</option>
+							<td><select name="bustype" id="busticketbustype" onchange="setBusType()">
 							</select></td>
 						</tr>
 					</table>
@@ -627,10 +624,7 @@
 						</tr>
 						<tr>
 							<td><label>Bus Type :</label></td>
-							<td><select name="bustype" id="busonrentbustype">
-									<option>ALL</option>
-									<option>AC</option>
-									<option>NON AC</option>
+							<td><select name="bustype" id="busonrentbustype" onchange="getBusTypeInRent()">
 							</select></td>
 						</tr>
 					</table>
@@ -782,17 +776,14 @@
 					<table class="table">
 						<tr>
 							<td><label>Package :</label></td>
-							<td><select name="packaage" id="bikepackagepackage">
-									<option>Package</option>
-									<option>w</option>
-									<option>w</option>
+							<td><select name="packaage" id="bikepackagepackage" onchange="setBikePackage()">
 							</select></td>
-							<td><label>Bike type :</label></td>
+							<!-- <td><label>Bike type :</label></td>
 							<td><select name="biketype" id="bikepackagebiketype">
 									<option>Bike Type</option>
 									<option>w</option>
 									<option>w</option>
-							</select></td>
+							</select></td> -->
 						</tr>
 						<tr>
 							<td><label>Pickup Date :</label></td>
@@ -867,12 +858,12 @@
 									onkeypress="return false;" placeholder="dd-mm-yyyy"
 									data-validation="date" data-validation-format="dd-mm-yyyy"
 									data-validation-error-msg="please select valid pickup date" /></td>
-								<td><label>Bike type :</label></td>
+								<!-- <td><label>Bike type :</label></td>
 								<td><select name="biketype" id="bikeperhourbiketype">
 										<option>Bike Type</option>
 										<option>w</option>
 										<option>w</option>
-								</select></td>
+								</select></td>> -->
 							</tr>
 						</table>
 						<div class="btn-15p">
@@ -915,12 +906,12 @@
 									data-validation-allowing="range[1;10]" data-validation="number"></td>
 							</tr>
 							<tr>
-								<td><label>Bike type :</label></td>
+								<!-- <td><label>Bike type :</label></td>
 								<td><select name="biketype" id="bikeperdaybiketype">
 										<option>Bike Type</option>
 										<option>w</option>
 										<option>w</option>
-								</select></td>
+								</select></td> -->
 							</tr>
 						</table>
 						<div class="btn-15p">

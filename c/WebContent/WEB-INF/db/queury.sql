@@ -26,3 +26,12 @@ insert into cbevents(eventid,eventtype,helperid) values(106,0,105);
 ----adding helper for taxi package
 insert into cbhelpers (helperid,name,subentityid) values(207,'com.cab.customer.TaxiPackageHelper',3);
 insert into cbevents(eventid,eventtype,helperid) values(207,0,207);
+-----adding helper for bike package
+insert into cbhelpers (helperid,name,subentityid) values(208,'com.cab.customer.BikePackageHelper',3);
+insert into cbevents(eventid,eventtype,helperid) values(208,0,208);
+-----adding helper for bus type
+insert into cbhelpers (helperid,name,subentityid) values(209,'com.cab.customer.BusTypeHelper',3);
+insert into cbevents(eventid,eventtype,helperid) values(209,0,209);
+------adding helper for bus type in bus on rent
+insert into cbhelpers (helperid,name,subentityid) values(210,'com.cab.customer.BusTypeHelperInRent',3);
+insert into cbevents(eventid,eventtype,helperid) values(210,0,210);

@@ -10,7 +10,9 @@ $( document ).ready(function() {
 	//getCityList();
 	setAirportList();
 	setTaxiPackageList();
-	
+	//setBikePackage();
+	setBusType();
+	getBusTypeInRent();
 });
 function changeAirportType(){
 	if($("#go_airport").attr('class')=="go_airport active"){
@@ -610,4 +612,31 @@ function truckShippingToCityResponse(data) {
 				keyValue = $.grep(keyValue, function(e){ return e.label!=$('#truckshippingpickupcity').val()});
 			}
 			cab.autocomplete("truckshippingdropcity", keyValue, "truckshippingdropcityid");
+}
+//bike package selectbox
+function setBikePackage() {
+	var data = JSON.stringify({"formData":{"name":name}});
+	var JsonData = {"formData":data,"__eventid":eventId.get_bike_package_list,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData, bikePackageResponseFunction)
+}
+function bikePackageResponseFunction(data) {
+	cab.generateselect("bikepackage",data.bikePackageList);
+}
+//for bus type in bus ticket
+function setBusType(){
+	var data = JSON.stringify({"formData":{"name":name}});
+	var JsonData = {"formData":data,"__eventid":eventId.get_bus_type_list,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData, setBusTypeResponse);
+}
+function setBusTypeResponse(data) {
+	cab.generateselect("busticketbustype", data.busPackageList);
+}
+//for bus type in bus on rent
+function getBusTypeInRent(){
+	var data = JSON.stringify({"formData":{"name":name}});
+	var JsonData = {"formData":data,"__eventid":eventId.get_bus_type_list_InRent,"dataType":"json","url":"/c"};
+	cab.AJAXCall(JsonData, setBusTypeInRentResponse);
+}
+function setBusTypeInRentResponse(data) {
+	cab.generateselect("busonrentbustype", data.busRentPackageList);
 }
