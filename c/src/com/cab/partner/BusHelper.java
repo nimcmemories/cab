@@ -2,11 +2,15 @@ package com.cab.partner;
 
 import hibernate.HibernateConfiguartion;
 import hibernate.bean.BusDetails;
+import hibernate.bean.BusType;
+import hibernate.bean.PartnerDetails;
 
+import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,12 +29,13 @@ public void insertRecord(JSONObject jsonObject){
 		Map<String, String> requestParamMap = CabUtil.getRequestParamMap(jsonObject.getJSONObject("formData").getJSONArray("formData"));
 		if(this.validateRequest(requestParamMap)){
 			BusDetails bus = new BusDetails();
-			//bus.setBusType(requestParamMap.get("bustype"));
+			bus.setBusType((BusType)session.get(BusType.class,1));
+			bus.setPartnerDetails((PartnerDetails)session.get(PartnerDetails.class,1));
 			bus.setBusTittle(requestParamMap.get("bustittle"));
-			bus.setNoOfSeat(Integer.parseInt(requestParamMap.get("noofseat")));
-			bus.setPerKmRate(Integer.parseInt(requestParamMap.get("perkamrate")));
-			bus.setWaitingChargeHour(Integer.parseInt(requestParamMap.get("")));
-			bus.setBusImage(requestParamMap.get("busimage"));
+			bus.setNoOfSeat(Integer.parseInt(requestParamMap.get("seat")));
+			bus.setPerKmRate(Integer.parseInt(requestParamMap.get("perkmrate")));
+			bus.setWaitingChargeHour(Integer.parseInt(requestParamMap.get("waitingchargeperhour")));
+			bus.setBusImage("");
 			bus.setBusNumber(requestParamMap.get("busnumber"));
 			bus.setEnableForTicker((byte)1);
 			bus.setNote(requestParamMap.get("note"));
@@ -68,7 +73,16 @@ public void insertRecord(JSONObject jsonObject){
 		
 	}
 	public void readRecords(JSONObject jsonObject){
-		
+		System.out.println("in read bus records-------------->>>");
+		JSONObject res = new JSONObject();
+		Session session = new HibernateConfiguartion().getSession(true);
+		BusDetails bus = null;
+		JSONArray busArray = new JSONArray();
+		List<BusDetails> busDetailsList = session.createQuery("from BusDetails").list();
+		for (int i = 0; i < busDetailsList.size(); i++) {
+			bus = busDetailsList.get(i);
+			busArray.put(bus.getJsonObj());
+		}
 	}
 	public void updateRecord(JSONObject jsonObject){
 		

@@ -26,9 +26,9 @@ public class BusTypeHelper extends BaseHelper{
 		try {
 			String name = jsonObject.getJSONObject("formData").getJSONObject("formData").getString("name");
 			List<BusType> listBusType = session.createQuery("from BusType").list();
+			JSONArray busArray = new JSONArray();
 			BusType busType =null;
 			JSONObject tmp = null;
-			JSONArray busArray = new JSONArray();
 			for (int i = 0; i < listBusType.size(); i++) {
 				busType =(BusType)listBusType.get(i);
 				tmp = new JSONObject();

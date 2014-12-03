@@ -10,7 +10,7 @@ $( document ).ready(function() {
 	//getCityList();
 	setAirportList();
 	setTaxiPackageList();
-	setBikePackage();
+	//setBikePackage();
 	setBusType();
 	getBusTypeInRent();
 });

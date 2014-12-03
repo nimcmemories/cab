@@ -1,4 +1,7 @@
 package hibernate.bean;
+
+import org.json.JSONObject;
+
 // Generated 7 Oct, 2014 5:35:30 PM by Hibernate Tools 3.6.0
 
 
@@ -128,7 +131,13 @@ public class BusDetails  extends BaseBean {
     public void setIsEnable(byte isEnable) {
         this.isEnable = isEnable;
     }
-
+    public JSONObject getJsonObj() {
+		JSONObject jsonObject = new JSONObject();
+		
+		return jsonObject;
+		
+		
+	}
 
 
 }
