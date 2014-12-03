@@ -35,3 +35,7 @@ insert into cbevents(eventid,eventtype,helperid) values(209,0,209);
 ------adding helper for bus type in bus on rent
 insert into cbhelpers (helperid,name,subentityid) values(210,'com.cab.customer.BusTypeHelperInRent',3);
 insert into cbevents(eventid,eventtype,helperid) values(210,0,210);
+------adding helper for add buses
+insert into cbhelpers (helperid,name,subentityid) values(211,'com.cab.partner.BusHelper',3);
+insert into cbevents(eventid,eventtype,helperid) values(211,1,211);
+insert into cbevents(eventid,eventtype,helperid) values(204,0,211);

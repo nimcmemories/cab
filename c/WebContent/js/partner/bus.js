@@ -36,6 +36,6 @@
     	cab.AJAXCall(JsonData, getBusDetailsResponse);
     }
     function getBusDetailsResponse(data) {
-		alert();
+    	
 	}
 	
